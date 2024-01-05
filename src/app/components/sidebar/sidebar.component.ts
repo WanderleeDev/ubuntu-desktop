@@ -1,19 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BtnFileComponent } from '../../shared/btnFile/btn-file/btn-file.component';
-import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-sidebar',
   standalone: true,
   imports: [
     CommonModule,
-    BtnFileComponent,
-    SidebarComponent
+    BtnFileComponent
   ],
-  templateUrl: './home.component.html',
+  templateUrl: './sidebar.component.html',
   styles: `:host { display: contents; }`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent {
-}
+export class SidebarComponent { }

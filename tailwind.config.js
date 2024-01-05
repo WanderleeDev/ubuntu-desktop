@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'focal-fossa': "url('/assets/fossa.png')"
+      }
+    },
   },
   plugins: [],
 }

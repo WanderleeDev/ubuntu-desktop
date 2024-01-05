@@ -1,0 +1,17 @@
+<button
+  (click)="btnFileHandler()"
+  type="button"
+  aria-label="open folder"
+>
+<figure class="relative w-16 h-14">
+  <img class="absolute"
+    ngSrc="assets/folder.svg" 
+    alt="folder"
+    priority
+    fill
+    >
+    <figcaption class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4">
+      {{file}}
+    </figcaption>
+</figure>
+</button>
