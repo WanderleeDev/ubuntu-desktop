@@ -1,5 +1,7 @@
-<main class="h-[100dvh] bg p-4">
-  <app-sidebar />
-  <app-btn-file />
-
+<main class="h-[100dvh] bg p-4 overflow-hidden">
+  <div class="relative z-10 h-full">
+    <app-sidebar/>
+    <app-btn-file [size]="50"/>
+    <app-memo-pad />
+  </div>
 </main>

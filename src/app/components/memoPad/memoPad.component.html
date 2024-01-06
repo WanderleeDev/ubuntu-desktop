@@ -1,0 +1,30 @@
+<section #windowTarget class="min-w-[32rem] min-h-[16rem] bg-white resize overflow-hidden   grid-rows-[auto_1fr] rounded-t-lg absolute left-2/4 -translate-x-2/4 top-2/4 will-change-[tranform,inset]">
+  <header class="p-2 border-b-2">
+    <nav class="flex justify-between items-center">
+      <button type="button" class="w-max h-6 p-2">
+        Abrir ▼
+      </button>
+      <button type="button">
+        +
+      </button>
+      <h2>
+        Documento sin titulo
+      </h2>
+      <button type="button">
+        Guardar
+      </button>
+      <button type="button">
+        ☰
+      </button>
+      <app-window-control 
+        [logicControls]="logicController"
+        [windowReference]="refComponent?.nativeElement"
+      />
+    </nav>
+  </header>
+
+  <div>
+    <textarea cols="4" rows="4" class="outline-none w-full h-full px-4 resize-none" name="bloc">
+    </textarea>
+  </div>
+</section>

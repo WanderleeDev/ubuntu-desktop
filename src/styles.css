@@ -19,3 +19,14 @@
     z-index: 1;
   }
 }
+
+@layer utilities {
+  .translate-center {
+    inset: 50% auto 50% auto;
+    transform: translate(-50%, -50%);
+  }
+  .resize-window {
+    inset: 0;
+    transform: translate(0%);
+  }
+}

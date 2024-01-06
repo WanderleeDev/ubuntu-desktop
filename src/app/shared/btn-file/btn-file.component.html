@@ -1,0 +1,21 @@
+<button
+  class="grid place-content-center"
+  (click)="btnFileHandler()"
+  type="button"
+  aria-label="open folder"
+>
+  <figure [ngStyle]="{ width: size +'px', height: size +'px'}"
+    class="relative">
+    <img class="absolute"
+      [ngSrc]="icon" 
+      alt="folder"
+      priority
+      fill
+      >
+      @if (file) {
+        <figcaption class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4">
+          {{file}}
+        </figcaption>
+      }
+  </figure>
+</button>

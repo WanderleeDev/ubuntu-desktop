@@ -1,0 +1,7 @@
+<ul #list class="flex gap-2">
+  @for (icon of iconControls ; track icon.label) {
+    <li>
+      <app-btn-basic (click)="logicControls?.minimize(windowReference)" [btnData]="icon"/>
+    </li>
+  }
+</ul>
