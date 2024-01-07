@@ -1,4 +1,7 @@
-<section #windowTarget class="min-w-[32rem] min-h-[16rem] bg-white resize overflow-hidden   grid-rows-[auto_1fr] rounded-t-lg absolute left-2/4 -translate-x-2/4 top-2/4 will-change-[tranform,inset]">
+<section
+  cdkDrag
+  #windowTarget 
+  class="min-w-[32rem] min-h-[16rem] bg-white overflow-hidden grid-rows-[auto_1fr] rounded-t-lg absolute top-0">
   <header class="p-2 border-b-2">
     <nav class="flex justify-between items-center">
       <button type="button" class="w-max h-6 p-2">
@@ -18,7 +21,7 @@
       </button>
       <app-window-control 
         [logicControls]="logicController"
-        [windowReference]="refComponent?.nativeElement"
+        [windowReference]="windowTarget"
       />
     </nav>
   </header>
@@ -28,3 +31,4 @@
     </textarea>
   </div>
 </section>
+<!-- -translate-x-2/4 -translate-y-2/4 top-2/4 will-change-[tranform,inset] left-2/4 -->

@@ -1,0 +1,12 @@
+<ul class="grid grid-cols-desktop-col grid-rows-desktop-row gap-4 h-full">
+  @for (item of desktopIcons$ | async; track item.id) {
+    <li cdkDrag>
+      <app-btn-file 
+        [icon]="item.icon" 
+        [size]="50"
+        [nameFile]="item.name"
+      />
+    </li>
+  }
+  <ng-content></ng-content>
+</ul>

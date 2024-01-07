@@ -4,6 +4,7 @@ import { BtnFileComponent } from '../../shared/btn-file/btn-file.component';
 import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { MemoPadComponent } from '../../components/memoPad/memoPad.component';
+import { DesktopComponent } from '../../components/desktop/desktop.component';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { MemoPadComponent } from '../../components/memoPad/memoPad.component';
     BtnFileComponent,
     SidebarComponent,
     DragDropModule,
-    MemoPadComponent
+    MemoPadComponent,
+    DesktopComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

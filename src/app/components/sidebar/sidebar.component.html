@@ -6,7 +6,8 @@
 
     <ul class="space-y-2 font-medium  mx-auto flex flex-col">
       @for (icon of sidebarIcons[0]; track $index) {
-        <li class="p-[.4rem] rounded-xl hover:bg-white/20">
+        <li cdkDrag 
+          class="p-[.4rem] rounded-xl hover:bg-white/20">
           <app-btn-file [icon]="icon"  [size]="35"/>
         </li>
       }

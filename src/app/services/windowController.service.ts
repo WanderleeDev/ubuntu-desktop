@@ -1,40 +1,38 @@
 import { Injectable } from '@angular/core';
+import { ScreenshotService } from './screenshot.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WindowControllerService {
+
+  constructor(
+    private screenshotSvc: ScreenshotService,
+  ) {}
   
   private applyStyles(target: HTMLElement): void {
-    target.style.transformOrigin = 'center';
-    target.style.transition = 'transform .1s linear, inset .5s linear';
+    target.style.transformOrigin = 'top';
+    target.style.transition = 'transform .1s linear, inset .5s linear, scale .1s linear';
+  }
+
+  private removeTarget(target: HTMLElement): void {
+    setTimeout(() => { target.remove(); }, 300);
   }
   
   public closeWindow(target: HTMLElement): void {
     this.applyStyles(target)
-    console.log('s');
-    
-    target.style.display = 'none';
+    target.style.transform = 'scale(.5)';
+    this.removeTarget(target);
   }
 
   public maximizeWindow(target: HTMLElement): void {
     this.applyStyles(target)
-    console.log('s');
-
-    target.style.transform = 'scale(1)';
+    target.classList.toggle('resize-window-max');
   }
 
-  public minimizeWindow(target: HTMLElement): void {
-    if (target) {
-      this.applyStyles(target)
-  
-      target.classList.toggle('resize-window') 
-      const parent = target.parentNode as HTMLElement;
-      console.log(parent);
-      
-      setTimeout(() => {
-        parent.remove();
-      }, 100);
-    }
+  public minimizeWindow(target: HTMLElement) {
+    this.applyStyles(target);
+    target.classList.toggle('resize-window-min');
+    // this.screenshotSvc.takeScreenshot(target)
   }
 }

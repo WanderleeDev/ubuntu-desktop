@@ -1,6 +1,5 @@
 <button
   class="grid place-content-center"
-  (click)="btnFileHandler()"
   type="button"
   aria-label="open folder"
 >
@@ -12,9 +11,9 @@
       priority
       fill
       >
-      @if (file) {
+      @if (nameFile) {
         <figcaption class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4">
-          {{file}}
+          {{nameFile}}
         </figcaption>
       }
   </figure>
