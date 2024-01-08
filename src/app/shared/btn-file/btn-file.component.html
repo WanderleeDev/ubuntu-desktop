@@ -1,7 +1,8 @@
 <button
-  class="grid place-content-center"
+  class="grid place-content-center select-none"
   type="button"
-  aria-label="open folder"
+  [title]="nameFile"
+  [attr.aria-label]="'open ' + nameFile"
 >
   <figure [ngStyle]="{ width: size +'px', height: size +'px'}"
     class="relative">
@@ -12,7 +13,8 @@
       fill
       >
       @if (nameFile) {
-        <figcaption class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4">
+        <figcaption 
+          class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4 text-sm pt-1 capitalize">
           {{nameFile}}
         </figcaption>
       }

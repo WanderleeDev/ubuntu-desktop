@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { IDesktopIcon } from '../interfaces/IDesktopIcon.interface';
+import { IDataIcon } from '../interfaces/IDataIcon.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DesktopIconsService {
-  private desktopIcons$ = new BehaviorSubject<IDesktopIcon[]>([
+  private desktopIcons$ = new BehaviorSubject<IDataIcon[]>([
     {
       id: crypto.randomUUID(), 
       icon: 'assets/desktopIcons/video.svg', 
@@ -27,13 +27,18 @@ export class DesktopIconsService {
       icon: 'assets/desktopIcons/desmume.svg', 
       name: 'desmune' 
     },
+    {
+      id: crypto.randomUUID(), 
+      icon: 'assets/desktopIcons/gta.svg', 
+      name: 'GTA San Andreas' 
+    },
   ])
 
-  public getDesktopIcons(): Observable<IDesktopIcon[]> {
+  public getDesktopIcons(): Observable<IDataIcon[]> {
     return this.desktopIcons$.asObservable();
   }
 
-  public setDesktopIcons(icon: IDesktopIcon): void {
+  public setDesktopIcons(icon: IDataIcon): void {
     this.desktopIcons$.next(
       [...this.desktopIcons$.getValue(), icon]
     );

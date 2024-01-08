@@ -1,7 +1,12 @@
-<ul class="grid grid-cols-desktop-col grid-rows-desktop-row gap-4 h-full">
+<ul class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full">
   @for (item of desktopIcons$ | async; track item.id) {
-    <li cdkDrag>
-      <app-btn-file 
+    <li 
+      class="hover:bg-white/30 rounded-md grid place-content-center active:cursor-move" 
+      cdkDrag
+    >
+      <app-btn-file
+        (auxclick)="aux()"
+        (dblclick)="fileHandler()" 
         [icon]="item.icon" 
         [size]="50"
         [nameFile]="item.name"

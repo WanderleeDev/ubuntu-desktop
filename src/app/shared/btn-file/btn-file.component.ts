@@ -1,12 +1,14 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip' 
 
 @Component({
   selector: 'app-btn-file',
   standalone: true,
   imports: [
     CommonModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatTooltipModule
   ],
   templateUrl: './btn-file.component.html',
   styles: `:host { display: block; }`,
