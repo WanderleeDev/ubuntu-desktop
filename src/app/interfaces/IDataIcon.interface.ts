@@ -4,7 +4,7 @@ export interface IDataIcon {
   name: string;
 }
 
-export interface IMultiIconData {
+export interface ISidebarIcons {
   mainIcons: IDataIcon[];
   secondaryIcons: IDataIcon[];
 }

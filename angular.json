@@ -10,7 +10,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "github-profile": {
+    "wanderlee-porfolio": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/github-profile",
+            "outputPath": "dist/wanderlee-porfolio",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,7 +35,12 @@
               "src/custom-theme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "server.ts"
+            }
           },
           "configurations": {
             "production": {
@@ -65,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "github-profile:build:production"
+              "buildTarget": "wanderlee-porfolio:build:production"
             },
             "development": {
-              "buildTarget": "github-profile:build:development"
+              "buildTarget": "wanderlee-porfolio:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "github-profile:build"
+            "buildTarget": "wanderlee-porfolio:build"
           }
         },
         "test": {

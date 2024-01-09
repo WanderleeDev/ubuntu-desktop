@@ -1,14 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ScreenshotService } from './screenshot.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WindowControllerService {
-
-  constructor(
-    private screenshotSvc: ScreenshotService,
-  ) {}
+  screenshotSvc = inject(ScreenshotService);
   
   private applyStyles(target: HTMLElement): void {
     target.style.transformOrigin = 'top';
@@ -20,13 +17,13 @@ export class WindowControllerService {
   }
   
   public closeWindow(target: HTMLElement): void {
-    this.applyStyles(target)
+    this.applyStyles(target);
     target.style.transform = 'scale(.5)';
     this.removeTarget(target);
   }
 
   public maximizeWindow(target: HTMLElement): void {
-    this.applyStyles(target)
+    this.applyStyles(target);
     target.classList.toggle('resize-window-max');
   }
 

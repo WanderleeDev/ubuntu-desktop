@@ -15,7 +15,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnFileComponent {
-  @Input() nameFile!: string;
+  @Input() nameFile?: string;
   @Input({required: true}) size = 10;
-  @Input() icon= 'assets/folder.svg';
+  @Input({required: true}) icon= 'assets/folder.svg';
+  @Input() label?: string;
 }

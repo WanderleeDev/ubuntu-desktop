@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IDataIcon } from '../interfaces/IDataIcon.interface';
+import { GenerateRandomId } from './generateRandomId.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,31 +9,33 @@ import { IDataIcon } from '../interfaces/IDataIcon.interface';
 export class DesktopIconsService {
   private desktopIcons$ = new BehaviorSubject<IDataIcon[]>([
     {
-      id: crypto.randomUUID(), 
+      id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/video.svg', 
       name: 'unWrapper' 
     },
     {
-      id: crypto.randomUUID(), 
+      id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/bloc.svg', 
       name: 'bloc' 
     },
     {
-      id: crypto.randomUUID(), 
+      id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/cv.svg', 
       name: 'cv' 
     },
     {
-      id: crypto.randomUUID(), 
+      id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/desmume.svg', 
       name: 'desmune' 
     },
     {
-      id: crypto.randomUUID(), 
+      id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/gta.svg', 
       name: 'GTA San Andreas' 
     },
-  ])
+  ]);
+
+  constructor(private randomIdSvc: GenerateRandomId) {}
 
   public getDesktopIcons(): Observable<IDataIcon[]> {
     return this.desktopIcons$.asObservable();
