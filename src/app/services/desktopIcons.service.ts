@@ -11,7 +11,7 @@ export class DesktopIconsService {
     {
       id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/video.svg', 
-      name: 'unWrapper' 
+      name: 'github 2023' 
     },
     {
       id: this.randomIdSvc.generateRandomId(), 

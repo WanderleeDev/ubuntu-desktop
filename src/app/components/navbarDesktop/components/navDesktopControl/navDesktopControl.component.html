@@ -1,0 +1,12 @@
+<ul class="flex gap-2 justify-between">
+  @for (btn of navDesktopIcons; track btn.label) {
+    <li class="text-white">
+      <app-btn-basic 
+        [btnData]="btn" 
+        [customStyles]="{
+          'padding': 'initial',
+          'background-size': '1rem 1rem',
+        }"/>
+    </li>
+  }
+</ul>

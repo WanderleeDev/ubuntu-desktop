@@ -1,5 +1,5 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, booleanAttribute } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip' 
 
 @Component({
@@ -16,7 +16,8 @@ import { MatTooltipModule } from '@angular/material/tooltip'
 })
 export class BtnFileComponent {
   @Input() nameFile?: string;
+  @Input() label?: string;
   @Input({required: true}) size = 10;
   @Input({required: true}) icon= 'assets/folder.svg';
-  @Input() label?: string;
+  @Input({transform: booleanAttribute}) priority = false;
 }

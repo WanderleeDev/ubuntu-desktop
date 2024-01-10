@@ -5,13 +5,14 @@
       cdkDrag
     >
       <app-btn-file
-        (auxclick)="aux()"
         (dblclick)="fileHandler()" 
         [icon]="item.icon" 
         [size]="50"
         [nameFile]="item.name"
+        [priority]="item.name === 'github 2023' ? true : false "
       />
     </li>
   }
 </ul>
+
 <ng-content></ng-content>

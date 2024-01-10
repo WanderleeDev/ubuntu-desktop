@@ -1,9 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+//  Components
 import { BtnFileComponent } from '../../shared/btn-file/btn-file.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DesktopIconsService } from '../../services/desktopIcons.service';
-import { Observable } from 'rxjs';
+//  Interfaces
 import { IDataIcon } from '../../interfaces/IDataIcon.interface';
 
 @Component({
@@ -13,13 +15,14 @@ import { IDataIcon } from '../../interfaces/IDataIcon.interface';
     CommonModule,
     BtnFileComponent,
     DragDropModule,
-    BtnFileComponent
+    BtnFileComponent,
   ],
   templateUrl: './desktop.component.html',
   styles: `
-    :host {display: contents;}
-    .cdk-drag-preview {
-      opacity: .5;
+    :host {
+      display: block;
+      grid-column: 2/3;
+      grid-row: 2/3;
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,9 +40,5 @@ export class DesktopComponent implements OnInit {
 
   public fileHandler(): void {
     console.log('double click');
-  }
-
-  public aux(): void {
-    console.log('aux');
   }
 }

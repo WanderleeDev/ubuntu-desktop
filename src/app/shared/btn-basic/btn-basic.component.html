@@ -1,7 +1,8 @@
 <button
-  class="w-5 h-5 p-2 grid place-content-center rounded-[50%] text-slate-300 bg-red-300/30 bg-minIcon bg-no-repeat bg-center"
+  class="w-5 h-5 p-2 grid place-content-center rounded-[50%] text-slate-300 bg-minIcon bg-no-repeat bg-center"
   type="button"
   [attr.aria-label]="btnData.label"
-  [ngStyle]="{ 'background-image': 'url(' + btnData.urlSvg + ')' }"
+  [style]="{ 'background-image': 'url(' + btnData.urlSvg + ')' }"
+  [ngStyle]="customStyles"
 >
 </button>

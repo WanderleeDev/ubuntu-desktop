@@ -17,7 +17,12 @@ import { Observable } from 'rxjs';
     CdkDropListGroup
   ],
   templateUrl: './sidebar.component.html',
-  styles: `:host { display: contents; }`,
+  styles: `:host {
+    display: block;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    z-index: 1;
+  }`,
   changeDetection: ChangeDetectionStrategy.Default,
 })
 

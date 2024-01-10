@@ -5,7 +5,7 @@ import { ScreenshotService } from './screenshot.service';
   providedIn: 'root'
 })
 export class WindowControllerService {
-  screenshotSvc = inject(ScreenshotService);
+  private screenshotSvc = inject(ScreenshotService);
   
   private applyStyles(target: HTMLElement): void {
     target.style.transformOrigin = 'top';

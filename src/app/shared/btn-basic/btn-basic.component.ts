@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IBtnData } from '../../interfaces/IBtnData.interface';
+import { IBtnBasic, ICustomStylesBtn } from '../../interfaces/IBtnData.interface';
 
 
 @Component({
@@ -14,5 +14,6 @@ import { IBtnData } from '../../interfaces/IBtnData.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnBasicComponent { 
-  @Input({required: true}) btnData!: IBtnData;
+  @Input({required: true}) btnData!: IBtnBasic;
+  @Input() customStyles?: ICustomStylesBtn;
 }

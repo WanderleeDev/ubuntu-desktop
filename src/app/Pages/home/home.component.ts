@@ -5,6 +5,7 @@ import { SidebarComponent } from '../../components/sidebar/sidebar.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { MemoPadComponent } from '../../components/memoPad/memoPad.component';
 import { DesktopComponent } from '../../components/desktop/desktop.component';
+import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDesktop.component';
 
 
 @Component({
@@ -16,7 +17,8 @@ import { DesktopComponent } from '../../components/desktop/desktop.component';
     SidebarComponent,
     DragDropModule,
     MemoPadComponent,
-    DesktopComponent
+    DesktopComponent,
+    NavbarDesktopComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,
