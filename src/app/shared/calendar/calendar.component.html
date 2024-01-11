@@ -1,4 +1,50 @@
-<mat-card class="w-[300px]">
-  <mat-calendar [(selected)]="selected"></mat-calendar>
-</mat-card>
-<p>Selected date: {{selected}}</p>
+<section 
+  class="flex gap-2 absolute top-0 left-2/4 -translate-x-2/4 translate-y-8 bg-[#1D1D1D] rounded-xl border-stone-600 border-[.1rem] p-4"
+>
+  <div class="w-[150px] md:w-[300px]">
+    <header class="p-4 font-medium">
+      <h2 class="text-stone-400 text-xl">
+        Calendar
+      </h2>
+      <time
+        class="text-lg" 
+        [dateTime]=" date | date: 'HH:mm:ss aaa'"
+      >
+        {{date | date: 'HH:mm:ss aaa' }}
+      </time>
+    </header>
+    <div>
+
+    </div>
+  </div>
+
+  <mat-divider [vertical]="true" [inset]="true"/>
+
+  <div>
+
+    <span class="grid p-4 text-stone-400">
+      <time>
+        {{actuallyDate | date:'EEEE'}}
+      </time>
+      <time class="text-xl font-medium">
+        {{actuallyDate | date:'MMMM d, y'}}
+      </time>
+    </span>
+
+    <mat-card class="w-[300px] text-blue-400">
+      <mat-calendar [(selected)]="selected"></mat-calendar>
+    </mat-card>
+
+    <figure class="p-4 bg-[#2C2C2C] mt-4 rounded-xl grid gap-2">
+      <figcaption class="text-stone-400">
+        @if (!selected) {
+          Hoy
+        }@else {
+          {{selected | date:'MMM d, y'}}
+        }
+      </figcaption>
+      <p>No hay eventos</p>
+    </figure>
+
+  </div>
+</section>

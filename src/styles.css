@@ -52,6 +52,15 @@
     width: 100%;
     height: 100%;
   }
+
+  .clip-path-45deg {
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  }
+
+  .mark {
+    position: relative;
+    @apply before:animate-ping before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 after:relative after:inline-flex after:rounded-full after:h-3 after:w-3 after:bg-sky-500 after:right-0 before:right-0 before:top-2/4 before:-translate-y-2/4 after:top-2/4 after:translate-y-2/4 before:pointer-events-none after:pointer-events-none after:scale-50
+  }
 }
 
 @keyframes maximizeWindow {

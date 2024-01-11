@@ -6,6 +6,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { MemoPadComponent } from '../../components/memoPad/memoPad.component';
 import { DesktopComponent } from '../../components/desktop/desktop.component';
 import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDesktop.component';
+import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
 
 
 @Component({
@@ -18,7 +19,8 @@ import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDes
     DragDropModule,
     MemoPadComponent,
     DesktopComponent,
-    NavbarDesktopComponent
+    NavbarDesktopComponent,
+    HelpScoutComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

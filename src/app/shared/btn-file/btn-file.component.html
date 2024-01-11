@@ -3,6 +3,7 @@
   type="button"
   [attr.title]="nameFile || null"
   [attr.aria-label]="'open ' + [nameFile || label]"
+  data-interactive
 >
   <figure [ngStyle]="{ width: size +'px', height: size +'px'}"
     class="relative">

@@ -17,6 +17,7 @@ import { NavDesktopControlComponent } from './components/navDesktopControl/navDe
       display: block;
       grid-column: 1/3;
       grid-row: 1/2;
+      z-index: 1;
     }
   `],
   changeDetection: ChangeDetectionStrategy.OnPush,

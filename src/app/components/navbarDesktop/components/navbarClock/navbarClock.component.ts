@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { afterNextRender, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
 //  Components
 import { CalendarComponent } from '../../../../shared/calendar/calendar.component';
+import { SimpleClockComponent } from '../../../../shared/simpleClock/simpleClock.component';
 //  Material
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -12,8 +13,9 @@ import {MatNativeDateModule} from '@angular/material/core';
   imports: [
     CommonModule,
     CalendarComponent,
+    SimpleClockComponent,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
   ],
   templateUrl: './navbarClock.component.html',
   styles: [`
@@ -43,7 +45,5 @@ export class NavbarClockComponent {
 
   public showCalendar() {
     this.isViewCalendar = !this.isViewCalendar;
-    console.log(this.isViewCalendar);
-    
   }
 }

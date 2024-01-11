@@ -4,21 +4,23 @@
   type="button" 
   class="flex gap-2"
   aria-label="view clock and calendar"
+  data-interactive="view clock and calendar"
 >
-  <time [dateTime]=" clock | date: 'y-M-d'">
-    {{clock | date: 'd LLL'}}
-  </time>
-
-  <time [dateTime]=" clock | date: 'HH:mm:ss aaa'">
-    {{clock | date: 'HH:mm:ss' }}
-  </time>
+  <app-simple-clock 
+    [clock]="clock"
+    [configClock]="{
+      hasIcons: true,
+      hasDayAndMonth: true,
+    }"
+  />
 </button>
-<!-- <time [dateTime]=" clock | date: 'hh:mm:ss aaa'">
-  {{clock | date: 'hh:mm:ss aaa' }}
-</time> -->
 
 @defer (on hover(btnClock)) {
   @if (isViewCalendar) {
-    <app-calendar class="absolute bg-white"/>
+    <app-calendar
+      (mouseleave)="showCalendar()" 
+      [date]="clock"
+      class="absolute bg-white"
+    />
   }
 }
