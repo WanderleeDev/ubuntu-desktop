@@ -2,13 +2,16 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 //  interface
 import { IClockConfig } from '../../interfaces/IClockConfig.interface';
+//  pipe
+import { ToNumberPipe } from '../../pipes/toNumber.pipe';
 
 @Component({
   selector: 'app-simple-clock',
   standalone: true,
   imports: [
     CommonModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    ToNumberPipe
   ],
   templateUrl: './simpleClock.component.html',
   styles: [`
@@ -27,12 +30,11 @@ export class SimpleClockComponent {
     hasDayAndMonth: false,
     hasVariableIcons: false,
   };
-  readonly clockIcon = '/src/assets/clock-icons/clock.svg'; 
-
   readonly listIcons = {
     'day': 'assets/clock-icons/day.svg',
     'aftermoon': 'assets/clock-icons/aftermoon.svg',
     'evening': 'assets/clock-icons/evening.svg',
-    'sunrise': 'assets/clock-icons/sunrise.svg'
+    'sunrise': 'assets/clock-icons/sunrise.svg',
+    'clock': 'assets/clock-icons/clock.svg'
   };
 }

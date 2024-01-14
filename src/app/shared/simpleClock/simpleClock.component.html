@@ -22,28 +22,20 @@
 </time>
 
 @if (configClock.hasIcons) {
-  <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
-    <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-      <path d="M0 0h24v24H0z" />
-      <path fill="white"
-        d="M17 3.34a10 10 0 1 1-14.995 8.984L2 12l.005-.324A10 10 0 0 1 17 3.34M12 6a1 1 0 0 0-.993.883L11 7v5l.009.131a1 1 0 0 0 .197.477l.087.1l3 3l.094.082a1 1 0 0 0 1.226 0l.094-.083l.083-.094a1 1 0 0 0 0-1.226l-.083-.094L13 11.585V7l-.007-.117A1 1 0 0 0 12 6" />
-    </g>
-  </svg>
+  <img width="18" height="18" aria-hidden="true" [ngSrc]="listIcons.clock" alt="icon clock">
 }
 
-@if (configClock.hasVariableIcons) {
-  @switch ((clock | date:'H')  | number) {
-    @case ('5') {
-      <img width="30" height="30" aria-hidden="true" [ngSrc]="listIcons.day" alt="icon day">
-    }
-    @case ('14') {
-      <img width="30" height="30" aria-hidden="true" [ngSrc]="listIcons.day" alt="icon day">
-    }
-    @case ('14') {
-      <img width="30" height="30" aria-hidden="true" [ngSrc]="listIcons.day" alt="icon day">
-    }
-    @case ('14') {
-      <img width="30" height="30" aria-hidden="true" [ngSrc]="listIcons.day" alt="icon day">
-    }
+@if (configClock.hasVariableIcons && (clock | date:'H' | toNumber); as hour) {
+  @if (hour >= 7 && hour < 14) {
+    <img width="50" height="50" aria-hidden="true" [ngSrc]="listIcons.day" alt="icon day">
+  } @else if (hour >= 14 && hour < 18) {
+    <img width="50" height="50" aria-hidden="true" [ngSrc]="listIcons.aftermoon" alt="icon day">
+  } @else if (hour >= 18 && hour < 24) {
+    <img width="50" height="50" aria-hidden="true" [ngSrc]="listIcons.evening" alt="icon day">
+  } @else if (hour >= 00 && hour < 7 ) {
+    <img width="50" height="50" aria-hidden="true" [ngSrc]="listIcons.sunrise" alt="icon day">
+  } @else {
+    <img width="50" height="50" aria-hidden="true" [ngSrc]="listIcons.clock" alt="icon day">
   }
+
 }

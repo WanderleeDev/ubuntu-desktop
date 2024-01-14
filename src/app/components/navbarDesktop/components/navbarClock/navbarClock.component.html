@@ -18,7 +18,6 @@
 @defer (on hover(btnClock)) {
   @if (isViewCalendar) {
     <app-calendar
-      (mouseleave)="showCalendar()" 
       [date]="clock"
       class="absolute bg-white"
     />

@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 //  Angular material
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatCardModule} from '@angular/material/card';
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDividerModule} from '@angular/material/divider';
+import {  MatDatepickerModule } from '@angular/material/datepicker';
+import {  MatCardModule } from '@angular/material/card';
+import {  MatNativeDateModule } from '@angular/material/core';
 import { SimpleClockComponent } from '../simpleClock/simpleClock.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 
@@ -17,7 +18,7 @@ import { SimpleClockComponent } from '../simpleClock/simpleClock.component';
     MatDatepickerModule, 
     MatCardModule, 
     MatNativeDateModule,
-    MatDividerModule,
+    MatSlideToggleModule,
     SimpleClockComponent
   ],
   templateUrl: './calendar.component.html',
@@ -28,6 +29,7 @@ export class CalendarComponent {
   @Input({required: true}) date?: Date;
   selected!: Date | null;
   readonly actuallyDate = Date.now();
+  tasks: string[] = [];
 
   readonly Icons = [
     {
