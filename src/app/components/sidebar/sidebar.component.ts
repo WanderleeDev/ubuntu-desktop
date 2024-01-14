@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BtnFileComponent } from '../../shared/btn-file/btn-file.component';
 import { CdkDrag, CdkDragDrop, CdkDropList, CdkDropListGroup, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { IDataIcon, ISidebarIcons } from '../../interfaces/IDataIcon.interface';
@@ -26,14 +26,10 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 
-export class SidebarComponent implements OnInit {
-  sidebarIcons?: Observable<ISidebarIcons>;
+export class SidebarComponent {
   private sidebarSvc = inject(SidebarService);
+  sidebarIcons: Observable<ISidebarIcons> = this.sidebarSvc.getObservableIcons$();
   
-  ngOnInit(): void {
-    this.sidebarIcons = this.sidebarSvc.getObservableIcons$()
-  }
-
   public drop(event: CdkDragDrop<IDataIcon[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);

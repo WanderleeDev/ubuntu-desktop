@@ -10,7 +10,6 @@ export class HelperScoutService {
 
   public activateHelper(): void {
     const interactiveElementList = this.bodyElement.querySelectorAll('[data-interactive]')
-    console.log(interactiveElementList);
     interactiveElementList.forEach(element => {
       element.classList.toggle('mark')
     })

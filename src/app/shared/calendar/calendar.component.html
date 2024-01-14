@@ -6,15 +6,17 @@
       <h2 class="text-stone-400 text-xl">
         Calendar
       </h2>
-      <time
-        class="text-lg" 
-        [dateTime]=" date | date: 'HH:mm:ss aaa'"
-      >
-        {{date | date: 'HH:mm:ss aaa' }}
-      </time>
+      <app-simple-clock
+        class="text-xl" 
+        [clock]="date" 
+        [configClock]="{
+          type: 'regular',
+          hasVariableIcons: true
+        }" 
+      />
     </header>
     <div>
-
+      {{date | date:'HH'}}
     </div>
   </div>
 

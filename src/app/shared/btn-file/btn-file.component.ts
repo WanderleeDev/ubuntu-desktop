@@ -8,7 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip'
   imports: [
     CommonModule,
     NgOptimizedImage,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   templateUrl: './btn-file.component.html',
   styles: `:host { display: block; }`,
@@ -19,5 +19,6 @@ export class BtnFileComponent {
   @Input() label?: string;
   @Input({required: true}) size = 10;
   @Input({required: true}) icon= 'assets/folder.svg';
-  @Input({transform: booleanAttribute}) priority = false;
+  @Input({transform: booleanAttribute}) priority?: boolean;
+  @Input({transform: booleanAttribute}) hasInteractivity?: boolean;
 }

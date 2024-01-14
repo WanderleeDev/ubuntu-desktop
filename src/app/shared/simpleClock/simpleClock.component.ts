@@ -25,25 +25,14 @@ export class SimpleClockComponent {
   @Input() configClock:Partial<IClockConfig> = {
     hasIcons: false,
     hasDayAndMonth: false,
+    hasVariableIcons: false,
   };
   readonly clockIcon = '/src/assets/clock-icons/clock.svg'; 
 
-  readonly Icons = [
-    {
-      name: 'day',
-      image: 'assets/clock-icons/day.svg'
-    },
-    {
-      name: 'aftermoon',
-      image: 'assets/clock-icons/aftermoon.svg'
-    },
-    {
-      name: 'evening',
-      image: 'assets/clock-icons/evening.svg'
-    },
-    {
-      name: 'sunrise',
-      image: 'assets/clock-icons/sunrise.svg'
-    }
-  ];
+  readonly listIcons = {
+    'day': 'assets/clock-icons/day.svg',
+    'aftermoon': 'assets/clock-icons/aftermoon.svg',
+    'evening': 'assets/clock-icons/evening.svg',
+    'sunrise': 'assets/clock-icons/sunrise.svg'
+  };
 }

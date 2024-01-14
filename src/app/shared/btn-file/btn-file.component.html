@@ -3,7 +3,7 @@
   type="button"
   [attr.title]="nameFile || null"
   [attr.aria-label]="'open ' + [nameFile || label]"
-  data-interactive
+  [attr.data-interactive]="hasInteractivity"
 >
   <figure [ngStyle]="{ width: size +'px', height: size +'px'}"
     class="relative">
@@ -26,5 +26,3 @@
       }
   </figure>
 </button>
-
-<!-- [priority]="item.name === 'github 2023' ? true : null " -->
