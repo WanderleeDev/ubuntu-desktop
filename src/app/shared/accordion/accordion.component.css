@@ -1,0 +1,69 @@
+:host {
+  --black-light: rgb(49, 48, 48);
+  --black-light-hover: rgb(70, 70, 70);
+  --border-clr: rgb(29, 29, 29);
+}
+
+.accordion {
+  user-select: none;
+  border-radius: .4rem;
+  overflow: hidden;
+
+  .accordion-title {
+    position: relative;
+    padding: .5rem .4rem .5rem 2.5rem;
+    font-size: calc(var(--body-font-size) + 2px);
+    list-style: none;
+    &:hover {
+      background-color: var(--black-light, rgb(49, 48, 48));
+    }
+  }
+
+  .accordion-title::after {
+    content: "";
+    position: absolute;
+    top: .7rem;
+    background-image: url("/assets/extra-icons/pan-end-symbolic.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    right: .2rem;
+    height: 1rem;
+    width: 1rem;
+    transform: rotate(0deg);
+    transition: transform 0.1s linear;
+  }
+
+  .accordion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: var(--black-light, rgb(49, 48, 48));
+  }
+
+  .accordion-divider {
+    background-color: var(--black-light-hover, rgb(70, 70, 70));
+    height: .05rem;
+    margin: .4rem 1.7rem;
+  }
+  
+  .accordion-btn {
+    display: block;
+    text-align: left;
+    padding: .5rem 1.7rem;
+    &:hover {
+      background-color: var(--black-light-hover, rgb(70, 70, 70));
+    }
+  }
+}
+
+:is(.accordion)[open] {
+  background-color: var(--black-light, rgb(49, 48, 48));
+
+  .accordion-title {
+    border-bottom: .1rem solid var(--border-clr, rgb(29, 29, 29));
+  }
+  
+  .accordion-title::after{
+    transform: rotate(90deg);
+  }
+}

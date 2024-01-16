@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+
+.listControl {
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  .listControl-control {
+    color: white;
+  }
+}

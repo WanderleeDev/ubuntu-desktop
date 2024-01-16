@@ -26,7 +26,6 @@ export class GenerateRandomId {
       includeSpecialChars: true
     }
   ): string {
-
     if (params.length < this.MIN_LENGTH || params.length > this.MAX_LENGTH ) {
       throw Error('Length must be between 2 and 20 characters');
     }

@@ -1,0 +1,41 @@
+.panel {
+  --black-light-hover: #464646;
+  --black-hover: #313030;
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0.25rem;
+  right: 0;
+  transform: translateY(2rem);
+  background-color: #1D1D1D;
+  border-radius: 0.75rem;
+  border: 1px solid #57534E;
+  padding: 1rem;
+  min-width: 22rem;
+
+  .panel-slide {
+    display: grid;
+    background-image: url('../../../assets/extra-icons/audio-volume-high-symbolic.svg');
+    padding-left: 1rem;
+    background-repeat: no-repeat;
+    background-position: .5rem center ;
+    background-size: 1rem;
+    padding-left: 1.8rem;
+  }
+  
+  .panel-divider {
+    background-color: var(--black-light-hover, #464646);
+    height: .05rem;
+    margin: .4rem;
+  }
+  
+  .panel-btn {
+    text-align: start;
+    padding: .5rem;
+    border-radius: .4rem;
+    &:hover {
+      background-color: var(--black-hover, #313030);
+    }
+  }
+}

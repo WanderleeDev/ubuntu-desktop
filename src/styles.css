@@ -8,18 +8,18 @@
   .bg {
     position: relative;
     background-image: linear-gradient(180deg, #A8272A 10%,#400443 80%);
-    &::before {
-      content: '';
-      position: absolute;
-      background: url("https://www.dropbox.com/scl/fi/t0yi2ig367af04expnnmq/fossa.webp?rlkey=1uqdg1yctuzrc75xvd3942oqm&raw=1");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 80%;
-      background-attachment: fixed;
-      opacity: .3;
-      inset: 0;
-      z-index: 1;
-    }
+  }
+  .bg::before {
+    content: '';
+    position: absolute;
+    background: url("https://www.dropbox.com/scl/fi/t0yi2ig367af04expnnmq/fossa.webp?rlkey=1uqdg1yctuzrc75xvd3942oqm&raw=1");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-attachment: fixed;
+    opacity: .3;
+    inset: 0;
+    z-index: 1;
   }
 
   .grid-desktop {
@@ -59,6 +59,13 @@
 
   .mark {
     @apply relative before:animate-ping before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[1] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[1]
+  }
+
+  .btn-image-styles {
+    background-repeat: no-repeat;
+    background-position: .5rem center ;
+    background-size: 1rem;
+    padding-left: 2.5rem !important;
   }
 }
 

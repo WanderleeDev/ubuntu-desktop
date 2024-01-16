@@ -1,7 +1,10 @@
-<ul class="flex gap-2 justify-between">
+<ul
+  #panelControl
+  class="listControl">
   @for (btn of navDesktopIcons; track btn.label) {
-    <li class="text-white">
-      <app-btn-basic 
+    <li class="listControl-control">
+      <app-btn-basic
+        (click)="showPanelControl()" 
         [btnData]="btn" 
         [customStyles]="{
           'padding': 'initial',
@@ -10,3 +13,9 @@
     </li>
   }
 </ul>
+
+@defer (on hover(panelControl)) {
+  @if (isOpenPanel) {
+    <app-sub-config-panel />
+  }
+}

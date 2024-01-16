@@ -1,0 +1,23 @@
+<details  class="accordion">
+  <summary 
+    class="accordion-title btn-image-styles"
+    [class.bg-image-styles]="accordionData?.titleIcon"
+    [style]="{
+      'background-image': 'url(' + accordionData?.titleIcon +')' 
+    }"
+  >
+    {{accordionData?.title}}
+  </summary>
+  <div class="accordion-content">
+    @for (item of accordionData?.content; track $index) {
+      <button class="accordion-btn" type="button">{{item}}</button>
+    }
+    
+    @if (accordionData?.extraContent) {
+      <span class="accordion-divider"></span>
+      <button class="accordion-btn" type="button">
+        {{accordionData?.extraContent}}
+      </button>
+    }
+  </div>
+</details>
