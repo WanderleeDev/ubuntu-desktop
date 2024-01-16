@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.videoPlayer {
+  aspect-ratio: 16/9;
+  width: 40rem;
+  height: 30rem;
+
+  .videoPlayer-video {
+    aspect-ratio: 16/9;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 2rem);
+  }
+
+  .videoPlayer-nav {
+    background-color: white;
+    display: flex;
+    padding: .2rem;
+    justify-content: space-between;
+  }
+
+  .videoPlayer-controls {
+    width: 100%;
+    height: 2rem;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    background-color: white;
+    color: black;
+  }
+}

@@ -4,13 +4,7 @@ export interface IBtnBasic {
 }
 
 export interface IBtnData extends IBtnBasic {
-  nameFn: nameFn
-}
-
-export enum nameFn {
-  max = 'maximize',
-  min = 'minimize',
-  close = 'close'
+  nameFn: (target: HTMLElement) => void;
 }
 
 export interface ICustomStylesBtn {

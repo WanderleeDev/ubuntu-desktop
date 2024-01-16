@@ -15,7 +15,7 @@ import { IDataIcon } from '../../interfaces/IDataIcon.interface';
     CommonModule,
     BtnFileComponent,
     DragDropModule,
-    BtnFileComponent,
+    BtnFileComponent
   ],
   templateUrl: './desktop.component.html',
   styles: `

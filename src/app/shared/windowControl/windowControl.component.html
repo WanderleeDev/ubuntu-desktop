@@ -1,9 +1,9 @@
-@if (logicControls) {
+@if (windowReference) {
   <ul #list class="flex gap-2">
     @for (icon of iconControls ; track icon.label) {
       <li>
         <app-btn-basic
-          (click)="logicControls[icon.nameFn](windowReference)" 
+          (click)="icon.nameFn(windowReference)" 
           [btnData]="icon"
         />
       </li>

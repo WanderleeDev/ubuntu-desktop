@@ -7,6 +7,7 @@ import { MemoPadComponent } from '../../components/memoPad/memoPad.component';
 import { DesktopComponent } from '../../components/desktop/desktop.component';
 import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDesktop.component';
 import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
+import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 
 
 @Component({
@@ -20,7 +21,8 @@ import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
     MemoPadComponent,
     DesktopComponent,
     NavbarDesktopComponent,
-    HelpScoutComponent
+    HelpScoutComponent,
+    VideoPlayerComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

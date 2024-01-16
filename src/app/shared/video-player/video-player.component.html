@@ -1,0 +1,42 @@
+<aside
+  #mediaPlayer
+  class="fixed top-4 bottom-4 videoPlayer bg-black"
+  cdkDrag
+>
+  <nav class="videoPlayer-nav">
+    <span></span>
+    <h2 class="videoPlayer-title">
+      Video player
+    </h2>
+    <app-window-control class="videoPlayer-c" [windowReference]="mediaPlayer" />
+  </nav>
+
+    <video
+      #videoPlayer 
+      class="videoPlayer-video"
+      (click)="playVideo(videoPlayer)"
+    >
+      <source 
+        src="https://www.dropbox.com/scl/fi/p1l4t1o0cob0z9hg3vhpg/unWrapper.mp4?rlkey=vv8l4bzlez4g9w2ypzbd5emce&raw=1" 
+        type="video/mp4"
+      >
+      <source 
+        src="https://www.dropbox.com/scl/fi/07oxt58obkp3uljmsub4u/unwrapped.webm?rlkey=92rqadbn6cclkwfq1oltnd9vk&raw=1" 
+        type="video/webm"
+      >
+      Formato no soportado
+    </video>
+    <nav class="videoPlayer-controls">
+      @for (btn of iconsNavVideoPlayer; track btn.label) {
+        <app-btn-basic
+          (click)="resizeVideo(videoPlayer)"
+          [btnData]="btn" 
+          [customStyles]="{
+          padding: '0',
+          width: '1.5rem',
+          height: '1.5rem'
+        }" />
+      }
+    </nav>
+
+</aside>

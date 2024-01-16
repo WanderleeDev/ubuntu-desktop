@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { IBtnData, nameFn } from '../../interfaces/IBtnData.interface';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { IBtnData } from '../../interfaces/IBtnData.interface';
 import { BtnBasicComponent } from '../btn-basic/btn-basic.component';
-import { ILogicController } from '../../interfaces/IWindowController';
+
 import { AutoScreenDirective } from '../../directives/autoScreen.directive';
+import { WindowControllerService } from '../../services/windowController.service';
 
 @Component({
   selector: 'app-window-control',
@@ -18,22 +19,22 @@ import { AutoScreenDirective } from '../../directives/autoScreen.directive';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class WindowControlComponent {
-  @Input({required: true}) logicControls?: ILogicController;
   @Input({required: true}) windowReference!: HTMLElement;
+  private controls = inject(WindowControllerService)
 
   iconControls: IBtnData[] = [
     {
-      nameFn: nameFn.min,
+      nameFn: this.controls.minimizeWindow.bind(this.controls),
       urlSvg: 'assets/controls-icons/minimize.svg',
       label: 'minimize window',
     },
     {
-      nameFn: nameFn.max,
+      nameFn: this.controls.maximizeWindow.bind(this.controls),
       urlSvg: 'assets/controls-icons/maximize.svg',
       label: 'maximize window',
     },
     {
-      nameFn: nameFn.close,
+      nameFn: this.controls.closeWindow.bind(this.controls),
       urlSvg: 'assets/controls-icons/close.svg',
       label: 'close window',
     }
