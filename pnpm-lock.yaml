@@ -41,6 +41,9 @@ dependencies:
   '@angular/ssr':
     specifier: ^17.0.10
     version: 17.0.10(@angular/common@17.0.9)(@angular/core@17.0.9)
+  '@videogular/ngx-videogular':
+    specifier: ^8.0.0
+    version: 8.0.0(@angular/common@17.0.9)(@angular/core@17.0.9)(@angular/platform-browser-dynamic@17.0.9)(core-js@3.35.0)(rxjs@7.8.1)(zone.js@0.14.3)
   express:
     specifier: ^4.18.2
     version: 4.18.2
@@ -3836,6 +3839,25 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
+  /@videogular/ngx-videogular@8.0.0(@angular/common@17.0.9)(@angular/core@17.0.9)(@angular/platform-browser-dynamic@17.0.9)(core-js@3.35.0)(rxjs@7.8.1)(zone.js@0.14.3):
+    resolution: {integrity: sha512-yezpRzDzbKhXsfQE2iJuDsix6IJTV7dQcThq1NBsXBbjRss8DzpM9txDk59Q94nH+i1i1OkwnOOzK32bk2VLZw==}
+    peerDependencies:
+      '@angular/common': '>=8.0.0'
+      '@angular/core': '>=8.0.0'
+      '@angular/platform-browser-dynamic': '>=8.0.0'
+      core-js: '>=2.5.4'
+      rxjs: '>=6.5.4'
+      zone.js: '>=0.10.2'
+    dependencies:
+      '@angular/common': 17.0.9(@angular/core@17.0.9)(rxjs@7.8.1)
+      '@angular/core': 17.0.9(rxjs@7.8.1)(zone.js@0.14.3)
+      '@angular/platform-browser-dynamic': 17.0.9(@angular/common@17.0.9)(@angular/compiler@17.0.9)(@angular/core@17.0.9)(@angular/platform-browser@17.0.9)
+      core-js: 3.35.0
+      rxjs: 7.8.1
+      tslib: 2.6.2
+      zone.js: 0.14.3
+    dev: false
+
   /@vitejs/plugin-basic-ssl@1.0.1(vite@4.5.1):
     resolution: {integrity: sha512-pcub+YbFtFhaGRTo1832FQHQSHvMrlb43974e2eS8EKleR3p1cDdkJFPci1UhwkEf1J9Bz+wKBSzqpKp7nNj2A==}
     engines: {node: '>=14.6.0'}
@@ -4842,6 +4864,11 @@ packages:
     dependencies:
       browserslist: 4.22.2
     dev: true
+
+  /core-js@3.35.0:
+    resolution: {integrity: sha512-ntakECeqg81KqMueeGJ79Q5ZgQNR+6eaE8sxGCx62zMbAIj65q+uYvatToew3m6eAGdU4gNZwpZ34NMe4GYswg==}
+    requiresBuild: true
+    dev: false
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}

@@ -1,9 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { WindowControlComponent } from '../windowControl/windowControl.component';
-import { BtnBasicComponent } from '../btn-basic/btn-basic.component';
-import { IBtnBasic } from '../../interfaces/IBtnData.interface';
+//  Interface
+import { IVideoData } from '../../interfaces/IVideoData.interface';
+
+//  Video angular library
+import { VgCoreModule } from '@videogular/ngx-videogular/core';
+import { VgControlsModule } from '@videogular/ngx-videogular/controls';
+import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
+import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 
 
 @Component({
@@ -13,41 +19,15 @@ import { IBtnBasic } from '../../interfaces/IBtnData.interface';
     CommonModule,
     DragDropModule,
     WindowControlComponent,
-    BtnBasicComponent
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoPlayerComponent {
-  iconsNavVideoPlayer: IBtnBasic[] = [
-    {
-      label: 'Play video',
-      urlSvg: '/assets/extra-icons/play.svg'
-    },
-    {
-      label: 'Pause video',
-      urlSvg: '/assets/extra-icons/pause.svg'
-    },
-    {
-      label: 'Full screen video',
-      urlSvg: '/assets/extra-icons/fullScreen.svg'
-    },
-    {
-      label: 'Min screen video',
-      urlSvg: '/assets/extra-icons/minScreen.svg'
-    }
-  ]
-  
-  public playVideo(video : HTMLVideoElement) {
-    video.paused ? video.play() : video.pause();
-  }
-
-  public resizeVideo(video : HTMLVideoElement) {
-    video.requestFullscreen();
-    console.log(
-      video.controls
-    );
-    
-  }
+  @Input({required: true}) dataVideo?: IVideoData;
 }

@@ -1,42 +1,38 @@
-<aside
-  #mediaPlayer
-  class="fixed top-4 bottom-4 videoPlayer bg-black"
+<div
+  class="videoPlayer"
   cdkDrag
+  #videoPlayer
 >
   <nav class="videoPlayer-nav">
-    <span></span>
-    <h2 class="videoPlayer-title">
-      Video player
-    </h2>
-    <app-window-control class="videoPlayer-c" [windowReference]="mediaPlayer" />
+    <h2>{{dataVideo?.title}}</h2>
+    <app-window-control [windowReference]="videoPlayer" />
   </nav>
 
-    <video
-      #videoPlayer 
-      class="videoPlayer-video"
-      (click)="playVideo(videoPlayer)"
-    >
-      <source 
-        src="https://www.dropbox.com/scl/fi/p1l4t1o0cob0z9hg3vhpg/unWrapper.mp4?rlkey=vv8l4bzlez4g9w2ypzbd5emce&raw=1" 
-        type="video/mp4"
-      >
-      <source 
-        src="https://www.dropbox.com/scl/fi/07oxt58obkp3uljmsub4u/unwrapped.webm?rlkey=92rqadbn6cclkwfq1oltnd9vk&raw=1" 
-        type="video/webm"
-      >
-      Formato no soportado
-    </video>
-    <nav class="videoPlayer-controls">
-      @for (btn of iconsNavVideoPlayer; track btn.label) {
-        <app-btn-basic
-          (click)="resizeVideo(videoPlayer)"
-          [btnData]="btn" 
-          [customStyles]="{
-          padding: '0',
-          width: '1.5rem',
-          height: '1.5rem'
-        }" />
+  <vg-player>
+    @if (dataVideo) {
+      <vg-overlay-play></vg-overlay-play>
+    }
+    <vg-buffering></vg-buffering>
+    <vg-scrub-bar>
+      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+    </vg-scrub-bar>
+    <vg-controls>
+      <vg-play-pause></vg-play-pause>
+      <vg-playback-button></vg-playback-button>
+      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+      <vg-scrub-bar style="pointer-events: none"></vg-scrub-bar>
+      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+      <!-- <vg-track-selector></vg-track-selector> -->
+      <vg-mute></vg-mute>
+      <vg-volume></vg-volume>
+      <vg-fullscreen></vg-fullscreen>
+    </vg-controls>
+    <video [vgMedia]="$any(media)" #media id="singleVideo">
+      @for (item of dataVideo?.url | keyvalue; track $index) {
+        <source [src]="item.value" [type]="['video/' + item.key]" />
       }
-    </nav>
-
-</aside>
+    </video>
+  </vg-player>
+</div>
