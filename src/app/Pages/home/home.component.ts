@@ -8,6 +8,7 @@ import { DesktopComponent } from '../../components/desktop/desktop.component';
 import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDesktop.component';
 import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
+import { PorfolioComponent } from '../../components/porfolio/porfolio.component';
 
 
 @Component({
@@ -22,7 +23,8 @@ import { VideoPlayerComponent } from '../../shared/video-player/video-player.com
     DesktopComponent,
     NavbarDesktopComponent,
     HelpScoutComponent,
-    VideoPlayerComponent
+    VideoPlayerComponent,
+    PorfolioComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

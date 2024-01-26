@@ -1,0 +1,38 @@
+<li class="capitalize w-full gap-2 grid grid-cols-[1fr_auto]">
+  <p class="w-full flex gap-2 truncate" [title]="task?.task">
+    <span>{{ (index ?? 0) + 1 }} - </span>
+    {{ task?.task }}
+  </p>
+
+  <div class="relative">
+    <app-btn-basic
+      (click)="toggleControlTask()"
+      titleBtn="show task control"
+      [customStyles]="{ scale: '1.5' }"
+      [btnData]="{
+        urlSvg: '/assets/extra-icons/dotsControl.svg',
+        label: 'view task control'
+      }"
+    />
+    @if (task && isViewControlTask) {
+    <div
+      class="flex gap-1 absolute top-2/4 bg-[#2C2C2C] rounded-sm p-1 translate-y-[-.5rem] -translate-x-8 right-0 border-[#57534E] border-[.1rem]"
+    >
+      @for (item of btnTaskList; track item.label) {
+        <app-btn-basic
+          [title]="item.label"
+          (click)="editTask()"
+          [btnData]="item"
+          [customStyles]="{ scale: '1.5' }"
+        />
+      }
+    </div>
+    }
+  </div>
+</li>
+
+@defer (when isViewControlTask) { 
+  @if (isContentEditable) {
+    <app-task-editor [idTask]="task?.id" />
+  } 
+}

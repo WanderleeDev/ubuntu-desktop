@@ -1,7 +1,7 @@
 <section 
   class="flex gap-4 absolute top-0 left-2/4 -translate-x-2/4 translate-y-8 bg-[#1D1D1D] rounded-xl border-stone-600 border-[.1rem] p-4"
 >
-  <div class="relative w-[200px] md:w-[300px] before:absolute before:bg-stone-600 before:w-[.1rem] before:rounded-md before:right-0 before:h-full grid grid-rows-[auto_1fr]">
+  <div class="relative w-[200px] md:w-[300px] before:absolute before:bg-stone-600 before:w-[.1rem] before:rounded-md before:right-0 before:h-full grid grid-rows-[auto_1fr] pr-4">
     <header class="py-4 font-medium">
       <app-simple-clock
       class="md:text-3xl text-2xl justify-between" 
@@ -14,17 +14,7 @@
     </header>
     <div class="flex flex-col gap-4 justify-between">
       <div class="grid gap-2">
-        <h2 class="text-stone-400 text-xl">
-          Pending tasks
-        </h2>
-        <ul>
-          @for (item of tasks; track $index) {
-            <li>{{item}}</li>
-          }
-          @empty {
-            <li>No pending tasks congratulations</li>
-          }
-        </ul>
+        <app-list-tasks />
       </div>
         <mat-slide-toggle
           class="select-none pb-4" 

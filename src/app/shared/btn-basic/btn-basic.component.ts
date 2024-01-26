@@ -16,4 +16,5 @@ import { IBtnBasic, ICustomStylesBtn } from '../../interfaces/IBtnData.interface
 export class BtnBasicComponent { 
   @Input({required: true}) btnData!: IBtnBasic;
   @Input() customStyles?: ICustomStylesBtn;
+  @Input() titleBtn?: string;
 }

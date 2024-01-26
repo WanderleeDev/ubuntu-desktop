@@ -1,6 +1,7 @@
 <button
   class=" relative w-5 h-5 p-2 grid place-content-center rounded-[50%] text-slate-300 bg-minIcon bg-no-repeat bg-center"
   type="button"
+  [attr.title]="titleBtn"
   data-interactive
   [attr.aria-label]="btnData.label"
   [style]="{ 'background-image': 'url(' + btnData.urlSvg + ')' }"
