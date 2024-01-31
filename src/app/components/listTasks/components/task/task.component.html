@@ -1,7 +1,11 @@
-<li class="capitalize w-full gap-2 grid grid-cols-[1fr_auto]">
-  <p class="w-full flex gap-2 truncate" [title]="task?.task">
+<li class="w-full gap-2 grid grid-cols-[1fr_auto]">
+  <p
+    class="w-full flex gap-2 truncate"
+    [title]="[task.isCompleted ? '[Completed]' : '[Pending]', task.task] | formatList "
+    [ngStyle]="{'color': task.isCompleted ? '#a2ff9f' : '#f7b7b7'}"
+  >
     <span>{{ (index ?? 0) + 1 }} - </span>
-    {{ task?.task }}
+    {{ task.task | capitalize }}
   </p>
 
   <div class="relative">
@@ -14,25 +18,16 @@
         label: 'view task control'
       }"
     />
-    @if (task && isViewControlTask) {
-    <div
-      class="flex gap-1 absolute top-2/4 bg-[#2C2C2C] rounded-sm p-1 translate-y-[-.5rem] -translate-x-8 right-0 border-[#57534E] border-[.1rem]"
-    >
-      @for (item of btnTaskList; track item.label) {
-        <app-btn-basic
-          [title]="item.label"
-          (click)="editTask()"
-          [btnData]="item"
-          [customStyles]="{ scale: '1.5' }"
-        />
-      }
-    </div>
+    @if (task && isViewControlTask()) {
+    <app-task-editing-buttons
+      [fnChangeStatus]="fnChangeStatus"
+      [fnDeleteTask]="fnDeleteTask"
+      [fnToggleEditPanel]="fnToggleEditPanel"
+    />
     }
   </div>
 </li>
 
-@defer (when isViewControlTask) { 
-  @if (isContentEditable) {
-    <app-task-editor [idTask]="task?.id" />
-  } 
-}
+@defer (when isViewControlTask) { @if (isContentEditable()) {
+<app-task-editor [task]="task" [fnEditTask]="fnEditTask" />
+} }

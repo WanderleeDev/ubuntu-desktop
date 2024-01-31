@@ -1,10 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, inject, signal } from '@angular/core';
 import { ITask } from '../../../../interfaces/ITask.interface';
 import { BtnBasicComponent } from "../../../../shared/btn-basic/btn-basic.component";
-import { IBtnBasic } from '../../../../interfaces/IBtnData.interface';
 import { TaskEditorComponent } from '../taskEditor/taskEditor.component';
-import { EditTaskPanelService } from '../../../../services/editTaskPanel.service';
+//  Services
+import { TasksManagerService } from '../../../../services/tasksManager.service';
+import { TaskEditingButtonsComponent } from '../taskEditingButtons/taskEditingButtons.component';
+//  Pipe
+import { CapitalizePipe } from '../../../../pipes/capitalize.pipe';
+import { FormatListPipe } from "../../../../pipes/formatList.pipe";
 
 @Component({
     selector: 'app-task',
@@ -15,34 +19,39 @@ import { EditTaskPanelService } from '../../../../services/editTaskPanel.service
     imports: [
         CommonModule,
         BtnBasicComponent,
-        TaskEditorComponent
+        TaskEditorComponent,
+        TaskEditingButtonsComponent,
+        CapitalizePipe,
+        FormatListPipe
     ]
 })
-export class TaskComponent { 
-  @Input({required: true}) task?: ITask;
+export class TaskComponent implements OnInit { 
+  private readonly tasksManagerSvc = inject(TasksManagerService);
+  @Input({required: true}) task!: ITask;
   @Input({required: true}) index?: number;
-  private editTaskPanelSvc = inject(EditTaskPanelService);
-  isViewControlTask = false;
-  isContentEditable = false;
-  btnTaskList: IBtnBasic[] = [
-    {label: 'programming task', urlSvg: '/assets/clock-icons/clock.svg'},
-    {label: 'delete task', urlSvg: '/assets/extra-icons/trash.svg'},
-    {label: 'edit task', urlSvg: '/assets/extra-icons/edit.svg'}
-  ];
+  fnChangeStatus!: () => void;
+  fnDeleteTask!: () => void;
+  fnEditTask!: (editedTask: ITask) => void;
+  fnToggleEditPanel!: () => void;
 
-  public removeTask(id: string): void {
-    this.editTaskPanelSvc.removeTask(id)
-  }
+  isViewControlTask = signal(false);
+  isContentEditable = signal(false);
 
-  public editTask(): void {
-    this.isContentEditable = !this.isContentEditable    
-  }
+  ngOnInit(): void {
+    this.fnChangeStatus = () => this.tasksManagerSvc.changeStatusTask.bind(this.tasksManagerSvc)(this.task.id)
 
-  public openEditPanelTasks(): void {
-    this.editTaskPanelSvc.toggleTaskPanel();
+    this.fnDeleteTask = () => this.tasksManagerSvc.deleteTask.bind(this.tasksManagerSvc)(this.task.id);
+
+    this.fnEditTask = (editedTask: ITask) => {
+      this.tasksManagerSvc.editTask.bind(this.tasksManagerSvc)(editedTask);
+      this.toggleControlTask()
+      !!this.fnToggleEditPanel && this.fnToggleEditPanel();
+    };
+
+    this.fnToggleEditPanel = () => this.isContentEditable.update( prevValue => !prevValue);
   }
 
   public toggleControlTask(): void {
-    this.isViewControlTask = !this.isViewControlTask;
+    this.isViewControlTask.update( prevValue => !prevValue);
   }
 }

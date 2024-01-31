@@ -3,9 +3,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 //  Services
 import { TasksManagerService } from '../../services/tasksManager.service';
-import { GenerateRandomId } from '../../services/generateRandomId.service';
 //  Interface
-import { ITask } from '../../interfaces/ITask.interface';
 import { BtnBasicComponent } from '../../shared/btn-basic/btn-basic.component';
 import { TaskComponent } from './components/task/task.component';
 import { FilterControlTaskComponent } from './components/filterControlTask/filterControlTask.component';
@@ -26,10 +24,8 @@ import { FilterControlTaskComponent } from './components/filterControlTask/filte
 })
 
 export class ListTasksComponent { 
-  private tasksManagerSvc = inject(TasksManagerService);
-  private idGeneratorSvc = inject(GenerateRandomId)
-
-  listTasks = this.tasksManagerSvc.tasksStream;
+  private readonly tasksManagerSvc = inject(TasksManagerService);
+  listTasks = this.tasksManagerSvc.getComputedTasks();
   inputTask = new FormControl('', {
     nonNullable: true, 
     validators: [Validators.required]
@@ -37,14 +33,7 @@ export class ListTasksComponent {
 
   public addTask(e: KeyboardEvent): void {
     if (e.key !== 'Enter' ) return
-    const newTask: ITask = {
-      task: this.inputTask.getRawValue(),
-      id: this.idGeneratorSvc.generateRandomId(),
-      isCompleted: false,
-      status: 'pending'
-    };  
-
-    this.tasksManagerSvc.addTask(newTask);
+    this.tasksManagerSvc.addTask(this.inputTask.getRawValue());
     this.inputTask.reset()
   }
 }

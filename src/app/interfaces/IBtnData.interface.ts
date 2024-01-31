@@ -10,3 +10,9 @@ export interface IBtnData extends IBtnBasic {
 export interface ICustomStylesBtn {
   [key: string] : string
 }
+
+type functionBtn = 'edit task' | 'change status' | 'delete task'; 
+export interface IBtnEditingTask extends IBtnBasic {
+  functionBtn: functionBtn;
+}
+
