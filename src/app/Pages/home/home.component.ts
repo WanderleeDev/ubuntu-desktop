@@ -9,6 +9,7 @@ import { NavbarDesktopComponent } from '../../components/navbarDesktop/navbarDes
 import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { PorfolioComponent } from '../../components/porfolio/porfolio.component';
+import { TerminalComponent } from '../../components/terminal/terminal.component';
 
 
 @Component({
@@ -24,7 +25,8 @@ import { PorfolioComponent } from '../../components/porfolio/porfolio.component'
     NavbarDesktopComponent,
     HelpScoutComponent,
     VideoPlayerComponent,
-    PorfolioComponent
+    PorfolioComponent,
+    TerminalComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

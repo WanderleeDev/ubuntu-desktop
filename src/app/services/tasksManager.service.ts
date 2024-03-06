@@ -22,9 +22,12 @@ export class TasksManagerService {
   });
 
   constructor() {
-    const backUp =
-      this.localStorageSvc.getLocalStorage<ITask[]>(this.keyStorage) ?? [];
+    const backUp = this.localStorageSvc.getLocalStorage<ITask[]>(this.keyStorage) ?? [];
     this.listTasks.set(backUp);
+  }
+  
+  public getComputedTasks(): Signal<ITask[]> {
+    return this.tasksStream;
   }
 
   public addTask(task: string): void {
@@ -40,24 +43,16 @@ export class TasksManagerService {
     this.listTasks.update((tasks) => tasks.filter((t) => t.id !== id));
   }
 
-  public getComputedTasks(): Signal<ITask[]> {
-    return this.tasksStream;
-  }
-
   public editTask(task: ITask): void {
     this.listTasks.update((tasks) =>
-      tasks.map((t) => {
-        return task.id === t.id ? task : { ...t };
-      })
+      tasks.map((t) => task.id === t.id ? task : { ...t })
     );
   }
 
   public changeStatusTask(id: string): void {
-    this.listTasks.update((tasks) => {
-      return tasks.map((t) =>
-        t.id !== id ? { ...t } : { ...t, isCompleted: !t.isCompleted }
-      );
-    });
+    this.listTasks.update((tasks) => 
+      tasks.map((t) =>t.id !== id ? { ...t } : { ...t, isCompleted: !t.isCompleted })
+    );
   }
 
   public clearTasks(): void {

@@ -4,6 +4,6 @@ export interface ITask {
   isCompleted: boolean;
 }
 
-// export interface ITaskDto extends Pick<ITask, 'status' | 'isCompleted'> { }
-
 export type StatusTask = 'completed' | 'pending' ;
+
+export type TaskActionKey = "change status" | "delete" | "edit";

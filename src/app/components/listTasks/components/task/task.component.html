@@ -1,7 +1,7 @@
 <li class="w-full gap-2 grid grid-cols-[1fr_auto]">
   <p
     class="w-full flex gap-2 truncate"
-    [title]="[task.isCompleted ? '[Completed]' : '[Pending]', task.task] | formatList "
+    [title]="[task.isCompleted ? '[Completed]' : '[Pending]', task.task] | formatList"
     [ngStyle]="{'color': task.isCompleted ? '#a2ff9f' : '#f7b7b7'}"
   >
     <span>{{ (index ?? 0) + 1 }} - </span>
@@ -20,14 +20,14 @@
     />
     @if (task && isViewControlTask()) {
     <app-task-editing-buttons
-      [fnChangeStatus]="fnChangeStatus"
-      [fnDeleteTask]="fnDeleteTask"
-      [fnToggleEditPanel]="fnToggleEditPanel"
+      [taskEditingLogic]="taskEditingLogic"
     />
     }
   </div>
 </li>
 
-@defer (when isViewControlTask) { @if (isContentEditable()) {
-<app-task-editor [task]="task" [fnEditTask]="fnEditTask" />
-} }
+@defer (when isViewControlTask) { 
+  @if (isContentEditable()) {
+  <app-task-editor [task]="task" [fnEditTask]="fnEditTask" />
+  } 
+}

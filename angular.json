@@ -10,7 +10,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "wanderlee-porfolio": {
+    "ubuntu-desktop": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/wanderlee-porfolio",
+            "outputPath": "dist/ubuntu-desktop",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "wanderlee-porfolio:build:production"
+              "buildTarget": "ubuntu-desktop:build:production"
             },
             "development": {
-              "buildTarget": "wanderlee-porfolio:build:development"
+              "buildTarget": "ubuntu-desktop:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "wanderlee-porfolio:build"
+            "buildTarget": "ubuntu-desktop:build"
           }
         },
         "test": {

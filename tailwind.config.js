@@ -13,6 +13,9 @@ module.exports = {
       },
       gridTemplateRows: {
         'desktop-row': 'repeat(auto-fill, minmax(min(60px, 100%), 1fr))'
+      },
+      width: {
+        'window-size' : 'min(30rem, 100%)'
       }
     },
   },
