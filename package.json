@@ -24,6 +24,8 @@
     "@angular/platform-server": "^17.3.8",
     "@angular/router": "^17.3.8",
     "@angular/ssr": "^17.3.7",
+    "@google/generative-ai": "^0.11.1",
+    "@midudev/tailwind-animations": "^0.0.7",
     "@videogular/ngx-videogular": "^8.0.0",
     "express": "^4.19.2",
     "html2canvas": "^1.4.1",

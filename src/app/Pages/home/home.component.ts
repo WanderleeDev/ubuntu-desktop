@@ -10,6 +10,7 @@ import { HelpScoutComponent } from '../../shared/helpScout/helpScout.component';
 import { VideoPlayerComponent } from '../../shared/video-player/video-player.component';
 import { PorfolioComponent } from '../../components/porfolio/porfolio.component';
 import { TerminalComponent } from '../../components/terminal/terminal.component';
+import { TranslatorComponent } from '../../modules/translator/translator.component';
 
 
 @Component({
@@ -26,7 +27,8 @@ import { TerminalComponent } from '../../components/terminal/terminal.component'
     HelpScoutComponent,
     VideoPlayerComponent,
     PorfolioComponent,
-    TerminalComponent
+    TerminalComponent,
+    TranslatorComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

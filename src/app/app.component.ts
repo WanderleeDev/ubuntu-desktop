@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SeoService } from './services/seo.service';
+import { TranslatorService } from './modules/translator/services/translator.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { SeoService } from './services/seo.service';
 })
 export class AppComponent implements OnInit {
   title = 'Wanderlee porfolio';
+  trans = inject(TranslatorService)
 
   constructor(private seoSvc: SeoService) {}
 
@@ -21,5 +23,7 @@ export class AppComponent implements OnInit {
       content: 'Descubre mi portafolio como desarrollador front-end. Con habilidades sólidas en HTML, CSS, JavaScript, TypeScript y experiencia en Angular, me especializo en el diseño responsivo. Explora proyectos que reflejan mi enfoque práctico y colaborativo.'
     });
     this.seoSvc.setIndexFollow(true);
+
+    // this.trans.translateText("Life's brief, Like a leaf, In the wind's thief.", 'English', 'Spanish')
   }
 }

@@ -1,0 +1,11 @@
+<section #window cdkDrag class="bg-[#242424] text-white w-window rounded-md">
+  <header class="bg-[#1E1E1E] font-medium flex justify-between items-center p-4">
+    <h2 class="capitalize">
+      {{ appTitle() || "Empty title" }}
+    </h2>
+    <app-window-control  [windowReference]="window" />
+  </header>
+  <div class="px-4 py-2">
+    <ng-content />
+  </div>
+</section>
