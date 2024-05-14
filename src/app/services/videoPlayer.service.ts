@@ -1,4 +1,5 @@
 
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
@@ -18,7 +19,7 @@ export class VideoPlayerService {
   }
 
 }
-function Injectable(arg0: { providedIn: string; }): (target: typeof VideoPlayerService) => void | typeof VideoPlayerService {
-  throw new Error('Function not implemented.');
-}
+// function Injectable(): (target: typeof VideoPlayerService) => void | typeof VideoPlayerService {
+//   throw new Error('Function not implemented.');
+// }
 

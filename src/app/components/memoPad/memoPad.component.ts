@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { WindowControlComponent } from '../../shared/windowControl/windowControl.component';
+import { WindowControlComponent } from '../../shared/ui/windowControl/windowControl.component';
 import { WindowControllerService } from '../../services/windowController.service';
 import { ILogicController } from '../../interfaces/IWindowController';
 import { DragDropModule } from '@angular/cdk/drag-drop';

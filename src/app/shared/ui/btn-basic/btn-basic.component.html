@@ -1,0 +1,10 @@
+<button
+  class="relative w-5 h-5 p-2 grid place-content-center rounded-[50%] text-slate-300 bg-minIcon bg-no-repeat bg-center"
+  type="button"
+  [attr.title]="titleBtn"
+  data-interactive
+  [attr.aria-label]="btnData.label"
+  [ngStyle]="customStyles"
+>
+<img class="text-white" aria-hidden="true" [ngSrc]="btnData.urlSvg" alt="" [width]="16" [height]="16">
+</button>

@@ -33,6 +33,11 @@ export class DesktopIconsService {
       icon: 'assets/desktopIcons/gta.svg', 
       name: 'GTA San Andreas' 
     },
+    {
+      id: this.randomIdSvc.generateRandomId(),
+      icon: 'assets/desktopIcons/translate.svg',
+      name: 'Translator'
+    }
   ]);
 
   constructor(private randomIdSvc: GenerateRandomId) {}

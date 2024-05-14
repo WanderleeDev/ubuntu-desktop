@@ -1,0 +1,11 @@
+<app-window-wrapper appTitle="translator">
+  <app-translator-box-input
+    [isLoading]="false"
+    [typeTextBox]="'input'"
+  />
+  <app-translator-controls />
+  <app-translator-box-input
+    [typeTextBox]="'output'"
+    [isLoading]="(isLoading$ | async) ?? false"
+  />
+</app-window-wrapper>
