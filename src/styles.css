@@ -3,21 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  svg {
+    fill: currentColor;
+  }
+}
 
 @layer utilities {
   .bg {
     position: relative;
-    background-image: linear-gradient(180deg, #A8272A 10%,#400443 80%);
+    background-image: linear-gradient(180deg, #a8272a 10%, #400443 80%);
   }
   .bg::before {
-    content: '';
+    content: "";
     position: absolute;
     background: url("https://www.dropbox.com/scl/fi/t0yi2ig367af04expnnmq/fossa.webp?rlkey=1uqdg1yctuzrc75xvd3942oqm&raw=1");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
     background-attachment: fixed;
-    opacity: .3;
+    opacity: 0.3;
     inset: 0;
     z-index: 1;
   }
@@ -34,18 +39,18 @@
   }
 
   .resize-window-max {
-    transform: width .2s linear, height.2s linear;
+    transform: width 0.2s linear, height.2s linear;
     width: 100%;
     height: 100%;
   }
 
   .resize-window-min {
     scale: 0;
-    transition: scale linear .2s;
+    transition: scale linear 0.2s;
   }
-  
+
   .close-window {
-    animation: closeWindow linear .1s forwards;
+    animation: closeWindow linear 0.1s forwards;
   }
 
   .siz {
@@ -57,13 +62,9 @@
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   }
 
-  /* .mark {
-    @apply relative before:animate-ping before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[1] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[1]
-  } */
-
   .btn-image-styles {
     background-repeat: no-repeat;
-    background-position: .5rem center ;
+    background-position: 0.5rem center;
     background-size: 1rem;
     padding-left: 2.5rem !important;
   }
@@ -78,7 +79,7 @@
     scrollbar-color: blue orange; */
 
     &::-webkit-scrollbar {
-      width: .8rem;
+      width: 0.8rem;
     }
 
     &::-webkit-scrollbar-track {
@@ -87,10 +88,16 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(0, 0, 0);   
-      border-radius: .2rem;       
-      border: 3px solid var(--scroll-color); 
+      background-color: rgb(0, 0, 0);
+      border-radius: 0.2rem;
+      border: 3px solid var(--scroll-color);
     }
+  }
+}
+
+@layer components {
+  .mark {
+    @apply relative before:animate-pulse-fade-in before:animate-iteration-count-infinite before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[1] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[1];
   }
 }
 
@@ -101,11 +108,10 @@
   }
 }
 @keyframes minimizeWindow {
-
 }
 
 @keyframes closeWindow {
   to {
-    scale: .5;
+    scale: 0.5;
   }
 }

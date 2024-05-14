@@ -8,7 +8,7 @@ import {
   signal,
 } from "@angular/core";
 //  Components
-import { BtnBasicComponent } from "../../../../shared/btn-basic/btn-basic.component";
+import { BtnBasicComponent } from "../../../../shared/ui/btn-basic/btn-basic.component";
 import { TaskEditorComponent } from "../taskEditor/taskEditor.component";
 //  Interfaces
 import { ITask, TaskActionKey } from "../../../../interfaces/ITask.interface";
@@ -16,8 +16,8 @@ import { ITask, TaskActionKey } from "../../../../interfaces/ITask.interface";
 import { TasksManagerService } from "../../../../services/tasksManager.service";
 import { TaskEditingButtonsComponent } from "../taskEditingButtons/taskEditingButtons.component";
 //  Pipe
-import { CapitalizePipe } from "../../../../pipes/capitalize.pipe";
-import { FormatListPipe } from "../../../../pipes/formatList.pipe";
+import { CapitalizePipe } from "../../../../shared/pipes/capitalize.pipe";
+import { FormatListPipe } from "../../../../shared/pipes/formatList.pipe";
 
 @Component({
   selector: "app-task",

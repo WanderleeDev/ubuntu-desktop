@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 //  Components
 import { IBtnEditingTask } from "../../../../interfaces/IBtnData.interface";
-import { BtnBasicComponent } from "../../../../shared/btn-basic/btn-basic.component";
+import { BtnBasicComponent } from "../../../../shared/ui/btn-basic/btn-basic.component";
 //  Interfaces
 import { TaskActionKey } from "../../../../interfaces/ITask.interface";
 

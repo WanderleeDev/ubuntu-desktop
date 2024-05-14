@@ -1,17 +1,22 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { WindowWrapperComponent } from '../../layout/window-wrapper/window-wrapper.component';
-import { TranslatorControlsComponent } from './components/translator-controls/translator-controls.component';
-import { TranslatorBoxInputComponent } from './components/translator-box-input/translator-box-input.component';
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
+import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
+import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
+import { Store } from "@ngrx/store";
+import { AppState } from "../../core/store/app.state";
+import { TRANSLATOR_SELECTORS } from "../../core/store/selectors/translator.selectors";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
-  selector: 'app-translator',
+  selector: "app-translator",
   standalone: true,
   imports: [
     WindowWrapperComponent,
     TranslatorControlsComponent,
-    TranslatorBoxInputComponent
+    TranslatorBoxInputComponent,
+    AsyncPipe,
   ],
-  templateUrl: './translator.component.html',
+  templateUrl: "./translator.component.html",
   styles: `
     :host {
       display: block;
@@ -19,5 +24,7 @@ import { TranslatorBoxInputComponent } from './components/translator-box-input/t
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorComponent { 
+export class TranslatorComponent {
+  readonly #store: Store<AppState> = inject(Store);
+  isLoading$ = this.#store.select(TRANSLATOR_SELECTORS.selectLoading);
 }

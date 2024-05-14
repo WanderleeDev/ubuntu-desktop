@@ -16,6 +16,9 @@ module.exports = {
       },
       width: {
         'window-size' : 'min(30rem, 100%)'
+      },
+      colors: {
+        header: '#1d1d1d', 
       }
     },
   },

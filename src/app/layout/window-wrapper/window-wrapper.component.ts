@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { NavDesktopControlComponent } from '../../components/navbarDesktop/components/navDesktopControl/navDesktopControl.component';
+import { NavDesktopControlComponent } from '../../modules/navbarDesktop/components/navDesktopControl/navDesktopControl.component';
 import { CdkDrag } from '@angular/cdk/drag-drop';
-import { WindowControlComponent } from '../../shared/windowControl/windowControl.component';
+import { WindowControlComponent } from '../../shared/ui/windowControl/windowControl.component';
 
 @Component({
   selector: 'app-window-wrapper',

@@ -1,11 +1,15 @@
-import { Injectable } from "@angular/core";
+import { Injectable, inject } from "@angular/core";
 import { environment } from "../../../../environments/environment.development";
 import { GoogleGenerativeAI, ModelParams } from "@google/generative-ai";
+import { Store } from "@ngrx/store";
+import { AppState } from "../../../core/store/app.state";
+import { TRANSLATOR_ACTIONS } from "../../../core/store/actions/transalator.action";
 
 @Injectable({
   providedIn: "root",
 })
 export class TranslatorService {
+  readonly #store: Store<AppState> = inject(Store);
   readonly #gemini = new GoogleGenerativeAI(environment.GEMINI_API);
   readonly #geminiConfig: ModelParams = {
     model: "gemini-pro",
@@ -17,23 +21,31 @@ export class TranslatorService {
     from: string,
     to: string
   ): Promise<void> {
+    let textResponse = "";
     const data = await this.#gemini
       .getGenerativeModel(this.#geminiConfig)
       .generateContentStream(
         `Translate the following text: "${text}" from ${from} to ${to}`
       );
 
-      console.log(data);
-      
-
     try {
       for await (const response of data.stream) {
-        console.log(data);
-        
         console.log(`stream chunk: ${response.text()}`);
+        textResponse += response.text();
+        this.#store.dispatch(
+          TRANSLATOR_ACTIONS.saveTranslation({ translation: textResponse })
+        );
       }
     } catch (error) {
-      console.log(error);
+      error instanceof Error
+        ? this.#store.dispatch(
+            TRANSLATOR_ACTIONS.translateTextFailure({ error: error.message })
+          )
+        : this.#store.dispatch(
+            TRANSLATOR_ACTIONS.translateTextFailure({
+              error: "Something wrong",
+            })
+          );
     }
   }
 }

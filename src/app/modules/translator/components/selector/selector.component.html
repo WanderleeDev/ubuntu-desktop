@@ -4,7 +4,7 @@
     type="button"
     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 w-full dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500 font-medium max-w-40 px-4 py-2 flex items-center gap-2 capitalize"
   >
-    {{ buttonValue() === '' ? initButtonValue() : buttonValue() }}
+    {{ buttonValue() }}
     <svg
       class="scale-75"
       xmlns="http://www.w3.org/2000/svg"
@@ -21,13 +21,13 @@
 
   @if (isViewListLanguages()) {
   <ul
-    class="absolute max-h-40 overflow-y-scroll rounded-md mt-4 bg-[#1D1D1D] px-1 custom-scroll overflow-hidden animate-fade-out-down animate-direction-reverse animate-duration-300"
+    class="absolute max-h-40 overflow-y-scroll rounded-lg mt-4 bg-[#2e2e2e] px-1 custom-scroll overflow-hidden animate-fade-out-down animate-direction-reverse animate-duration-300 shadow-lg"
   >
     @for (lang of languages; track lang.no) {
     <li>
       <button
         class="w-52 text-left p-2 block hover:bg-orange-500 rounded-sm"
-        (click)="setLanguage(lang.name)"
+        (click)="saveLanguage(lang.name, buttonConfig().typeAction)"
         (click)="listToggle()"
         type="button"
       >

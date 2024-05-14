@@ -2,12 +2,18 @@ import { CommonModule } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
+  ElementRef,
+  HostListener,
   OnInit,
-  computed,
+  inject,
   input,
   signal,
 } from "@angular/core";
 import languages from "../../language/languages";
+import { Store } from "@ngrx/store";
+import { AppState } from "../../../../core/store/app.state";
+import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/transalator.action";
+import { IButtonLanguage } from "../../interfaces/IButtonLanguage.interface";
 
 @Component({
   selector: "app-selector",
@@ -22,23 +28,30 @@ import languages from "../../language/languages";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectorComponent implements OnInit {
-  initButtonValue = input.required<string>();
+  readonly #store: Store<AppState> = inject(Store);
+  readonly #ref = inject(ElementRef);
+  buttonConfig = input.required<IButtonLanguage>();
   buttonValue = signal<string>("");
-  buttonComputed = computed(() => this.buttonValue.set(this.initButtonValue()));
-  readonly languages = languages;
   isViewListLanguages = signal<boolean>(false);
+  readonly languages = languages;
+
+  ngOnInit(): void {
+    this.buttonValue.set(this.buttonConfig().initLanguage);
+  }
+
+  @HostListener("document:click", ["$event"])
+  public onClick(event: PointerEvent) {
+    if (!this.#ref.nativeElement.contains(event.target)) {
+      this.isViewListLanguages.set(false);
+    }
+  }
 
   public listToggle() {
     this.isViewListLanguages.update((prev) => !prev);
   }
 
-  public setLanguage(value: string) {
-    this.buttonValue.set(value);
-  }
-
-  ngOnInit(): void {
-    console.log(
-      this.initButtonValue()
-    );
+  public saveLanguage(language: string, action: "from" | "to") {
+    this.buttonValue.set(language);
+    this.#store.dispatch(TRANSLATOR_ACTIONS.setLanguage({ language, action }));
   }
 }

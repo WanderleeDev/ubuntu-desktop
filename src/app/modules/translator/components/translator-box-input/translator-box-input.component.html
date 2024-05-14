@@ -1,1 +1,46 @@
-<textarea name="boxInput" class="w-full min-h-32 bg-transparent resize-none"></textarea>
+@if (typeTextBox() === 'input') {
+<textarea
+  [formControl]="textBoxControl"
+  (keyup)="saveInputText(textBoxControl.value)"
+  aria-label="box input"
+  name="boxInput"
+  class="w-full min-h-32 bg-transparent resize-none focus:outline-none px-4"
+></textarea>
+<div class="flex justify-end pr-4 gap-4 items-center py-2">
+  <span class="text-sm">
+    @if (textBoxControl.value.length >= 100) {
+    <strong class="text-orange-400">Max exceded: </strong>
+    }
+    {{ textBoxControl.value.length }} / 100
+  </span>
+  <app-btn-file
+    [cdkCopyToClipboard]="textBoxControl.value"
+    [size]="16"
+    icon="assets/extra-icons/copy.svg"
+    title="copy to clipboard"
+    [hasInteractivity]="true"
+  />
+</div>
+} @else { @if (isLoading()) {
+<app-translator-loader />
+}@else {
+<textarea
+  #boxOutput
+  aria-label="box output"
+  [disabled]="true"
+  name="boxOutput"
+  [value]="translation | async | replaceCharacters : ['&quot;'] | capitalize"
+  class="w-full min-h-32 bg-transparent resize-none focus:outline-none px-4"
+></textarea>
+@if (translation | async) {
+  <div class="flex justify-end pr-4">
+    <app-btn-file
+      [cdkCopyToClipboard]="boxOutput.value"
+      [size]="16"
+      icon="assets/extra-icons/copy.svg"
+      title="copy to clipboard"
+      [hasInteractivity]="true"
+    />
+  </div>
+}
+} }
