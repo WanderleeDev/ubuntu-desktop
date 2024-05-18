@@ -1,0 +1,25 @@
+<ul #data class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full">
+  @for (icon of selectDesktopAppIcons$ | async ; track icon.id) {
+  <li
+    class="hover:bg-white/30 rounded-md grid place-content-center active:cursor-move"
+  >
+    <app-btn-file
+      cdkDrag
+      #btnFile
+      icon.id
+      (dblclick)="renderApp(icon)"
+      [icon]="icon.icon"
+      [size]="50"
+      [nameFile]="icon.name"
+      [priority]="icon.name === 'github 2023' ? true : false"
+      hasInteractivity="true"
+    />
+
+    @defer (on interaction(btnFile)) {
+      <div class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+        <app-translator />
+      </div>
+    }
+  </li>
+  }
+</ul>

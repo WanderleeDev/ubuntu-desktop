@@ -70,28 +70,29 @@
   }
 
   .w-window {
-    width: min(40rem, 100%);
+    width: min(50rem, 100%);
   }
 
-  .custom-scroll {
-    --scroll-color: #6e6e6e;
-    /* scrollbar-width: thin;
-    scrollbar-color: blue orange; */
+  .scrollStyle {
+    --scroll-color: #9c9c9c;
 
     &::-webkit-scrollbar {
-      width: 0.8rem;
+      width: .5rem;
     }
 
     &::-webkit-scrollbar-track {
-      height: 1rem;
       background-color: var(--scroll-color);
     }
-
+    
     &::-webkit-scrollbar-thumb {
       background-color: rgb(0, 0, 0);
-      border-radius: 0.2rem;
-      border: 3px solid var(--scroll-color);
+      border-radius: 2rem;
+      border: .1rem solid var(--scroll-color);
     }
+  }
+
+  .shadow-window {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 }
 

@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { ITranslatorState } from "../models/translator.state";
-import { TRANSLATOR_ACTIONS } from "../actions/transalator.action";
+import { TRANSLATOR_ACTIONS } from "../actions/translator.actions";
 
 export const initialState: ITranslatorState = {
   from: "Spanish",

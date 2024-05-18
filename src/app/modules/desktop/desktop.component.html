@@ -1,27 +1,2 @@
-<ul #data class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full">
-  @for (item of desktopIcons$ | async; track item.id) {
-    <li 
-      class="hover:bg-white/30 rounded-md grid place-content-center active:cursor-move" 
-      cdkDrag
-    >
-      <app-btn-file
-        
-        (dblclick)="viewPlayer()" 
-        [icon]="item.icon" 
-        [size]="50"
-        [nameFile]="item.name"
-        [priority]="item.name === 'github 2023' ? true : false "
-        hasInteractivity="true"
-      />
-    </li>
-  }
-</ul>
-
-@defer (on hover(data)) {
-  @if (isViewPlayer) {
-    <app-video-player [dataVideo]="dataVideo" />
-  }
-}
-
-<ng-content>
-</ng-content>
+<app-list-app />
+<ng-content></ng-content>

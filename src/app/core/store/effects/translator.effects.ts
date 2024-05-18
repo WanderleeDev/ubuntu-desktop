@@ -1,9 +1,9 @@
-import {  inject } from "@angular/core";
+import {  inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.state";
 import { TranslatorService } from "../../../modules/translator/services/translator.service";
-import { TRANSLATOR_ACTIONS } from "../actions/transalator.action";
+import { TRANSLATOR_ACTIONS } from "../actions/translator.actions";
 import {
   catchError,
   exhaustMap,
@@ -14,6 +14,7 @@ import { concatLatestFrom } from "@ngrx/operators";
 import { TRANSLATOR_SELECTORS } from "../selectors/translator.selectors";
 import { HttpErrorResponse } from "@angular/common/http";
 
+@Injectable()
 export class TranslatorEffects {
   readonly #store: Store<AppState> = inject(Store);
   readonly #actions$ = inject(Actions);

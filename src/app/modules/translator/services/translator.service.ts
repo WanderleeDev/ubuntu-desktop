@@ -3,7 +3,7 @@ import { environment } from "../../../../environments/environment.development";
 import { GoogleGenerativeAI, ModelParams } from "@google/generative-ai";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../../core/store/app.state";
-import { TRANSLATOR_ACTIONS } from "../../../core/store/actions/transalator.action";
+import { TRANSLATOR_ACTIONS } from "../../../core/store/actions/translator.actions";
 
 @Injectable({
   providedIn: "root",

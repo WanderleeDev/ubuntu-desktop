@@ -1,5 +1,6 @@
 <button
   class="grid place-content-center select-none group"
+  (click)="handleButton()"
   type="button"
   [attr.title]="nameFile || null"
   [attr.aria-label]="'open ' + [nameFile || label]"
