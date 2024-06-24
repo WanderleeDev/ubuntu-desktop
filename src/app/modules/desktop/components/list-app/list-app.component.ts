@@ -12,8 +12,8 @@ import { VideoPlayerComponent } from "../../../../shared/ui/video-player/video-p
 import { BlocComponent } from "../../../bloc/bloc.component";
 import { GameComponent } from "../../../game/game.component";
 import { EmulatorComponent } from "../../../emulator/emulator.component";
-import { PaintComponent } from "../../../paint/paint.component";
 import { CurriculumVitaeComponent } from "../../../curriculum-vitae/curriculum-vitae.component";
+import { PaintComponent } from "../../../paint/paint.component";
 
 enum components {
   "github 2023",
@@ -37,8 +37,8 @@ enum components {
     BlocComponent,
     GameComponent,
     EmulatorComponent,
-    PaintComponent,
-    CurriculumVitaeComponent
+    CurriculumVitaeComponent,
+    PaintComponent
   ],
   templateUrl: "./list-app.component.html",
   styles: `

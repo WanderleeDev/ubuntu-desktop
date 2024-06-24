@@ -4,6 +4,7 @@ import { StrokeControlComponent } from "../stroke-control/stroke-control.compone
 import { BtnFileComponent } from "../../../../shared/ui/btn-file/btn-file.component";
 import { PaintStore } from "../../local-store/paint.store";
 import { IPaintButton } from "../../interfaces/IPaintButton.interface";
+import { AsyncPipe } from "@angular/common";
 
 @Component({
   selector: "app-pencil-toolbar",

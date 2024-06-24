@@ -1,6 +1,5 @@
 import { Injectable, inject } from "@angular/core";
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { concatLatestFrom } from '@ngrx/operators';
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { APP_ICONS_ACTIONS } from "../actions/app-icons.actions";
 import { catchError, combineLatest, exhaustMap, map, of } from "rxjs";
 import { AppsIconsService } from "../../../modules/desktop/services/app-icons.service";
@@ -8,8 +7,7 @@ import { AppsIconsService } from "../../../modules/desktop/services/app-icons.se
 @Injectable()
 export class AppIconsEffects {
   readonly #actions$ = inject(Actions);
- import { provideEffects } from '@ngrx/effects';cimport { concatLatestFrom } from '@ngrx/operators';
-e);
+  readonly #appsIconsSvc = inject(AppsIconsService);
 
   public loadAllAppIcons = createEffect(() => {
     return this.#actions$.pipe(

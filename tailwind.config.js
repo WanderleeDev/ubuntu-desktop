@@ -30,5 +30,5 @@ module.exports = {
        fadeIn: "fadeIn 0.2s ease-in-out",
      },
   },
-  plugins: [require("@midudev/tailwind-animations")],
+  plugins: [],
 };

@@ -1,91 +1,48 @@
-<ul id="container-boundary" #data class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full">
+<ul
+  id="container-boundary"
+  #data
+  class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full"
+>
   @for (icon of selectDesktopAppIcons$ | async ; track icon.id) {
-<<<<<<< Updated upstream
-  <li
-  >
+
+  <li>
     <app-btn-file
       class="hover:bg-white/30 rounded-md grid place-content-center active:cursor-move p-2"
       cdkDragBoundary="#container-boundary"
       cdkDrag
-      
       #btnFile
       [icon]="icon.icon"
       [size]="50"
       [nameFile]="icon.name"
       [priority]="icon.name === 'github 2023' ? true : false"
       hasInteractivity="true"
-      />
-      
-=======
-    <li
-      cdkDrag
-      class="hover:bg-white/30 rounded-md grid place-content-center active:cursor-move"
-    >
-      <app-btn-file
-        #btnFile
-        icon.id
-        (dblclick)="renderApp(icon)"
-        [icon]="icon.icon"
-        [size]="50"
-        [nameFile]="icon.name"
-        [priority]="icon.name === 'github 2023' ? true : false"
-        hasInteractivity="true"
-      />
->>>>>>> Stashed changes
-    </li>
-    @defer (on interaction(btnFile)) {
-      <div class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
-        @switch (icon.name) {
-          @case (components[0]) {
-            @defer () {
+    />
+  </li>
+  @defer (on interaction(btnFile)) {
+  <div class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
+    @switch (icon.name) { @case (components[0]) { @defer () {
 
-              <app-video-player [dataVideo]="" />
-            }
-          }
-          @case (components[1]) {
-            @defer () {
+    <app-video-player [dataVideo]="" />
+    } } @case (components[1]) { @defer () {
 
-              <app-bloc />
-            }
-          }
-          @case (components[2]) {
-            @defer () {
-              <app-curriculum-vitae />
+    <app-bloc />
+    } } @case (components[2]) { @defer () {
+    <app-curriculum-vitae />
 
-            }
-          }
-          @case (components[3]) {
-            @defer () {
+    } } @case (components[3]) { @defer () {
 
-              <app-emulator />
-            }
-          }
-          @case (components[4]) {
-            @defer () {
+    <app-emulator />
+    } } @case (components[4]) { @defer () {
 
-              <app-game />
-            }
-          }
-          @case (components[5]) {
-            @defer () {
+    <app-game />
+    } } @case (components[5]) { @defer () {
 
-              <app-translator />
-            }
-          }
-          @case (components[6]) {
-            @defer () {
+    <app-translator />
+    } } @case (components[6]) { @defer () {
 
-              <app-paint />
-            }
-          }
-        }
- 
-      </div>
-    }
-  }
-<<<<<<< Updated upstream
+    <app-paint />
+    } } }
+  </div>
+  } }
 </ul>
 <!-- (dblclick)="onDoubleClick(icon)" -->
-=======
-</ul>
->>>>>>> Stashed changes
