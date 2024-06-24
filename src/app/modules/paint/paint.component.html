@@ -1,0 +1,17 @@
+<app-window-wrapper appTitle="rnote" class="relative z-30">
+  <ng-container *ngrxLet="isFullscreen$ as isFullscreen">
+    <app-header-control-extra header [isActiveFullscreen]="isFullscreen$"/>
+    <div class="relative" body >
+      @if (!(isFullscreen$ | async)) {
+        @if (isViewColorBar$ | async) {
+        <app-colored-toolbar class="animate-fadeIn" />
+        }
+        <app-pencil-toolbar />
+        @if (isViewExtraBar$ | async) {
+          <app-extra-toolbar class="animate-fadeIn"  />
+        }
+      }
+      <app-canvas />
+    </div>
+  </ng-container>
+</app-window-wrapper>

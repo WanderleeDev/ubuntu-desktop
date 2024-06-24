@@ -8,11 +8,38 @@ import { CdkDrag } from "@angular/cdk/drag-drop";
 import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
 import { APPLICATION_ACTIONS } from "../../../../core/store/actions/application.actions";
 import { TranslatorComponent } from "../../../translator/translator.component";
+import { VideoPlayerComponent } from "../../../../shared/ui/video-player/video-player.component";
+import { BlocComponent } from "../../../bloc/bloc.component";
+import { GameComponent } from "../../../game/game.component";
+import { EmulatorComponent } from "../../../emulator/emulator.component";
+import { PaintComponent } from "../../../paint/paint.component";
+import { CurriculumVitaeComponent } from "../../../curriculum-vitae/curriculum-vitae.component";
+
+enum components {
+  "github 2023",
+  "bloc",
+  "cv",
+  "desmune",
+  "GTA San Andreas",
+  "Translator",
+  "rnote"
+}
 
 @Component({
   selector: "app-list-app",
   standalone: true,
-  imports: [BtnFileComponent, AsyncPipe, CdkDrag, TranslatorComponent],
+  imports: [
+    BtnFileComponent,
+    AsyncPipe,
+    CdkDrag,
+    TranslatorComponent,
+    VideoPlayerComponent,
+    BlocComponent,
+    GameComponent,
+    EmulatorComponent,
+    PaintComponent,
+    CurriculumVitaeComponent
+  ],
   templateUrl: "./list-app.component.html",
   styles: `
     :host {
@@ -22,14 +49,13 @@ import { TranslatorComponent } from "../../../translator/translator.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListAppComponent {
+  readonly components = components;
   readonly #store: Store<AppState> = inject(Store);
   readonly selectDesktopAppIcons$ = this.#store.select(
     APP_ICONS_SELECTORS.selectDesktopAppIcons
   );
 
-  public renderApp(app: IDataIcon): void {
-    console.log(app);
-    
+  public onDoubleClick(app: IDataIcon): void {
     this.#store.dispatch(
       APPLICATION_ACTIONS.toggleApplication({
         name: app.name,

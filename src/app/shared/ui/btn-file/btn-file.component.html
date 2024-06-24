@@ -6,24 +6,29 @@
   [attr.aria-label]="'open ' + [nameFile || label]"
   [attr.data-interactive]="hasInteractivity"
 >
-  <figure [ngStyle]="{ width: size +'px', height: size +'px'}"
-    class="relative">
-    <img class="absolute"
-      [ngSrc]="icon" 
-      alt="folder"
+  <figure
+    [ngStyle]="{ width: size + 'px', height: size + 'px' }"
+    class="relative"
+  >
+    <img
+      class="absolute"
+      [ngSrc]="icon"
+      [alt]="nameFile || label"
       fill
       [priority]="priority"
-      >
-      @if (nameFile) {
-        <figcaption 
-          class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4 text-sm pt-1 capitalize">
-          {{nameFile}}
-        </figcaption>
-      }
-      @if (label) {
-        <figcaption class="absolute left-0 bg-stone-900 text-white translate-x-14 w-max capitalize text-sm  top-2/4 -translate-y-2/4 py-1 px-3 border-[.1rem] border-stone-600 rounded-2xl tracking-wide opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity">
-          {{label}}
-        </figcaption>
-      }
+    />
+    @if (nameFile) {
+    <figcaption
+      class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4 text-sm pt-1 capitalize"
+    >
+      {{ nameFile }}
+    </figcaption>
+    } @if (label) {
+    <figcaption
+      class="absolute left-0 bg-stone-900 text-white translate-x-14 w-max capitalize text-sm top-2/4 -translate-y-2/4 py-1 px-3 border-[.1rem] border-stone-600 rounded-2xl tracking-wide opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+    >
+      {{ label }}
+    </figcaption>
+    }
   </figure>
 </button>

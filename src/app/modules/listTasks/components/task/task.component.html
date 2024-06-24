@@ -1,0 +1,33 @@
+<li class="w-full gap-2 grid grid-cols-[1fr_auto]">
+  <p
+    class="w-full flex gap-2 truncate"
+    [title]="[task.isCompleted ? '[Completed]' : '[Pending]', task.task] | formatList"
+    [ngStyle]="{'color': task.isCompleted ? '#a2ff9f' : '#f7b7b7'}"
+  >
+    <span>{{ (index ?? 0) + 1 }} - </span>
+    {{ task.task | capitalize }}
+  </p>
+
+  <div class="relative">
+    <app-btn-basic
+      (click)="toggleControlTask()"
+      titleBtn="show task control"
+      [customStyles]="{ scale: '1.5' }"
+      [btnData]="{
+        urlSvg: '/assets/extra-icons/dotsControl.svg',
+        label: 'view task control'
+      }"
+    />
+    @if (task && isViewControlTask()) {
+    <app-task-editing-buttons
+      [taskEditingLogic]="taskEditingLogic"
+    />
+    }
+  </div>
+</li>
+
+@defer (when isViewControlTask) { 
+  @if (isContentEditable()) {
+  <app-task-editor [task]="task" [fnEditTask]="fnEditTask" />
+  } 
+}

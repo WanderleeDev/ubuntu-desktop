@@ -1,0 +1,35 @@
+<form
+  (ngSubmit)="editTask()"
+  [formGroup]="formEditor"
+  class="p-2 grid place-content-center absolute rounded-md bg-indigo-400 inset-0 z-50 gap-3"
+>
+  <p class="font-medium text-base text-left">Edit your task</p>
+  <label for="taskEdit">
+    <input
+      formControlName="task"
+      autocomplete="off" 
+      class="w-full p-1 rounded-md text-gray-900" 
+      type="text" 
+      id="taskEdit"
+      placeholder="Enter your updated task here..."
+    >
+  </label>
+
+  <p class="font-medium text-base text-left">Edit your status</p>
+  <select
+    class="w-full p-1 rounded-md text-gray-900" 
+    formControlName="status"
+    placeholder="change your status"
+  >
+    <option value="pending"> pending </option>
+    <option value="completed"> completed </option>
+  </select>
+
+  <button
+    [disabled]="formEditor.invalid" 
+    class="p-2 relative mt-6 font-medium tracking-wider text-indigo-400 bg-white border-indigo-400 rounded-md border-[.1rem] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:text-white disabled:hover:before:content-['Fill_in_the_empty_fields_of_the_form_or_make_the_indicated_corrections'] disabled:hover:before:w-full disabled:hover:before:absolute disabled:hover:before:translate-y-12 disabled:hover:before:text-center disabled:hover:before:left-0 disabled:hover:before:bg-gray-600 disabled:hover:before:p-1 disabled:hover:before:rounded-md disabled:hover:before:text-red-200 disabled:hover:before:text-sm disabled:hover:before:font-normal" 
+    type="submit"
+  >
+    Update task
+  </button>
+</form>

@@ -37,6 +37,11 @@ export class AppsIconsService {
       id: this.randomIdSvc.generateRandomId(),
       icon: 'assets/desktopIcons/translate.svg',
       name: 'Translator'
+    },
+    {
+      id: this.randomIdSvc.generateRandomId(),
+      icon: 'assets/desktopIcons/rnote.svg',
+      name: 'rnote'
     }
   ]);
 

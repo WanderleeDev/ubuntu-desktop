@@ -1,11 +1,13 @@
 <section #window cdkDrag class="bg-[#242424] text-white w-window shadow-lg rounded-md">
-  <header class="bg-header font-medium flex justify-between items-center p-4 select-none">
+  <header cdkDragHandle class="bg-header font-medium flex justify-between items-center px-4 py-2 select-none cursor-move">
+    <ng-content select="[header]" />
     <h2 class="capitalize">
       {{ appTitle() || "Empty title" }}
     </h2>
     <app-window-control  [windowReference]="window" />
   </header>
-  <div class=" py-2">
-    <ng-content />
+  <div class="">
+    <ng-content select="[body]" />
   </div>
 </section>
+<!-- py-2 -->

@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import { AppState } from '../../core/store/app.state';
 import { APP_ICONS_SELECTORS } from '../../core/store/selectors/app-icons.selectors';
 import { APP_ICONS_ACTIONS } from '../../core/store/actions/app-icons.actions';
+import { PaintComponent } from '../../modules/paint/paint.component';
 
 
 
@@ -21,6 +22,7 @@ import { APP_ICONS_ACTIONS } from '../../core/store/actions/app-icons.actions';
     DesktopComponent,
     NavbarDesktopComponent,
     HelpScoutComponent,
+    PaintComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,
