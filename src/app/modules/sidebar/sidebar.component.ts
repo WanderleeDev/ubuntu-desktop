@@ -1,9 +1,7 @@
 import { AsyncPipe } from "@angular/common";
 import {
-  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
-  OnInit,
   inject,
 } from "@angular/core";
 import { BtnFileComponent } from "../../shared/ui/btn-file/btn-file.component";
@@ -20,7 +18,6 @@ import { Store } from "@ngrx/store";
 import { AppState } from "../../core/store/app.state";
 import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
 import { cloneObservableArray } from "../../utils/cloneObservable";
-import { sideBarIconsDto } from "../../core/store/types/store.types";
 import { APP_ICONS_ACTIONS } from "../../core/store/actions/app-icons.actions";
 
 @Component({

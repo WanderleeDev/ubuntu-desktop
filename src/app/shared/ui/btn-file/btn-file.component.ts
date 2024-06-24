@@ -22,6 +22,7 @@ export class BtnFileComponent {
   @Input({transform: booleanAttribute}) priority?: boolean;
   @Input({transform: booleanAttribute}) hasInteractivity?: boolean;
   @Input() handleFile?: () => void;
+  @Input() customClass?: string;
 
   public handleButton(): void {
     if (!this.handleFile) return

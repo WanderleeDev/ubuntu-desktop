@@ -1,5 +1,5 @@
 <button
-  class="grid place-content-center select-none group"
+  [class]="['grid place-content-center select-none group', customClass ]"
   (click)="handleButton()"
   type="button"
   [attr.title]="nameFile || null"

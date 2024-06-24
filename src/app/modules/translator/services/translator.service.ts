@@ -12,7 +12,7 @@ export class TranslatorService {
   readonly #store: Store<AppState> = inject(Store);
   readonly #gemini = new GoogleGenerativeAI(environment.GEMINI_API);
   readonly #geminiConfig: ModelParams = {
-    model: "gemini-pro",
+    model: "gemini-1.5-flash",
     generationConfig: { maxOutputTokens: 100 },
   };
 
@@ -25,12 +25,11 @@ export class TranslatorService {
     const data = await this.#gemini
       .getGenerativeModel(this.#geminiConfig)
       .generateContentStream(
-        `Translate the following text: "${text}" from ${from} to ${to}`
+        `translates the following text: "${text}" from ${from} to ${to}. Only return the translation if it could not be translated returns an empty string`
       );
 
     try {
       for await (const response of data.stream) {
-        console.log(`stream chunk: ${response.text()}`);
         textResponse += response.text();
         this.#store.dispatch(
           TRANSLATOR_ACTIONS.saveTranslation({ translation: textResponse })

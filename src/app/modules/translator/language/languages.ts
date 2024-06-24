@@ -14,12 +14,6 @@ const languages: ILanguage[] = [
     code: "af",
   },
   {
-    no: "2",
-    name: "Albanian",
-    native: "Shqip",
-    code: "sq",
-  },
-  {
     no: "3",
     name: "Arabic",
     native: "عربي",

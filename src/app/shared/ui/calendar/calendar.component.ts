@@ -6,7 +6,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatNativeDateModule } from "@angular/material/core";
 import { SimpleClockComponent } from "../simpleClock/simpleClock.component";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ListTasksComponent } from "../../../components/listTasks/listTasks.component";
+import { ListTasksComponent } from "../../../modules/listTasks/listTasks.component";
 
 @Component({
   selector: "app-calendar",
