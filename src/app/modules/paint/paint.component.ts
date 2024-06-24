@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, inject } from "@angular/core";
 import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
 import { CanvasComponent } from "./components/canvas/canvas.component";
 import { ColoredToolbarComponent } from "./components/colored-toolbar/colored-toolbar.component";
@@ -7,7 +7,7 @@ import { PencilToolbarComponent } from "./components/pencil-toolbar/pencil-toolb
 import { PaintStore } from "./local-store/paint.store";
 import { AsyncPipe, NgClass } from "@angular/common";
 import { HeaderControlExtraComponent } from "./components/header-control-extra/header-control-extra.component";
-import { LetDirectiv } from '@ngrx/component-store';
+// import { LetDirective } from '@ngrx/component-store';
 
 @Component({
   selector: "app-paint",

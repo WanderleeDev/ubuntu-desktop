@@ -7,6 +7,7 @@ import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideClientHydration } from "@angular/platform-browser";
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
+import { concatLatestFrom } from '@ngrx/operators';
 import { ROOT_REDUCERS, ALL_EFFECTS } from "./core/store/app.state";
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 

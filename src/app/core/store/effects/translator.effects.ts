@@ -1,5 +1,4 @@
-import {  inject, Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
+import {  inject, Injectable } from "@angular/core";import { Actions, createEffect, ofType } from '@ngrx/effects';import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from "@ngrx/store";
 import { AppState } from "../app.state";
 import { TranslatorService } from "../../../modules/translator/services/translator.service";
@@ -10,8 +9,8 @@ import {
   map,
   of,
 } from "rxjs";
-import { concatLatestFrom } from "@ngrx/operators";
-import { TRANSLATOR_SELECTORS } from "../selectors/translator.selectors";
+import { concatLatestFrom, concatLatestFrom } from '@ngrx/operators';pimport { concatLatestFrom } from '@ngrx/operators';
+ort { TRANSLATOR_SELECTORS } from "../selectors/translator.selectors";
 import { HttpErrorResponse } from "@angular/common/http";
 
 @Injectable()
