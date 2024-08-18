@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { ComponentStore } from "@ngrx/component-store";
 import { PaintState } from "../interfaces/IPaintState.interface";
-import { strokeAction } from "../types/paint.types";
+import { strokeAction, paintStateDTO } from "../types/paint.types";
 
 @Injectable()
 export class PaintStore extends ComponentStore<PaintState> {
@@ -35,17 +35,17 @@ export class PaintStore extends ComponentStore<PaintState> {
 
   private updateStrokeWidth() {
     return this.updater((state, action: strokeAction): PaintState => {
-      const width =
+      const widthStroke =
         action === "increment" ? state.strokeWidth + 1 : state.strokeWidth - 1;
 
       return {
         ...state,
-        strokeWidth: Math.min(Math.max(width, 1), 50),
+        strokeWidth: Math.min(Math.max(widthStroke, 1), 50),
       };
     });
   }
 
-  private toggleState(key: keyof PaintState): () => void {
+  private toggleState(key: keyof paintStateDTO): () => void {
     return this.updater(
       (state): PaintState => ({
         ...state,

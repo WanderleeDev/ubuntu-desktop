@@ -24,4 +24,15 @@ import { WindowControlComponent } from "../../shared/ui/windowControl/windowCont
 })
 export class WindowWrapperComponent {
   appTitle = input.required<string>();
+  public onEnterWindow(element: HTMLElement): void {
+    console.log("onEnterWindow");
+    element.focus()
+    element.style.zIndex = "100"
+  }
+
+  public onLeaveWindow(element: HTMLElement): void {
+    console.log("onLeaveWindow");
+    element.blur()
+    element.style.zIndex = "0"
+  }
 }

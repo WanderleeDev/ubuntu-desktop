@@ -25,7 +25,7 @@ import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
     VgBufferingModule
   ],
   templateUrl: './video-player.component.html',
-  styleUrl: './video-player.component.css',
+  styleUrls: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoPlayerComponent {

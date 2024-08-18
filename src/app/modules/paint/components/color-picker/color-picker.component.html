@@ -47,7 +47,7 @@
   </span>
   <input
     #picker
-    (change)="handlePicker()()"
+    (input)="onChange(picker.value)"
     class="relative top-2/4 -translate-y-2/4 left-2/4 -translate-x-2/4 scale-150"
     aria-label="choosing a color"
     type="color"

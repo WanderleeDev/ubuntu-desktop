@@ -12,7 +12,7 @@
     </li>
     }
     <li>
-      <app-color-picker [handlePicker]="pickerHandler" />
+      <app-color-picker (changeColor)="onChange($event)" />
     </li>
   </ul>
 </app-toolbar-container>

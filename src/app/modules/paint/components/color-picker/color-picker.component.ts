@@ -1,14 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component, output } from "@angular/core";
 
 @Component({
-  selector: 'app-color-picker',
+  selector: "app-color-picker",
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './color-picker.component.html',
+  imports: [CommonModule],
+  templateUrl: "./color-picker.component.html",
   styles: `
     :host {
       display: block;
@@ -16,6 +13,10 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColorPickerComponent { 
-  handlePicker = input.required<() => void>();
+export class ColorPickerComponent {
+  changeColor = output<string>();
+
+  public onChange(color: string) {
+    this.changeColor.emit(color);
+  }
 }

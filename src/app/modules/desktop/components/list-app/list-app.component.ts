@@ -8,15 +8,15 @@ import { CdkDrag } from "@angular/cdk/drag-drop";
 import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
 import { APPLICATION_ACTIONS } from "../../../../core/store/actions/application.actions";
 import { TranslatorComponent } from "../../../translator/translator.component";
-import { VideoPlayerComponent } from "../../../../shared/ui/video-player/video-player.component";
 import { BlocComponent } from "../../../bloc/bloc.component";
 import { GameComponent } from "../../../game/game.component";
 import { EmulatorComponent } from "../../../emulator/emulator.component";
 import { CurriculumVitaeComponent } from "../../../curriculum-vitae/curriculum-vitae.component";
 import { PaintComponent } from "../../../paint/paint.component";
+import { MyVideoComponent } from "../../../my-video/my-video.component";
 
 enum components {
-  "github 2023",
+  "my github",
   "bloc",
   "cv",
   "desmune",
@@ -33,12 +33,12 @@ enum components {
     AsyncPipe,
     CdkDrag,
     TranslatorComponent,
-    VideoPlayerComponent,
     BlocComponent,
     GameComponent,
     EmulatorComponent,
     CurriculumVitaeComponent,
-    PaintComponent
+    PaintComponent, 
+    MyVideoComponent
   ],
   templateUrl: "./list-app.component.html",
   styles: `

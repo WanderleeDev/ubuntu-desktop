@@ -1,7 +1,7 @@
 <ul
   id="container-boundary"
   #data
-  class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full"
+  class="grid grid-cols-desktop-col grid-rows-desktop-row gap-8 h-full select-none"
 >
   @for (icon of selectDesktopAppIcons$ | async ; track icon.id) {
 
@@ -14,7 +14,7 @@
       [icon]="icon.icon"
       [size]="50"
       [nameFile]="icon.name"
-      [priority]="icon.name === 'github 2023' ? true : false"
+      [priority]="icon.name === 'my github' ? true : false"
       hasInteractivity="true"
     />
   </li>
@@ -22,7 +22,7 @@
   <div class="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4">
     @switch (icon.name) { @case (components[0]) { @defer () {
 
-    <app-video-player [dataVideo]="" />
+    <app-my-video/>
     } } @case (components[1]) { @defer () {
 
     <app-bloc />

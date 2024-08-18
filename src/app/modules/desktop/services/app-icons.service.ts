@@ -11,7 +11,7 @@ export class AppsIconsService {
     {
       id: this.randomIdSvc.generateRandomId(), 
       icon: 'assets/desktopIcons/video.svg', 
-      name: 'github 2023' 
+      name: 'my github' 
     },
     {
       id: this.randomIdSvc.generateRandomId(), 

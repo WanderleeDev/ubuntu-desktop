@@ -38,4 +38,5 @@ export class PaintComponent {
   isViewColorBar$ = this.#paintStore.hasColorBarSelector$;
   isViewExtraBar$ = this.#paintStore.hasExtraBarSelector$;
   isFullscreen$ = this.#paintStore.hasFullScreenSelector$;
+  color$ = this.#paintStore.currentColorSelector$;
 }

@@ -1,7 +1,8 @@
 import { NgStyle } from "@angular/common";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { ToolbarContainerComponent } from "../../containers/toolbar-container.component";
 import { ColorPickerComponent } from "../color-picker/color-picker.component";
+import { PaintStore } from "../../local-store/paint.store";
 
 @Component({
   selector: "app-colored-toolbar",
@@ -16,6 +17,7 @@ import { ColorPickerComponent } from "../color-picker/color-picker.component";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ColoredToolbarComponent {
+  #paintStore: PaintStore = inject(PaintStore);
   hexColors = [
     '#1D1D1D',
     "#99C0EF",
@@ -26,12 +28,7 @@ export class ColoredToolbarComponent {
     "#A51D2D",
   ];
 
-  public onChange(color: string):void {
-    console.log(color);
-  }
-
-  public pickerHandler():void {
-    console.log('passed');
-    
+  public onChange(color: string): void {
+    this.#paintStore.setColor(color)
   }
 }

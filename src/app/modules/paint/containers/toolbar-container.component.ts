@@ -24,6 +24,6 @@ import { orientation } from "../types/paint.types";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarContainerComponent {
-  readonly toolbarClass = 'bg-[#242424] rounded-md flex gap-2 p-2 shadow-bar'
+  readonly toolbarClass = 'bg-[#242424] rounded-md flex gap-2 p-2 shadow-bar select-none'
   orientationBar = input<orientation>("horizontal");
 }
