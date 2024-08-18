@@ -1,0 +1,23 @@
+<app-toolbar-container
+  class="absolute m-2 top-2/4 -translate-y-2/4 left-0"
+  orientationBar="vertical"
+>
+  <ul class="flex flex-col gap-1">
+    @if (isViewStrokeMenu$ | async) {
+      <li class="animate-fadeIn">
+        <app-stroke-control />
+      </li>
+    }
+    @for (tool of tools; track tool.label) {
+    <li class="hover:bg-white/30 rounded-sm grid place-content-center p-1">
+      <app-btn-file
+        (click)="tool?.onclick()"
+        [icon]="tool.urlSvg"
+        [size]="26"
+        [label]="tool.label"
+        [hasInteractivity]="true"
+      />
+    </li>
+    }
+  </ul>
+</app-toolbar-container>

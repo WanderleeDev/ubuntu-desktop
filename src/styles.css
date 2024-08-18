@@ -70,34 +70,39 @@
   }
 
   .w-window {
-    width: min(40rem, 100%);
+    width: min(50rem, 100%);
   }
 
-  .custom-scroll {
-    --scroll-color: #6e6e6e;
-    /* scrollbar-width: thin;
-    scrollbar-color: blue orange; */
+  .scrollStyle {
+    --scroll-color: #9c9c9c;
 
     &::-webkit-scrollbar {
-      width: 0.8rem;
+      width: 0.5rem;
     }
 
     &::-webkit-scrollbar-track {
-      height: 1rem;
       background-color: var(--scroll-color);
     }
 
     &::-webkit-scrollbar-thumb {
       background-color: rgb(0, 0, 0);
-      border-radius: 0.2rem;
-      border: 3px solid var(--scroll-color);
+      border-radius: 2rem;
+      border: 0.1rem solid var(--scroll-color);
     }
+  }
+
+  .shadow-window {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  }
+
+  .shadow-bar {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 }
 
 @layer components {
   .mark {
-    @apply relative before:animate-pulse-fade-in before:animate-iteration-count-infinite before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[1] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[1];
+    /* @apply relative before:animate-pulse-fade-in before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[1] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[1]; */
   }
 }
 

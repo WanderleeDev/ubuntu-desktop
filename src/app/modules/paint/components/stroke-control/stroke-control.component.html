@@ -1,0 +1,7 @@
+<div class="flex bg-[#393939]" [ngStyle]="{
+  flexDirection: direction() === 'vertical' ? 'column' : 'row'
+}">
+  <button class="size-7 hover:text-amber-400 text-base scale-150 font-extralight" (click)="onCLick('increment')" type="button">+</button>
+  <span class="size-7 grid place-content-center text-xs border-t-[.1rem] border-b-[.1rem] border-stone-600">{{strokeWidth$ | async}}</span>
+  <button class="size-7 hover:text-amber-400 text-base scale-150 font-extralight" (click)="onCLick('decrement')" type="button">-</button>
+</div>

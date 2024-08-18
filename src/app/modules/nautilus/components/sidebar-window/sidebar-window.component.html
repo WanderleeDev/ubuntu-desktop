@@ -1,0 +1,20 @@
+<nav class="max-h-[25rem] overflow-y-scroll text-sm  scrollStyle">
+  @for (list of sideBarLinks | keyvalue; track list.key) {
+    <ul>
+      @for (link of list.value; track link.name) {
+        <li>
+          <a class="pl-4 py-2 block hover:bg-amber-600" [routerLink]="link.href" >{{link.name}}</a>
+        </li>
+        @if (link.subRoutes; as extraRoutes) {
+          <ul>
+            @for (route of extraRoutes; track route.name) {
+              <li class="pl-4 py-2 block hover:bg-amber-600">
+                <a class="py-2" [routerLink]="route.href" >{{route.name}}</a>
+              </li>
+            }
+          </ul>
+        }
+      }
+    </ul>
+  }
+</nav>

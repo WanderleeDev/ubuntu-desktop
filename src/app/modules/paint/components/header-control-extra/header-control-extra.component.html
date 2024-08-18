@@ -1,0 +1,24 @@
+<div class="flex gap-3">
+  <app-btn-basic
+    class="hover:bg-white/30 rounded-sm grid place-content-center p-1"
+    [titleBtn]="(isFullscreen$ | async) ? 'exit fullscreen' : 'open fullscreen'"
+    [customStyles]="{
+      scale: '1.2'
+    }"
+    [btnData]="{
+     urlSvg: (isFullscreen$ | async) ?'assets/paint-icons/blind-eye.svg' : 'assets/paint-icons/eye.svg',
+    label: (isFullscreen$ | async) ? 'exit fullscreen' : 'open fullscreen',
+  }"
+    (click)="onClick()"
+  />
+  <app-btn-basic
+    [btnData]="{
+      urlSvg: 'assets/paint-icons/download.svg',
+      label: 'download progress'
+    }"
+    titleBtn="download progress"
+    [customStyles]="{
+      scale: '1.2'
+    }"
+  />
+</div>

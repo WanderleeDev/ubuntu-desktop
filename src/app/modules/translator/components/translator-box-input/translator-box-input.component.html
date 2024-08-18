@@ -14,6 +14,7 @@
     {{ textBoxControl.value.length }} / 100
   </span>
   <app-btn-file
+    customClass="hover:bg-white/10"
     [cdkCopyToClipboard]="textBoxControl.value"
     [size]="16"
     icon="assets/extra-icons/copy.svg"

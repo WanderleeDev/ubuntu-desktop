@@ -1,0 +1,10 @@
+<app-window-wrapper [appTitle]="titleVideo">
+  <app-video-player
+  class="aspect-video"
+    [dataVideo]="{
+      title: titleVideo,
+      url: { webm: videoUrl }
+    }"
+    body
+  />
+</app-window-wrapper>

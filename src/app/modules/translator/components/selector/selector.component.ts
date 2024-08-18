@@ -12,7 +12,7 @@ import {
 import languages from "../../language/languages";
 import { Store } from "@ngrx/store";
 import { AppState } from "../../../../core/store/app.state";
-import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/transalator.action";
+import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/translator.actions";
 import { IButtonLanguage } from "../../interfaces/IButtonLanguage.interface";
 
 @Component({

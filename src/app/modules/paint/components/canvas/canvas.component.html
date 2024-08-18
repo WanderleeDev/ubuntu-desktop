@@ -1,0 +1,10 @@
+<canvas
+#canvas
+  class="bg-white w-full cursor-progress"
+  [width]="canvasConfig().width"
+  [height]="canvasConfig().height"
+  (mousedown)="onStartDrawing($event, selectedColor,penThickness)"
+  (mousemove)="onDraw($event)"
+  (mouseup)="OnEndDrawing()"
+>
+</canvas>

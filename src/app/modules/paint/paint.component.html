@@ -1,0 +1,21 @@
+<app-window-wrapper
+  appTitle="rnote"
+  class="relative"
+  *ngrxLet="{
+  isFullscreen$, isViewColorBar$,isViewExtraBar$,color$
+} as store"
+>
+  <app-header-control-extra header [isActiveFullscreen]="store.isFullscreen$" />
+  <div class="relative" body>
+    @if (!store.isFullscreen$) {
+      @if (store.isViewColorBar$) {
+      <app-colored-toolbar class="animate-fadeIn" />
+      }
+      <app-pencil-toolbar />
+      @if (store.isViewExtraBar$) {
+        <app-extra-toolbar class="animate-fadeIn"  />
+      }
+    }
+    <app-canvas #canvas />
+  </div>
+</app-window-wrapper>
