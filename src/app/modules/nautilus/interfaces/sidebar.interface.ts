@@ -1,7 +1,6 @@
 export interface ISidebarItem {
   name: string;
   icon: string;
-  href: string;
   subRoutes?: ISidebarItem[];
 }
 

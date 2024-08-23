@@ -1,20 +1,29 @@
-<nav class="max-h-[25rem] overflow-y-scroll text-sm  scrollStyle">
-  @for (list of sideBarLinks | keyvalue; track list.key) {
-    <ul>
-      @for (link of list.value; track link.name) {
-        <li>
-          <a class="pl-4 py-2 block hover:bg-amber-600" [routerLink]="link.href" >{{link.name}}</a>
-        </li>
-        @if (link.subRoutes; as extraRoutes) {
-          <ul>
-            @for (route of extraRoutes; track route.name) {
-              <li class="pl-4 py-2 block hover:bg-amber-600">
-                <a class="py-2" [routerLink]="route.href" >{{route.name}}</a>
-              </li>
-            }
-          </ul>
+<nav class="nautilus-nav scrollStyle">
+  @for (list of sideBarLinks | keyvalue; track list.key; let last = $last) {
+  <ul>
+    @for (link of list.value; track link.name) {
+    <li>
+      @if (link.subRoutes) {
+      <details class="nautilus-nestedItem" name="nested">
+        <summary class="nautilus-item nautilus-item--nested">
+          {{ link.name }}
+        </summary>
+        @for(route of link.subRoutes; track route.name) {
+        <button (click)="onClick()" class="nautilus-item" type="button">
+          {{ route.name }}
+        </button>
         }
+        <span class="panel-divider"></span>
+      </details>
+      }@else {
+      <button class="nautilus-item" (click)="onClick()" type="button">
+        {{ link.name }}
+      </button>
       }
-    </ul>
-  }
+    </li>
+    }
+  </ul>
+  @if (!last) {
+  <app-divider-x />
+  } }
 </nav>

@@ -6,7 +6,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import { AccordionComponent } from '../accordion/accordion.component';
 //  Interfaces
 import { IAccordionData } from '../../../interfaces/IAccordionData.interface';
-import { BtnBasicComponent } from '../btn-basic/btn-basic.component';
+import { BtnBasicComponent } from '../../components/btn-basic/btn-basic.component';
 import { IBtnBasic } from '../../../interfaces/IBtnData.interface';
 
 @Component({

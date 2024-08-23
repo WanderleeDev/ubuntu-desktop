@@ -8,7 +8,7 @@ import {
   signal,
 } from "@angular/core";
 //  Components
-import { BtnBasicComponent } from "../../../../shared/ui/btn-basic/btn-basic.component";
+import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
 import { TaskEditorComponent } from "../taskEditor/taskEditor.component";
 //  Interfaces
 import { ITask, TaskActionKey } from "../../../../interfaces/ITask.interface";

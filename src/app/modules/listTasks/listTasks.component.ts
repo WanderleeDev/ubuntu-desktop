@@ -4,7 +4,7 @@ import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 //  Services
 import { TasksManagerService } from "./services/tasksManager.service";
 //  Interface
-import { BtnBasicComponent } from "../../shared/ui/btn-basic/btn-basic.component";
+import { BtnBasicComponent } from "../../shared/components/btn-basic/btn-basic.component";
 import { TaskComponent } from "./components/task/task.component";
 import { FilterControlTaskComponent } from "./components/filterControlTask/filterControlTask.component";
 

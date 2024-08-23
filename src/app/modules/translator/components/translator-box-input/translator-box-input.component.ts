@@ -15,8 +15,8 @@ import { Observable } from "rxjs";
 import { CapitalizePipe } from "../../../../shared/pipes/capitalize.pipe";
 import { ReplaceCharactersPipe } from "../../../../shared/pipes/replace-characters.pipe";
 import { ClipboardModule } from "@angular/cdk/clipboard";
-import { BtnBasicComponent } from "../../../../shared/ui/btn-basic/btn-basic.component";
-import { BtnFileComponent } from "../../../../shared/ui/btn-file/btn-file.component";
+import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
+import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 @Component({

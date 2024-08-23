@@ -9,8 +9,6 @@ export class ReplaceCharactersPipe implements PipeTransform {
   transform(value: string | null, characters: string[]): string {
     if (value === null || value.trim() === '') return ''
     if (!characters.length) throw new Error('The list of characters to be replaced is empty');
-
-    console.log(value);
     
     let wordFormatting = value;
 

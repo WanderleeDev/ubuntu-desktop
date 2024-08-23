@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { ToolbarContainerComponent } from "../../containers/toolbar-container.component";
 import { IBtnBasic } from "../../../../interfaces/IBtnData.interface";
-import { BtnFileComponent } from "../../../../shared/ui/btn-file/btn-file.component";
+import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 
 @Component({
     selector: "app-extra-toolbar",

@@ -4,7 +4,7 @@ import {
   Component,
   inject,
 } from "@angular/core";
-import { BtnFileComponent } from "../../shared/ui/btn-file/btn-file.component";
+import { BtnFileComponent } from "../../shared/components/btn-file/btn-file.component";
 import {
   CdkDrag,
   CdkDragDrop,

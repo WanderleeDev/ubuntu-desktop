@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { DividerXComponent } from "../../../../shared/ui/divider-x/divider-x.component";
+import { DividerXComponent } from "../../../../shared/components/divider-x/divider-x.component";
 
 @Component({
   selector: "app-form-color-system",

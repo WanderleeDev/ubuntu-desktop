@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { ToolbarContainerComponent } from "../../containers/toolbar-container.component";
 import { StrokeControlComponent } from "../stroke-control/stroke-control.component";
-import { BtnFileComponent } from "../../../../shared/ui/btn-file/btn-file.component";
+import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 import { PaintStore } from "../../local-store/paint.store";
 import { IPaintButton } from "../../interfaces/IPaintButton.interface";
 import { AsyncPipe } from "@angular/common";

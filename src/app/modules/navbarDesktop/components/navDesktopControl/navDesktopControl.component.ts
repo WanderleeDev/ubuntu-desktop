@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 //  Components
-import { BtnBasicComponent } from '../../../../shared/ui/btn-basic/btn-basic.component';
+import { BtnBasicComponent } from '../../../../shared/components/btn-basic/btn-basic.component';
 import { IBtnBasic } from '../../../../interfaces/IBtnData.interface';
 import { SubConfigPanelComponent } from '../../../../shared/ui/subConfigPanel/subConfigPanel.component';
 

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { IBtnData } from '../../../interfaces/IBtnData.interface';
-import { BtnBasicComponent } from '../btn-basic/btn-basic.component';
+import { BtnBasicComponent } from '../../components/btn-basic/btn-basic.component';
 
 import { AutoScreenDirective } from '../../../directives/autoScreen.directive';
 import { WindowControllerService } from '../../../services/windowController.service';

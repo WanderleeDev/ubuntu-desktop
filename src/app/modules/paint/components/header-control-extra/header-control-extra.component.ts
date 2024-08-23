@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
 import { PaintStore } from "../../local-store/paint.store";
-import { BtnBasicComponent } from "../../../../shared/ui/btn-basic/btn-basic.component";
+import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
 
 @Component({
   selector: "app-header-control-extra",

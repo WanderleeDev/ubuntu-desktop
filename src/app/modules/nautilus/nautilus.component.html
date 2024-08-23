@@ -1,6 +1,9 @@
 <app-window-wrapper appTitle="Settings" >
-  <div class="grid grid-cols-[12rem_1fr]">
+  <div class="grid grid-cols-[12rem_1fr]" body>
     <app-sidebar-window />
-    <router-outlet />
+    <div class="content-center px-4">
+      <ng-container *ngComponentOutlet="profile"/>
+      <button type="button" (click)="onClick()">a</button>
+    </div>
   </div>
-</app-window-wrapper>
+</app-window-wrapper> 
