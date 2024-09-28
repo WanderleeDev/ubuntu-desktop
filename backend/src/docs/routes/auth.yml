@@ -1,0 +1,47 @@
+paths:
+  /auth/login:
+    post:
+      tags:
+        - authorization
+      summary: Login user
+      description: Login to the user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+        required: true
+      responses:
+        200:
+          description: Login success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Login"
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Bad request
+        500:
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Internal server error
+components:
+  schemas:
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+          example: myEmail@gmail.com
+        password:
+          type: string
+          example: myPassword
+      xml:
+        name: login
