@@ -1,0 +1,22 @@
+.screenLock {
+  position: fixed;
+  inset: 0;
+  background-color: #4f194c;
+  z-index: 10;
+  display: grid;
+  place-content: center;
+  place-items: center;
+  min-height: 100dvh;
+  gap: 2rem;
+
+  & .screenLock-message {
+    font-size: 2.5rem;
+    transform: translateY(0);
+    transition: opacity 1s, transform .7s;
+    
+    @starting-style {
+      opacity: 0;
+      transform: translateY(1.5rem);
+    }
+  }
+}

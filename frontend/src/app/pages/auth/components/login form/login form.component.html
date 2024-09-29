@@ -1,0 +1,37 @@
+<form class="form" [formGroup]="formLogin">
+  <a class="form-link" routerLink="/" title="volver atrás">
+    <app-btn-basic
+      class="form-btn form-btn--arrow"
+      [btnData]="{
+        urlSvg: 'assets/extra-icons/pan-end-symbolic.svg',
+        label: 'volver atrás',
+      }"
+    />
+  </a>
+  <label class="form-field" for="password">
+    <input
+      class="form-input"
+      (keydown.enter)="onSubmit()"
+      formControlName="password"
+      [type]="inputTypeStream()"
+      name="password"
+      id="password"
+    />
+    <app-btn-basic
+      class="form-btn"
+      (click)="toggleInputType()"
+      [titleBtn]="labelStream()"
+      [btnData]="{
+      urlSvg: 'assets/paint-icons/' + iconTypeStream(),
+      label: labelStream(),
+      }"
+    />
+  </label>
+</form>
+
+@defer(when formLogin.valid) {
+  @if (isReadyToNavigate()) {
+    <app-screen-lock redirectRoute="" />
+  }
+}
+

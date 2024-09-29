@@ -1,0 +1,10 @@
+<figure
+  class="user"
+  [ngStyle]="{
+    width: [size() + 'px'],
+    height: [size() + 'px']
+  }"
+>
+  <img class="user-image" [ngSrc]="userImage()" alt="user image" fill />
+  <figcaption class="user-name">{{ userName() }}</figcaption>
+</figure>

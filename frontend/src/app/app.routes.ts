@@ -1,17 +1,18 @@
 import { Routes } from '@angular/router';
+import { AuthComponent } from './pages/auth/auth.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    component: AuthComponent,
+    loadChildren: () => import('./pages/auth/auth.routing')
   },
   {
     path: 'home',
-    loadComponent: () => import('./Pages/home/home.component')
+    loadComponent: () => import('./pages/home/home.component')
   },
   {
     path: '**',
-    loadComponent: () => import('./Pages/notFound/notFound.component')
+    loadComponent: () => import('./pages/notFound/notFound.component')
   }
 ];

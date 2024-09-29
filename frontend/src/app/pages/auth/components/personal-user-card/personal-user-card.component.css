@@ -1,0 +1,22 @@
+:host {
+  display: contents;
+}
+
+.userCard {
+  width: 100%;
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  padding: .5rem 1rem;
+  border-radius: .7rem;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+  }
+
+  & .userCard-name {
+    font-weight: 400;
+    letter-spacing: .1rem;
+  }
+}

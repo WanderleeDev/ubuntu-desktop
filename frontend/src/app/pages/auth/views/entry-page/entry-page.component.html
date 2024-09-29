@@ -1,0 +1,16 @@
+<ng-container>
+  <a class="block" title="authenticate" routerLink="/login">
+    <app-personal-user-card />
+  </a>
+  <div class="flex flex-col gap-2 text-sm text-[#dbbfd4] py-2">
+    <a class="hover:underline w-fit" routerLink="/register">¿No estas en la lista?</a>
+    <button (click)="onClick()" #btn class="hover:underline text-start w-fit" type="button">Ingresar como invitado</button>
+  </div>
+</ng-container>
+
+
+@defer(on hover(btn)) {
+  @if (isReadyToNavigate()) {
+    <app-screen-lock redirectRoute="/home" />
+  }
+}

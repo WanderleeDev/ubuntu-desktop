@@ -1,31 +1,32 @@
-import { Injectable, OnDestroy, computed, signal } from '@angular/core';
+import { isPlatformServer } from "@angular/common";
+import { Inject, Injectable, OnDestroy, computed, signal } from "@angular/core";
+import { PLATFORM_ID } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ClockService implements OnDestroy {
   private signalClock = signal(new Date());
-  private signalClockStream = computed(() => this.signalClock())
-  private timerClock = () => {
-    setInterval(() => this.signalClock.update(() => {
-      console.log(new Date());
-      return new Date()
-    }), 1000);
-  };
+  private signalClockStream = computed(() => this.signalClock());
+  private timer?: NodeJS.Timeout;
 
-  public initClock() {
-    this.timerClock()
+  constructor(@Inject(PLATFORM_ID) private platformID: Object) {
+    this.initClock();
   }
 
-  public clearInterval() {
-    this.clearInterval()
-  }
+  private initClock() {
+    if (isPlatformServer(this.platformID)) return;
 
-  ngOnDestroy(): void {
-    console.log('sd');
+    this.timer = setInterval(() => {
+      this.signalClock.set(new Date());
+    }, 1000);
   }
-
+  
   public getSignalClock() {
-    return this.signalClockStream
+    return this.signalClockStream;
+  }
+  
+  ngOnDestroy(): void {
+    clearInterval(this?.timer);
   }
 }
