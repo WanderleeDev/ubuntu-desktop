@@ -3,7 +3,7 @@ import { SidebarComponent } from '../../modules/sidebar/sidebar.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { DesktopComponent } from '../../modules/desktop/desktop.component';
 import { NavbarDesktopComponent } from '../../modules/navbarDesktop/navbarDesktop.component';
-import { HelpScoutComponent } from '../../shared/components/helpScout/helpScout.component';
+import { HelpScoutComponent } from './components/helpScout/helpScout.component';
 
 import { Store } from '@ngrx/store';
 import { AppState } from '../../core/store/app.state';
@@ -11,6 +11,7 @@ import { APP_ICONS_SELECTORS } from '../../core/store/selectors/app-icons.select
 import { APP_ICONS_ACTIONS } from '../../core/store/actions/app-icons.actions';
 import { PaintComponent } from '../../modules/paint/paint.component';
 import { NautilusComponent } from '../../modules/nautilus/nautilus.component';
+import { BannerDesktopComponent } from './components/banner-desktop/banner-desktop.component';
 
 
 
@@ -24,7 +25,8 @@ import { NautilusComponent } from '../../modules/nautilus/nautilus.component';
     NavbarDesktopComponent,
     HelpScoutComponent,
     PaintComponent,
-    NautilusComponent
+    NautilusComponent,
+    BannerDesktopComponent
   ],
   templateUrl: './home.component.html',
   styles: `:host { display: contents; }`,

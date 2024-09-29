@@ -14,7 +14,7 @@
     position: relative;
     background-image: linear-gradient(180deg, #a8272a 10%, #400443 80%);
   }
-  .bg::before {
+  /* .bg::before {
     content: "";
     position: absolute;
     background: url("https://www.dropbox.com/scl/fi/t0yi2ig367af04expnnmq/fossa.webp?rlkey=1uqdg1yctuzrc75xvd3942oqm&raw=1");
@@ -25,7 +25,7 @@
     opacity: 0.3;
     inset: 0;
     z-index: 1;
-  }
+  } */
 
   .grid-desktop {
     display: grid;

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { HelperScoutService } from '../../../services/helperScout.service';
+import { HelperScoutService } from '../../../../services/helperScout.service';
 
 @Component({
   selector: 'app-help-scout',
