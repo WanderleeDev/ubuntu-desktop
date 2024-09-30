@@ -1,14 +1,14 @@
-<li class="w-full gap-2 grid grid-cols-[1fr_auto]">
+<li class="task">
   <p
-    class="w-full flex gap-2 truncate"
-    [title]="[task.isCompleted ? '[Completed]' : '[Pending]', task.task] | formatList"
-    [ngStyle]="{'color': task.isCompleted ? '#a2ff9f' : '#f7b7b7'}"
+    class="task-text"
+    [title]="[taskStatusStream() , task().task] | formatList"
+    [ngStyle]="{'color': task().status === 'completed' ? '#a2ff9f' : '#f7b7b7'}"
   >
-    <span>{{ (index ?? 0) + 1 }} - </span>
-    {{ task.task | capitalize }}
+    <span>{{ indexTask() + 1 }} - </span>
+    {{ task().task | capitalize }}
   </p>
 
-  <div class="relative">
+  <div class="task-control">
     <app-btn-basic
       (click)="toggleControlTask()"
       titleBtn="show task control"
@@ -18,16 +18,15 @@
         label: 'view task control'
       }"
     />
-    @if (task && isViewControlTask()) {
+    @if (task() && isViewControlTask()) {
     <app-task-editing-buttons
-      [taskEditingLogic]="taskEditingLogic"
     />
     }
   </div>
 </li>
 
 @defer (when isViewControlTask) { 
-  @if (isContentEditable()) {
+  <!-- @if (isContentEditable()) {
   <app-task-editor [task]="task" [fnEditTask]="fnEditTask" />
-  } 
+  }  -->
 }

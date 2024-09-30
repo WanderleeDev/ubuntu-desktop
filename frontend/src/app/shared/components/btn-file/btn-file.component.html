@@ -1,5 +1,5 @@
 <button
-  [class]="['grid place-content-center select-none group', customClass ]"
+  class="btnFile"
   (click)="handleButton()"
   type="button"
   [attr.title]="nameFile || null"
@@ -7,25 +7,23 @@
   [attr.data-interactive]="hasInteractivity"
 >
   <figure
+    class="btnFile-iconWrapper"
     [ngStyle]="{ width: size + 'px', height: size + 'px' }"
-    class="relative"
   >
-    <img
-      class="absolute"
-      [ngSrc]="icon"
-      [alt]="nameFile || label"
-      fill
-      [priority]="priority"
-    />
+    <img [ngSrc]="icon" [alt]="nameFile || label" fill [priority]="priority" />
     @if (nameFile) {
-    <figcaption
-      class="text-white absolute bottom-0 translate-y-full left-2/4 -translate-x-2/4 text-sm pt-1 capitalize"
-    >
+    <figcaption class="btnFile-name">
       {{ nameFile }}
     </figcaption>
-    } @if (label) {
+    } @else if (label) {
     <figcaption
-      class="absolute left-0 bg-stone-900 text-white translate-x-14 w-max capitalize text-sm top-2/4 -translate-y-2/4 py-1 px-3 border-[.1rem] border-stone-600 rounded-2xl tracking-wide opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity"
+      class="btnFile-label"
+      [ngClass]="{
+      'btnFile-label--right': labelDirection() === 'right',
+      'btnFile-label--bottom': labelDirection() === 'bottom',
+      'btnFile-label--left': labelDirection() === 'left',
+      'btnFile-label--top': labelDirection() === 'top',
+    }"
     >
       {{ label }}
     </figcaption>

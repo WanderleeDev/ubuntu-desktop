@@ -2,8 +2,8 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input, OnInit, inject } from "@angular/core";
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 //  Interfaces
-import { ITask } from "../../../../interfaces/ITask.interface";
 import { IFormEditor } from "../../../../interfaces/IFormEditor.interface";
+import { Task } from "../../store/model/todo.state";
 
 
 
@@ -17,8 +17,8 @@ import { IFormEditor } from "../../../../interfaces/IFormEditor.interface";
 })
 export class TaskEditorComponent implements OnInit {
   private readonly fb = inject(FormBuilder);
-  @Input({ required: true }) task!: ITask;
-  @Input({ required: true }) fnEditTask!: (editedTask: ITask) => void;
+  @Input({ required: true }) task!: Task;
+  @Input({ required: true }) fnEditTask!: (editedTask: Task) => void;
   formEditor!: FormGroup<IFormEditor>;
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class TaskEditorComponent implements OnInit {
 
     this.formEditor.setValue({
       task: this.task.task,
-      status: this.task.isCompleted ? "completed" : "pending",
+      status: this.task.status,
     });
   }
 
@@ -45,7 +45,6 @@ export class TaskEditorComponent implements OnInit {
     this.fnEditTask({
       ...this.task,
       task,
-      isCompleted: status === "completed" ? true : false,
     });
   }
 }

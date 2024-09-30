@@ -1,0 +1,72 @@
+:host {
+  display: block;
+}
+
+.btnFile {
+  display: grid;
+  place-content: center;
+  user-select: none;
+
+  &:hover{
+    & .btnFile-label {
+      opacity: 1;
+    }
+  }
+
+  & .btnFile-iconWrapper {
+    position: relative;
+  }
+
+  & .btnFile-name {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(100%) translateX(-50%);
+    left: 50%;
+    font-size: 0.875rem;
+    padding-top: 0.25rem;
+    text-transform: capitalize;
+  }
+
+  & .btnFile-label {
+    width: max-content;
+    position: absolute;
+    background-color: #1c1917;
+    color: white;
+    text-transform: capitalize;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border: 0.1rem solid #52525b;
+    border-radius: 1rem;
+    letter-spacing: 0.025em;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms;
+  }
+
+  & .btnFile-label--bottom {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(2rem);
+  }
+
+  & .btnFile-label--top {
+    left: 50%;
+    top: 0%;
+    transform: translateX(-50%) translateY(-3rem);
+  }
+
+  & .btnFile-label--left {
+    left: 0%;
+    top: 50%;
+    transform: translateX(-130%) translateY(-50%);
+  }
+
+  & .btnFile-label--right {
+    left: 0;
+    top: 50%;
+    transform: translateX(3.5rem) translateY(-50%);
+  }
+}
+
+

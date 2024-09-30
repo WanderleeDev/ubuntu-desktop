@@ -1,11 +1,11 @@
-<section>
+<section *ngrxLet="todos$ as todos">
   <label class="text-slate-800" for="inputTasks">
     <input
+      [formControl]="inputTask"
+      (keydown.enter)="addTask()"
       autocomplete="off"
       placeholder="Add new task"
       class="w-full p-1 rounded-sm"
-      (keydown.enter)="onKeydown()"
-      [formControl]="inputTask"
       type="text"
       name="task"
       id="inputTasks"
@@ -14,16 +14,16 @@
 
   <header class="py-4">
     <h2 class="text-xl pb-2">My tasks</h2>
-    @if (listTasks().length) {
-      <app-filter-control-task />
+    @if (todos.length > 0) {
+    <app-filter-control-task />
     }
   </header>
 
   <ul class="flex flex-col gap-2 overflow-y-scroll overflow-x-hidden h-56 s">
-    @for (task of listTasks(); track task.id; let i = $index ) {
-      <app-task [task]="task" [index] ="i"/>
+    @for (task of todos; track task.id; let i = $index ) {
+    <app-task [task]="task" [indexTask]="i" />
     }@empty {
-      <li>No pending tasks congratulations</li>
+    <li>No pending tasks congratulations</li>
     }
   </ul>
 </section>

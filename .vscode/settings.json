@@ -2,5 +2,8 @@
   "conventionalCommits.scopes": [
     "backend",
     "frontend"
+  ],
+  "cSpell.words": [
+    "gemini"
   ]
 }

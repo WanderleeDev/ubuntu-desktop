@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 //  Components
 import { IBtnEditingTask } from "../../../../interfaces/IBtnData.interface";
 import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
@@ -15,7 +15,6 @@ import { TaskActionKey } from "../../../../interfaces/ITask.interface";
   imports: [CommonModule, BtnBasicComponent],
 })
 export class TaskEditingButtonsComponent {
-  @Input({required: true}) taskEditingLogic!: Map<TaskActionKey, () => void>;
   private readonly errorMissingKeyMap = 'The key is not present in the task editing logic map.'
 
   btnTaskList: IBtnEditingTask[] = [
@@ -35,9 +34,4 @@ export class TaskEditingButtonsComponent {
       functionBtn: 'edit'
     },
   ];
-
-  public applyTaskLogic (key: TaskActionKey) {
-    if (!this.taskEditingLogic?.has(key)) throw new Error(`[key: ${key}] ${this.errorMissingKeyMap}`)
-    this.taskEditingLogic.get(key)?.()
-  }
 }

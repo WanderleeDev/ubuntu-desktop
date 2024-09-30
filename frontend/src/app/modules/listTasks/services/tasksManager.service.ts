@@ -1,61 +1,65 @@
-import { Injectable, Signal, computed, inject, signal } from "@angular/core";
+import { Injectable } from "@angular/core";
 //  Services
 import { GenerateRandomId } from "../../../services/generateRandomId.service";
 import { LocalStorageService } from "../../../services/localStorage.service";
 //  Interfaces
-import { ITask } from "../../../interfaces/ITask.interface";
+import { StatusTask, Task, TaskDto } from "../store/model/todo.state";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class TasksManagerService {
-  private readonly localStorageSvc = inject(LocalStorageService);
   private readonly keyStorage = "task";
-  private randomIdSvc = inject(GenerateRandomId);
-  private listTasks = signal<ITask[]>([]);
-  private tasksStream = computed(() => {
-    this.localStorageSvc.setInLocalStorage<ITask[]>(
-      this.listTasks(),
+
+  constructor(
+    private readonly localStorageService: LocalStorageService,
+    private readonly randomIdService: GenerateRandomId
+  ) {}
+
+  public addTask(todos: Task[], task: string): Task[] {
+    if (!task.trim()) return todos;
+
+    const newTask: Task = {
+      id: this.randomIdService.generateRandomId(),
+      task,
+      status: StatusTask.PENDING,
+    };
+
+    return this.saveTasks([...todos, newTask]);
+  }
+
+  public deleteTask(todos: Task[], id: string): Task[] {
+    const tasksUpdated = todos.filter((task) => task.id !== id);
+
+    return this.saveTasks(tasksUpdated);
+  }
+
+  public changeStatusTask(todos: Task[], id: string): Task[] {
+    const changeStatus = (status: StatusTask) =>
+      status === StatusTask.PENDING ? StatusTask.COMPLETED : StatusTask.PENDING;
+    const tasksUpdated: Task[] = todos.map((task) =>
+      task.id !== id ? task : { ...task, status: changeStatus(task.status) }
+    );
+
+    return this.saveTasks(tasksUpdated);
+  }
+
+  public updateTask(todos: Task[], task: TaskDto): Task[] {
+    if (!task.id) return todos;
+
+    const tasksUpdated: Task[] = todos.map((currentTask) =>
+      currentTask.id === task.id ? { ...currentTask, ...task } : currentTask
+    );
+
+    return this.saveTasks(tasksUpdated);
+  }
+
+  public setTodos(todos: Task[]): Task[] {
+    return this.saveTasks(todos);
+  }
+
+  private saveTasks(todos: Task[]): Task[] {
+    return this.localStorageService.setInLocalStorage<Task[]>(
+      todos,
       this.keyStorage
     );
-    return this.listTasks();
-  });
-
-  constructor() {
-    const backUp = this.localStorageSvc.getLocalStorage<ITask[]>(this.keyStorage) ?? [];
-    this.listTasks.set(backUp);
-  }
-  
-  public getComputedTasks(): Signal<ITask[]> {
-    return this.tasksStream;
-  }
-
-  public addTask(task: string): void {
-    const newTask: ITask = {
-      task: task,
-      id: this.randomIdSvc.generateRandomId(),
-      isCompleted: false,
-    };
-    this.listTasks.update((tasks) => [...tasks, { ...newTask }]);
-  }
-
-  public deleteTask(id: string):void {
-    this.listTasks.update((tasks) => tasks.filter((t) => t.id !== id));
-  }
-
-  public editTask(task: ITask): void {
-    this.listTasks.update((tasks) =>
-      tasks.map((t) => task.id === t.id ? task : { ...t })
-    );
-  }
-
-  public changeStatusTask(id: string): void {
-    this.listTasks.update((tasks) => 
-      tasks.map((t) =>t.id !== id ? { ...t } : { ...t, isCompleted: !t.isCompleted })
-    );
-  }
-
-  public clearTasks(): void {
-    this.listTasks.update((tasks) => tasks.filter((t) => !t.isCompleted));
   }
 }
