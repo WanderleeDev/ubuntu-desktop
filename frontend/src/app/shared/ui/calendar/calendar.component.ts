@@ -1,24 +1,24 @@
-import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { CommonModule, DatePipe } from "@angular/common";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 //  Angular material
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatCardModule } from "@angular/material/card";
 import { MatNativeDateModule } from "@angular/material/core";
-import { SimpleClockComponent } from "../simpleClock/simpleClock.component";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
-import { ListTasksComponent } from "../../../modules/listTasks/listTasks.component";
+import { ClockComponent } from "../../../modules";
+import { TodoComponent } from "../../../modules";
 
 @Component({
   selector: "app-calendar",
   standalone: true,
   imports: [
-    CommonModule,
+    DatePipe,
     MatDatepickerModule,
     MatCardModule,
     MatNativeDateModule,
     MatSlideToggleModule,
-    SimpleClockComponent,
-    ListTasksComponent,
+    TodoComponent,
+    ClockComponent
   ],
   templateUrl: "./calendar.component.html",
   styles: `
@@ -29,7 +29,6 @@ import { ListTasksComponent } from "../../../modules/listTasks/listTasks.compone
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CalendarComponent {
-  @Input({ required: true }) date?: Date;
   selected!: Date | null;
   readonly actuallyDate = Date.now();
   tasks: string[] = [];
@@ -52,4 +51,5 @@ export class CalendarComponent {
       image: "assets/clock-icons/sunrise.svg",
     },
   ];
+
 }

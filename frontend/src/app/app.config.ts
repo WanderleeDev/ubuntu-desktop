@@ -5,11 +5,10 @@ import { routes } from "./app.routes";
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideClientHydration } from "@angular/platform-browser";
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { concatLatestFrom } from '@ngrx/operators';
+import { provideStore } from "@ngrx/store";
+import { provideEffects } from "@ngrx/effects";
 import { ROOT_REDUCERS, ALL_EFFECTS } from "./core/store/app.state";
-import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideStoreDevtools } from "@ngrx/store-devtools";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,6 +18,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     provideStore(ROOT_REDUCERS),
     provideEffects(ALL_EFFECTS),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
-],
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+  ],
 };

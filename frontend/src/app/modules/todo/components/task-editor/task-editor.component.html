@@ -1,0 +1,27 @@
+<form (ngSubmit)="editTask()" [formGroup]="formEditor" class="taskEditor">
+  <p class="taskEditor-label">Edit your task</p>
+  <label for="taskEdit">
+    <input
+      formControlName="task"
+      autocomplete="off"
+      class="taskEditor-input"
+      type="text"
+      id="taskEdit"
+      placeholder="Enter your updated task here..."
+    />
+  </label>
+
+  <p class="taskEditor-label">Edit your status</p>
+  <select
+    class="taskEditor-input"
+    formControlName="status"
+    placeholder="change your status"
+  >
+    <option value="pending">pending</option>
+    <option value="completed">completed</option>
+  </select>
+
+  <button class="taskEditor-btn"  [disabled]="formEditor.invalid" type="submit">
+    Update task
+  </button>
+</form>

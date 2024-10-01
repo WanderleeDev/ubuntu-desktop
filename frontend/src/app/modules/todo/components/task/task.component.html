@@ -1,0 +1,34 @@
+<li class="task">
+  <p
+    class="task-text"
+    [title]="[taskStatusStream(), task().task] | formatList"
+    [ngStyle]="{ color: task().status === 'completed' ? '#a2ff9f' : '#f7b7b7' }"
+  >
+    <span>{{ indexTask() + 1 }} - </span>
+    {{ task().task | capitalize }}
+  </p>
+
+  <div class="task-control">
+    <app-btn-basic
+      (click)="toggleControlTask()"
+      titleBtn="show task control"
+      [customStyles]="{ scale: '1.5' }"
+      [btnData]="{
+        urlSvg: '/assets/extra-icons/dotsControl.svg',
+        label: 'view task control'
+      }"
+    />
+    @if (task() && isViewControlTask()) {
+    <app-controls-task #controls [currentTask]="task()" />
+    }
+  </div>
+</li>
+
+<!-- <app-task-editor
+  [(isViewEditorTask)]="isViewEditorTask"
+  [currentTask]="task()"
+/> -->
+
+@defer (when task(); prefetch on idle) { @if (isViewEditorTask()) {
+<app-task-editor [currentTask]="task()" />
+} }

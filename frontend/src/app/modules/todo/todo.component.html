@@ -1,0 +1,29 @@
+<section class="todo" *ngrxLet="todos$ as todos">
+  <label class="todo-label" for="inputTasks">
+    <input
+      class="todo-input"
+      [formControl]="inputTask"
+      (keydown.enter)="addTask()"
+      autocomplete="off"
+      placeholder="Add new task"
+      type="text"
+      name="task"
+      id="inputTasks"
+    />
+  </label>
+
+  <header class="todo-header">
+    <h2 class="todo-title">My tasks</h2>
+    @if (todos.length > 0) {
+    <app-controls-todo />
+    }
+  </header>
+
+  <ul class="todo-tasks scrollStyle">
+    @for (task of todos; track task.id; let i = $index ) {
+    <app-task [task]="task" [indexTask]="i" />
+    }@empty {
+    <li>No pending tasks congratulations</li>
+    }
+  </ul>
+</section>

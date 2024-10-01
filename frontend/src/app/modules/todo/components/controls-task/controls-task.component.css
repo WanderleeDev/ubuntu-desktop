@@ -1,0 +1,21 @@
+:host {
+  display: contents;
+}
+
+.controls {
+  display: flex;
+  gap: 0.25rem;
+  position: absolute;
+  top: 50%;
+  background-color: #2c2c2c;
+  border-radius: 0.125rem;
+  padding: 0.25rem;
+  transform: translateY(-0.5rem) translateX(-2rem);
+  right: 0;
+  border: 0.1rem solid #57534e;
+  transition: opacity 0.1s linear;
+  
+  @starting-style {
+    opacity: 0;
+  }
+}

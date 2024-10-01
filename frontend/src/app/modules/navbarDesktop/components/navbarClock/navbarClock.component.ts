@@ -1,47 +1,32 @@
-import { CommonModule } from '@angular/common';
-import { afterNextRender, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 //  Components
-import { CalendarComponent } from '../../../../shared/ui/calendar/calendar.component';
-import { SimpleClockComponent } from '../../../../shared/ui/simpleClock/simpleClock.component';
+import { CalendarComponent } from "../../../../shared/ui/calendar/calendar.component";
+import { ClockComponent } from "../../../clock/clock.component";
 //  Material
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @Component({
-  selector: 'app-navbar-clock',
+  selector: "app-navbar-clock",
   standalone: true,
   imports: [
-    CommonModule,
     CalendarComponent,
-    SimpleClockComponent,
     MatDatepickerModule,
     MatNativeDateModule,
+    ClockComponent,
   ],
-  templateUrl: './navbarClock.component.html',
-  styles: [`
-    :host {
-      display: block;
-    }
-  `],
+  templateUrl: "./navbarClock.component.html",
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarClockComponent {
-  clock = new Date();
   isViewCalendar = false;
-  private cdRef = inject(ChangeDetectorRef)
-
-  constructor() {
-    afterNextRender(() => {
-      this.updateClock()
-    })
-  }
-  
-  public updateClock () {
-    setInterval(() => {
-      this.clock = new Date();
-      this.cdRef.detectChanges()
-    }, 1000);
-  }
 
   public showCalendar() {
     this.isViewCalendar = !this.isViewCalendar;

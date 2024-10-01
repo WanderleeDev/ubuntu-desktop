@@ -3,9 +3,8 @@
 >
   <div class="relative w-[200px] md:w-[300px] before:absolute before:bg-stone-600 before:w-[.1rem] before:rounded-md before:right-0 before:h-full grid grid-rows-[auto_1fr] pr-4">
     <header class="py-4 font-medium">
-      <app-simple-clock
+      <app-clock
       class="md:text-3xl text-2xl justify-between" 
-      [clock]="date" 
       [configClock]="{
           type: 'regular',
           hasVariableIcons: true
@@ -14,7 +13,7 @@
     </header>
     <div class="flex flex-col gap-4 justify-between">
       <div class="grid gap-2">
-        <app-list-tasks />
+        <app-todo />
       </div>
         <mat-slide-toggle
           class="select-none pb-4" 

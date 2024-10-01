@@ -14,6 +14,6 @@ export interface ICustomStylesBtn {
 }
 
 export interface IBtnEditingTask extends IBtnBasic {
-  functionBtn: TaskActionKey;
+  functionBtn: Function;
 }
 

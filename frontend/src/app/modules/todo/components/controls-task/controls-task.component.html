@@ -1,0 +1,12 @@
+<div
+  class="controls"
+>
+  @for (btn of btnTaskList; track btn.label) {
+    <app-btn-basic
+      (click)="btn.functionBtn()"
+      [title]="btn.label"
+      [btnData]="btn"
+      [customStyles]="{ scale: '1.5' }"
+    />
+  }
+</div>

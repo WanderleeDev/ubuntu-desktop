@@ -3,15 +3,16 @@
 >
   <nav class="flex justify-between items-center select-none">
     <div aria-hidden="true" class="opacity-0">ubuntu</div>
-    <app-simple-clock
-      [clock]="clock()"
+    <app-clock
       [configClock]="{
         hasDayAndMonth: true
       }"
     />
     <app-nav-desktop-control />
   </nav>
-  <div class="flex flex-col justify-center items-center max-w-80 w-full mx-auto">
+  <div
+    class="flex flex-col justify-center items-center max-w-80 w-full mx-auto"
+  >
     <ng-content>
       <app-loader [size]="50" />
     </ng-content>

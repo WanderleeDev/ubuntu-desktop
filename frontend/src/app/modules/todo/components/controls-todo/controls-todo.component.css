@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  & .controls-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    border-radius: 0.125rem;
+    border: 0.1rem solid #57534e;
+  }
+}
