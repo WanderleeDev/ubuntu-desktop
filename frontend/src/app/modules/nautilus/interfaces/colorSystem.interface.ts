@@ -10,11 +10,11 @@ export type colorsPalette =
   | "#B14FB4"
   | "#DD3452";
 
-export type systemHeaderColor = '#DEDEDE' | '#2F2F2F'
-export type systemBodyColor = '#FAFAFA' | '#242424'
+export type systemHeaderColor = "#DEDEDE" | "#2F2F2F";
+export type systemBodyColor = "#FAFAFA" | "#242424";
 
 export interface ISystem {
   color: colorsPalette;
   headerColor: systemHeaderColor;
-   bodyColor: systemBodyColor;
+  bodyColor: systemBodyColor;
 }

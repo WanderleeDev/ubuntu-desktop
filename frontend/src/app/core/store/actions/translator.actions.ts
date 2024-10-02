@@ -16,15 +16,15 @@ export const saveText = createAction(
   props<{ text: string }>()
 );
 
-export  const saveTranslation =  createAction(
+export const saveTranslation = createAction(
   "[Translator] Save Translation",
   props<{ translation: string }>()
-)
+);
 
-export const setLanguage = createAction( 
+export const setLanguage = createAction(
   "[Translator] Select Language",
-  props<{language: string, action: 'from' | 'to'}>()
-)
+  props<{ language: string; action: "from" | "to" }>()
+);
 
 export const TRANSLATOR_ACTIONS = {
   translateText,
@@ -32,5 +32,5 @@ export const TRANSLATOR_ACTIONS = {
   translateTextFailure,
   saveText,
   saveTranslation,
-  setLanguage
+  setLanguage,
 };

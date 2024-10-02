@@ -5,16 +5,16 @@ import { IBtnBasic } from "../../../../interfaces/IBtnData.interface";
 import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 
 @Component({
-    selector: "app-extra-toolbar",
-    standalone: true,
-    templateUrl: "./extra-toolbar.component.html",
-    styles: `
+  selector: "app-extra-toolbar",
+  standalone: true,
+  templateUrl: "./extra-toolbar.component.html",
+  styles: `
     :host {
       display: block;
     }
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [CommonModule, ToolbarContainerComponent, BtnFileComponent]
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [CommonModule, ToolbarContainerComponent, BtnFileComponent],
 })
 export class ExtraToolbarComponent {
   extraTools: IBtnBasic[] = [

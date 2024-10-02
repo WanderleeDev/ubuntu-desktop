@@ -31,7 +31,7 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
     ClipboardModule,
     BtnBasicComponent,
     BtnFileComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   templateUrl: "./translator-box-input.component.html",
   styles: `
@@ -54,12 +54,12 @@ export class TranslatorBoxInputComponent implements OnInit {
     this.translation = this.#store.select(
       TRANSLATOR_SELECTORS.selectTranslation
     );
-    this.textBoxControl.disable
+    this.textBoxControl.disable();
   }
 
   public saveInputText(value: string): void {
     if (!value.trim()) return;
-    
+
     this.#store.dispatch(TRANSLATOR_ACTIONS.saveText({ text: value }));
   }
 }

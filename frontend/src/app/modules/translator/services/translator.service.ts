@@ -35,16 +35,18 @@ export class TranslatorService {
           TRANSLATOR_ACTIONS.saveTranslation({ translation: textResponse })
         );
       }
-    } catch (error) {
-      error instanceof Error
-        ? this.#store.dispatch(
-            TRANSLATOR_ACTIONS.translateTextFailure({ error: error.message })
-          )
-        : this.#store.dispatch(
-            TRANSLATOR_ACTIONS.translateTextFailure({
-              error: "Something wrong",
-            })
-          );
+    } catch (e) {
+      if (e instanceof Error) {
+        return this.#store.dispatch(
+          TRANSLATOR_ACTIONS.translateTextFailure({ error: e.message })
+        );
+      }
+
+      this.#store.dispatch(
+        TRANSLATOR_ACTIONS.translateTextFailure({
+          error: "Something wrong",
+        })
+      );
     }
   }
 }

@@ -18,7 +18,7 @@ import { TodoComponent } from "../../../modules/todo/todo.component";
     MatNativeDateModule,
     MatSlideToggleModule,
     TodoComponent,
-    ClockComponent
+    ClockComponent,
   ],
   templateUrl: "./calendar.component.html",
   styles: `

@@ -4,16 +4,16 @@
   (click)="showCalendar()"
   type="button"
   aria-label="view clock and calendar"
-  data-interactive="view clock and calendar"
->
+  data-interactive="view clock and calendar">
   <app-clock
     [configClock]="{
       hasIcons: true,
       hasDayAndMonth: true,
-    }"
-  />
+    }" />
 </button>
 
-@defer (on hover(btnClock)) { @if (isViewCalendar) {
-<app-calendar />
-} }
+@defer (on hover(btnClock)) {
+  @if (isViewCalendar) {
+    <app-calendar />
+  }
+}

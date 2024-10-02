@@ -1,4 +1,10 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, input, OnDestroy } from "@angular/core";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  OnDestroy,
+} from "@angular/core";
 import { Router } from "@angular/router";
 import { LoaderComponent } from "../../../../shared/components/loader/loader.component";
 
@@ -8,10 +14,10 @@ import { LoaderComponent } from "../../../../shared/components/loader/loader.com
   imports: [LoaderComponent],
   templateUrl: "./screen-lock.component.html",
   styleUrls: ["./screen-lock.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScreenLockComponent implements AfterViewInit, OnDestroy {
-  #DURATION = 2000
+  #DURATION = 2000;
   redirectRoute = input.required<string>();
   timer?: NodeJS.Timeout;
 

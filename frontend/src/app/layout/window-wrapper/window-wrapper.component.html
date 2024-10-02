@@ -1,12 +1,7 @@
-<section
-  #window
-  cdkDrag
-  class="bg-[#242424] text-white w-window"
->
+<section #window cdkDrag class="bg-[#242424] text-white w-window">
   <header
     cdkDragHandle
-    class="bg-header font-medium flex justify-between items-center px-4 py-2 select-none cursor-move"
-  >
+    class="bg-header font-medium flex justify-between items-center px-4 py-2 select-none cursor-move">
     <ng-content select="[header]" />
     <h2 class="capitalize">
       {{ appTitle() || "Empty title" }}

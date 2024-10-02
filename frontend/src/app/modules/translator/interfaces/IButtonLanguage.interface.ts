@@ -1,4 +1,4 @@
 export interface IButtonLanguage {
-  initLanguage: 'Spanish' | 'English';
-  typeAction: 'from' | 'to';
+  initLanguage: "Spanish" | "English";
+  typeAction: "from" | "to";
 }

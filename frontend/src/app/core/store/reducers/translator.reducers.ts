@@ -42,7 +42,7 @@ export const translatorReducer = createReducer(
     TRANSLATOR_ACTIONS.setLanguage,
     (state, { language, action }): ITranslatorState => {
       console.log(language, action);
-      
+
       return action === "from"
         ? { ...state, from: language }
         : { ...state, to: language };

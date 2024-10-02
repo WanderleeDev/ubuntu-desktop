@@ -3,7 +3,6 @@ import {
   Component,
   computed,
   input,
-  model,
   signal,
 } from "@angular/core";
 import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
@@ -26,7 +25,7 @@ import { TaskEditorComponent } from "../task-editor/task-editor.component";
     FormatListPipe,
     ControlsTaskComponent,
     TaskEditorComponent,
-    NgStyle
+    NgStyle,
   ],
 })
 export class TaskComponent {
@@ -36,8 +35,7 @@ export class TaskComponent {
   isViewControlTask = signal(false);
   isViewEditorTask = signal(false);
 
-
   public toggleControlTask(): void {
-    this.isViewControlTask.update((prevValue) => !prevValue);
+    this.isViewControlTask.update(prevValue => !prevValue);
   }
 }

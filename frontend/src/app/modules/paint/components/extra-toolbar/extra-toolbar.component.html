@@ -1,17 +1,15 @@
 <app-toolbar-container
   class="absolute m-2 bottom-0 left-2/4 -translate-x-2/4"
-  orientationBar="horizontal"
->
+  orientationBar="horizontal">
   <ul class="flex gap-1">
     @for (tool of extraTools; track tool.label) {
-    <li class="hover:bg-white/30 rounded-sm grid place-content-center p-1">
-      <app-btn-file
-        [icon]="tool.urlSvg"
-        [size]="26"
-        [label]="tool.label"
-        [hasInteractivity]="true"
-      />
-    </li>
+      <li class="hover:bg-white/30 rounded-sm grid place-content-center p-1">
+        <app-btn-file
+          [icon]="tool.urlSvg"
+          [size]="26"
+          [label]="tool.label"
+          [hasInteractivity]="true" />
+      </li>
     }
   </ul>
 </app-toolbar-container>

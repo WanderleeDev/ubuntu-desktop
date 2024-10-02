@@ -18,7 +18,7 @@ import { LabelPositionType } from "../../interfaces/btn.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnFileComponent {
-  labelDirection = input<LabelPositionType>('right')
+  labelDirection = input<LabelPositionType>("right");
   @Input() nameFile?: string;
   @Input() label?: string;
   @Input({ required: true }) size = 10;

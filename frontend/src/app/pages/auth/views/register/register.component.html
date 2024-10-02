@@ -2,7 +2,10 @@
   <figcaption class="text-center text-white">Registro rápido</figcaption>
   <div class="flex justify-center items-center gap-2 py-2">
     @for (social of socialMedia; track $index) {
-    <app-btn-file class="hover:bg-white/20 rounded-md py-1 px-2" [size]="40" [icon]="social" />
+      <app-btn-file
+        class="hover:bg-white/20 rounded-md py-1 px-2"
+        [size]="40"
+        [icon]="social" />
     }
   </div>
   <a class="hover:underline" routerLink="/">Volver atrás</a>

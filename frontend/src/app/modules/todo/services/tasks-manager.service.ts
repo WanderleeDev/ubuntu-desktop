@@ -27,15 +27,15 @@ export class TasksManagerService {
   }
 
   public deleteTask(todos: Task[], id: string): Task[] {
-    const tasksUpdated = todos.filter((task) => task.id !== id);
+    const tasksUpdated = todos.filter(task => task.id !== id);
 
     return this.saveTasks(tasksUpdated);
   }
 
   public changeStatusTask(todos: Task[], id: string): Task[] {
-    const changeStatus = (status: StatusTask) =>
+    const changeStatus = (status: StatusTask): StatusTask =>
       status === StatusTask.PENDING ? StatusTask.COMPLETED : StatusTask.PENDING;
-    const tasksUpdated: Task[] = todos.map((task) =>
+    const tasksUpdated: Task[] = todos.map(task =>
       task.id !== id ? task : { ...task, status: changeStatus(task.status) }
     );
 
@@ -45,7 +45,7 @@ export class TasksManagerService {
   public updateTask(todos: Task[], task: TaskDto): Task[] {
     if (!task.id) return todos;
 
-    const tasksUpdated: Task[] = todos.map((currentTask) =>
+    const tasksUpdated: Task[] = todos.map(currentTask =>
       currentTask.id === task.id ? { ...currentTask, ...task } : currentTask
     );
 

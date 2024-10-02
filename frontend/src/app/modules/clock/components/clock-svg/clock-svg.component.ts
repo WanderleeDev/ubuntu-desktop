@@ -8,5 +8,4 @@ import { BaseIcon } from "../../interfaces/BaseIcon.class";
   templateUrl: "./clock-svg.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClockSvgComponent extends BaseIcon{
-}
+export class ClockSvgComponent extends BaseIcon {}

@@ -18,7 +18,7 @@ export class NautilusManagerService {
   }
 
   public setCurrentRoute(route: Settings): Observable<never> | void {
-    const isValidRoute = Object.values(Settings).includes(route) 
+    const isValidRoute = Object.values(Settings).includes(route);
 
     if (!isValidRoute) {
       return throwError(() => new Error("Invalid route"));

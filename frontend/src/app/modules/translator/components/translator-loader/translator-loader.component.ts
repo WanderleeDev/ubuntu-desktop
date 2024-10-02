@@ -1,13 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
-  selector: 'app-translator-loader',
+  selector: "app-translator-loader",
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './translator-loader.component.html',
+  imports: [CommonModule],
+  templateUrl: "./translator-loader.component.html",
   styles: `
     :host {
       display: block;
@@ -15,4 +13,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorLoaderComponent { }
+export class TranslatorLoaderComponent {}

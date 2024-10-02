@@ -3,15 +3,13 @@
     <app-selector
       [buttonConfig]="{
         initLanguage: 'Spanish',
-        typeAction: 'from'
-      }"
-    />
+        typeAction: 'from',
+      }" />
     <app-selector
       [buttonConfig]="{
         initLanguage: 'English',
-        typeAction: 'to'
-      }"
-    />
+        typeAction: 'to',
+      }" />
   </div>
 
   <button
@@ -19,8 +17,7 @@
     (click)="translateText()"
     [disabled]="((currentTextLength | async) ?? 0) >= maxTextCharacters"
     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 w-fit dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500 font-medium max-w-40 px-4 py-2 tracking-wider disabled:cursor-not-allowed"
-    type="button"
-  >
+    type="button">
     translate
   </button>
 </nav>

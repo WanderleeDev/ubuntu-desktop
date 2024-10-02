@@ -15,11 +15,11 @@ export class ClockService implements OnDestroy {
   private signalClockStream = computed(() => this.signalClock());
   private timer?: NodeJS.Timeout;
 
-  constructor(@Inject(PLATFORM_ID) private platformID: Object) {
+  constructor(@Inject(PLATFORM_ID) private platformID: object) {
     this.initClock();
   }
 
-  private initClock() {
+  private initClock(): void {
     if (isPlatformServer(this.platformID)) return;
 
     this.timer = setInterval(() => {

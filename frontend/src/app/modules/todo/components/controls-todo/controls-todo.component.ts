@@ -13,7 +13,5 @@ import { TodoAction } from "../../interface/task.interface";
 export class ControlsTodoComponent {
   controlTasks: TodoAction[] = ["pending", "completed", "clear"];
 
-  constructor(private readonly todoStore: TodoStore) {
-  }
-
+  constructor(private readonly todoStore: TodoStore) {}
 }

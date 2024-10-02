@@ -1,28 +1,15 @@
 <section
   cdkDrag
-  #windowTarget 
-  class="w-[40rem] h-[45rem] bg-white overflow-hidden grid-rows-[auto_1fr] rounded-t-lg absolute top-0"
->
+  #windowTarget
+  class="w-[40rem] h-[45rem] bg-white overflow-hidden grid-rows-[auto_1fr] rounded-t-lg absolute top-0">
   <header class="p-2 border-b-2 select-none">
     <nav class="flex justify-between items-center">
-      <button type="button" class="w-max h-6 p-2">
-        Abrir ▼
-      </button>
-      <button type="button">
-        +
-      </button>
-      <h2>
-        Documento sin titulo
-      </h2>
-      <button type="button">
-        Guardar
-      </button>
-      <button type="button">
-        ☰
-      </button>
-      <app-window-control 
-        [windowReference]="windowTarget"
-      />
+      <button type="button" class="w-max h-6 p-2">Abrir ▼</button>
+      <button type="button">+</button>
+      <h2>Documento sin titulo</h2>
+      <button type="button">Guardar</button>
+      <button type="button">☰</button>
+      <app-window-control [windowReference]="windowTarget" />
     </nav>
   </header>
 

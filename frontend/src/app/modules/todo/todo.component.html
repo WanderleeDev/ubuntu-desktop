@@ -8,22 +8,21 @@
       placeholder="Add new task"
       type="text"
       name="task"
-      id="inputTasks"
-    />
+      id="inputTasks" />
   </label>
 
   <header class="todo-header">
     <h2 class="todo-title">My tasks</h2>
     @if (todos.length > 0) {
-    <app-controls-todo />
+      <app-controls-todo />
     }
   </header>
 
   <ul class="todo-tasks scrollStyle">
-    @for (task of todos; track task.id; let i = $index ) {
-    <app-task [task]="task" [indexTask]="i" />
-    }@empty {
-    <li>No pending tasks congratulations</li>
+    @for (task of todos; track task.id; let i = $index) {
+      <app-task [task]="task" [indexTask]="i" />
+    } @empty {
+      <li>No pending tasks congratulations</li>
     }
   </ul>
 </section>

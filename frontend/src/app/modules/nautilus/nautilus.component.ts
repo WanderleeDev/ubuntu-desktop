@@ -1,9 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  signal,
   ViewChild,
-  viewChild,
   ViewContainerRef,
 } from "@angular/core";
 import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
@@ -26,9 +24,9 @@ import { CommonModule } from "@angular/common";
 export class NautilusComponent {
   @ViewChild("projectionContainer ", { read: ViewContainerRef })
   projectionContainer?: ViewContainerRef;
-  profile: { new (): FormColorSystemComponent } | null = null;
+  profile: (new () => FormColorSystemComponent) | null = null;
 
-  async onClick() {
+  async onClick(): Promise<void> {
     const data = await import(
       "./components/form-color-system/form-color-system.component"
     );

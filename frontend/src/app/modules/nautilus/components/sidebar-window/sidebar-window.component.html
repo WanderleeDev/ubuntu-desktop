@@ -1,29 +1,30 @@
 <nav class="nautilus-nav scrollStyle">
   @for (list of sideBarLinks | keyvalue; track list.key; let last = $last) {
-  <ul>
-    @for (link of list.value; track link.name) {
-    <li>
-      @if (link.subRoutes) {
-      <details class="nautilus-nestedItem" name="nested">
-        <summary class="nautilus-item nautilus-item--nested">
-          {{ link.name }}
-        </summary>
-        @for(route of link.subRoutes; track route.name) {
-        <button (click)="onClick()" class="nautilus-item" type="button">
-          {{ route.name }}
-        </button>
-        }
-        <span class="panel-divider"></span>
-      </details>
-      }@else {
-      <button class="nautilus-item" (click)="onClick()" type="button">
-        {{ link.name }}
-      </button>
+    <ul>
+      @for (link of list.value; track link.name) {
+        <li>
+          @if (link.subRoutes) {
+            <details class="nautilus-nestedItem" name="nested">
+              <summary class="nautilus-item nautilus-item--nested">
+                {{ link.name }}
+              </summary>
+              @for (route of link.subRoutes; track route.name) {
+                <button (click)="onClick()" class="nautilus-item" type="button">
+                  {{ route.name }}
+                </button>
+              }
+              <span class="panel-divider"></span>
+            </details>
+          } @else {
+            <button class="nautilus-item" (click)="onClick()" type="button">
+              {{ link.name }}
+            </button>
+          }
+        </li>
       }
-    </li>
+    </ul>
+    @if (!last) {
+      <app-divider-x />
     }
-  </ul>
-  @if (!last) {
-  <app-divider-x />
-  } }
+  }
 </nav>

@@ -1,13 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
-  selector: 'app-bloc',
+  selector: "app-bloc",
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './bloc.component.html',
+  imports: [CommonModule],
+  templateUrl: "./bloc.component.html",
   styles: `
     :host {
       display: block;
@@ -15,4 +13,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BlocComponent { }
+export class BlocComponent {}

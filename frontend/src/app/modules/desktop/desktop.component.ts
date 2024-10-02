@@ -1,14 +1,11 @@
-import { ChangeDetectionStrategy, Component} from '@angular/core';
-import { ListAppComponent } from './components/list-app/list-app.component';
-
+import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ListAppComponent } from "./components/list-app/list-app.component";
 
 @Component({
-  selector: 'app-desktop',
+  selector: "app-desktop",
   standalone: true,
-  imports: [
-    ListAppComponent
-  ],
-  templateUrl: './desktop.component.html',
+  imports: [ListAppComponent],
+  templateUrl: "./desktop.component.html",
   styles: `
     :host {
       display: block;
@@ -18,7 +15,7 @@ import { ListAppComponent } from './components/list-app/list-app.component';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DesktopComponent{
+export class DesktopComponent {
   // dataVideo: IVideoData = {
   //   title: 'My github',
   //   url: {

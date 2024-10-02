@@ -10,7 +10,7 @@ export class LocalStorageService {
     } catch (e) {
       console.error("Error updating localStorage:", e);
     }
-    
+
     return data;
   }
 

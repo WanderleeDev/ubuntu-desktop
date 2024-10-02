@@ -1,15 +1,13 @@
-<ul
-  #panelControl
-  class="listControl">
+<ul #panelControl class="listControl">
   @for (btn of navDesktopIcons; track btn.label) {
     <li class="listControl-control">
       <app-btn-basic
-        (click)="showPanelControl()" 
-        [btnData]="btn" 
+        (click)="showPanelControl()"
+        [btnData]="btn"
         [customStyles]="{
           'padding': 'initial',
           'background-size': '1rem 1rem',
-        }"/>
+        }" />
     </li>
   }
 </ul>

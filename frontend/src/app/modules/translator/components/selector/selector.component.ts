@@ -40,18 +40,19 @@ export class SelectorComponent implements OnInit {
   }
 
   @HostListener("document:click", ["$event"])
-  public onClick(event: PointerEvent) {
+  public onClick(event: PointerEvent): void {
     if (!this.#ref.nativeElement.contains(event.target)) {
       this.isViewListLanguages.set(false);
     }
   }
 
-  public listToggle() {
-    this.isViewListLanguages.update((prev) => !prev);
+  public listToggle(): void {
+    this.isViewListLanguages.update(prev => !prev);
   }
 
-  public saveLanguage(language: string, action: "from" | "to") {
+  public saveLanguage(language: string, action: "from" | "to"): void {
     this.buttonValue.set(language);
     this.#store.dispatch(TRANSLATOR_ACTIONS.setLanguage({ language, action }));
+    this.listToggle();
   }
 }

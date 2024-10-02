@@ -24,7 +24,7 @@ import { TaskEditorComponent } from "./components/task-editor/task-editor.compon
     ControlsTodoComponent,
     TaskComponent,
     LetDirective,
-    TaskEditorComponent
+    TaskEditorComponent,
   ],
   templateUrl: "./todo.component.html",
   styleUrl: "./todo.component.css",
@@ -44,7 +44,7 @@ export class TodoComponent {
 
   constructor(private readonly todoStore: TodoStore) {}
 
-  public addTask() {
+  public addTask(): void {
     if (this.inputTask.invalid || !this.inputTask.value.trim()) return;
 
     this.todoStore.addTask(this.inputTask.value.trim());

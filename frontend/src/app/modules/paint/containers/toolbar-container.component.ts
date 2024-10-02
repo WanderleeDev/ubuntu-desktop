@@ -10,9 +10,8 @@ import { orientation } from "../types/paint.types";
     <div
       [class]="toolbarClass"
       [ngStyle]="{
-        flexDirection: orientationBar() === 'vertical' ? 'column' : 'row'
-      }"
-    >
+        flexDirection: orientationBar() === 'vertical' ? 'column' : 'row',
+      }">
       <ng-content />
     </div>
   `,
@@ -24,6 +23,7 @@ import { orientation } from "../types/paint.types";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarContainerComponent {
-  readonly toolbarClass = 'bg-[#242424] rounded-md flex gap-2 p-2 shadow-bar select-none'
+  readonly toolbarClass =
+    "bg-[#242424] rounded-md flex gap-2 p-2 shadow-bar select-none";
   orientationBar = input<orientation>("horizontal");
 }

@@ -1,6 +1,6 @@
 <vg-player class="aspect-video min-w-72">
   @if (dataVideo) {
-  <vg-overlay-play></vg-overlay-play>
+    <vg-overlay-play></vg-overlay-play>
   }
   <vg-buffering></vg-buffering>
   <vg-scrub-bar>
@@ -21,7 +21,7 @@
   </vg-controls>
   <video [vgMedia]="$any(media)" #media id="singleVideo">
     @for (item of dataVideo?.url | keyvalue; track $index) {
-    <source [src]="item.value" [type]="['video/' + item.key]" />
+      <source [src]="item.value" [type]="['video/' + item.key]" />
     }
   </video>
 </vg-player>

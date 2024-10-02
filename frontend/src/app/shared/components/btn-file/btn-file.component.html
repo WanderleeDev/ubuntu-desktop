@@ -4,29 +4,26 @@
   type="button"
   [attr.title]="nameFile || null"
   [attr.aria-label]="'open ' + [nameFile || label]"
-  [attr.data-interactive]="hasInteractivity"
->
+  [attr.data-interactive]="hasInteractivity">
   <figure
     class="btnFile-iconWrapper"
-    [ngStyle]="{ width: size + 'px', height: size + 'px' }"
-  >
+    [ngStyle]="{ width: size + 'px', height: size + 'px' }">
     <img [ngSrc]="icon" [alt]="nameFile || label" fill [priority]="priority" />
     @if (nameFile) {
-    <figcaption class="btnFile-name">
-      {{ nameFile }}
-    </figcaption>
+      <figcaption class="btnFile-name">
+        {{ nameFile }}
+      </figcaption>
     } @else if (label) {
-    <figcaption
-      class="btnFile-label"
-      [ngClass]="{
-      'btnFile-label--right': labelDirection() === 'right',
-      'btnFile-label--bottom': labelDirection() === 'bottom',
-      'btnFile-label--left': labelDirection() === 'left',
-      'btnFile-label--top': labelDirection() === 'top',
-    }"
-    >
-      {{ label }}
-    </figcaption>
+      <figcaption
+        class="btnFile-label"
+        [ngClass]="{
+          'btnFile-label--right': labelDirection() === 'right',
+          'btnFile-label--bottom': labelDirection() === 'bottom',
+          'btnFile-label--left': labelDirection() === 'left',
+          'btnFile-label--top': labelDirection() === 'top',
+        }">
+        {{ label }}
+      </figcaption>
     }
   </figure>
 </button>

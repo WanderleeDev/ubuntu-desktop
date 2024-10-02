@@ -1,39 +1,32 @@
-<section 
-  class="flex gap-4 absolute top-0 left-2/4 -translate-x-2/4 translate-y-8 bg-[#1D1D1D] rounded-xl border-stone-600 border-[.1rem] p-4"
->
-  <div class="relative w-[200px] md:w-[300px] before:absolute before:bg-stone-600 before:w-[.1rem] before:rounded-md before:right-0 before:h-full grid grid-rows-[auto_1fr] pr-4">
+<section
+  class="flex gap-4 absolute top-0 left-2/4 -translate-x-2/4 translate-y-8 bg-[#1D1D1D] rounded-xl border-stone-600 border-[.1rem] p-4">
+  <div
+    class="relative w-[200px] md:w-[300px] before:absolute before:bg-stone-600 before:w-[.1rem] before:rounded-md before:right-0 before:h-full grid grid-rows-[auto_1fr] pr-4">
     <header class="py-4 font-medium">
       <app-clock
-      class="md:text-3xl text-2xl justify-between" 
-      [configClock]="{
+        class="md:text-3xl text-2xl justify-between"
+        [configClock]="{
           type: 'regular',
-          hasVariableIcons: true
-        }" 
-      />
+          hasVariableIcons: true,
+        }" />
     </header>
     <div class="flex flex-col gap-4 justify-between">
       <div class="grid gap-2">
         <app-todo />
       </div>
-        <mat-slide-toggle
-          class="select-none pb-4" 
-          [labelPosition]="'before'"
-        >
-        <span class="text-white pr-2">
-          Activate silent mode
-        </span>
-        </mat-slide-toggle>
+      <mat-slide-toggle class="select-none pb-4" [labelPosition]="'before'">
+        <span class="text-white pr-2"> Activate silent mode </span>
+      </mat-slide-toggle>
     </div>
   </div>
 
   <div>
-
     <span class="grid py-4 text-stone-400">
       <time>
-        {{actuallyDate | date:'EEEE'}}
+        {{ actuallyDate | date: "EEEE" }}
       </time>
       <time class="text-xl font-medium">
-        {{actuallyDate | date:'MMMM d, y'}}
+        {{ actuallyDate | date: "MMMM d, y" }}
       </time>
     </span>
 
@@ -45,12 +38,11 @@
       <figcaption class="text-stone-400">
         @if (!selected) {
           Hoy
-        }@else {
-          {{selected | date:'MMM d, y'}}
+        } @else {
+          {{ selected | date: "MMM d, y" }}
         }
       </figcaption>
       <p>No hay eventos</p>
     </figure>
-
   </div>
 </section>

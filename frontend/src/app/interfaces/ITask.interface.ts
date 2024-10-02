@@ -4,6 +4,6 @@ export interface ITask {
   isCompleted: boolean;
 }
 
-export type StatusTask = 'completed' | 'pending' ;
+export type StatusTask = "completed" | "pending";
 
 export type TaskActionKey = "change status" | "delete" | "edit";

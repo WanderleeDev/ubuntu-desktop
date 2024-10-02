@@ -1,15 +1,14 @@
 <app-toolbar-container class="absolute m-2 top-0 left-2/4 -translate-x-2/4">
   <ul class="flex gap-2 h-fit">
     @for (color of hexColors; track color) {
-    <li class="h-fit">
-      <button
-        aria-label="change color"
-        class="size-7 block rounded-sm border-[.1rem] border-[rgb(255_255_255/40%)]"
-        [ngStyle]="{ backgroundColor: color }"
-        (click)="onChange(color)"
-        type="button"
-      ></button>
-    </li>
+      <li class="h-fit">
+        <button
+          aria-label="change color"
+          class="size-7 block rounded-sm border-[.1rem] border-[rgb(255_255_255/40%)]"
+          [ngStyle]="{ backgroundColor: color }"
+          (click)="onChange(color)"
+          type="button"></button>
+      </li>
     }
     <li>
       <app-color-picker (changeColor)="onChange($event)" />

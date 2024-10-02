@@ -26,6 +26,6 @@ export class StrokeControlComponent {
   direction = input<orientation>("vertical");
 
   public onCLick(action: strokeAction): void {
-    this.#paintStore.setStrokeWidth(action)
+    this.#paintStore.setStrokeWidth(action);
   }
 }

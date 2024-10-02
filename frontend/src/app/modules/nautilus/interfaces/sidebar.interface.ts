@@ -4,9 +4,6 @@ export interface ISidebarItem {
   subRoutes?: ISidebarItem[];
 }
 
-export interface IExtendedSidebarItem extends ISidebarItem {
-}
-
 export interface ISidebarSection {
   red: ISidebarItem[];
   appearance: ISidebarItem[];

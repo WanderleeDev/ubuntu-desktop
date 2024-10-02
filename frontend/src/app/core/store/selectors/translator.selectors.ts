@@ -2,7 +2,8 @@ import { createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
 import { ITranslatorState } from "../models/translator.state";
 
-const selectTranslatorFeature = (state: AppState) => state.translatorState;
+const selectTranslatorFeature = (state: AppState): ITranslatorState =>
+  state.translatorState;
 
 const selectTranslationState = createSelector(
   selectTranslatorFeature,

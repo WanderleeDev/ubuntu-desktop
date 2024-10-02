@@ -4,16 +4,15 @@ export function findIndexToSum(numbers: number[], target: number): number[] {
 
   numbers.forEach((number, index) => {
     const deference = target - number;
-    
+
     if (data.has(deference)) {
-      num = [index, data.get(deference)!]
+      num = [index, data.get(deference)!];
     }
 
-    data.set(number, index)
-  })
-  return num
+    data.set(number, index);
+  });
+  return num;
 }
-
 
 export function findIndexToSum2(numbers: number[], target: number): number[] {
   const mapNumbers = new Map<number, number>();

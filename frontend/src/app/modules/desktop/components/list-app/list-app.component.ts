@@ -22,7 +22,7 @@ enum components {
   "desmune",
   "GTA San Andreas",
   "Translator",
-  "rnote"
+  "rnote",
 }
 
 @Component({
@@ -37,8 +37,8 @@ enum components {
     GameComponent,
     EmulatorComponent,
     CurriculumVitaeComponent,
-    PaintComponent, 
-    MyVideoComponent
+    PaintComponent,
+    MyVideoComponent,
   ],
   templateUrl: "./list-app.component.html",
   styles: `

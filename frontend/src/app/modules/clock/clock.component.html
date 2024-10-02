@@ -1,38 +1,41 @@
 @if (configClock().hasDayAndMonth) {
-  <time [dateTime]=" clock() | date: 'y-M-d'">
-    {{clock() | date: 'd LLL'}}
+  <time [dateTime]="clock() | date: 'y-M-d'">
+    {{ clock() | date: "d LLL" }}
   </time>
 }
 
-<time [dateTime]=" clock() | date: 'HH:mm:ss aaa'">
+<time [dateTime]="clock() | date: 'HH:mm:ss aaa'">
   @switch (configClock().type) {
-    @case ('basic') {
-      {{clock() | date: 'HH:mm:ss'}}
+    @case ("basic") {
+      {{ clock() | date: "HH:mm:ss" }}
     }
-    @case('regular') {
-      {{clock() | date: 'HH:mm:ss aaa'}}
+    @case ("regular") {
+      {{ clock() | date: "HH:mm:ss aaa" }}
     }
-    @case('complete') {
-      {{clock() | date: 'h:mm:ss a zzzz'}}
+    @case ("complete") {
+      {{ clock() | date: "h:mm:ss a zzzz" }}
     }
     @default {
-      {{clock() | date: 'HH:mm' }}
+      {{ clock() | date: "HH:mm" }}
     }
   }
 </time>
 
 @if (configClock().hasIcons) {
-   <app-clock-svg />
+  <app-clock-svg />
 }
 
-@if (configClock().hasVariableIcons && (clock() | date:'H' | toNumber); as hour) {
+@if (
+  configClock().hasVariableIcons && (clock() | date: "H" | toNumber);
+  as hour
+) {
   @if (hour >= 7 && hour < 14) {
     <app-day-svg [size]="50" />
   } @else if (hour >= 14 && hour < 18) {
     <app-afternoon-svg [size]="50" />
   } @else if (hour >= 18 && hour < 24) {
     <app-evening-svg [size]="50" />
-  } @else if (hour >= 00 && hour < 7 ) {
+  } @else if (hour >= 00 && hour < 7) {
     <app-sunrise-svg [size]="50" />
   } @else {
     <app-clock-svg [size]="50" />

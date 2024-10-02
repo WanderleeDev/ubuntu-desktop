@@ -1,18 +1,16 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 //  interface
-import { IAccordionData } from '../../../interfaces/IAccordionData.interface';
+import { IAccordionData } from "../../../interfaces/IAccordionData.interface";
 
 @Component({
-  selector: 'app-accordion',
+  selector: "app-accordion",
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './accordion.component.html',
-  styleUrls: ['./accordion.component.css'],
+  imports: [CommonModule],
+  templateUrl: "./accordion.component.html",
+  styleUrls: ["./accordion.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AccordionComponent { 
-  @Input({required: true}) accordionData?: Partial<IAccordionData>; 
+export class AccordionComponent {
+  @Input({ required: true }) accordionData?: Partial<IAccordionData>;
 }

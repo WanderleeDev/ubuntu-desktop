@@ -57,7 +57,7 @@ export class LoginFormComponent {
   }
 
   public toggleInputType(): void {
-    this.isPasswordInput.update((prev) => !prev);
+    this.isPasswordInput.update(prev => !prev);
   }
 
   public onSubmit(): void {

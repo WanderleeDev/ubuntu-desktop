@@ -7,5 +7,5 @@ export interface IDataIcon {
 export interface IAppIconsState {
   desktopIcons: IDataIcon[];
   sidebarMainIcons: IDataIcon[];
-  sidebarSecondaryIcons: IDataIcon[] 
+  sidebarSecondaryIcons: IDataIcon[];
 }

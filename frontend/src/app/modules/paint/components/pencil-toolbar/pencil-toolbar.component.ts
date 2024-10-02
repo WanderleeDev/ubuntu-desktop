@@ -13,7 +13,7 @@ import { AsyncPipe } from "@angular/common";
     ToolbarContainerComponent,
     StrokeControlComponent,
     BtnFileComponent,
-    AsyncPipe
+    AsyncPipe,
   ],
   templateUrl: "./pencil-toolbar.component.html",
   styles: `

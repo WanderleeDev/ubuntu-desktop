@@ -27,7 +27,7 @@ export class AppIconsEffects {
         });
       }),
       //  TODO: Implement a modal that displays the error
-      catchError((e) => (e instanceof Error ? of() : of()))
+      catchError(e => (e instanceof Error ? of() : of()))
     );
   });
 }

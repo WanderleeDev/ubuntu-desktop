@@ -12,7 +12,7 @@ export const applicationReducer = createReducer(
   on(
     APPLICATION_ACTIONS.toggleApplication,
     (state, { name, action }): IApplicationState => {
-      const appList = state.apps.map((currentApp) =>
+      const appList = state.apps.map(currentApp =>
         currentApp.name !== name
           ? currentApp
           : { ...currentApp, isOpen: action === "open" }

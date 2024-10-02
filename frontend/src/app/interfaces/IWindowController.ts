@@ -5,7 +5,7 @@ export interface ILogicController {
 }
 
 export interface IWindowControllerStyle {
-  [key: string]: string
+  [key: string]: string;
   transformOrigin: string;
   transition: string;
 }

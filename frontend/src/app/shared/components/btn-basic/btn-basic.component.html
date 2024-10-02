@@ -4,14 +4,12 @@
   [attr.title]="titleBtn"
   data-interactive
   [attr.aria-label]="btnData.label"
-  [ngStyle]="customStyles"
->
+  [ngStyle]="customStyles">
   <img
     class="text-white"
     aria-hidden="true"
     [ngSrc]="btnData.urlSvg"
     alt="hidden"
     [width]="16"
-    [height]="16"
-  />
+    [height]="16" />
 </button>

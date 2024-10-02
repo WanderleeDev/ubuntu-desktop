@@ -6,15 +6,14 @@ import { IAppIconsState } from "./models/app-icons.state";
 import { appIconsReducer } from "./reducers/app-icons.reducers";
 import { AppIconsEffects } from "./effects/app-icons.effects";
 
-
 export interface AppState {
-  translatorState: ITranslatorState,
-  appIconsState: IAppIconsState,
+  translatorState: ITranslatorState;
+  appIconsState: IAppIconsState;
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
   translatorState: translatorReducer,
   appIconsState: appIconsReducer,
-}
+};
 
-export const ALL_EFFECTS = [TranslatorEffects, AppIconsEffects]
+export const ALL_EFFECTS = [TranslatorEffects, AppIconsEffects];

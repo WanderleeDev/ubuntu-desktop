@@ -44,4 +44,4 @@ Thumbs.db
 vercel.json
 
 #enviroments
-/environments
+src/environments

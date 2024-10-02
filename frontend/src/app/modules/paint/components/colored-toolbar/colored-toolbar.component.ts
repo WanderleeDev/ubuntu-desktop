@@ -19,7 +19,7 @@ import { PaintStore } from "../../local-store/paint.store";
 export class ColoredToolbarComponent {
   #paintStore: PaintStore = inject(PaintStore);
   hexColors = [
-    '#1D1D1D',
+    "#1D1D1D",
     "#99C0EF",
     "#1A5FB3",
     "#25A168",
@@ -29,6 +29,6 @@ export class ColoredToolbarComponent {
   ];
 
   public onChange(color: string): void {
-    this.#paintStore.setColor(color)
+    this.#paintStore.setColor(color);
   }
 }

@@ -1,6 +1,6 @@
 export enum Settings {
   WIFI = "Wi-Fi",
-  NETWORK = "Network", 
+  NETWORK = "Network",
   BLUETOOTH = "Bluetooth",
   BACKGROUND = "Background",
   APPEARANCE = "Appearance",
@@ -17,6 +17,5 @@ export enum Settings {
   SHARING = "Sharing",
   SOUND = "Sound",
   POWER = "Power",
-  DISPLAYS = "Displays"
+  DISPLAYS = "Displays",
 }
-

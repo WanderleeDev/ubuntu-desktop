@@ -1,5 +1,12 @@
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewChild, signal } from "@angular/core";
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  ViewChild,
+  signal,
+} from "@angular/core";
 import { ICanvasConfig } from "../../interfaces/ICanvasConfig.interface";
 
 @Component({
@@ -15,7 +22,8 @@ import { ICanvasConfig } from "../../interfaces/ICanvasConfig.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CanvasComponent implements AfterViewInit {
-  @ViewChild('canvas') canvas!: ElementRef<HTMLCanvasElement>;
+  @ViewChild("canvas") canvas!: ElementRef<HTMLCanvasElement>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ctx!: any;
 
   canvasConfig = signal<ICanvasConfig>({
@@ -26,21 +34,23 @@ export class CanvasComponent implements AfterViewInit {
   });
 
   context: CanvasRenderingContext2D | null = null;
-  penColor = '#000'
-  penThickness = 0
-  selectedTool = 'pen'
-  selectedColor = '#000'
+  penColor = "#000";
+  penThickness = 0;
+  selectedTool = "pen";
+  selectedColor = "#000";
   img = new Image();
 
   ngAfterViewInit(): void {
-    this.context = this.canvas.nativeElement.getContext('2d')
-    this.ctx = this.canvas.nativeElement.getContext('2d')
+    this.context = this.canvas.nativeElement.getContext("2d");
+    this.ctx = this.canvas.nativeElement.getContext("2d");
   }
 
-
-
-  public onStartDrawing($event: MouseEvent, color: string, grosor: number) {
-    this.canvasConfig.update((state) => ({
+  public onStartDrawing(
+    $event: MouseEvent,
+    color: string,
+    grosor: number
+  ): void {
+    this.canvasConfig.update(state => ({
       ...state,
       isDrawing: true,
     }));
@@ -49,7 +59,7 @@ export class CanvasComponent implements AfterViewInit {
 
     nuevoTrazo.moveTo($event.offsetX, $event.offsetY);
 
-    this.canvasConfig.update((state) => ({
+    this.canvasConfig.update(state => ({
       ...state,
       trazos: [
         ...state.trazos,
@@ -62,23 +72,29 @@ export class CanvasComponent implements AfterViewInit {
     }));
   }
 
-  public onDraw($event: MouseEvent) {
-    const trazoActual = this.canvasConfig().trazos[this.canvasConfig().trazos.length - 1];
+  public onDraw($event: MouseEvent): void {
+    const trazoActual =
+      this.canvasConfig().trazos[this.canvasConfig().trazos.length - 1];
     trazoActual.path.lineTo($event.offsetX, $event.offsetY);
     this.ctx.strokeStyle = trazoActual.color;
     this.ctx.lineWidth = trazoActual.grosor;
     this.ctx.stroke(trazoActual.path);
   }
 
-  public OnEndDrawing() {
-    this.canvasConfig.update((state) => ({
+  public OnEndDrawing(): void {
+    this.canvasConfig.update(state => ({
       ...state,
       isDrawing: false,
     }));
   }
 
   public clearCanvas(): void {
-    this.ctx.clearRect(0, 0, this.canvas.nativeElement.width, this.canvas.nativeElement.height);
-    this.canvasConfig.update(prev => ({...prev, trazos: []}));
+    this.ctx.clearRect(
+      0,
+      0,
+      this.canvas.nativeElement.width,
+      this.canvas.nativeElement.height
+    );
+    this.canvasConfig.update(prev => ({ ...prev, trazos: [] }));
   }
 }

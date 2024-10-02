@@ -1,13 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from "@angular/common";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
-  selector: 'app-game',
+  selector: "app-game",
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './game.component.html',
+  imports: [CommonModule],
+  templateUrl: "./game.component.html",
   styles: `
     :host {
       display: block;
@@ -15,4 +13,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GameComponent { }
+export class GameComponent {}

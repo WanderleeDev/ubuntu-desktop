@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 interface IParamsGenerateID {
   length: number;
@@ -8,26 +8,26 @@ interface IParamsGenerateID {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class GenerateRandomId {
   private readonly MAX_LENGTH = 20;
   private readonly MIN_LENGTH = 2;
-  private readonly lettersLower = 'abcdefghijklmnopqrstuvwxyz';
-  private readonly lettersUpper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  private readonly numbers = '0123456789';
-  private readonly specialChars = '!@#$%&*+-=?';
+  private readonly lettersLower = "abcdefghijklmnopqrstuvwxyz";
+  private readonly lettersUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  private readonly numbers = "0123456789";
+  private readonly specialChars = "!@#$%&*+-=?";
 
   public generateRandomId(
     params: IParamsGenerateID = {
       length: 10,
       includeLettersUpper: true,
       includeNumbers: true,
-      includeSpecialChars: true
+      includeSpecialChars: true,
     }
   ): string {
-    if (params.length < this.MIN_LENGTH || params.length > this.MAX_LENGTH ) {
-      throw Error('Length must be between 2 and 20 characters');
+    if (params.length < this.MIN_LENGTH || params.length > this.MAX_LENGTH) {
+      throw Error("Length must be between 2 and 20 characters");
     }
 
     let chars = this.lettersLower;
@@ -36,8 +36,9 @@ export class GenerateRandomId {
     if (params.includeNumbers) chars += this.numbers;
     if (params.includeSpecialChars) chars += this.specialChars;
 
-    let id = '';
+    let id = "";
 
+    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < params.length; i++) {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }

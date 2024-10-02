@@ -1,5 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from "@angular/core";
 import { PaintStore } from "../../local-store/paint.store";
 import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
 
@@ -16,7 +21,7 @@ import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-b
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderControlExtraComponent {
-  isActiveFullscreen = input.required<boolean>()
+  isActiveFullscreen = input.required<boolean>();
   #paintStore: PaintStore = inject(PaintStore);
   isFullscreen$ = this.#paintStore.hasFullScreenSelector$;
 

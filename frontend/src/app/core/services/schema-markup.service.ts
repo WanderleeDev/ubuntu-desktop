@@ -5,7 +5,7 @@ import { ISchemaMarkup } from "../interfaces/ISchemaMarkup.interface";
   providedIn: "root",
 })
 export class SchemaMarkupService {
-  public buildSchemaMarkupString(schema: ISchemaMarkup) {
+  public buildSchemaMarkupString(schema: ISchemaMarkup): string {
     return JSON.stringify(schema);
   }
 }

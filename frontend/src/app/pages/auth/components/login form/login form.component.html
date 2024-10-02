@@ -5,8 +5,7 @@
       [btnData]="{
         urlSvg: 'assets/extra-icons/pan-end-symbolic.svg',
         label: 'volver atrás',
-      }"
-    />
+      }" />
   </a>
   <label class="form-field" for="password">
     <input
@@ -15,23 +14,20 @@
       formControlName="password"
       [type]="inputTypeStream()"
       name="password"
-      id="password"
-    />
+      id="password" />
     <app-btn-basic
       class="form-btn"
       (click)="toggleInputType()"
       [titleBtn]="labelStream()"
       [btnData]="{
-      urlSvg: 'assets/paint-icons/' + iconTypeStream(),
-      label: labelStream(),
-      }"
-    />
+        urlSvg: 'assets/paint-icons/' + iconTypeStream(),
+        label: labelStream(),
+      }" />
   </label>
 </form>
 
-@defer(when formLogin.valid) {
+@defer (when formLogin.valid) {
   @if (isReadyToNavigate()) {
     <app-screen-lock redirectRoute="" />
   }
 }
-

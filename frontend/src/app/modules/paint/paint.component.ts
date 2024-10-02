@@ -7,8 +7,7 @@ import { PencilToolbarComponent } from "./components/pencil-toolbar/pencil-toolb
 import { PaintStore } from "./local-store/paint.store";
 import { AsyncPipe, NgClass } from "@angular/common";
 import { HeaderControlExtraComponent } from "./components/header-control-extra/header-control-extra.component";
-import { LetDirective } from '@ngrx/component';
-
+import { LetDirective } from "@ngrx/component";
 
 @Component({
   selector: "app-paint",
@@ -22,7 +21,7 @@ import { LetDirective } from '@ngrx/component';
     HeaderControlExtraComponent,
     AsyncPipe,
     NgClass,
-    LetDirective
+    LetDirective,
   ],
   templateUrl: "./paint.component.html",
   styles: `

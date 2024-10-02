@@ -22,6 +22,7 @@ export class TranslatorEffects {
         this.#store.select(TRANSLATOR_SELECTORS.selectTranslationState),
       ]),
       exhaustMap(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         async ([_, { from, to, text }]) =>
           await this.#translatorService.translateText(text, from, to)
       ),

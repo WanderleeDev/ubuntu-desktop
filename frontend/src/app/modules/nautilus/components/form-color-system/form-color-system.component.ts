@@ -27,7 +27,7 @@ export default class FormColorSystemComponent {
     "#DD3452",
   ];
   darkLight = ["light", "dark"];
-  
+
   constructor() {
     this.formColor = this.#formBuilder.nonNullable.group({
       darkLight: [""],

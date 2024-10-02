@@ -1,39 +1,42 @@
 <nav
   id="separator-sidebar"
   class="flex flex-col justify-between items-center top-0 bottom-0 left-0 z-40 w-max h-full transition-transform -translate-x-full sm:translate-x-0 bg-black/60 select-none px-2"
-  aria-label="Sidebar"
->
+  aria-label="Sidebar">
   <ul cdkDropListGroup>
     <li>
       @if (mainIcon$ | async; as mainIcons) {
-      <ul
-        cdkDropList
-        [cdkDropListData]="mainIcons"
-        (cdkDropListDropped)="drop($event)"
-        class="space-y-2 font-medium mx-auto flex flex-col example-list min-h-[3rem]"
-      >
-        @for (icon of mainIcons; track icon.id) {
-        <li cdkDrag class="p-[.4rem] rounded-xl hover:bg-white/20">
-          <app-btn-file [icon]="icon.icon" [size]="35" [label]="icon.name" />
-        </li>
-        }
-      </ul>
+        <ul
+          cdkDropList
+          [cdkDropListData]="mainIcons"
+          (cdkDropListDropped)="drop($event)"
+          class="space-y-2 font-medium mx-auto flex flex-col example-list min-h-[3rem]">
+          @for (icon of mainIcons; track icon.id) {
+            <li cdkDrag class="p-[.4rem] rounded-xl hover:bg-white/20">
+              <app-btn-file
+                [icon]="icon.icon"
+                [size]="35"
+                [label]="icon.name" />
+            </li>
+          }
+        </ul>
       }
     </li>
     <li>
       @if (secondaryIcons$ | async; as secondaryIcons) {
-      <ul
-        cdkDropList
-        [cdkDropListData]="secondaryIcons"
-        (cdkDropListDropped)="drop($event)"
-        class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-500/60 flex flex-col"
-      >
-        @for (icon of secondaryIcons; track icon.id) {
-        <li cdkDrag class="p-[.4rem] rounded-xl hover:bg-white/20">
-          <app-btn-file [icon]="icon.icon" [size]="35" [label]="icon.name" />
-        </li>
-        }
-      </ul>
+        <ul
+          cdkDropList
+          [cdkDropListData]="secondaryIcons"
+          (cdkDropListDropped)="drop($event)"
+          class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-500/60 flex flex-col">
+          @for (icon of secondaryIcons; track icon.id) {
+            <li cdkDrag class="p-[.4rem] rounded-xl hover:bg-white/20">
+              <app-btn-file
+                [icon]="icon.icon"
+                [size]="35"
+                [label]="icon.name" />
+            </li>
+          }
+        </ul>
       }
     </li>
   </ul>
@@ -42,6 +45,5 @@
     class="mb-4"
     icon="assets/sidebarIcons/menuDots.svg"
     label="Mostrar aplicaciones"
-    [size]="35"
-  />
+    [size]="35" />
 </nav>

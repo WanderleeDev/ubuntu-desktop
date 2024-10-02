@@ -1,18 +1,18 @@
-import { Routes } from '@angular/router';
-import { AuthComponent } from './pages/auth/auth.component';
+import { Routes } from "@angular/router";
+import { AuthComponent } from "./pages/auth/auth.component";
 
 export const routes: Routes = [
   {
-    path: '',
+    path: "",
     component: AuthComponent,
-    loadChildren: () => import('./pages/auth/auth.routing')
+    loadChildren: () => import("./pages/auth/auth.routing"),
   },
   {
-    path: 'home',
-    loadComponent: () => import('./pages/home/home.component')
+    path: "home",
+    loadComponent: () => import("./pages/home/home.component"),
   },
   {
-    path: '**',
-    loadComponent: () => import('./pages/notFound/notFound.component')
-  }
+    path: "**",
+    loadComponent: () => import("./pages/notFound/notFound.component"),
+  },
 ];

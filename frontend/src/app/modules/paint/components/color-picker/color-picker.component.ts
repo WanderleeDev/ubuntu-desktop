@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component, output } from "@angular/core";
 export class ColorPickerComponent {
   changeColor = output<string>();
 
-  public onChange(color: string) {
+  public onChange(color: string): void {
     this.changeColor.emit(color);
   }
 }

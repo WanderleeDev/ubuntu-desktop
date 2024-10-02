@@ -1,14 +1,8 @@
 <section class="panel">
   <div class="panel-slide">
-    <mat-slider
-      data-interactive
-      min="0" 
-      max="100" 
-      step="1"
-      discrete 
-    >
-    <input [value]="100"  matSliderThumb>
-  </mat-slider>
+    <mat-slider data-interactive min="0" max="100" step="1" discrete>
+      <input [value]="100" matSliderThumb />
+    </mat-slider>
   </div>
 
   <span class="panel-divider"></span>
@@ -21,17 +15,15 @@
 
   @for (btn of bottoms; track btn.label) {
     <button
-      [style]="{ 
-        'background-image': 'url(' + btn.urlSvg + ')' 
+      [style]="{
+        'background-image': 'url(' + btn.urlSvg + ')',
       }"
-      class="panel-btn btn-image-styles" 
-      [attr.aria-label]="btn.label" 
-      type="button"
-    >
-      {{btn.label}}
+      class="panel-btn btn-image-styles"
+      [attr.aria-label]="btn.label"
+      type="button">
+      {{ btn.label }}
     </button>
   }
 
-  <app-accordion [accordionData]="secondAccordionData"/>
-
+  <app-accordion [accordionData]="secondAccordionData" />
 </section>

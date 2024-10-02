@@ -28,7 +28,7 @@ import { MatNativeDateModule } from "@angular/material/core";
 export class NavbarClockComponent {
   isViewCalendar = false;
 
-  public showCalendar() {
+  public showCalendar(): void {
     this.isViewCalendar = !this.isViewCalendar;
   }
 }

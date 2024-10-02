@@ -2,15 +2,16 @@ import { Injectable } from "@angular/core";
 import { ComponentStore } from "@ngrx/component-store";
 import { PaintState } from "../interfaces/IPaintState.interface";
 import { strokeAction, paintStateDTO } from "../types/paint.types";
+import { Observable, Subscription } from "rxjs";
 
 @Injectable()
 export class PaintStore extends ComponentStore<PaintState> {
-  hasColorBarSelector$ = this.select((state) => state.hasColorBar);
-  hasExtraBarSelector$ = this.select((state) => state.hasExtraBar);
-  hasFullScreenSelector$ = this.select((state) => state.hasFullScreen);
-  hasStrokeMenu = this.select((state) => state.hasStrokeMenu);
-  currentColorSelector$ = this.select((state) => state.currentColor);
-  strokeWidthSelector$ = this.select((state) => state.strokeWidth);
+  hasColorBarSelector$ = this.select(state => state.hasColorBar);
+  hasExtraBarSelector$ = this.select(state => state.hasExtraBar);
+  hasFullScreenSelector$ = this.select(state => state.hasFullScreen);
+  hasStrokeMenu = this.select(state => state.hasStrokeMenu);
+  currentColorSelector$ = this.select(state => state.currentColor);
+  strokeWidthSelector$ = this.select(state => state.strokeWidth);
 
   constructor() {
     super({
@@ -33,7 +34,9 @@ export class PaintStore extends ComponentStore<PaintState> {
     this.patchState({ currentColor: color });
   }
 
-  private updateStrokeWidth() {
+  private updateStrokeWidth(): (
+    observableOrValue: strokeAction | Observable<strokeAction>
+  ) => Subscription {
     return this.updater((state, action: strokeAction): PaintState => {
       const widthStroke =
         action === "increment" ? state.strokeWidth + 1 : state.strokeWidth - 1;
