@@ -1,5 +1,12 @@
 import { isPlatformServer } from "@angular/common";
-import { Inject, Injectable, OnDestroy, computed, signal } from "@angular/core";
+import {
+  Inject,
+  Injectable,
+  OnDestroy,
+  Signal,
+  computed,
+  signal,
+} from "@angular/core";
 import { PLATFORM_ID } from "@angular/core";
 
 @Injectable()
@@ -19,11 +26,11 @@ export class ClockService implements OnDestroy {
       this.signalClock.set(new Date());
     }, 1000);
   }
-  
-  public getSignalClock() {
+
+  public getSignalClock(): Signal<Date> {
     return this.signalClockStream;
   }
-  
+
   ngOnDestroy(): void {
     clearInterval(this?.timer);
   }

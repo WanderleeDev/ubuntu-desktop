@@ -31,25 +31,4 @@ import { TodoComponent } from "../../../modules/todo/todo.component";
 export class CalendarComponent {
   selected!: Date | null;
   readonly actuallyDate = Date.now();
-  tasks: string[] = [];
-
-  readonly Icons = [
-    {
-      name: "day",
-      image: "assets/clock-icons/day.svg",
-    },
-    {
-      name: "aftermoon",
-      image: "assets/clock-icons/aftermoon.svg",
-    },
-    {
-      name: "evening",
-      image: "assets/clock-icons/evening.svg",
-    },
-    {
-      name: "sunrise",
-      image: "assets/clock-icons/sunrise.svg",
-    },
-  ];
-
 }

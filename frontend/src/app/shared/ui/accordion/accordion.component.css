@@ -50,6 +50,7 @@
     display: block;
     text-align: left;
     padding: .5rem 1.7rem;
+    
     &:hover {
       background-color: var(--black-light-hover, rgb(70, 70, 70));
     }

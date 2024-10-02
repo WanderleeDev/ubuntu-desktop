@@ -14,7 +14,7 @@ import {
   SunriseSvgComponent,
 } from "./components";
 //  interface
-import { IClockConfig } from "./interfaces/ClockConfig.interface";
+import { ClockConfig } from "./interfaces/ClockConfig.interface";
 //  pipe
 import { ToNumberPipe } from "./pipes/toNumber.pipe";
 //  services
@@ -47,7 +47,7 @@ import { ClockService } from "./services/clock.service";
 })
 export class ClockComponent {
   clock: Signal<Date>;
-  configClock = input<Partial<IClockConfig>>({
+  configClock = input<Partial<ClockConfig>>({
     hasIcons: false,
     hasDayAndMonth: false,
     hasVariableIcons: false,

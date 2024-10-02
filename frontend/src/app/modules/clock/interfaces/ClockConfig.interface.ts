@@ -1,4 +1,4 @@
-export interface IClockConfig {
+export interface ClockConfig {
   hasIcons: boolean;
   hasDayAndMonth: boolean;
   type: typeClock;

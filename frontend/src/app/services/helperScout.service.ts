@@ -5,11 +5,14 @@ import { DOCUMENT } from "@angular/common";
   providedIn: 'root'
 })
 export class HelperScoutService {
-  private bodyElement = this.document.getElementsByTagName('body')[0]; 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  #bodyElement: HTMLBodyElement; 
+
+  constructor(@Inject(DOCUMENT) private document: Document) { 
+    this.#bodyElement = this.document.getElementsByTagName('body')[0]; 
+  }
 
   public activateHelper(): void {
-    const interactiveElementList = this.bodyElement.querySelectorAll('[data-interactive]')
+    const interactiveElementList = this.#bodyElement.querySelectorAll('[data-interactive]')
     interactiveElementList.forEach(element => {
       element.classList.toggle('mark')
     })
