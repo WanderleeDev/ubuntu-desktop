@@ -60,6 +60,7 @@ module.exports = tseslint.config(
             "ngAfterContentChecked",
             "ngOnChanges",
             "ngDoCheck",
+            "ngrxOnStoreInit",
           ],
         },
       ],

@@ -19,18 +19,18 @@
         label: 'view task control',
       }" />
     @if (task() && isViewControlTask()) {
-      <app-controls-task #controls [currentTask]="task()" />
+      <app-controls-task
+        [(isViewEditorTask)]="isViewEditorTask"
+        #controls
+        [currentTask]="task()" />
     }
   </div>
 </li>
 
-<!-- <app-task-editor
-  [(isViewEditorTask)]="isViewEditorTask"
-  [currentTask]="task()"
-/> -->
-
 @defer (when task(); prefetch on idle) {
   @if (isViewEditorTask()) {
-    <app-task-editor [currentTask]="task()" />
+    <app-task-editor
+      [(isViewEditorTask)]="isViewEditorTask"
+      [currentTask]="task()" />
   }
 }

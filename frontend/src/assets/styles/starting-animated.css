@@ -1,0 +1,16 @@
+.u-start-opacity {
+  transition: opacity 0.2s ease-in-out;
+    
+  @starting-style {
+    opacity: 0;
+  }
+}
+
+.u-start-fade-out {
+  transition: opacity 0.2s linear, transform .3s linear;
+  
+  @starting-style {
+    opacity: 0;
+    transform: translateY(1rem)
+  }
+}

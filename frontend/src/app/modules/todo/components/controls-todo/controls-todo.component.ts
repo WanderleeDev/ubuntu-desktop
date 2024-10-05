@@ -11,7 +11,11 @@ import { TodoAction } from "../../interface/task.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ControlsTodoComponent {
-  controlTasks: TodoAction[] = ["pending", "completed", "clear"];
+  controlTasks: TodoAction[] = ["all", "pending", "completed", "clear"];
 
   constructor(private readonly todoStore: TodoStore) {}
+
+  public clearTodo(): void {
+    this.todoStore.clearTasks();
+  }
 }

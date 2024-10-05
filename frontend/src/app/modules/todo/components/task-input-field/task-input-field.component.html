@@ -1,0 +1,11 @@
+<label class="todo-label" for="inputTasks">
+  <input
+    class="todo-input"
+    [formControl]="inputTask"
+    (keydown.enter)="addTask()"
+    autocomplete="off"
+    placeholder="Add new task"
+    type="text"
+    name="task"
+    id="inputTasks" />
+</label>

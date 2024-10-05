@@ -6,12 +6,18 @@ import {
 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { SeoService } from "./services/seo.service";
+import { NgxSonnerToaster } from "ngx-sonner";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet],
-  template: ` <router-outlet /> `,
+  imports: [RouterOutlet, NgxSonnerToaster],
+  template: `
+    <ng-container>
+      <ngx-sonner-toaster position="top-center" />
+      <router-outlet />
+    </ng-container>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit {
@@ -26,7 +32,7 @@ export class AppComponent implements OnInit {
     });
     this.#seoService.setIndexFollow(true);
     this.#seoService.setCanonicalURL(
-      "https://wanderlee-porfolio.vercel.app/home"
+      "https://ubuntu-desktop-6pxuojjzx-wanderlee-maxs-projects.vercel.app/"
     );
   }
 }

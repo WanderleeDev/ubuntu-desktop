@@ -46,16 +46,19 @@ export class TaskEditorComponent implements OnInit {
 
   public editTask(): void {
     if (this.formEditor.invalid) return;
-    console.log(this.formEditor.value);
 
     const { status, task } = this.formEditor.value;
+    const hasChanges =
+      status !== this.currentTask().status || task !== this.currentTask().task;
 
-    this.todoStore.updateTask({
-      id: this.currentTask().id,
-      task,
-      status,
-    });
+    if (hasChanges) {
+      this.todoStore.updateTask({
+        id: this.currentTask().id,
+        task,
+        status,
+      });
+    }
 
-    this.isViewEditorTask.set(true);
+    this.isViewEditorTask.update(prev => !prev);
   }
 }

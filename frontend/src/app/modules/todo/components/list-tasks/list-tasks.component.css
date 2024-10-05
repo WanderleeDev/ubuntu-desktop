@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.todo-controls {
+  padding-bottom: 1rem;
+}
+
+.todo-title {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+}
+
+.todo-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-x: hidden;
+  height: 14rem;
+  padding-right: .2rem;
+}
+
+.todo-empty {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 1rem;
+
+  & .todo-emptyIcon {
+    font-size: 1.3rem;
+  }
+}

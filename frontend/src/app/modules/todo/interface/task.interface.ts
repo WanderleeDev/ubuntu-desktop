@@ -22,5 +22,5 @@ export enum StatusTask {
 }
 
 export type TaskActionKey = "change status" | "delete" | "edit";
-export type TodoAction = "pending" | "completed" | "clear";
+export type TodoAction = "pending" | "completed" | "clear" | "all";
 export type TaskDto = Partial<Task>;

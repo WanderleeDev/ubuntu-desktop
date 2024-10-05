@@ -1,6 +1,10 @@
 <div class="controls">
   @for (control of controlTasks; track $index) {
-    <button type="button" data-interactive class="controls-btn">
+    <button
+      (click)="clearTodo()"
+      type="button"
+      data-interactive
+      class="controls-btn">
       {{ control }}
     </button>
   }

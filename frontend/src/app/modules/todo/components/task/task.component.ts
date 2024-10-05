@@ -36,6 +36,6 @@ export class TaskComponent {
   isViewEditorTask = signal(false);
 
   public toggleControlTask(): void {
-    this.isViewControlTask.update(prevValue => !prevValue);
+    this.isViewControlTask.update(prev => !prev);
   }
 }

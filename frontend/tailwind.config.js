@@ -19,16 +19,6 @@ module.exports = {
         header: "#1d1d1d",
       },
     },
-    keyframes: {
-      fadeIn: {
-        "0%": { scale: 0.9, opacity: 0 },
-        "50%": { scale: 1.05, opacity: 0.5 },
-        "100%": { scale: 1, opacity: 1 },
-      },
-    },
-    animation: {
-      fadeIn: "fadeIn 0.2s ease-in-out",
-    },
   },
   plugins: [],
 };

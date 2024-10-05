@@ -48,7 +48,7 @@ export class ControlsTaskComponent {
         label: "edit task",
         urlSvg: "/assets/extra-icons/edit.svg",
         functionBtn: (): void => {
-          "s";
+          this.isViewEditorTask.update(prev => !prev);
         },
       },
     ];

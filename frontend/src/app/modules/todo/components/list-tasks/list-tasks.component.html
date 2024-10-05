@@ -1,0 +1,18 @@
+<ng-container class="todo">
+  <header class="todo-header">
+    <h2 class="todo-title">My tasks</h2>
+    @if (tasks().length > 0) {
+      <app-controls-todo class="todo-controls u-start-opacity" />
+    }
+  </header>
+  <ul class="todo-tasks scrollStyle">
+    @for (task of tasks(); track task.id; let i = $index) {
+      <app-task [task]="task" [indexTask]="i" />
+    } @empty {
+      <li class="todo-empty">
+        No pending tasks congratulations
+        <span class="todo-emptyIcon">🎊 🎊</span>
+      </li>
+    }
+  </ul>
+</ng-container>
