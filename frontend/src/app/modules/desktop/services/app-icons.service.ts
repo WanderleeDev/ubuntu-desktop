@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { IDataIcon } from "../../../interfaces/IDataIcon.interface";
-import { GenerateRandomId } from "../../../services/generateRandomId.service";
+import { GenerateRandomId } from "../../../shared/services/generateRandomId.service";
 
 @Injectable({
   providedIn: "root",

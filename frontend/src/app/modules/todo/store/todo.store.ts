@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { ComponentStore, OnStateInit } from "@ngrx/component-store";
 import { TodoState } from "./model/todo.state";
 import { TasksManagerService } from "../services/tasks-manager.service";
-import { StatusTask, Task, TaskDto } from "../interface/task.interface";
-import { catchError, EMPTY, exhaustMap, Observable, tap } from "rxjs";
+import { TaskDto, TodoAction } from "../interface/task.interface";
+import { catchError, EMPTY, exhaustMap, tap } from "rxjs";
 
 @Injectable()
 export class TodoStore
@@ -12,11 +12,10 @@ export class TodoStore
 {
   readonly todos$ = this.select(state => state.todos);
   readonly isLoading$ = this.select(state => state.isLoading);
-  readonly todosCompleted$ = this.filterTasks(StatusTask.COMPLETED);
-  readonly todosPending$ = this.filterTasks(StatusTask.PENDING);
+  readonly currentFilter$ = this.select(state => state.currentFilter);
 
   constructor(private readonly taskManagerSvc: TasksManagerService) {
-    super({ todos: [], isLoading: true });
+    super({ todos: [], isLoading: true, currentFilter: "all" });
   }
 
   ngrxOnStateInit(): void {
@@ -51,23 +50,24 @@ export class TodoStore
     })
   );
 
+  public changeFilter(filter: TodoAction): void {
+    this.patchState({ currentFilter: filter });
+  }
+
   public clearTasks(): void {
     this.patchState({
       todos: this.taskManagerSvc.setTodos([]),
+      currentFilter: "all",
     });
-  }
-
-  private filterTasks(status: StatusTask): Observable<Task[]> {
-    return this.select(state =>
-      state.todos.filter(todo => todo.status === status)
-    );
   }
 
   private loadTodos = this.effect(trigger$ =>
     trigger$.pipe(
       exhaustMap(() =>
         this.taskManagerSvc.initializeTodo().pipe(
-          tap(todos => this.setState({ todos, isLoading: false })),
+          tap(todos =>
+            this.setState(state => ({ ...state, todos, isLoading: false }))
+          ),
           catchError(() => EMPTY)
         )
       )

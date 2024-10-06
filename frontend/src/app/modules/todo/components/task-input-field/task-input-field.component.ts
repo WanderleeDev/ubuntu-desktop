@@ -26,12 +26,13 @@ export class TaskInputFieldComponent {
 
   public addTask(): void {
     if (this.inputTask.invalid || !this.inputTask.value.trim()) {
-      toast.error("Invalid task");
+      toast.error("Minimum 5 letters and no special characters");
+
       return;
     }
 
     this.todoStore.addTask(this.inputTask.value.trim());
-    toast.success("Task added");
+    toast.success("Task added  ✅");
     this.inputTask.reset();
   }
 }

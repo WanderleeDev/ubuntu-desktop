@@ -3,7 +3,9 @@
     <app-navbar-desktop />
     <app-sidebar />
     <app-desktop>
-      <app-help-scout />
+      @defer (on idle) {
+        <app-help-scout />
+      }
       <app-nautilus />
       <app-banner-desktop />
     </app-desktop>

@@ -48,10 +48,6 @@
     height: 100%;
   }
 
-  .clip-path-45deg {
-    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  }
-
   .btn-image-styles {
     background-repeat: no-repeat;
     background-position: 0.5rem center;
@@ -89,12 +85,6 @@
     box-shadow:
       rgba(0, 0, 0, 0.16) 0px 3px 6px,
       rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  }
-}
-
-@layer components {
-  .mark {
-    @apply relative before:animate-ping before:absolute before:h-3 before:w-3 before:rounded-full before:bg-sky-400 before:opacity-75 before:right-0 before:bottom-0 before:z-[0] before:scale-[2] after:absolute after:h-3 after:w-3 after:rounded-full after:bg-sky-500 after:opacity-75 after:right-0 after:bottom-0 after:z-[0];
   }
 }
 

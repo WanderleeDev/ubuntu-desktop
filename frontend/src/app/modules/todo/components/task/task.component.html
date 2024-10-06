@@ -20,8 +20,8 @@
       }" />
     @if (task() && isViewControlTask()) {
       <app-controls-task
+        [(isViewControlTask)]="isViewControlTask"
         [(isViewEditorTask)]="isViewEditorTask"
-        #controls
         [currentTask]="task()" />
     }
   </div>

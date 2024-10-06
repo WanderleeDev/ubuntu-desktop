@@ -13,10 +13,14 @@
     line-height: 1rem;
     border-radius: 0.125rem;
     border: 0.1rem solid #57534e;
-    transition: opacity .1s linear;
+    transition: opacity 0.1s linear;
 
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
+  }
+
+  & .controls-btn--active {
+    border-color: orange;
   }
 }

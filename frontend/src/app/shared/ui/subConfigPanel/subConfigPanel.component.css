@@ -16,7 +16,7 @@
 
   .panel-slide {
     display: grid;
-    background-image: url('../../../../assets/extra-icons/audio-volume-high-symbolic.svg');
+    background-image: url('/assets/extra-icons/audio-volume-high-symbolic.svg');
     padding-left: 1rem;
     background-repeat: no-repeat;
     background-position: .5rem center ;

@@ -1,6 +1,7 @@
 import { FormControl } from "@angular/forms";
 
 export interface Task {
+  [key: string]: string;
   id: string;
   task: string;
   status: StatusTask;
@@ -11,9 +12,9 @@ export interface TaskEditor {
   status: FormControl<StatusTask>;
 }
 
-export interface TodoBtnControl {
+export interface TodoControl {
+  task: string;
   action: TodoAction;
-  fnAction: () => void;
 }
 
 export enum StatusTask {
@@ -21,6 +22,5 @@ export enum StatusTask {
   COMPLETED = "completed",
 }
 
-export type TaskActionKey = "change status" | "delete" | "edit";
-export type TodoAction = "pending" | "completed" | "clear" | "all";
+export type TodoAction = "pending" | "completed" | "all";
 export type TaskDto = Partial<Task>;

@@ -1,0 +1,99 @@
+:host {
+  display: block;
+}
+
+.helper {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1.5rem;
+
+  & .helper-btn {
+    width: 10rem;
+    background-color: #f1f5f9;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    transition: transform 0.2s ease-in-out;
+    border: 0.1rem solid #44403c;
+
+    &:hover {
+      transform: scale(0.95);
+    }
+
+    &:hover + .helper-tooltip {
+      opacity: 1;
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+
+  & .helper-tooltip {
+    max-width: 15rem;
+    position: relative;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 0.375rem;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    font-size: 0.875rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      bottom: 0;
+      transform: rotate(45deg) translateY(1.2rem) translateX(-50%);
+      left: 75%;
+      clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    }
+  }
+
+  & .helper-mark {
+    display: block;
+    transform: translateX(-7rem) translateY(-0.25rem);
+  }
+}
+
+.mark {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    height: 0.75rem;
+    width: 0.75rem;
+    border-radius: 50%;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+  }
+
+  &::before {
+    background-color: rgb(56 189 248);
+    opacity: 0.75;
+    transform: scale(2);
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  &::after {
+    background-color: rgb(14 165 233);
+    opacity: 0.75;
+  }
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

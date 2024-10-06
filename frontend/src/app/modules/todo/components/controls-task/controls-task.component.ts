@@ -25,6 +25,7 @@ interface IBtnEditingTask {
 })
 export class ControlsTaskComponent {
   currentTask = input.required<Task>();
+  isViewControlTask = model(false);
   isViewEditorTask = model(false);
   btnTaskList: IBtnEditingTask[] = [];
 
@@ -35,6 +36,7 @@ export class ControlsTaskComponent {
         urlSvg: "/assets/extra-icons/exchange.svg",
         functionBtn: (): void => {
           this.todoStore.changeStatusTask(this.currentTask().id);
+          this.isViewControlTask.set(false);
         },
       },
       {
@@ -49,6 +51,7 @@ export class ControlsTaskComponent {
         urlSvg: "/assets/extra-icons/edit.svg",
         functionBtn: (): void => {
           this.isViewEditorTask.update(prev => !prev);
+          this.isViewControlTask.set(false);
         },
       },
     ];

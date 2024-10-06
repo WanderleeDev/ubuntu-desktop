@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 //  Services
-import { GenerateRandomId } from "../../../services/generateRandomId.service";
-import { LocalStorageService } from "../../../services/localStorage.service";
+import { GenerateRandomId } from "../../../shared/services/generateRandomId.service";
+import { LocalStorageService } from "../../../shared/services/localStorage.service";
 //  Interfaces
 import { Task, StatusTask, TaskDto } from "../interface/task.interface";
 import { environment } from "../../../../environments/environment.development";
@@ -50,8 +50,17 @@ export class TasksManagerService {
   public updateTask(todos: Task[], task: TaskDto): Task[] {
     if (!task.id) return todos;
 
+    const indexTask = todos.findIndex(t => t.id === task.id);
+
+    if (indexTask === -1) {
+      errorToastHandler(Error("Task not found"));
+      return todos;
+    }
+
     const tasksUpdated: Task[] = todos.map(currentTask =>
-      currentTask.id === task.id ? { ...currentTask, ...task } : currentTask
+      currentTask.id === task.id
+        ? { ...currentTask, ...(task as Task) }
+        : currentTask
     );
 
     return this.saveTasks(tasksUpdated);

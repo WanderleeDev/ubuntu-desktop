@@ -8,15 +8,14 @@ import { SidebarComponent } from "../../modules/sidebar/sidebar.component";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 import { DesktopComponent } from "../../modules/desktop/desktop.component";
 import { NavbarDesktopComponent } from "../../modules/navbarDesktop/navbarDesktop.component";
-import { HelpScoutComponent } from "./components/helpScout/helpScout.component";
-
 import { Store } from "@ngrx/store";
 import { AppState } from "../../core/store/app.state";
 import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
 import { APP_ICONS_ACTIONS } from "../../core/store/actions/app-icons.actions";
 import { PaintComponent } from "../../modules/paint/paint.component";
 import { NautilusComponent } from "../../modules/nautilus/nautilus.component";
-import { BannerDesktopComponent } from "./components/banner-desktop/banner-desktop.component";
+import { BannerDesktopComponent } from "../../shared/components/banner-desktop/banner-desktop.component";
+import { HelpScoutComponent } from "../../modules/help-scout/help-scout.component";
 
 @Component({
   selector: "app-home",
@@ -26,10 +25,10 @@ import { BannerDesktopComponent } from "./components/banner-desktop/banner-deskt
     DragDropModule,
     DesktopComponent,
     NavbarDesktopComponent,
-    HelpScoutComponent,
     PaintComponent,
     NautilusComponent,
     BannerDesktopComponent,
+    HelpScoutComponent,
   ],
   templateUrl: "./home.component.html",
   styles: `

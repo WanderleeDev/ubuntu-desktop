@@ -13,4 +13,5 @@ import { ControlsTodoComponent } from "../controls-todo/controls-todo.component"
 })
 export class ListTasksComponent {
   tasks = input.required<Task[]>();
+  allTasksNumber = input.required<number>();
 }

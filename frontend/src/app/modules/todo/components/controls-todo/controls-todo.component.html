@@ -1,11 +1,21 @@
 <div class="controls">
-  @for (control of controlTasks; track $index) {
+  @for (control of taskControls; track control; let i = $index) {
     <button
-      (click)="clearTodo()"
-      type="button"
+      class="controls-btn"
+      (click)="onClick(control, i)"
       data-interactive
-      class="controls-btn">
+      type="button"
+      [ngClass]="{
+        'controls-btn--active': i === activeBtn(),
+      }">
       {{ control }}
     </button>
   }
+  <button
+    (click)="clearTodo()"
+    type="button"
+    data-interactive
+    class="controls-btn">
+    clear
+  </button>
 </div>

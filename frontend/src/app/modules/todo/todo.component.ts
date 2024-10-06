@@ -2,7 +2,7 @@
 import { BtnBasicComponent } from "../../shared/components/btn-basic/btn-basic.component";
 //  Interface
 import { Observable } from "rxjs";
-import { Task } from "./interface/task.interface";
+import { Task, TodoAction } from "./interface/task.interface";
 //  Store
 import { TodoStore } from "./store/todo.store";
 //  Services
@@ -16,6 +16,7 @@ import { TaskInputFieldComponent } from "./components/task-input-field/task-inpu
 import { DividerXComponent } from "../../shared/components/divider-x/divider-x.component";
 import { ListTasksComponent } from "./components/list-tasks/list-tasks.component";
 import { provideComponentStore } from "@ngrx/component-store";
+import { FilterPipe } from "./pipes/filter.pipe";
 
 @Component({
   selector: "app-todo",
@@ -27,6 +28,7 @@ import { provideComponentStore } from "@ngrx/component-store";
     TaskInputFieldComponent,
     DividerXComponent,
     ListTasksComponent,
+    FilterPipe,
   ],
   templateUrl: "./todo.component.html",
   styleUrl: "./todo.component.css",
@@ -40,6 +42,7 @@ import { provideComponentStore } from "@ngrx/component-store";
 export class TodoComponent {
   todos$: Observable<Task[]> = this.todoStore.todos$;
   isLoading$: Observable<boolean> = this.todoStore.isLoading$;
+  currentFilter$: Observable<TodoAction> = this.todoStore.currentFilter$;
 
   constructor(private readonly todoStore: TodoStore) {}
 }

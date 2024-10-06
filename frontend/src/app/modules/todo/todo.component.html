@@ -1,11 +1,23 @@
 <section
   class="todo"
-  *ngrxLet="{ todos: todos$, isLoading: isLoading$ } as store">
+  *ngrxLet="{
+    todos: todos$,
+    currentFilter: currentFilter$,
+    isLoading: isLoading$,
+  } as store">
   <app-task-input-field />
   <app-divider-x />
+
   @if (store.isLoading) {
     <span class="todo-loader">loading tasks ...</span>
-  } @else {
-    <app-list-tasks [tasks]="store.todos" />
+  }
+
+  @if (!store.isLoading) {
+    @let todos =
+      store.currentFilter === "all"
+        ? store.todos
+        : (store.todos | filter: store.currentFilter : "status");
+
+    <app-list-tasks [tasks]="todos" [allTasksNumber]="store.todos.length" />
   }
 </section>
