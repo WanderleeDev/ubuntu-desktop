@@ -7,14 +7,6 @@ import { APP_ICONS_SELECTORS } from "../../../../core/store/selectors/app-icons.
 import { CdkDrag } from "@angular/cdk/drag-drop";
 import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
 import { APPLICATION_ACTIONS } from "../../../../core/store/actions/application.actions";
-import { TranslatorComponent } from "../../../translator/translator.component";
-import { BlocComponent } from "../../../bloc/bloc.component";
-import { GameComponent } from "../../../game/game.component";
-import { EmulatorComponent } from "../../../emulator/emulator.component";
-import { CurriculumVitaeComponent } from "../../../curriculum-vitae/curriculum-vitae.component";
-import { PaintComponent } from "../../../paint/paint.component";
-import { MyVideoComponent } from "../../../my-video/my-video.component";
-import { CalculatorComponent } from "../../../calculator/calculator.component";
 import { PortalComponentComponent } from "../portal-component/portal-component.component";
 
 enum components {
@@ -31,20 +23,7 @@ enum components {
 @Component({
   selector: "app-list-app",
   standalone: true,
-  imports: [
-    BtnFileComponent,
-    AsyncPipe,
-    CdkDrag,
-    TranslatorComponent,
-    BlocComponent,
-    GameComponent,
-    EmulatorComponent,
-    CurriculumVitaeComponent,
-    PaintComponent,
-    MyVideoComponent,
-    CalculatorComponent,
-    PortalComponentComponent,
-  ],
+  imports: [BtnFileComponent, AsyncPipe, CdkDrag, PortalComponentComponent],
   templateUrl: "./list-app.component.html",
   styles: `
     :host {
