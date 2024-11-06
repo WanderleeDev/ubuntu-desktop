@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors'
 import { config } from "dotenv";
 import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
@@ -6,9 +7,14 @@ import swaggerDocs from "./docs/swagger";
 
 //  Routes
 import authRouter from "./routes/auth.routes";
+
 config()
 
 const app = express();
+
+app.use(cors({
+  origin: '*'
+}))
 
 // Middleware para manejar datos JSON
 app.use(express.json());
