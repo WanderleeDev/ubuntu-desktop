@@ -2,6 +2,21 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@calculator/*": [
+        "src/app/modules/calculator/*"
+      ],
+      "@layout/*": [
+        "src/app/layout/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
+      ],
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -26,7 +41,7 @@
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
-    "strictInputAccessModifiers": true, 
+    "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
 }

@@ -20,15 +20,15 @@ export class ExtraToolbarComponent {
   extraTools: IBtnBasic[] = [
     {
       label: "load",
-      urlSvg: "assets/paint-icons/load.svg",
+      urlSvg: "/assets/paint-icons/load.svg",
     },
     {
       label: "save",
-      urlSvg: "assets/paint-icons/save.svg",
+      urlSvg: "/assets/paint-icons/save.svg",
     },
     {
       label: "download",
-      urlSvg: "assets/paint-icons/download.svg",
+      urlSvg: "/assets/paint-icons/download.svg",
     },
   ];
 }

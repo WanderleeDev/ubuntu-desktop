@@ -32,30 +32,30 @@ export class PencilToolbarComponent {
     this.tools = [
       {
         label: "stroke",
-        urlSvg: "assets/paint-icons/stroke.svg",
+        urlSvg: "/assets/paint-icons/stroke.svg",
         onclick: this.#paintStore.toggleStrokeMenu,
       },
       {
         label: "color",
-        urlSvg: "assets/paint-icons/paintbrush.svg",
+        urlSvg: "/assets/paint-icons/paintbrush.svg",
         onclick: this.#paintStore.toggleColorBar,
       },
       {
         label: "eraser",
-        urlSvg: "assets/paint-icons/eraser.svg",
+        urlSvg: "/assets/paint-icons/eraser.svg",
       },
       {
         label: "eraser all",
-        urlSvg: "assets/paint-icons/eraserAll.svg",
+        urlSvg: "/assets/paint-icons/eraserAll.svg",
       },
       {
         label: "eye",
-        urlSvg: "assets/paint-icons/eye.svg",
+        urlSvg: "/assets/paint-icons/eye.svg",
         onclick: this.#paintStore.toggleFullscreen,
       },
       {
         label: "extras",
-        urlSvg: "assets/paint-icons/wrench.svg",
+        urlSvg: "/assets/paint-icons/wrench.svg",
         onclick: this.#paintStore.toggleExtraBar,
       },
     ];

@@ -5,7 +5,7 @@ import {
   inject,
 } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { SeoService } from "./shared/services/seo.service";
+import { SeoService } from "@shared/services/seo.service";
 import { NgxSonnerToaster } from "ngx-sonner";
 
 @Component({
