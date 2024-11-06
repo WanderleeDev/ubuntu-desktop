@@ -14,6 +14,8 @@ import { EmulatorComponent } from "../../../emulator/emulator.component";
 import { CurriculumVitaeComponent } from "../../../curriculum-vitae/curriculum-vitae.component";
 import { PaintComponent } from "../../../paint/paint.component";
 import { MyVideoComponent } from "../../../my-video/my-video.component";
+import { CalculatorComponent } from "../../../calculator/calculator.component";
+import { PortalComponentComponent } from "../portal-component/portal-component.component";
 
 enum components {
   "my github",
@@ -23,6 +25,7 @@ enum components {
   "GTA San Andreas",
   "Translator",
   "rnote",
+  "Calculator",
 }
 
 @Component({
@@ -39,6 +42,8 @@ enum components {
     CurriculumVitaeComponent,
     PaintComponent,
     MyVideoComponent,
+    CalculatorComponent,
+    PortalComponentComponent,
   ],
   templateUrl: "./list-app.component.html",
   styles: `

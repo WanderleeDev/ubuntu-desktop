@@ -8,6 +8,7 @@ import { environment } from "../../../../environments/environment.development";
 import { TodoApiService } from "./todo-api.service";
 import { errorToastHandler } from "../../../utils/errorToastHandler";
 import { catchError, map, Observable, of } from "rxjs";
+import { TaskMessages } from "../interface/TaskMessages.enum";
 
 @Injectable()
 export class TasksManagerService {
@@ -53,7 +54,7 @@ export class TasksManagerService {
     const indexTask = todos.findIndex(t => t.id === task.id);
 
     if (indexTask === -1) {
-      errorToastHandler(Error("Task not found"));
+      errorToastHandler(Error(TaskMessages.NOT_FOUND));
       return todos;
     }
 

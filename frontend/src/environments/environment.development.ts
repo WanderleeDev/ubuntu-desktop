@@ -1,6 +1,4 @@
 export const environment = {
-  GEMINI_API: "AIzaSyA4XNuxxz_QHCG7UZmkSXCLu3BsamUubMs",
-  MINLENGTH_INPUT: 5,
-  PATTERN_INPUT: "^[a-zA-Z0-9]*$",
-  KEY_TASKS_STORAGE: "tasks",
+  GEMINI_API: import.meta.env.NG_GEMINI_API,
+  KEY_TASKS_STORAGE: import.meta.env.NG_KEY_TASKS_STORAGE,
 };

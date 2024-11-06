@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 import { toast } from "ngx-sonner";
 import { TodoStore } from "../../store/todo.store";
-import { environment } from "../../../../../environments/environment.development";
+import { TaskMessages } from "../../interface/TaskMessages.enum";
 
 @Component({
   selector: "app-task-input-field",
@@ -17,8 +17,8 @@ export class TaskInputFieldComponent {
     nonNullable: true,
     validators: [
       Validators.required,
-      Validators.minLength(environment.MINLENGTH_INPUT),
-      Validators.pattern(environment.PATTERN_INPUT),
+      Validators.minLength(5),
+      Validators.pattern("^[a-zA-Z0-9\\s]*$"),
     ],
   });
 
@@ -26,13 +26,13 @@ export class TaskInputFieldComponent {
 
   public addTask(): void {
     if (this.inputTask.invalid || !this.inputTask.value.trim()) {
-      toast.error("Minimum 5 letters and no special characters");
+      toast.error(TaskMessages.ERROR);
 
       return;
     }
 
     this.todoStore.addTask(this.inputTask.value.trim());
-    toast.success("Task added  ✅");
+    toast.success(TaskMessages.ADD_TASK);
     this.inputTask.reset();
   }
 }

@@ -3,7 +3,8 @@ import { ComponentStore, OnStateInit } from "@ngrx/component-store";
 import { TodoState } from "./model/todo.state";
 import { TasksManagerService } from "../services/tasks-manager.service";
 import { TaskDto, TodoAction } from "../interface/task.interface";
-import { catchError, EMPTY, exhaustMap, tap } from "rxjs";
+import { EMPTY, exhaustMap } from "rxjs";
+import { tapResponse } from "@ngrx/operators";
 
 @Injectable()
 export class TodoStore
@@ -65,10 +66,11 @@ export class TodoStore
     trigger$.pipe(
       exhaustMap(() =>
         this.taskManagerSvc.initializeTodo().pipe(
-          tap(todos =>
-            this.setState(state => ({ ...state, todos, isLoading: false }))
-          ),
-          catchError(() => EMPTY)
+          tapResponse({
+            next: todos => this.patchState({ todos }),
+            error: () => EMPTY,
+            finalize: () => this.patchState({ isLoading: false }),
+          })
         )
       )
     )

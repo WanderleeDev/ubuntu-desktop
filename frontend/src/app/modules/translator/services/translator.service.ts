@@ -21,14 +21,14 @@ export class TranslatorService {
     from: string,
     to: string
   ): Promise<void> {
-    let textResponse = "";
-    const data = await this.#gemini
-      .getGenerativeModel(this.#geminiConfig)
-      .generateContentStream(
-        `translates the following text: "${text}" from ${from} to ${to}. Only return the translation if it could not be translated returns an empty string`
-      );
-
     try {
+      let textResponse = "";
+      const data = await this.#gemini
+        .getGenerativeModel(this.#geminiConfig)
+        .generateContentStream(
+          `translates the following text: "${text}" from ${from} to ${to}. Only return the translation if it could not be translated returns an empty string`
+        );
+
       for await (const response of data.stream) {
         textResponse += response.text();
         this.#store.dispatch(

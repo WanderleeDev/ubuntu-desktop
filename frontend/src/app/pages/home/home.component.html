@@ -1,14 +1,13 @@
 <main class="min-h-dvh bg overflow-hidden relative">
-  <div class="relative z-10 min-h-dvh grid-desktop">
+  <div class="relative min-h-dvh z-10 grid-desktop">
     <app-navbar-desktop />
     <app-sidebar />
     <app-desktop>
       @defer (on idle) {
         <app-help-scout />
       }
-      <app-nautilus />
+      <!-- <app-nautilus /> -->
       <app-banner-desktop />
     </app-desktop>
-    <!-- <app-nautilus /> -->
   </div>
 </main>

@@ -43,6 +43,11 @@ export class AppsIconsService {
       icon: "assets/desktopIcons/rnote.svg",
       name: "rnote",
     },
+    {
+      id: this.randomIdSvc.generateRandomId(),
+      icon: "assets/desktopIcons/calculator.svg",
+      name: "Calculator",
+    },
   ]);
 
   private sideBarMainIcons$ = new BehaviorSubject<IDataIcon[]>([
