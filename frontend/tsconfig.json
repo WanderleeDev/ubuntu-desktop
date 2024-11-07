@@ -25,6 +25,9 @@
       "@todo/*": [
         "src/app/modules/todo/*"
       ],
+      "@auth/*": [
+        "src/app/modules/auth/*"
+      ],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
