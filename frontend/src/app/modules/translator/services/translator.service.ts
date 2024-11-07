@@ -1,9 +1,9 @@
 import { Injectable, inject } from "@angular/core";
-import { environment } from "src/environments/environment.development";
 import { GoogleGenerativeAI, ModelParams } from "@google/generative-ai";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/store/app.state";
-import { TRANSLATOR_ACTIONS } from "src/app/store/actions/translator.actions";
+import { environment } from "../../../../environments/environment.development";
+import { TRANSLATOR_ACTIONS } from "../../../store/actions/translator.actions";
+import { AppState } from "../../../store/app.state";
 
 @Injectable({
   providedIn: "root",

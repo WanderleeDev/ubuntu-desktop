@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
 import { ComponentStore, OnStateInit } from "@ngrx/component-store";
-import { TodoState } from "@todo/store/model/todo.state";
-import { TasksManagerService } from "@todo/services/tasks-manager.service";
-import { TaskDto, TodoAction } from "@todo/interface/task.interface";
 import { EMPTY, exhaustMap } from "rxjs";
 import { tapResponse } from "@ngrx/operators";
+import { TaskDto, TodoAction } from "../interface/task.interface";
+import { TasksManagerService } from "../services/tasks-manager.service";
+import { TodoState } from "./model/todo.state";
 
 @Injectable()
 export class TodoStore

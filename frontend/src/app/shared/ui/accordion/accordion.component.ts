@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 //  interface
-import { IAccordionData } from "src/app/interfaces/IAccordionData.interface";
+import { IAccordionData } from "../../../interfaces/IAccordionData.interface";
 
 @Component({
   selector: "app-accordion",

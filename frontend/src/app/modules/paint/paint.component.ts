@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapperComponent } from "@layout/window-wrapper/window-wrapper.component";
+import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
 import { CanvasComponent } from "./components/canvas/canvas.component";
 import { ColoredToolbarComponent } from "./components/colored-toolbar/colored-toolbar.component";
 import { ExtraToolbarComponent } from "./components/extra-toolbar/extra-toolbar.component";

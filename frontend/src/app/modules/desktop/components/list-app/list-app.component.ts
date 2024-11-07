@@ -1,13 +1,13 @@
+import { CdkDrag } from "@angular/cdk/drag-drop";
 import { AsyncPipe } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { BtnFileComponent } from "@shared/components/btn-file/btn-file.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/store/app.state";
-import { APP_ICONS_SELECTORS } from "src/app/store/selectors/app-icons.selectors";
-import { CdkDrag } from "@angular/cdk/drag-drop";
-import { IDataIcon } from "src/app/interfaces/IDataIcon.interface";
+import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
+import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 import { APPLICATION_ACTIONS } from "../../../../store/actions/application.actions";
-import { PortalComponentComponent } from "@desktop/components/portal-component/portal-component.component";
+import { AppState } from "../../../../store/app.state";
+import { APP_ICONS_SELECTORS } from "../../../../store/selectors/app-icons.selectors";
+import { PortalComponentComponent } from "../portal-component/portal-component.component";
 
 enum components {
   "my github",

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { AuthWrapperComponent } from "@layout/auth-wrapper/auth-wrapper.component";
+import { AuthWrapperComponent } from "../../layout/auth-wrapper/auth-wrapper.component";
 import { RouterOutlet } from "@angular/router";
 
 @Component({

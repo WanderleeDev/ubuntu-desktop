@@ -1,20 +1,21 @@
+import { DragDropModule } from "@angular/cdk/drag-drop";
 import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
   inject,
 } from "@angular/core";
-import { SidebarComponent } from "@modules/sidebar/sidebar.component";
-import { DragDropModule } from "@angular/cdk/drag-drop";
-import { DesktopComponent } from "@modules/desktop/desktop.component";
-import { NavbarDesktopComponent } from "@modules/navbarDesktop/navbarDesktop.component";
+
 import { Store } from "@ngrx/store";
-import { AppState } from "src/app/store/app.state";
-import { APP_ICONS_SELECTORS } from "src/app/store/selectors/app-icons.selectors";
-import { APP_ICONS_ACTIONS } from "src/app/store/actions/app-icons.actions";
-import { NautilusComponent } from "@modules/nautilus/nautilus.component";
-import { BannerDesktopComponent } from "@shared/components/banner-desktop/banner-desktop.component";
-import { HelpScoutComponent } from "@modules/help-scout/help-scout.component";
+import { DesktopComponent } from "../../modules/desktop/desktop.component";
+import { HelpScoutComponent } from "../../modules/help-scout/help-scout.component";
+import { NautilusComponent } from "../../modules/nautilus/nautilus.component";
+import { NavbarDesktopComponent } from "../../modules/navbarDesktop/navbarDesktop.component";
+import { SidebarComponent } from "../../modules/sidebar/sidebar.component";
+import { BannerDesktopComponent } from "../../shared/components/banner-desktop/banner-desktop.component";
+import { APP_ICONS_ACTIONS } from "../../store/actions/app-icons.actions";
+import { AppState } from "../../store/app.state";
+import { APP_ICONS_SELECTORS } from "../../store/selectors/app-icons.selectors";
 
 @Component({
   selector: "app-home",
