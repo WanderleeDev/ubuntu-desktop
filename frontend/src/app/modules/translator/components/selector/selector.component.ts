@@ -9,11 +9,11 @@ import {
   input,
   signal,
 } from "@angular/core";
-import languages from "../../language/languages";
+import languages from "@modules/translator/language/languages";
 import { Store } from "@ngrx/store";
-import { AppState } from "../../../../core/store/app.state";
-import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/translator.actions";
-import { IButtonLanguage } from "../../interfaces/IButtonLanguage.interface";
+import { AppState } from "@store/app.state";
+import { TRANSLATOR_ACTIONS } from "@store/actions/translator.actions";
+import { IButtonLanguage } from "@modules/translator/interfaces/IButtonLanguage.interface";
 
 @Component({
   selector: "app-selector",

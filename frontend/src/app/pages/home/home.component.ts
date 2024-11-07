@@ -4,18 +4,17 @@ import {
   OnInit,
   inject,
 } from "@angular/core";
-import { SidebarComponent } from "../../modules/sidebar/sidebar.component";
+import { SidebarComponent } from "@modules/sidebar/sidebar.component";
 import { DragDropModule } from "@angular/cdk/drag-drop";
-import { DesktopComponent } from "../../modules/desktop/desktop.component";
-import { NavbarDesktopComponent } from "src/app/modules/navbarDesktop/navbarDesktop.component";
+import { DesktopComponent } from "@modules/desktop/desktop.component";
+import { NavbarDesktopComponent } from "@modules/navbarDesktop/navbarDesktop.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "../../core/store/app.state";
-import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
-import { APP_ICONS_ACTIONS } from "../../core/store/actions/app-icons.actions";
-import { PaintComponent } from "../../modules/paint/paint.component";
-import { NautilusComponent } from "../../modules/nautilus/nautilus.component";
-import { BannerDesktopComponent } from "../../shared/components/banner-desktop/banner-desktop.component";
-import { HelpScoutComponent } from "../../modules/help-scout/help-scout.component";
+import { AppState } from "@store/app.state";
+import { APP_ICONS_SELECTORS } from "@store/selectors/app-icons.selectors";
+import { APP_ICONS_ACTIONS } from "@store/actions/app-icons.actions";
+import { NautilusComponent } from "@modules/nautilus/nautilus.component";
+import { BannerDesktopComponent } from "@shared/components/banner-desktop/banner-desktop.component";
+import { HelpScoutComponent } from "@modules/help-scout/help-scout.component";
 
 @Component({
   selector: "app-home",
@@ -25,7 +24,6 @@ import { HelpScoutComponent } from "../../modules/help-scout/help-scout.componen
     DragDropModule,
     DesktopComponent,
     NavbarDesktopComponent,
-    PaintComponent,
     NautilusComponent,
     BannerDesktopComponent,
     HelpScoutComponent,

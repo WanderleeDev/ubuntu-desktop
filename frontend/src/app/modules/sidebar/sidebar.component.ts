@@ -9,11 +9,11 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from "@angular/cdk/drag-drop";
-import { IDataIcon } from "../../interfaces/IDataIcon.interface";
+import { IDataIcon } from "src/app/interfaces/IDataIcon.interface";
 import { Store } from "@ngrx/store";
-import { AppState } from "../../core/store/app.state";
-import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
-import { cloneObservableArray } from "../../utils/cloneObservable";
+import { AppState } from "@store/app.state";
+import { APP_ICONS_SELECTORS } from "@store/selectors/app-icons.selectors";
+import { cloneObservableArray } from "@utils/cloneObservable";
 
 @Component({
   selector: "app-sidebar",

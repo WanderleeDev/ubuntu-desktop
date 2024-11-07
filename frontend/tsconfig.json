@@ -18,7 +18,13 @@
       ],
       "@modules/*": [
         "src/app/modules/*"
-      ]
+      ],
+      "@desktop/*": [
+        "src/app/modules/desktop/*"
+      ],
+      "@store/*": [
+        "src/app/store/*"
+      ],
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

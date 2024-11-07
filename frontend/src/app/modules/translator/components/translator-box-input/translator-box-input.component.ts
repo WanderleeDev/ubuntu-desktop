@@ -8,15 +8,15 @@ import {
 } from "@angular/core";
 import { TranslatorLoaderComponent } from "../translator-loader/translator-loader.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "../../../../core/store/app.state";
-import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/translator.actions";
-import { TRANSLATOR_SELECTORS } from "../../../../core/store/selectors/translator.selectors";
+import { AppState } from "@store/app.state";
+import { TRANSLATOR_ACTIONS } from "@store/actions/translator.actions";
+import { TRANSLATOR_SELECTORS } from "@store/selectors/translator.selectors";
 import { Observable } from "rxjs";
-import { CapitalizePipe } from "../../../../shared/pipes/capitalize.pipe";
-import { ReplaceCharactersPipe } from "../../../../shared/pipes/replace-characters.pipe";
+import { CapitalizePipe } from "@shared/pipes/capitalize.pipe";
+import { ReplaceCharactersPipe } from "@shared/pipes/replace-characters.pipe";
 import { ClipboardModule } from "@angular/cdk/clipboard";
-import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-basic.component";
-import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
+import { BtnBasicComponent } from "@shared/components/btn-basic/btn-basic.component";
+import { BtnFileComponent } from "@shared/components/btn-file/btn-file.component";
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 @Component({
