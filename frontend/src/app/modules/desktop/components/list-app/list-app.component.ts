@@ -6,7 +6,7 @@ import { AppState } from "src/app/store/app.state";
 import { APP_ICONS_SELECTORS } from "src/app/store/selectors/app-icons.selectors";
 import { CdkDrag } from "@angular/cdk/drag-drop";
 import { IDataIcon } from "src/app/interfaces/IDataIcon.interface";
-import { APPLICATION_ACTIONS } from "src/app/store/actions/application.actions";
+import { APPLICATION_ACTIONS } from "../../../../store/actions/application.actions";
 import { PortalComponentComponent } from "@desktop/components/portal-component/portal-component.component";
 
 enum components {
