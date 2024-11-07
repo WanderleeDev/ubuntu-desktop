@@ -11,8 +11,8 @@ import {
 } from "@angular/core";
 import languages from "@modules/translator/language/languages";
 import { Store } from "@ngrx/store";
-import { AppState } from "@store/app.state";
-import { TRANSLATOR_ACTIONS } from "@store/actions/translator.actions";
+import { AppState } from "src/app/store/app.state";
+import { TRANSLATOR_ACTIONS } from "src/app/store/actions/translator.actions";
 import { IButtonLanguage } from "@modules/translator/interfaces/IButtonLanguage.interface";
 
 @Component({

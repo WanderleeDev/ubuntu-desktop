@@ -3,8 +3,8 @@ import { WindowWrapperComponent } from "@layout/window-wrapper/window-wrapper.co
 import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
 import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "@store/app.state";
-import { TRANSLATOR_SELECTORS } from "@store/selectors/translator.selectors";
+import { AppState } from "src/app/store/app.state";
+import { TRANSLATOR_SELECTORS } from "src/app/store/selectors/translator.selectors";
 import { AsyncPipe } from "@angular/common";
 
 @Component({

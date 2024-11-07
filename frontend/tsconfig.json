@@ -22,8 +22,8 @@
       "@desktop/*": [
         "src/app/modules/desktop/*"
       ],
-      "@store/*": [
-        "src/app/store/*"
+      "@todo/*": [
+        "src/app/modules/todo/*"
       ],
     },
     "outDir": "./dist/out-tsc",

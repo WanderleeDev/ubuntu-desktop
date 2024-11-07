@@ -1,4 +1,4 @@
-import { Task, TodoAction } from "../../interface/task.interface";
+import { Task, TodoAction } from "@todo/interface/task.interface";
 
 export interface TodoState {
   todos: Task[];

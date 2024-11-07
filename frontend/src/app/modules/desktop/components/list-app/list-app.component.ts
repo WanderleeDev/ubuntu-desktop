@@ -2,11 +2,11 @@ import { AsyncPipe } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { BtnFileComponent } from "@shared/components/btn-file/btn-file.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "@store/app.state";
-import { APP_ICONS_SELECTORS } from "@store/selectors/app-icons.selectors";
+import { AppState } from "src/app/store/app.state";
+import { APP_ICONS_SELECTORS } from "src/app/store/selectors/app-icons.selectors";
 import { CdkDrag } from "@angular/cdk/drag-drop";
-import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
-import { APPLICATION_ACTIONS } from "@store/actions/application.actions";
+import { IDataIcon } from "src/app/interfaces/IDataIcon.interface";
+import { APPLICATION_ACTIONS } from "src/app/store/actions/application.actions";
 import { PortalComponentComponent } from "@desktop/components/portal-component/portal-component.component";
 
 enum components {

@@ -1,14 +1,14 @@
 import { Injectable } from "@angular/core";
 //  Services
-import { GenerateRandomId } from "../../../shared/services/generateRandomId.service";
-import { LocalStorageService } from "../../../shared/services/localStorage.service";
+import { GenerateRandomId } from "@shared/services/generateRandomId.service";
+import { LocalStorageService } from "@shared/services/localStorage.service";
 //  Interfaces
-import { Task, StatusTask, TaskDto } from "../interface/task.interface";
-import { environment } from "../../../../environments/environment.development";
-import { TodoApiService } from "./todo-api.service";
-import { errorToastHandler } from "../../../utils/errorToastHandler";
+import { Task, StatusTask, TaskDto } from "@todo/interface/task.interface";
+import { environment } from "src/environments/environment.development";
+import { TodoApiService } from "@todo/services/todo-api.service";
+import { errorToastHandler } from "@utils/errorToastHandler";
 import { catchError, map, Observable, of } from "rxjs";
-import { TaskMessages } from "../interface/TaskMessages.enum";
+import { TaskMessages } from "@todo/interface/TaskMessages.enum";
 
 @Injectable()
 export class TasksManagerService {

@@ -8,9 +8,9 @@ import {
 } from "@angular/core";
 import { TranslatorLoaderComponent } from "../translator-loader/translator-loader.component";
 import { Store } from "@ngrx/store";
-import { AppState } from "@store/app.state";
-import { TRANSLATOR_ACTIONS } from "@store/actions/translator.actions";
-import { TRANSLATOR_SELECTORS } from "@store/selectors/translator.selectors";
+import { AppState } from "src/app/store/app.state";
+import { TRANSLATOR_ACTIONS } from "src/app/store/actions/translator.actions";
+import { TRANSLATOR_SELECTORS } from "src/app/store/selectors/translator.selectors";
 import { Observable } from "rxjs";
 import { CapitalizePipe } from "@shared/pipes/capitalize.pipe";
 import { ReplaceCharactersPipe } from "@shared/pipes/replace-characters.pipe";

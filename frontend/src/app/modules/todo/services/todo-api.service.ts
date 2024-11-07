@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Task } from "../interface/task.interface";
+import { Task } from "@todo/interface/task.interface";
 import { BehaviorSubject, delay, Observable } from "rxjs";
 
 @Injectable()

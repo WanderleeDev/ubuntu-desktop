@@ -11,8 +11,8 @@ import {
 } from "@angular/cdk/drag-drop";
 import { IDataIcon } from "src/app/interfaces/IDataIcon.interface";
 import { Store } from "@ngrx/store";
-import { AppState } from "@store/app.state";
-import { APP_ICONS_SELECTORS } from "@store/selectors/app-icons.selectors";
+import { AppState } from "src/app/store/app.state";
+import { APP_ICONS_SELECTORS } from "src/app/store/selectors/app-icons.selectors";
 import { cloneObservableArray } from "@utils/cloneObservable";
 
 @Component({
