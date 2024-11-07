@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": ".//",
+    "baseUrl": "./",
     "paths": {
       "@calculator/*": [
         "src/app/modules/calculator/*"
