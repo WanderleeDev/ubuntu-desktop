@@ -12,8 +12,8 @@ import {
 import { cloneObservableArray } from "../../utils/cloneObservable";
 import { Store } from "@ngrx/store";
 import { IDataIcon } from "../../interfaces/IDataIcon.interface";
-import { AppState } from "../../store/app.state";
-import { APP_ICONS_SELECTORS } from "../../store/selectors/app-icons.selectors";
+import { AppState } from "src/app/core/store/app.state";
+import { APP_ICONS_SELECTORS } from "src/app/core/store/selectors/app-icons.selectors";
 
 @Component({
   selector: "app-sidebar",

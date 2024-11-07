@@ -10,8 +10,8 @@ import {
   signal,
 } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { TRANSLATOR_ACTIONS } from "../../../../store/actions/translator.actions";
-import { AppState } from "../../../../store/app.state";
+import { TRANSLATOR_ACTIONS } from "src/app/core/store/actions/translator.actions";
+import { AppState } from "src/app/core/store/app.state";
 import { IButtonLanguage } from "../../interfaces/IButtonLanguage.interface";
 import languages from "../../language/languages";
 

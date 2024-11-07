@@ -3,35 +3,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "@calculator/*": [
-        "src/app/modules/calculator/*"
-      ],
-      "@layout/*": [
-        "src/app/layout/*"
-      ],
-      "@shared/*": [
-        "src/app/shared/*"
-      ],
-      "@utils/*": [
-        "src/app/utils/*"
-      ],
-      "@modules/*": [
-        "src/app/modules/*"
-      ],
-      "@desktop/*": [
-        "src/app/modules/desktop/*"
-      ],
-      "@todo/*": [
-        "src/app/modules/todo/*"
-      ],
-      "@auth/*": [
-        "src/app/modules/auth/*"
-      ],
-      "@storeNgrx/*": [
-        "src/app/store/*"
-      ],
-    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

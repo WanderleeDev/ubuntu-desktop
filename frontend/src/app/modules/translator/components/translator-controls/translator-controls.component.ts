@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { SelectorComponent } from "../selector/selector.component";
 import { Store } from "@ngrx/store";
 import { AsyncPipe } from "@angular/common";
-import { TRANSLATOR_ACTIONS } from "../../../../store/actions/translator.actions";
-import { AppState } from "../../../../store/app.state";
-import { TRANSLATOR_SELECTORS } from "../../../../store/selectors/translator.selectors";
+import { TRANSLATOR_ACTIONS } from "src/app/core/store/actions/translator.actions";
+import { AppState } from "src/app/core/store/app.state";
+import { TRANSLATOR_SELECTORS } from "src/app/core/store/selectors/translator.selectors";
 
 @Component({
   selector: "app-translator-controls",
