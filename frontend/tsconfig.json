@@ -2,7 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./frontend/",
+    "baseUrl": ".//",
     "paths": {
       "@calculator/*": [
         "src/app/modules/calculator/*"
@@ -27,6 +27,9 @@
       ],
       "@auth/*": [
         "src/app/modules/auth/*"
+      ],
+      "@storeNgrx/*": [
+        "src/app/store/*"
       ],
     },
     "outDir": "./dist/out-tsc",
