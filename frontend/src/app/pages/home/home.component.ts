@@ -13,9 +13,9 @@ import { NautilusComponent } from "../../modules/nautilus/nautilus.component";
 import { NavbarDesktopComponent } from "../../modules/navbarDesktop/navbarDesktop.component";
 import { SidebarComponent } from "../../modules/sidebar/sidebar.component";
 import { BannerDesktopComponent } from "../../shared/components/banner-desktop/banner-desktop.component";
-import { APP_ICONS_ACTIONS } from "src/app/core/store/actions/app-icons.actions";
-import { AppState } from "src/app/core/store/app.state";
-import { APP_ICONS_SELECTORS } from "src/app/core/store/selectors/app-icons.selectors";
+import { APP_ICONS_ACTIONS } from "../../core/store/actions/app-icons.actions";
+import { AppState } from "../../core/store/app.state";
+import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
 
 @Component({
   selector: "app-home",

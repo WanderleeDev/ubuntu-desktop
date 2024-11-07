@@ -3,8 +3,8 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { AsyncPipe } from "@angular/common";
 import { Store } from "@ngrx/store";
 import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
-import { AppState } from "src/app/core/store/app.state";
-import { TRANSLATOR_SELECTORS } from "src/app/core/store/selectors/translator.selectors";
+import { AppState } from "../../core/store/app.state";
+import { TRANSLATOR_SELECTORS } from "../../core/store/selectors/translator.selectors";
 import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
 import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
 

@@ -4,9 +4,9 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { IDataIcon } from "../../../../interfaces/IDataIcon.interface";
 import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
-import { APPLICATION_ACTIONS } from "src/app/core/store/actions/application.actions";
-import { AppState } from "src/app/core/store/app.state";
-import { APP_ICONS_SELECTORS } from "src/app/core/store/selectors/app-icons.selectors";
+import { APPLICATION_ACTIONS } from "../../../../core/store/actions/application.actions";
+import { AppState } from "../../../../core/store/app.state";
+import { APP_ICONS_SELECTORS } from "../../../../core/store/selectors/app-icons.selectors";
 import { PortalComponentComponent } from "../portal-component/portal-component.component";
 
 enum components {
