@@ -34,8 +34,7 @@
               "src/custom-theme.scss",
               "src/styles.css",
               "public/assets/styles/starting-animated.css",
-              "node_modules/@videogular/ngx-videogular/fonts/videogular.css",
-              "src/app/shared/css/index.css"
+              "node_modules/@videogular/ngx-videogular/fonts/videogular.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
