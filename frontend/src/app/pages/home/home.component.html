@@ -1,13 +1,16 @@
-<main class="min-h-dvh bg overflow-hidden relative">
-  <div class="relative min-h-dvh z-10 grid-desktop">
+<main class="desktop">
+  <div class="desktop-content">
     <app-navbar-desktop />
-    <app-sidebar />
+    <app-sidebar [$mainIcons]="mainIcons" [$secondaryIcons]="secondaryIcons" />
     <app-desktop>
-      @defer (on idle) {
-        <app-help-scout />
-      }
+      <app-list-app>
+        @for (icon of desktopIcons; track icon.id) {
+          <li>
+            <app-app-item [$appData]="icon" [lazeComponent]="APPS[icon.app]" />
+          </li>
+        }
+      </app-list-app>
       <!-- <app-nautilus /> -->
-      <app-banner-desktop />
     </app-desktop>
   </div>
 </main>

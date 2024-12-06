@@ -1,4 +1,4 @@
-export interface ILanguage {
+export interface Language {
   no: string;
   name: string;
   native: string;

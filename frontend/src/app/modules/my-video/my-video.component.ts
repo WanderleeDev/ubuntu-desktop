@@ -8,14 +8,9 @@ import { VideoPlayerComponent } from "../../shared/ui/video-player/video-player.
   standalone: true,
   imports: [CommonModule, WindowWrapperComponent, VideoPlayerComponent],
   templateUrl: "./my-video.component.html",
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MyVideoComponent {
+export default class MyVideoComponent {
   readonly titleVideo = `My Github ${new Date().getFullYear()}`;
   readonly videoUrl =
     "https://www.dropbox.com/scl/fi/07oxt58obkp3uljmsub4u/unwrapped.webm?rlkey=92rqadbn6cclkwfq1oltnd9vk&st=52xxw4c7&raw=1";

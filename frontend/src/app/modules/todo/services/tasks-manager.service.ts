@@ -3,7 +3,7 @@ import { Observable, map, catchError, of } from "rxjs";
 import { environment } from "../../../../environments/environment.development";
 import { GenerateRandomId } from "../../../shared/services/generateRandomId.service";
 import { LocalStorageService } from "../../../shared/services/localStorage.service";
-import { errorToastHandler } from "../../../utils/errorToastHandler";
+import { errorToastHandler } from "../../../shared/utils/errorToastHandler";
 import { Task, StatusTask, TaskDto } from "../interface/task.interface";
 import { TaskMessages } from "../interface/TaskMessages.enum";
 import { TodoApiService } from "./todo-api.service";

@@ -1,6 +1,6 @@
-import { ILanguage } from "../interfaces/ILanguage.interface";
+import { Language } from "../interfaces/ILanguage.interface";
 
-const languages: ILanguage[] = [
+const languages: Language[] = [
   {
     no: "16",
     name: "English",

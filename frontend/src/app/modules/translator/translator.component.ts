@@ -1,12 +1,17 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  OnDestroy,
+  Signal,
+} from "@angular/core";
 
-import { AsyncPipe } from "@angular/common";
-import { Store } from "@ngrx/store";
 import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
-import { AppState } from "../../core/store/app.state";
-import { TRANSLATOR_SELECTORS } from "../../core/store/selectors/translator.selectors";
 import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
 import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
+import { TranslatorBoxOutputComponent } from "./components/translator-box-output/translator-box-output.component";
+import { TranslatorService } from "./services/translator.service";
+import { TranslationState } from "./interfaces/TranslationState.interface";
 
 @Component({
   selector: "app-translator",
@@ -15,17 +20,25 @@ import { TranslatorControlsComponent } from "./components/translator-controls/tr
     WindowWrapperComponent,
     TranslatorControlsComponent,
     TranslatorBoxInputComponent,
-    AsyncPipe,
+    TranslatorBoxOutputComponent,
   ],
+  providers: [TranslatorService],
   templateUrl: "./translator.component.html",
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorComponent {
-  readonly #store: Store<AppState> = inject(Store);
-  isLoading$ = this.#store.select(TRANSLATOR_SELECTORS.selectLoading);
+export default class TranslatorComponent implements OnDestroy {
+  protected readonly $translationState: Signal<TranslationState>;
+  protected readonly MAX_INPUT_CHARACTERS = 100;
+  protected readonly $hasDisabledTranslatebtn = computed(
+    () =>
+      this.$translationState().translation.length > this.MAX_INPUT_CHARACTERS
+  );
+
+  constructor(private readonly translatorSvc: TranslatorService) {
+    this.$translationState = this.translatorSvc.$translationStream;
+  }
+
+  ngOnDestroy(): void {
+    console.log("destroy");
+  }
 }

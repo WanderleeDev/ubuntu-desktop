@@ -1,12 +1,26 @@
-<section #window cdkDrag class="bg-[#242424] text-white w-window">
-  <header
-    cdkDragHandle
-    class="bg-header font-medium flex justify-between items-center px-4 py-2 select-none cursor-move">
+<section
+  class="window max-window"
+  cdkDragBoundary="#container-boundary"
+  cdkDrag
+  [cdkDragFreeDragPosition]="dragPosition">
+  <header class="window-header" cdkDragHandle>
     <ng-content select="[header]" />
-    <h2 class="capitalize">
+    <h2 class="window-title">
       {{ appTitle() || "Empty title" }}
     </h2>
-    <app-window-control [windowReference]="window" />
+    <nav>
+      <ul class="window-controls">
+        @for (icon of controls; track icon.label) {
+          <li class="window-control">
+            <app-btn-basic
+              class="window-btn"
+              [titleBtn]="icon.label"
+              (click)="onClick(icon.label)"
+              [btnData]="icon" />
+          </li>
+        }
+      </ul>
+    </nav>
   </header>
   <div>
     <ng-content select="[body]" />

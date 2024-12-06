@@ -72,6 +72,10 @@ export class CanvasComponent implements AfterViewInit {
     }));
   }
 
+  public onClick(): void {
+    console.log("a");
+  }
+
   public onDraw($event: MouseEvent): void {
     const trazoActual =
       this.canvasConfig().trazos[this.canvasConfig().trazos.length - 1];

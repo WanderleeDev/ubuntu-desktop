@@ -1,58 +1,47 @@
-import { CommonModule } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
   ElementRef,
-  HostListener,
-  OnInit,
-  inject,
   input,
+  model,
   signal,
+  viewChild,
 } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/translator.actions";
-import { AppState } from "../../../../core/store/app.state";
-import { IButtonLanguage } from "../../interfaces/IButtonLanguage.interface";
 import languages from "../../language/languages";
+import { TranslatorService } from "../../services/translator.service";
+import { ActionLanguageType } from "../../interfaces/TranslationState.interface";
+import { ClickOutsideDirective } from "../../../../shared/directives/ClickOutside.directive";
 
 @Component({
   selector: "app-selector",
   standalone: true,
-  imports: [CommonModule],
+  imports: [ClickOutsideDirective],
   templateUrl: "./selector.component.html",
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
+  styleUrls: ["./selector.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectorComponent implements OnInit {
-  readonly #store: Store<AppState> = inject(Store);
-  readonly #ref = inject(ElementRef);
-  buttonConfig = input.required<IButtonLanguage>();
-  buttonValue = signal<string>("");
-  isViewListLanguages = signal<boolean>(false);
-  readonly languages = languages;
+export class SelectorComponent {
+  readonly action = input.required<ActionLanguageType>();
+  readonly currentLanguage = model.required<string>();
+  readonly element = viewChild<ElementRef<HTMLUListElement>>("selector");
+  protected readonly isViewoptions = signal<boolean>(false);
+  protected readonly currentIndex = signal<number | null>(null);
+  protected readonly listLanguages = languages;
 
-  ngOnInit(): void {
-    this.buttonValue.set(this.buttonConfig().initLanguage);
-  }
-
-  @HostListener("document:click", ["$event"])
-  public onClick(event: PointerEvent): void {
-    if (!this.#ref.nativeElement.contains(event.target)) {
-      this.isViewListLanguages.set(false);
-    }
-  }
+  constructor(private readonly translatorSvc: TranslatorService) {}
 
   public listToggle(): void {
-    this.isViewListLanguages.update(prev => !prev);
+    this.isViewoptions.update(prev => !prev);
   }
 
-  public saveLanguage(language: string, action: "from" | "to"): void {
-    this.buttonValue.set(language);
-    this.#store.dispatch(TRANSLATOR_ACTIONS.setLanguage({ language, action }));
-    this.listToggle();
+  public selectLanguage(language: string, index: number): void {
+    this.currentLanguage.set(language);
+    this.translatorSvc.updateLanguauge(this.action(), language);
+    this.currentIndex.set(index);
+    this.close();
+  }
+
+  public close(): void {
+    this.isViewoptions.set(false);
   }
 }

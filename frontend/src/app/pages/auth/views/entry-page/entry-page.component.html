@@ -1,20 +1,14 @@
-<ng-container>
-  <a class="block" title="authenticate" routerLink="/login">
+<div class="auth">
+  <a class="auth-loginLink" title="authenticate" routerLink="/login">
     <app-personal-user-card />
   </a>
-  <div class="flex flex-col gap-2 text-sm text-[#dbbfd4] py-2">
-    <a class="hover:underline w-fit" routerLink="/register"
-      >¿No estas en la lista?</a
-    >
-    <button
-      (click)="onClick()"
-      #btn
-      class="hover:underline text-start w-fit"
-      type="button">
-      Ingresar como invitado
+  <div class="auth-content">
+    <a class="auth-link" routerLink="/register">Not on the list?</a>
+    <button (click)="onClick()" #btn class="auth-guestLink" type="button">
+      Sign in as a guest
     </button>
   </div>
-</ng-container>
+</div>
 
 @defer (on hover(btn)) {
   @if (isReadyToNavigate()) {

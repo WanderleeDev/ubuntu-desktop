@@ -1,9 +1,7 @@
 <app-window-wrapper appTitle="translator">
   <ng-container body>
-    <app-translator-box-input [isLoading]="false" [typeTextBox]="'input'" />
-    <app-translator-controls />
-    <app-translator-box-input
-      [typeTextBox]="'output'"
-      [isLoading]="(isLoading$ | async) ?? false" />
+    <app-translator-box-input [$maxInputCharacters]="MAX_INPUT_CHARACTERS" />
+    <app-translator-controls [$isDisabled]="$hasDisabledTranslatebtn()" />
+    <app-translator-box-output [$translationState]="$translationState()" />
   </ng-container>
 </app-window-wrapper>

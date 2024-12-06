@@ -3,9 +3,9 @@ import { DOCUMENT } from "@angular/common";
 
 @Injectable()
 export class HelperScoutService {
-  #bodyElement: HTMLBodyElement;
-  #ACTIVE_CLASS = "mark";
-  #INTERACTIVE_SELECTOR = "[data-interactive]";
+  readonly #bodyElement: HTMLBodyElement;
+  readonly #ACTIVE_CLASS = "mark";
+  readonly #INTERACTIVE_SELECTOR = "[data-interactive]";
 
   constructor(
     @Inject(DOCUMENT) private document: Document,

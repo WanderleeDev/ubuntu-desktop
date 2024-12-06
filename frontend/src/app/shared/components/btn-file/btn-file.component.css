@@ -7,7 +7,7 @@
   place-content: center;
   user-select: none;
 
-  &:hover{
+  &:hover {
     & .btnFile-label {
       opacity: 1;
     }
@@ -15,7 +15,7 @@
 
   & .btnFile-iconWrapper {
     position: relative;
-    z-index: -1;
+    z-index: 0;
   }
 
   & .btnFile-name {
@@ -70,4 +70,6 @@
   }
 }
 
-
+.contrast {
+  filter: invert(var(--filter-invert));
+}

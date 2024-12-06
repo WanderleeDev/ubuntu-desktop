@@ -1,15 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { SelectorComponent } from "../selector/selector.component";
-import { Store } from "@ngrx/store";
-import { AsyncPipe } from "@angular/common";
-import { AppState } from "../../../../core/store/app.state";
-import { TRANSLATOR_ACTIONS } from "../../../../core/store/actions/translator.actions";
-import { TRANSLATOR_SELECTORS } from "../../../../core/store/selectors/translator.selectors";
+import { TranslatorService } from "../../services/translator.service";
 
 @Component({
   selector: "app-translator-controls",
   standalone: true,
-  imports: [SelectorComponent, AsyncPipe],
+  imports: [SelectorComponent],
   templateUrl: "./translator-controls.component.html",
   styles: `
     :host {
@@ -19,13 +15,13 @@ import { TRANSLATOR_SELECTORS } from "../../../../core/store/selectors/translato
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslatorControlsComponent {
-  readonly #store: Store<AppState> = inject(Store);
-  currentTextLength = this.#store.select(
-    TRANSLATOR_SELECTORS.selectCurrentTextLength
-  );
-  readonly maxTextCharacters = 100;
+  readonly $isDisabled = input.required<boolean>();
 
-  public translateText(): void {
-    this.#store.dispatch(TRANSLATOR_ACTIONS.translateText());
+  constructor(private readonly translatorSvc: TranslatorService) {}
+
+  public async translateText() {
+    if (this.$isDisabled()) return;
+
+    await this.translatorSvc.translateText();
   }
 }

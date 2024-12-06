@@ -19,23 +19,20 @@ import { LetDirective } from "@ngrx/component";
     ExtraToolbarComponent,
     PencilToolbarComponent,
     HeaderControlExtraComponent,
-    AsyncPipe,
-    NgClass,
     LetDirective,
   ],
   templateUrl: "./paint.component.html",
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PaintStore],
 })
-export class PaintComponent {
+export default class PaintComponent {
   #paintStore: PaintStore = inject(PaintStore);
   isViewColorBar$ = this.#paintStore.hasColorBarSelector$;
   isViewExtraBar$ = this.#paintStore.hasExtraBarSelector$;
   isFullscreen$ = this.#paintStore.hasFullScreenSelector$;
   color$ = this.#paintStore.currentColorSelector$;
+
+  public onClick(): void {
+    console.log("a");
+  }
 }

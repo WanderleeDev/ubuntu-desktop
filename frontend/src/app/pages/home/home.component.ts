@@ -1,49 +1,47 @@
-import { DragDropModule } from "@angular/cdk/drag-drop";
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit,
-  inject,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
-import { Store } from "@ngrx/store";
-import { DesktopComponent } from "../../modules/desktop/desktop.component";
-import { HelpScoutComponent } from "../../modules/help-scout/help-scout.component";
-import { NautilusComponent } from "../../modules/nautilus/nautilus.component";
-import { NavbarDesktopComponent } from "../../modules/navbarDesktop/navbarDesktop.component";
-import { SidebarComponent } from "../../modules/sidebar/sidebar.component";
-import { BannerDesktopComponent } from "../../shared/components/banner-desktop/banner-desktop.component";
-import { APP_ICONS_ACTIONS } from "../../core/store/actions/app-icons.actions";
-import { AppState } from "../../core/store/app.state";
-import { APP_ICONS_SELECTORS } from "../../core/store/selectors/app-icons.selectors";
+import { NavbarDesktopComponent } from "./components/navbarDesktop/navbarDesktop.component";
+import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { DesktopComponent } from "./components/desktop/desktop.component";
+import {
+  mainIconsSidebar,
+  secondaryIconsSidebar,
+  desktopIcons,
+} from "./data/home.icons";
+import { ListAppComponent } from "./components/list-app/list-app.component";
+import { AppItemComponent } from "./components/app-item/app-item.component";
+import { fillMap } from "../../modules/nautilus/utils/fillMap";
+import { MiniApps } from "../../shared/interfaces/MiniApps.enum";
+import { LazyComponent } from "../../shared/types/LazyComponent.type";
 
 @Component({
   selector: "app-home",
   standalone: true,
   imports: [
     SidebarComponent,
-    DragDropModule,
-    DesktopComponent,
     NavbarDesktopComponent,
-    NautilusComponent,
-    BannerDesktopComponent,
-    HelpScoutComponent,
+    DesktopComponent,
+    ListAppComponent,
+    AppItemComponent,
   ],
   templateUrl: "./home.component.html",
-  styles: `
-    :host {
-      display: contents;
-    }
-  `,
+  styleUrls: ["./home.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent implements OnInit {
-  readonly #store: Store<AppState> = inject(Store);
-  readonly selectAppIcons$ = this.#store.select(
-    APP_ICONS_SELECTORS.selectAllAppIcons
-  );
+export default class HomeComponent {
+  protected readonly mainIcons = mainIconsSidebar;
+  protected readonly secondaryIcons = secondaryIconsSidebar;
+  protected readonly desktopIcons = desktopIcons;
+  protected readonly APPS: Record<MiniApps, LazyComponent> = {
+    github: () => import("../../modules/my-video/my-video.component"),
+    readme: () => import("../../modules/readme-editor/readme-editor.component"),
+    translator: () => import("../../modules/translator/translator.component"),
+    paint: () => import("../../modules/paint/paint.component"),
+    calculator: () => import("../../modules/calculator/calculator.component"),
+  };
+  protected readonly appComponents: Map<MiniApps, LazyComponent>;
 
-  ngOnInit(): void {
-    this.#store.dispatch(APP_ICONS_ACTIONS.loadAllApps());
+  constructor() {
+    this.appComponents = fillMap(this.APPS);
   }
 }

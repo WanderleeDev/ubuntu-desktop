@@ -1,52 +1,81 @@
-import { Injectable, inject } from "@angular/core";
-import { GoogleGenerativeAI, ModelParams } from "@google/generative-ai";
-import { Store } from "@ngrx/store";
+import {
+  GenerateContentStreamResult,
+  GoogleGenerativeAI,
+  ModelParams,
+} from "@google/generative-ai";
 import { environment } from "../../../../environments/environment.development";
-import { TRANSLATOR_ACTIONS } from "../../../core/store/actions/translator.actions";
-import { AppState } from "../../../core/store/app.state";
+import { errorHandler } from "../../../shared/utils/errorToastHandler";
+import { Injectable, signal, computed } from "@angular/core";
+import {
+  TranslationState,
+  LanguageOptions,
+  ActionLanguageType,
+} from "../interfaces/TranslationState.interface";
+import { SignalsUtility } from "../../../shared/utils/signals.utils";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class TranslatorService {
-  readonly #store: Store<AppState> = inject(Store);
   readonly #gemini = new GoogleGenerativeAI(environment.GEMINI_API);
   readonly #geminiConfig: ModelParams = {
-    model: "gemini-1.5-flash",
+    model: "gemini-1.5-pro",
     generationConfig: { maxOutputTokens: 100 },
+    systemInstruction: `${environment.PROMT_TRANSLATOR}`,
   };
+  readonly #$translationState = signal<TranslationState>({
+    textBase: "",
+    translation: "",
+    error: null,
+    loading: false,
+  });
+  readonly #$languagueOptions = signal<LanguageOptions>({
+    from: "spanish",
+    to: "english",
+  });
+  $translationStream = computed(() => this.#$translationState());
+  $languageOptionStream = computed(() => this.#$languagueOptions());
 
-  public async translateText(
-    text: string,
-    from: string,
-    to: string
-  ): Promise<void> {
+  public async translateText(): Promise<void> {
+    const textBase = this.#$translationState().textBase.trim();
+
     try {
-      let textResponse = "";
-      const data = await this.#gemini
-        .getGenerativeModel(this.#geminiConfig)
-        .generateContentStream(
-          `translates the following text: "${text}" from ${from} to ${to}. Only return the translation if it could not be translated returns an empty string`
-        );
-
-      for await (const response of data.stream) {
-        textResponse += response.text();
-        this.#store.dispatch(
-          TRANSLATOR_ACTIONS.saveTranslation({ translation: textResponse })
-        );
-      }
+      this.updateState({ loading: true, error: null, translation: "" });
+      this.validateTextBase(textBase);
+      await this.handleTranslation(textBase);
     } catch (e) {
-      if (e instanceof Error) {
-        return this.#store.dispatch(
-          TRANSLATOR_ACTIONS.translateTextFailure({ error: e.message })
-        );
-      }
-
-      this.#store.dispatch(
-        TRANSLATOR_ACTIONS.translateTextFailure({
-          error: "Something wrong",
-        })
-      );
+      this.updateState({ error: errorHandler(e) });
+    } finally {
+      this.updateState({ loading: false });
     }
+  }
+
+  public updateState(partialState: Partial<TranslationState>): void {
+    SignalsUtility.updateAllObj(this.#$translationState, partialState);
+  }
+
+  public updateLanguauge(key: ActionLanguageType, value: string) {
+    SignalsUtility.updateOnePropertyObj(this.#$languagueOptions, key, value);
+  }
+
+  private async handleTranslation(text: string): Promise<void> {
+    const data: GenerateContentStreamResult = await this.#gemini
+      .getGenerativeModel(this.#geminiConfig)
+      .generateContentStream(
+        `
+          Translate this text:
+          "${text}"
+          From: ${this.#$languagueOptions().from}
+          To: ${this.#$languagueOptions().to}
+          `
+      );
+
+    for await (const response of data.stream) {
+      this.updateState({
+        translation: this.#$translationState().translation + response.text(),
+      });
+    }
+  }
+
+  private validateTextBase(text: string): void {
+    if (!text) throw new Error("No text to translate");
   }
 }

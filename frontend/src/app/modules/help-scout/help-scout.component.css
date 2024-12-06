@@ -17,7 +17,9 @@
     background-color: #f1f5f9;
     padding: 0.5rem;
     border-radius: 1rem;
-    transition: transform 0.2s ease-in-out;
+    transition:
+      transform 0.2s ease-in-out,
+      opacity 0.25s ease-in-out;
     border: 0.1rem solid #44403c;
 
     &:hover {
@@ -30,6 +32,10 @@
 
     &:active {
       transform: scale(1.05);
+    }
+
+    @starting-style {
+      opacity: 0;
     }
   }
 
@@ -92,7 +98,8 @@
 }
 
 @keyframes ping {
-  75%, 100% {
+  75%,
+  100% {
     transform: scale(2);
     opacity: 0;
   }

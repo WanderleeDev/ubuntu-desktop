@@ -4,21 +4,54 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --text-color: #3d3d3d;
+    --bg-primary: #fafafa;
+    --bg-secondary: #ebebeb;
+    --bg-tertiary: #fff;
+    --accent-color: #d6d5d5;
+    --accent-color-hover: #dfdede;
+    --accent-color-active: #cac9c9;
+    --color-system: #e95420;
+    --scroll-bg-color: #00000015;
+    --scroll-thumb-color: #00000045;
+    --scroll-border-color: #ffffff;
+    --radius-base: 0.7rem;
+    --filter-invert: invert(0.8);
+    --z-sm: -1;
+    --z-base: 1;
+    --z-md: 10;
+    --z-lg: 20;
+    --z-xl: 30;
+    --z-2xl: 40;
+    --z-max: 50;
+  }
+
   svg {
     fill: currentColor;
+  }
+
+  body {
+    color: var(--text-color);
+    transition:
+      color 0.2s linear,
+      background-color 0.2s linear;
   }
 }
 
 @layer utilities {
-  .bg {
-    position: relative;
-    background-image: linear-gradient(180deg, #a8272a 10%, #400443 80%);
-  }
-
-  .grid-desktop {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 30px 1fr;
+  .dark {
+    --text-color: #f7f7f7;
+    --bg-primary: #2c2c2c;
+    --bg-secondary: #303030;
+    --bg-tertiary: #393939;
+    --accent-color: #444444;
+    --accent-color-hover: #3d3d3d;
+    --accent-color-active: #494949;
+    --scroll-bg-color: #ffffff20;
+    --scroll-thumb-color: #ffffff60;
+    --scroll-border-color: #000;
+    --filter-invert: invert(0);
   }
 
   .translate-center {
@@ -60,20 +93,18 @@
   }
 
   .scrollStyle {
-    --scroll-color: #9c9c9c;
-
     &::-webkit-scrollbar {
-      width: 0.5rem;
+      width: 0.4rem;
     }
 
     &::-webkit-scrollbar-track {
-      background-color: var(--scroll-color);
+      background-color: var(--scroll-bg-color);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: rgb(0, 0, 0);
+      background-color: var(--scroll-thumb-color);
       border-radius: 2rem;
-      border: 0.1rem solid var(--scroll-color);
+      border: 0.1rem solid var(--scroll-border-color);
     }
   }
 
@@ -85,6 +116,13 @@
     box-shadow:
       rgba(0, 0, 0, 0.16) 0px 3px 6px,
       rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
+
+  .window-style {
+    border: 0.1rem solid var(--accent-color-hover);
+    border-radius: var(--radius-base);
+    background-color: var(--bg-tertiary);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
 }
 

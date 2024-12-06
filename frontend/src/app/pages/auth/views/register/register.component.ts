@@ -8,18 +8,14 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, BtnFileComponent, RouterLink],
   templateUrl: "./register.component.html",
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
+  styleUrl: "./register.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterComponent {
   readonly socialMedia = [
-    "assets/extra-icons/github.svg",
-    "assets/extra-icons/google.svg",
-    "assets/extra-icons/facebook.svg",
-    "assets/extra-icons/x.svg",
+    "/assets/extra-icons/github.svg",
+    "/assets/extra-icons/google.svg",
+    "/assets/extra-icons/facebook.svg",
+    "/assets/extra-icons/x.svg",
   ];
 }

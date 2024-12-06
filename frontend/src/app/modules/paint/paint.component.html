@@ -1,12 +1,11 @@
 <app-window-wrapper
-  appTitle="rnote"
-  class="relative"
   *ngrxLet="{
     isFullscreen$,
     isViewColorBar$,
     isViewExtraBar$,
     color$,
-  } as store">
+  } as store"
+  appTitle="rnote">
   <app-header-control-extra header [isActiveFullscreen]="store.isFullscreen$" />
   <div class="relative" body>
     @if (!store.isFullscreen$) {

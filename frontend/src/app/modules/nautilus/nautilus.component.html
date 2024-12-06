@@ -1,9 +1,22 @@
-<app-window-wrapper appTitle="Settings">
-  <div class="grid grid-cols-[12rem_1fr]" body>
-    <app-sidebar-window />
-    <div class="content-center px-4">
-      <ng-container *ngComponentOutlet="profile" />
-      <button type="button" (click)="onClick()">a</button>
+<app-window-wrapper
+  [appTitle]="$currentSection()"
+  cdkDragBoundary="#container-boundary">
+  <span class="u-padding-left" header> Settings </span>
+  <div class="nautilus" body>
+    <app-nautilus-sidebar />
+    <div class="nautilus-content scrollStyle">
+      @if ($component() && !$errorRender()) {
+        <ng-container *ngComponentOutlet="$component()" />
+      } @else if ($errorRender()) {
+        <app-nautilus-error-render [$messageError]="$errorRender()">
+          <app-nautilus-button
+            [$isInteractive]="true"
+            [$message]="'try again'"
+            (click)="renderSection($currentSection())" />
+        </app-nautilus-error-render>
+      } @else {
+        <app-loader />
+      }
     </div>
   </div>
 </app-window-wrapper>

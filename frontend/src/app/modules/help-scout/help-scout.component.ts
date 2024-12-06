@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   ViewEncapsulation,
 } from "@angular/core";
 import { HelperScoutService } from "./services/helperScout.service";
@@ -16,9 +17,9 @@ import { HelperScoutService } from "./services/helperScout.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HelpScoutComponent {
-  constructor(private readonly helperScoutSvc: HelperScoutService) {}
+  readonly #helperScoutSvc = inject(HelperScoutService);
 
   public activeHelper(): void {
-    this.helperScoutSvc.activateHelper();
+    this.#helperScoutSvc.activateHelper();
   }
 }

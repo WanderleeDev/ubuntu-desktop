@@ -1,24 +1,17 @@
-import { CommonModule } from "@angular/common";
+import {} from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 //  Material
 import { MatSliderModule } from "@angular/material/slider";
 import { MatDividerModule } from "@angular/material/divider";
 import { AccordionComponent } from "../accordion/accordion.component";
 //  Interfaces
-import { IAccordionData } from "../../../interfaces/IAccordionData.interface";
-import { BtnBasicComponent } from "../../components/btn-basic/btn-basic.component";
-import { IBtnBasic } from "../../../interfaces/IBtnData.interface";
+import { IAccordionData } from "../../interfaces/IAccordionData.interface";
+import { IBtnBasic } from "../../interfaces/IBtnData.interface";
 
 @Component({
   selector: "app-sub-config-panel",
   standalone: true,
-  imports: [
-    CommonModule,
-    MatSliderModule,
-    MatDividerModule,
-    AccordionComponent,
-    BtnBasicComponent,
-  ],
+  imports: [MatSliderModule, MatDividerModule, AccordionComponent],
   templateUrl: "./subConfigPanel.component.html",
   styleUrls: ["./subConfigPanel.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,

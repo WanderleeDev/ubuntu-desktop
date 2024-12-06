@@ -4,10 +4,11 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
   selector: "app-divider-x",
   standalone: true,
   imports: [],
-  template: `<div class="h-[.05rem] bg-[#464646]"></div>`,
+  template: `<div class="divider"></div>`,
   styles: `
-    :host {
-      display: contents;
+    .divider {
+      height: 0.05rem;
+      background-color: var(--accent-color-active);
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

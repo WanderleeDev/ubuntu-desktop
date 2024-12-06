@@ -11,11 +11,6 @@ import { RouterOutlet } from "@angular/router";
       <router-outlet />
     </app-auth-wrapper>
   `,
-  styles: `
-    :host {
-      display: block;
-    }
-  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthComponent {}
