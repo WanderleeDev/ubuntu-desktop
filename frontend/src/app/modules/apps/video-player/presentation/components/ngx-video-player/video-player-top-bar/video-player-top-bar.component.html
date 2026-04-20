@@ -1,0 +1,16 @@
+<div
+  class="absolute top-0 left-0 right-0 p-5 bg-gradient-to-b from-black/90 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none flex justify-between items-start">
+  <div class="flex items-center gap-3">
+    <div class="w-1 h-4 bg-orange-600 rounded-full"></div>
+    <h2 class="text-white text-sm font-bold tracking-wide drop-shadow-lg uppercase">
+      {{ title() }}
+    </h2>
+  </div>
+
+  <button
+    type="button"
+    (click)="togglePlaylist.emit()"
+    class="pointer-events-auto p-2 bg-black/40 hover:bg-orange-600 text-white rounded-full transition-all active:scale-90 border border-white/10 flex items-center justify-center">
+    <span class="material-symbols-outlined text-[20px]">playlist_play</span>
+  </button>
+</div>
