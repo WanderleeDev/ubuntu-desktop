@@ -35,26 +35,22 @@ import { VideoPlayerTopBarComponent } from "./video-player-top-bar/video-player-
 export class NgxVideoPlayer {
   readonly store = inject(VideoPlayerStore);
 
-  // Señal para el elemento de video
   videoEl = viewChild<ElementRef<HTMLVideoElement>>("videoRef");
 
-  // Señales locales para control fino
   isPlaying = signal(false);
   currentTime = signal(0);
   duration = signal(0);
   volume = signal(1);
   isMuted = signal(true);
   playbackRate = signal(1);
-  showPlaylist = signal(true);
+  showPlaylist = signal(false);
 
-  // Computada para el progreso
   progress = computed(() => {
     const dur = this.duration();
     return dur > 0 ? (this.currentTime() / dur) * 100 : 0;
   });
 
   constructor() {
-    // Sincronizar eventos del video
     effect(() => {
       const el = this.videoEl()?.nativeElement;
       if (!el) return;
@@ -77,14 +73,10 @@ export class NgxVideoPlayer {
       el.addEventListener("ratechange", onRateChange);
     });
 
-    // REACCIÓN AL CAMBIO DE VIDEO EN EL STORE
-    // Cuando el usuario selecciona un video en la playlist, forzamos la carga del nuevo src
     effect(() => {
       const video = this.store.currentVideo();
       const el = this.videoEl()?.nativeElement;
       if (video && el) {
-        // Al cambiar el src nativo, el navegador inicia la carga
-        // El timeout asegura que el ciclo de detección de Angular haya actualizado el binding
         setTimeout(() => {
           if (this.store.isPlaying()) el.play();
         }, 0);
