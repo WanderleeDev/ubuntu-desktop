@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 
-import NautilusComponent from "../apps/nautilus/presentation/nautilus.component";
+import MainVideoPlayerComponent from "../apps/video-player/presentation/video-player.component";
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -54,7 +54,7 @@ type LazyComponent = any;
     SidebarComponent,
     NavbarDesktopComponent,
     AppItemComponent,
-    NautilusComponent,
+    MainVideoPlayerComponent,
   ],
   templateUrl: "./desktop.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -64,7 +64,8 @@ export default class DesktopComponent {
   protected readonly secondaryIcons = secondaryIconsSidebar;
   protected readonly desktopIcons = desktopIcons;
   protected readonly APPS: Record<string, LazyComponent> = {
-    github: () => import("../apps/video-player/video-player.component"),
+    github: () =>
+      import("../apps/video-player/presentation/video-player.component"),
     translator: () =>
       import("../apps/translator/presentation/translator.component"),
     paint: () => import("../apps/paint/presentation/paint.component"),

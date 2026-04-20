@@ -5,7 +5,6 @@ import {
   input,
   output,
 } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 export enum WindowActions {
   MINIMIZE_WINDOW = "MINIMIZE_WINDOW",
@@ -15,7 +14,7 @@ export enum WindowActions {
 
 @Component({
   selector: "app-window-wrapper",
-  imports: [CommonModule, CdkDrag, CdkDragHandle],
+  imports: [CdkDrag, CdkDragHandle],
   templateUrl: "./window-wrapper.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
