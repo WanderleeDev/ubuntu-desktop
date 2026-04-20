@@ -1,0 +1,23 @@
+<nav
+  class="flex items-center justify-between px-4 py-2 bg-black/5 dark:bg-white/5 border-y border-black/8 dark:border-white/8 gap-8">
+  <div class="flex items-center gap-3">
+    <app-selector action="from" [currentLanguage]="store.languageFrom()" />
+
+    <span
+      class="material-symbols-outlined text-[18px] text-black/30 dark:text-white/30 shrink-0">
+      swap_horiz
+    </span>
+
+    <app-selector action="to" [currentLanguage]="store.languageTo()" />
+  </div>
+
+  <button
+    type="button"
+    title="Translate text"
+    (click)="translate()"
+    [disabled]="$isDisabled()"
+    class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-sm font-semibold bg-[#E95420] text-white hover:bg-[#d04010] transition-colors duration-150 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#E95420] focus-visible:outline-2 focus-visible:outline-[#E95420]">
+    <span class="material-symbols-outlined text-[16px]">translate</span>
+    Translate
+  </button>
+</nav>

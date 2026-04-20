@@ -1,0 +1,12 @@
+<app-window-wrapper appTitle="Translator">
+  <ng-container body>
+    <!-- 1. Input box (top) -->
+    <app-translator-box-input [$maxInputCharacters]="MAX_INPUT_CHARACTERS" />
+
+    <!-- 2. Controls bar (middle) -->
+    <app-translator-controls [$isDisabled]="$hasDisabledTranslatebtn()" />
+
+    <!-- 3. Output box (bottom) -->
+    <app-translator-box-output [$translationState]="store.translationState()" />
+  </ng-container>
+</app-window-wrapper>

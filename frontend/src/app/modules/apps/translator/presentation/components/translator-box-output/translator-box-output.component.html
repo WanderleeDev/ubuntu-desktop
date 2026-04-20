@@ -1,0 +1,33 @@
+@if ($translationState().loading) {
+  <app-translator-loader />
+} @else if ($translationState().error) {
+  <div
+    class="flex items-center gap-2 px-4 py-6 min-h-[120px] text-red-400 text-sm">
+    <span class="material-symbols-outlined text-[20px] shrink-0">error</span>
+    <span>{{ $translationState().error }}</span>
+  </div>
+} @else {
+  <textarea
+    [value]="$translationState().translation"
+    readonly
+    aria-label="Translation output"
+    placeholder="Translation will appear here…"
+    class="w-full min-h-[160px] resize-none bg-transparent p-4 text-sm leading-relaxed text-black/80 dark:text-white/80 placeholder:text-black/25 dark:placeholder:text-white/25 outline-none border-none scrollStyle"></textarea>
+
+  <div
+    class="flex items-center justify-between px-3 py-1.5 border-t border-black/8 dark:border-white/8">
+    <span class="text-[0.7rem] text-black/40 dark:text-white/40">
+      {{ $translationState().translation.length }} chars
+    </span>
+
+    @if ($translationState().translation) {
+      <button
+        type="button"
+        title="Copy translation"
+        class="flex items-center justify-center p-1 rounded-md text-black/35 dark:text-white/35 hover:text-[#E95420] hover:bg-[#E95420]/10 active:scale-90 transition-all duration-150"
+        [cdkCopyToClipboard]="$translationState().translation">
+        <span class="material-symbols-outlined text-[17px]">content_copy</span>
+      </button>
+    }
+  </div>
+}
