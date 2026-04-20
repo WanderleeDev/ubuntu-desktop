@@ -5,7 +5,7 @@ import {
   input,
   output,
 } from "@angular/core";
-// import { WindowActions } from "../../shared/interfaces/WindowActions.enum";
+import { CommonModule } from "@angular/common";
 
 export enum WindowActions {
   MINIMIZE_WINDOW = "MINIMIZE_WINDOW",
@@ -15,7 +15,7 @@ export enum WindowActions {
 
 @Component({
   selector: "app-window-wrapper",
-  imports: [CdkDrag, CdkDragHandle],
+  imports: [CommonModule, CdkDrag, CdkDragHandle],
   templateUrl: "./window-wrapper.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
@@ -28,6 +28,7 @@ export class WindowWrapperComponent {
   protected readonly WindowActions = WindowActions;
   readonly windowAction = output<WindowActions>();
   readonly appTitle = input.required<string>();
+  readonly isMaximized = input<boolean>(false);
 
   public constrainPosition = (
     point: Point,

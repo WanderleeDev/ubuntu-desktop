@@ -1,6 +1,13 @@
 <section
-  class="flex flex-col bg-[#ebebeb] dark:bg-[#2c2c2c] overflow-hidden rounded-t-xl shadow-2xl border border-black/10 dark:border-white/5 size-fit animate-fade-in"
+  class="flex flex-col bg-[#ebebeb] dark:bg-[#2c2c2c] overflow-hidden shadow-2xl border border-black/10 dark:border-white/5 animate-fade-in"
+  [class.size-fit]="!isMaximized()"
+  [class.rounded-t-xl]="!isMaximized()"
+  [class.fixed]="isMaximized()"
+  [class.inset-0]="isMaximized()"
+  [class.z-[999]]="isMaximized()"
+  [class.m-0]="isMaximized()"
   cdkDrag
+  [cdkDragDisabled]="isMaximized()"
   [cdkDragConstrainPosition]="constrainPosition">
   <header
     class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-[#f7f7f7] to-[#ebebeb] dark:from-[rgb(57,57,57)] dark:to-[#2c2c2c] border-b border-black/10 dark:border-white/5 select-none"
@@ -32,7 +39,7 @@
         title="Maximizar">
         <span
           class="material-symbols-outlined text-[16px] text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
-          >expand_content</span
+          >{{ isMaximized() ? 'collapse_content' : 'expand_content' }}</span
         >
       </button>
 
