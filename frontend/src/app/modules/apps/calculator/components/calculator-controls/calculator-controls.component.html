@@ -1,8 +1,0 @@
-@for (btn of listButtons; track $index) {
-  <app-button-calculator
-    [isEqualsBtn]="btn.character === executeCharacter"
-    [titleBtn]="btn.label"
-    [dataBtn]="btn.code ?? btn.character">
-    {{ btn.character }}
-  </app-button-calculator>
-}

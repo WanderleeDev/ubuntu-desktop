@@ -43,6 +43,7 @@ Thumbs.db
 
 vercel.json
 
+
 #enviroments
-src/
 .env
+

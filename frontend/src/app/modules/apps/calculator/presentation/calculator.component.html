@@ -1,0 +1,13 @@
+<app-window-wrapper appTitle="Calculator">
+  <app-calculator-undo-btn
+    header
+    [isDisabled]="store.record().length === 0"
+    (click)="store.undoHistory()" />
+
+  <div
+    class="bg-gradient-to-b from-[#333333] to-[#1a1a1a] min-w-[320px] p-4 flex flex-col gap-4 shadow-xl"
+    body>
+    <app-calculator-display />
+    <app-calculator-controls />
+  </div>
+</app-window-wrapper>

@@ -1,0 +1,8 @@
+<div class="grid grid-cols-4 gap-3 mt-4">
+  @for (btn of buttons; track btn.label) {
+    <app-button-calculator
+      [class]="btn.class"
+      [label]="btn.label"
+      [value]="btn.value" />
+  }
+</div>

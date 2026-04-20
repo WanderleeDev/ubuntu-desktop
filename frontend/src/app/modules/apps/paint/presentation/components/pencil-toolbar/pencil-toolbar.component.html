@@ -1,0 +1,32 @@
+<app-toolbar-container
+  class="absolute m-2 bottom-0 left-2/4 -translate-x-2/4"
+  orientationBar="horizontal">
+  <ul class="flex gap-1 items-center">
+    <!-- Indicador de color actual -->
+    <li class="px-2 border-r border-white/20 mr-1">
+      <div
+        class="size-5 rounded-full border border-white/40 shadow-sm"
+        [ngStyle]="{ backgroundColor: store.currentColor() }"
+        [title]="'Color actual: ' + store.currentColor()"></div>
+    </li>
+
+    @for (tool of tools; track tool.label) {
+      <li class="relative group">
+        <button
+          type="button"
+          (click)="tool.onclick?.()"
+          class="flex items-center justify-center p-2 rounded-md transition-all duration-200 hover:bg-white/10 active:scale-95 text-white/80 hover:text-white"
+          [title]="tool.label">
+          <span class="material-symbols-outlined text-[24px]">
+            {{ tool.icon }}
+          </span>
+        </button>
+
+        @if (tool.icon === 'line_weight' && store.hasStrokeMenu()) {
+          <app-stroke-control
+            class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2" />
+        }
+      </li>
+    }
+  </ul>
+</app-toolbar-container>

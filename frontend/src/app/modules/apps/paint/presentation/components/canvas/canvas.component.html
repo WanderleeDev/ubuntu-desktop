@@ -1,0 +1,10 @@
+<canvas
+  #canvas
+  class="bg-white w-full h-full cursor-crosshair shadow-inner"
+  [width]="canvasConfig().width"
+  [height]="canvasConfig().height"
+  (mousedown)="onStartDrawing($event)"
+  (mousemove)="onDraw($event)"
+  (mouseup)="onEndDrawing()"
+  (mouseleave)="onEndDrawing()">
+</canvas>
