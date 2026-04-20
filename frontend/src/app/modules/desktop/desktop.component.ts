@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 
-import CalculatorComponent from "../apps/calculator/presentation/calculator.component";
+import NautilusComponent from "../apps/nautilus/presentation/nautilus.component";
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -54,7 +54,7 @@ type LazyComponent = any;
     SidebarComponent,
     NavbarDesktopComponent,
     AppItemComponent,
-    CalculatorComponent,
+    NautilusComponent,
   ],
   templateUrl: "./desktop.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -70,6 +70,7 @@ export default class DesktopComponent {
     paint: () => import("../apps/paint/presentation/paint.component"),
     calculator: () =>
       import("../apps/calculator/presentation/calculator.component"),
+    nautilus: () => import("../apps/nautilus/presentation/nautilus.component"),
   };
   protected readonly appComponents: Map<MiniApps, LazyComponent>;
 
