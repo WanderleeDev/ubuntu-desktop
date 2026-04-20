@@ -1,0 +1,97 @@
+<div
+  class="absolute inset-0 z-20 flex justify-end transition-all ease-in-out bg-black/50 starting:opacity-0 duration-200 backdrop-blur-sm"
+  role="button"
+  tabindex="0"
+  aria-label="Cerrar lista de reproducción"
+  (click)="close.emit()"
+  (keydown.enter)="close.emit()"
+  (window:keydown.escape)="close.emit()">
+  <div
+    class="flex flex-col h-full w-80 bg-zinc-900 border-l border-white/10 shadow-2xl starting:translate-x-full transition-transform duration-500 will-change-transform"
+    tabindex="1"
+    (click)="$event.stopPropagation()"
+    (keydown.enter)="$event.stopPropagation()">
+    <!-- Header -->
+    <div
+      class="p-4 flex justify-between items-center border-b border-white/10 bg-black/20">
+      <span
+        class="text-xs font-black text-orange-500 uppercase tracking-widest flex items-center gap-2">
+        <span class="material-symbols-outlined text-sm">list</span>
+        Playlist ({{ store.playlist().length }})
+      </span>
+      <button
+        type="button"
+        (click)="close.emit()"
+        class="text-white/40 hover:text-white transition-colors flex items-center justify-center">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+
+    <!-- Playlist Content -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar bg-black/10">
+      @for (video of store.playlist(); track $index) {
+        @let isActive = store.selectedVideoIndex() === $index;
+        <button
+          type="button"
+          (click)="store.selectVideo($index)"
+          [class.bg-orange-600/10]="isActive"
+          class="w-full text-left p-3 border-b border-white/5 hover:bg-white/5 transition-all flex gap-3 group relative overflow-hidden outline-none focus-visible:bg-white/10">
+          <!-- Active Indicator Bar -->
+          @if (isActive) {
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-600"></div>
+          }
+
+          <div
+            class="w-24 aspect-video rounded bg-black overflow-hidden relative flex-shrink-0 shadow-lg pointer-events-none">
+            @if (video.poster) {
+              <img
+                [ngSrc]="video.poster"
+                width="96"
+                height="54"
+                class="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                [class.opacity-40]="isActive"
+                [class.opacity-70]="!isActive"
+                alt="" />
+            }
+
+            @if (isActive && store.isPlaying()) {
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="flex gap-1 items-end h-3">
+                  <div class="w-1 h-2 bg-orange-500 animate-bounce"></div>
+                  <div
+                    class="w-1 h-3 bg-orange-500 animate-[bounce_1s_infinite_0.2s]"></div>
+                  <div
+                    class="w-1 h-1.5 bg-orange-500 animate-[bounce_1s_infinite_0.4s]"></div>
+                </div>
+              </div>
+            } @else if (isActive) {
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black/20">
+                <span class="material-symbols-outlined text-orange-500 text-lg"
+                  >play_circle</span
+                >
+              </div>
+            }
+          </div>
+
+          <div class="flex-1 min-w-0 py-1 pointer-events-none">
+            <p
+              class="text-[11px] font-bold truncate transition-colors"
+              [class.text-orange-500]="isActive"
+              [class.text-white/90]="!isActive">
+              {{ video.title }}
+            </p>
+            <div class="flex items-center gap-2 mt-1">
+              <span class="text-[9px] text-white/30 uppercase tracking-tighter"
+                >HD</span
+              >
+              <span class="text-[9px] text-white/30 uppercase tracking-tighter"
+                >MP4</span
+              >
+            </div>
+          </div>
+        </button>
+      }
+    </div>
+  </div>
+</div>
