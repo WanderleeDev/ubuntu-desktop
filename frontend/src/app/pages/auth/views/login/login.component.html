@@ -1,7 +1,12 @@
-<ng-container>
-  <div class="login-wrapper">
-    <app-user [size]="80" />
-    <span class="login-text">Unknown user</span>
+<div class="flex flex-col items-center gap-10 py-10 animate-fade-in w-full">
+  <div class="flex flex-col items-center gap-4">
+    <app-user [size]="85" />
+    <span class="text-2xl font-light tracking-wide text-white/95"
+      >Unknown user</span
+    >
   </div>
-  <app-login-form />
-</ng-container>
+
+  <div class="w-full max-w-[280px]">
+    <app-login-form />
+  </div>
+</div>

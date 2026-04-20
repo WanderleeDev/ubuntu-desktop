@@ -1,7 +1,13 @@
-<aside class="screenLock">
-  <app-loader [size]="100" />
-  <header class="sr-only">
-    <h2>Screen lock</h2>
-  </header>
-  <p class="screenLock-message">Bienvenido</p>
+<aside
+  class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black/20 backdrop-blur-2xl animate-fade-in">
+  <div class="relative flex flex-col items-center gap-8">
+    <app-loader [size]="120" />
+    <header class="sr-only">
+      <h2>Screen lock</h2>
+    </header>
+    <p
+      class="text-2xl font-extralight tracking-[0.3em] text-white/80 animate-pulse uppercase">
+      Bienvenido
+    </p>
+  </div>
 </aside>

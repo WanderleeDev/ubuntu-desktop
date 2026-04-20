@@ -5,14 +5,13 @@ import {
   OnInit,
 } from "@angular/core";
 
-import { ClipboardModule } from "@angular/cdk/clipboard";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
 import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 import { TranslatorService } from "../../services/translator.service";
 
 @Component({
     selector: "app-translator-box-input",
-    imports: [ClipboardModule, BtnFileComponent, ReactiveFormsModule],
+    imports: [BtnFileComponent, ReactiveFormsModule],
     templateUrl: "./translator-box-input.component.html",
     // styleUrls: ["translator-box-input.component.css"],
     changeDetection: ChangeDetectionStrategy.OnPush

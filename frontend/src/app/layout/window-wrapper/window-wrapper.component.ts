@@ -4,7 +4,6 @@ import {
   input,
   output,
 } from "@angular/core";
-import { CdkDrag, CdkDragHandle } from "@angular/cdk/drag-drop";
 import { BtnBasicComponent } from "../../shared/components/btn-basic/btn-basic.component";
 // import { WindowActions } from "../../shared/interfaces/WindowActions.enum";
 
@@ -16,7 +15,7 @@ export enum WindowActions {
 
 @Component({
     selector: "app-window-wrapper",
-    imports: [CdkDrag, BtnBasicComponent, CdkDragHandle],
+    imports: [BtnBasicComponent],
     templateUrl: "./window-wrapper.component.html",
     // styleUrl: "./window-wrapper.component.css",
     changeDetection: ChangeDetectionStrategy.OnPush
@@ -24,7 +23,6 @@ export enum WindowActions {
 export class WindowWrapperComponent {
   readonly windowAction = output<WindowActions>();
   readonly appTitle = input.required<string>();
-  protected readonly dragPosition = { x: -250, y: -250 };
   protected readonly controls = [
     {
       urlSvg: "assets/controls-icons/minimize.svg",

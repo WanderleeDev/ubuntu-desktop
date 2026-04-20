@@ -14,9 +14,14 @@
       <div class="grid gap-2">
         <app-todo />
       </div>
-      <mat-slide-toggle class="select-none pb-4" [labelPosition]="'before'">
-        <span class="text-white pr-2"> Activate silent mode </span>
-      </mat-slide-toggle>
+      <label class="inline-flex items-center cursor-pointer select-none pb-4">
+        <span class="text-white pr-2 text-sm"> Activate silent mode </span>
+        <div class="relative">
+          <input type="checkbox" class="sr-only peer" />
+          <div
+            class="w-10 h-5 bg-stone-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-orange-600"></div>
+        </div>
+      </label>
     </div>
   </div>
 
@@ -30,9 +35,11 @@
       </time>
     </span>
 
-    <mat-card class="w-[300px] text-blue-400">
-      <mat-calendar [(selected)]="selected"></mat-calendar>
-    </mat-card>
+    <div
+      class="w-[300px] h-[300px] bg-stone-800/50 rounded-xl flex flex-col items-center justify-center text-stone-500 border border-stone-700 gap-2">
+      <span class="material-symbols-outlined text-6xl">calendar_month</span>
+      <span class="text-sm font-medium">Calendario</span>
+    </div>
 
     <figure class="p-4 bg-[#2C2C2C] mt-4 rounded-xl grid gap-2">
       <figcaption class="text-stone-400">

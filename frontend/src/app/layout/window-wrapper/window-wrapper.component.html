@@ -1,9 +1,6 @@
 <section
-  class="window max-window"
-  cdkDragBoundary="#container-boundary"
-  cdkDrag
-  [cdkDragFreeDragPosition]="dragPosition">
-  <header class="window-header" cdkDragHandle>
+  class="window max-window">
+  <header class="window-header">
     <ng-content select="[header]" />
     <h2 class="window-title">
       {{ appTitle() || "Empty title" }}

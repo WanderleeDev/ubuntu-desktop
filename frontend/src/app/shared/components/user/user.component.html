@@ -1,9 +1,14 @@
 <figure
-  class="user"
+  class="user relative bg-white/10 rounded-full flex items-center justify-center overflow-hidden"
   [ngStyle]="{
-    width: [size() + 'px'],
-    height: [size() + 'px'],
+    width: size() + 'px',
+    height: size() + 'px'
   }">
-  <img class="user-image" [ngSrc]="userImage()" alt="user image" fill />
-  <figcaption class="user-name">{{ userName() }}</figcaption>
+  <img 
+    class="user-image object-cover p-1.5" 
+    [ngSrc]="userImage()" 
+    alt="user image" 
+    fill 
+  />
+  <figcaption class="sr-only">{{ userName() }}</figcaption>
 </figure>

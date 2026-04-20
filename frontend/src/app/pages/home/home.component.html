@@ -1,19 +1,14 @@
-<main class="desktop">
-  <div class="desktop-content">
-    <h1>Ubuntu Desktop (Minimal)</h1>
-    <p>App started with minimal components.</p>
-    <!--
-    <app-navbar-desktop />
-    <app-sidebar [$mainIcons]="mainIcons" [$secondaryIcons]="secondaryIcons" />
-    <app-desktop>
-      <app-list-app>
-        @for (icon of desktopIcons; track icon.id) {
-          <li>
-            <app-app-item [$appData]="icon" [lazeComponent]="APPS[icon.app]" />
-          </li>
-        }
-      </app-list-app>
-    </app-desktop>
-    -->
-  </div>
+<main
+  class="w-screen h-screen overflow-hidden flex flex-col bg-gradient-to-br from-[#4c1141] via-[#772953] to-[#e95420] relative">
+  <app-navbar-desktop />
+  <app-sidebar [$mainIcons]="mainIcons" [$secondaryIcons]="secondaryIcons" />
+  <app-desktop>
+    <app-list-app>
+      @for (icon of desktopIcons; track icon.id) {
+        <li class="list-none">
+          <app-app-item [$appData]="icon" [lazeComponent]="APPS[icon.app]" />
+        </li>
+      }
+    </app-list-app>
+  </app-desktop>
 </main>

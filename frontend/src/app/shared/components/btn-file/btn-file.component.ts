@@ -6,12 +6,9 @@ import {
   booleanAttribute,
   input,
 } from "@angular/core";
-import { MatTooltipModule } from "@angular/material/tooltip";
-// import { LabelPosition } from "../../types/LabelPosition.type";
-
 @Component({
     selector: "app-btn-file",
-    imports: [NgOptimizedImage, MatTooltipModule, NgStyle, NgClass],
+    imports: [NgOptimizedImage, NgStyle, NgClass],
     templateUrl: "./btn-file.component.html",
     styleUrl: "./btn-file.component.css",
     changeDetection: ChangeDetectionStrategy.OnPush

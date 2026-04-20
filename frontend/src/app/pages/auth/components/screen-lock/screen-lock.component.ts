@@ -9,11 +9,10 @@ import { Router } from "@angular/router";
 import { LoaderComponent } from "../../../../shared/components/loader/loader.component";
 
 @Component({
-    selector: "app-screen-lock",
-    imports: [LoaderComponent],
-    templateUrl: "./screen-lock.component.html",
-    styleUrls: ["./screen-lock.component.css"],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-screen-lock",
+  imports: [LoaderComponent],
+  templateUrl: "./screen-lock.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScreenLockComponent implements AfterViewInit, OnDestroy {
   #DURATION = 2000;

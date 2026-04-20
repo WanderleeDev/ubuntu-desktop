@@ -1,7 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@source "../src";
+
+@theme {
+  --animate-fade-in: fade-in 0.5s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 
 @layer base {
   :root {
@@ -60,11 +74,11 @@
   }
 
   .resize-window-max {
-    transform:
-      width 0.2s linear,
-      height.2s linear;
     width: 100%;
     height: 100%;
+    transition:
+      width 0.2s linear,
+      height 0.2s linear;
   }
 
   .resize-window-min {

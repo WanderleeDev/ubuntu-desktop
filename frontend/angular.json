@@ -22,7 +22,7 @@
             "ngxEnv": { "prefix": "NG_" },
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -31,7 +31,6 @@
               }
             ],
             "styles": [
-              "src/custom-theme.scss",
               "src/styles.css",
               "public/assets/styles/starting-animated.css",
               "node_modules/@videogular/ngx-videogular/fonts/videogular.css"
@@ -94,7 +93,7 @@
         "test": {
           "builder": "@ngx-env/builder:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
