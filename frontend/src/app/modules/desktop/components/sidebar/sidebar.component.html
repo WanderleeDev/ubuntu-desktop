@@ -1,0 +1,28 @@
+<aside
+  class="absolute left-0 top-[28px] bottom-0 w-[48px] bg-black/40 flex flex-col justify-between py-2 backdrop-blur-md z-[900]">
+  <div class="flex flex-col items-center gap-2">
+    @for (item of $mainIcons(); track item.id) {
+      <button
+        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10"
+        type="button"
+        [title]="item.id">
+        <img
+          [ngSrc]="item.icon"
+          [alt]="item.id"
+          width="32"
+          height="32"
+          priority />
+      </button>
+    }
+  </div>
+  <div class="flex flex-col items-center gap-2">
+    @for (item of $secondaryIcons(); track item.id) {
+      <button
+        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10"
+        type="button"
+        [title]="item.id">
+        <img [ngSrc]="item.icon" [alt]="item.id" width="32" height="32" />
+      </button>
+    }
+  </div>
+</aside>

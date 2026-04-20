@@ -1,23 +1,23 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 // import { NavDesktopControlComponent } from "../../pages/home/components/navbarDesktop/components/navDesktopControl/navDesktopControl.component";
+import { ClockComponent } from "../../modules/apps/clock/clock.component";
 import { LoaderComponent } from "../../shared/components/loader/loader.component";
 import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-logo.component";
-import { ClockComponent } from "../../modules/clock/clock.component";
 
 @Component({
-    selector: "app-auth-wrapper",
-    imports: [
-        UbuntuLogoComponent,
-        // NavDesktopControlComponent,
-        LoaderComponent,
-        ClockComponent,
-    ],
-    templateUrl: "./auth-wrapper.component.html",
-    styles: `
+  selector: "app-auth-wrapper",
+  imports: [
+    UbuntuLogoComponent,
+    // NavDesktopControlComponent,
+    LoaderComponent,
+    ClockComponent,
+  ],
+  templateUrl: "./auth-wrapper.component.html",
+  styles: `
     :host {
       display: block;
     }
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthWrapperComponent {}

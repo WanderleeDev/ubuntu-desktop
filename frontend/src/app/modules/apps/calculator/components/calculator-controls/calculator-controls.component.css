@@ -1,0 +1,9 @@
+:host {
+  width: 100%;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.8rem;
+  grid-template-columns: repeat(5, 1fr);
+  background-color: #374151;
+  background-color: #f2f2f2;
+}
