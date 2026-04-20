@@ -6,14 +6,20 @@ import {
 } from "@angular/core";
 import { CdkDrag, CdkDragHandle } from "@angular/cdk/drag-drop";
 import { BtnBasicComponent } from "../../shared/components/btn-basic/btn-basic.component";
-import { WindowActions } from "../../shared/interfaces/WindowActions.enum";
+// import { WindowActions } from "../../shared/interfaces/WindowActions.enum";
+
+export enum WindowActions {
+  MINIMIZE_WINDOW = "MINIMIZE_WINDOW",
+  MAXIMIZE_WINDOW = "MAXIMIZE_WINDOW",
+  CLOSE_WINDOW = "CLOSE_WINDOW",
+}
 
 @Component({
   selector: "app-window-wrapper",
   standalone: true,
   imports: [CdkDrag, BtnBasicComponent, CdkDragHandle],
   templateUrl: "./window-wrapper.component.html",
-  styleUrl: "./window-wrapper.component.css",
+  // styleUrl: "./window-wrapper.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WindowWrapperComponent {

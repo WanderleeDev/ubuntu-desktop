@@ -7,7 +7,7 @@ import { UserComponent } from "../../../../shared/components/user/user.component
   standalone: true,
   imports: [LoginFormComponent, UserComponent],
   templateUrl: "./login.component.html",
-  styleUrl: "./login.component.css",
+  // styleUrl: "./login.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LoginComponent {}

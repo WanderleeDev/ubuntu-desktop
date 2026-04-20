@@ -10,14 +10,16 @@ import {
 import languages from "../../language/languages";
 import { TranslatorService } from "../../services/translator.service";
 import { ActionLanguageType } from "../../interfaces/TranslationState.interface";
-import { ClickOutsideDirective } from "../../../../shared/directives/ClickOutside.directive";
+// import { ClickOutsideDirective } from "../../../../shared/directives/ClickOutside.directive";
 
 @Component({
   selector: "app-selector",
   standalone: true,
-  imports: [ClickOutsideDirective],
+  imports: [
+    // ClickOutsideDirective
+  ],
   templateUrl: "./selector.component.html",
-  styleUrls: ["./selector.component.css"],
+  // styleUrls: ["./selector.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectorComponent {

@@ -7,7 +7,7 @@ import {
   input,
 } from "@angular/core";
 import { MatTooltipModule } from "@angular/material/tooltip";
-import { LabelPosition } from "../../types/LabelPosition.type";
+// import { LabelPosition } from "../../types/LabelPosition.type";
 
 @Component({
   selector: "app-btn-file",
@@ -18,7 +18,7 @@ import { LabelPosition } from "../../types/LabelPosition.type";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnFileComponent {
-  labelDirection = input<LabelPosition>("right");
+  labelDirection = input<any>("right");
   @Input() nameFile?: string;
   @Input() label?: string;
   @Input({ required: true }) size = 10;

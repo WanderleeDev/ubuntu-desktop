@@ -15,7 +15,7 @@ import { TranslatorService } from "../../services/translator.service";
   standalone: true,
   imports: [ClipboardModule, BtnFileComponent, ReactiveFormsModule],
   templateUrl: "./translator-box-input.component.html",
-  styleUrls: ["translator-box-input.component.css"],
+  // styleUrls: ["translator-box-input.component.css"],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TranslatorBoxInputComponent implements OnInit {

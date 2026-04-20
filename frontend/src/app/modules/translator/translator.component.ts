@@ -9,7 +9,7 @@ import {
 import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapper.component";
 import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
 import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
-import { TranslatorBoxOutputComponent } from "./components/translator-box-output/translator-box-output.component";
+// import { TranslatorBoxOutputComponent } from "./components/translator-box-output/translator-box-output.component";
 import { TranslatorService } from "./services/translator.service";
 import { TranslationState } from "./interfaces/TranslationState.interface";
 
@@ -20,7 +20,7 @@ import { TranslationState } from "./interfaces/TranslationState.interface";
     WindowWrapperComponent,
     TranslatorControlsComponent,
     TranslatorBoxInputComponent,
-    TranslatorBoxOutputComponent,
+    // TranslatorBoxOutputComponent,
   ],
   providers: [TranslatorService],
   templateUrl: "./translator.component.html",

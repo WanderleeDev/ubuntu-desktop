@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
-import { MetaTagConfig, MetaIndex } from "../interfaces/Metadata.interface";
+// import { MetaTagConfig, MetaIndex } from "../interfaces/Metadata.interface";
 import { DOCUMENT } from "@angular/common";
 
 @Injectable({
@@ -12,7 +12,7 @@ export class SeoService {
   readonly #document: Document = inject(DOCUMENT);
 
   public setCanonicalURL(url: string): void {
-    if (!URL.canParse(url)) throw new Error(`Invalid URL: ${url}`);
+    if (!url || !URL.canParse(url)) return;
 
     const documentHead = this.#document.head;
     let linkElement: HTMLLinkElement | null = documentHead.querySelector(
@@ -35,7 +35,7 @@ export class SeoService {
     });
   }
 
-  public updateMetaTags({ metaTags, ogTags }: Partial<MetaTagConfig>): void {
+  public updateMetaTags({ metaTags, ogTags }: Partial<any>): void {
     if (!metaTags && !ogTags) return;
 
     this.setMetaTags(metaTags);
@@ -46,7 +46,7 @@ export class SeoService {
     this.#title.setTitle(title);
   }
 
-  private setMetaTags(objectTags: Partial<MetaIndex | undefined>): void {
+  private setMetaTags(objectTags: Partial<any | undefined>): void {
     if (objectTags === undefined || Object.keys(objectTags).length <= 0) return;
 
     for (const [key, value] of Object.entries(objectTags)) {

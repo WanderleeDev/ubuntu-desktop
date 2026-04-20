@@ -8,7 +8,7 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, BtnFileComponent, RouterLink],
   templateUrl: "./register.component.html",
-  styleUrl: "./register.component.css",
+  // styleUrl: "./register.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterComponent {

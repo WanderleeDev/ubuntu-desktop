@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { SeoService } from "./shared/services/seo.service";
 import { NgxSonnerToaster } from "ngx-sonner";
-import { DarkModeService } from "./shared/services/darkMode.service";
 import { environment } from "../environments/environment.development";
 import { ubuntuCloneMetadata } from "./config";
 
@@ -17,15 +16,11 @@ import { ubuntuCloneMetadata } from "./config";
       <router-outlet />
     </ng-container>
   `,
-  host: {
-    "[class]": "$currentTheme()",
-  },
+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
   readonly #seoService = inject(SeoService);
-  readonly #darkModeService = inject(DarkModeService);
-  protected readonly $currentTheme = this.#darkModeService.$currentTheme;
 
   constructor() {
     this.#seoService.applyIndexFollow();

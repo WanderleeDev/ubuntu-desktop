@@ -4,14 +4,20 @@ import {
   ModelParams,
 } from "@google/generative-ai";
 import { environment } from "../../../../environments/environment.development";
-import { errorHandler } from "../../../shared/utils/errorToastHandler";
+// import { errorHandler } from "../../../shared/utils/errorToastHandler";
 import { Injectable, signal, computed } from "@angular/core";
 import {
   TranslationState,
   LanguageOptions,
   ActionLanguageType,
 } from "../interfaces/TranslationState.interface";
-import { SignalsUtility } from "../../../shared/utils/signals.utils";
+// import { SignalsUtility } from "../../../shared/utils/signals.utils";
+
+const errorHandler = (e: any) => String(e);
+const SignalsUtility = {
+  updateAllObj: (s: any, p: any) => s.update((v: any) => ({ ...v, ...p })),
+  updateOnePropertyObj: (s: any, k: any, v: any) => s.update((val: any) => ({ ...val, [k]: v })),
+};
 
 @Injectable()
 export class TranslatorService {

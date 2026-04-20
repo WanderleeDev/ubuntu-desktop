@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { ToolbarContainerComponent } from "../../containers/toolbar-container.component";
-import { IBtnBasic } from "../../../../shared/interfaces/IBtnData.interface";
+// import { IBtnBasic } from "../../../../shared/interfaces/IBtnData.interface";
 import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-file.component";
 
 @Component({
@@ -17,7 +17,7 @@ import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-fil
   imports: [CommonModule, ToolbarContainerComponent, BtnFileComponent],
 })
 export class ExtraToolbarComponent {
-  extraTools: IBtnBasic[] = [
+  extraTools: any[] = [
     {
       label: "load",
       urlSvg: "/assets/paint-icons/load.svg",

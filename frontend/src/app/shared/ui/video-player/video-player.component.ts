@@ -2,7 +2,7 @@ import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { DragDropModule } from "@angular/cdk/drag-drop";
 //  Interface
-import { IVideoData } from "../../interfaces/IVideoData.interface";
+// import { IVideoData } from "../../interfaces/IVideoData.interface";
 
 //  Video angular library
 import { VgCoreModule } from "@videogular/ngx-videogular/core";
@@ -26,5 +26,5 @@ import { VgBufferingModule } from "@videogular/ngx-videogular/buffering";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoPlayerComponent {
-  @Input({ required: true }) dataVideo?: IVideoData;
+  @Input({ required: true }) dataVideo?: any;
 }

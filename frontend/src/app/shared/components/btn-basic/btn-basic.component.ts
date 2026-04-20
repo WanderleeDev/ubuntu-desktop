@@ -1,9 +1,9 @@
 import { NgOptimizedImage, NgStyle } from "@angular/common";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
-import {
-  IBtnBasic,
-  ICustomStylesBtn,
-} from "../../interfaces/IBtnData.interface";
+// import {
+//   IBtnBasic,
+//   ICustomStylesBtn,
+// } from "../../interfaces/IBtnData.interface";
 
 @Component({
   selector: "app-btn-basic",
@@ -13,7 +13,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnBasicComponent {
-  @Input({ required: true }) btnData!: IBtnBasic;
-  @Input() customStyles?: ICustomStylesBtn;
+  @Input({ required: true }) btnData!: any;
+  @Input() customStyles?: any;
   @Input() titleBtn?: string;
 }

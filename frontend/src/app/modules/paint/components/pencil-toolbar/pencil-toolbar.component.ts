@@ -26,7 +26,7 @@ import { AsyncPipe } from "@angular/common";
 export class PencilToolbarComponent {
   #paintStore: PaintStore = inject(PaintStore);
   isViewStrokeMenu$ = this.#paintStore.hasStrokeMenu;
-  readonly tools: IPaintButton[];
+  readonly tools: any[];
 
   constructor() {
     this.tools = [

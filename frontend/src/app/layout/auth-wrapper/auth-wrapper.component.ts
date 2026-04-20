@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { NavDesktopControlComponent } from "../../pages/home/components/navbarDesktop/components/navDesktopControl/navDesktopControl.component";
+// import { NavDesktopControlComponent } from "../../pages/home/components/navbarDesktop/components/navDesktopControl/navDesktopControl.component";
 import { LoaderComponent } from "../../shared/components/loader/loader.component";
 import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-logo.component";
 import { ClockComponent } from "../../modules/clock/clock.component";
@@ -9,7 +9,7 @@ import { ClockComponent } from "../../modules/clock/clock.component";
   standalone: true,
   imports: [
     UbuntuLogoComponent,
-    NavDesktopControlComponent,
+    // NavDesktopControlComponent,
     LoaderComponent,
     ClockComponent,
   ],
