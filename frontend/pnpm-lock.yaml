@@ -45,6 +45,9 @@ importers:
       '@google/generative-ai':
         specifier: ^0.11.5
         version: 0.11.5
+      '@ngrx/signals':
+        specifier: ^21.1.0
+        version: 21.1.0(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)
       '@videogular/ngx-videogular':
         specifier: ^8.0.0
         version: 8.0.0(@angular/common@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser-dynamic@21.2.9(@angular/common@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/compiler@21.2.9)(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(@angular/platform-browser@21.2.9(@angular/animations@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1)))(@angular/common@21.2.9(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2))(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))))(core-js@3.37.1)(rxjs@7.8.2)(zone.js@0.15.1)
@@ -1477,6 +1480,15 @@ packages:
       '@typescript-eslint/utils': ^7.11.0 || ^8.0.0-alpha.20
       eslint: ^8.57.0 || ^9.0.0
       typescript: '*'
+
+  '@ngrx/signals@21.1.0':
+    resolution: {integrity: sha512-eDGaBs6sssEZe2cLGwDdRnfTwyx9TKD+zpLW8yDov6acWzyi0nW5qxUWjpMRwmIU1i+o0t5MMpQaF/rFMmtHSg==}
+    peerDependencies:
+      '@angular/core': ^21.0.0
+      rxjs: ^6.5.3 || ^7.4.0
+    peerDependenciesMeta:
+      rxjs:
+        optional: true
 
   '@ngx-env/builder@18.0.2':
     resolution: {integrity: sha512-GndoNGurSq8+4c1cvxyyriJ3/k2j56VO4uk0ai5ECBAvS1MrpcdVxO2wNjfN5dsCMKia696i+pmPbVOpYJG+yw==}
@@ -5717,6 +5729,13 @@ snapshots:
       semver: 7.7.4
       strip-json-comments: 3.1.1
       typescript: 5.9.3
+
+  '@ngrx/signals@21.1.0(@angular/core@21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1))(rxjs@7.8.2)':
+    dependencies:
+      '@angular/core': 21.2.9(@angular/compiler@21.2.9)(rxjs@7.8.2)(zone.js@0.15.1)
+      tslib: 2.8.1
+    optionalDependencies:
+      rxjs: 7.8.2
 
   '@ngx-env/builder@18.0.2(esbuild@0.28.0)(webpack@5.105.0(esbuild@0.28.0))':
     dependencies:
