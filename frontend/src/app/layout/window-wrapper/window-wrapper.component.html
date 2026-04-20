@@ -1,25 +1,56 @@
 <section
-  class="window max-window">
-  <header class="window-header">
-    <ng-content select="[header]" />
-    <h2 class="window-title">
-      {{ appTitle() || "Empty title" }}
-    </h2>
-    <nav>
-      <ul class="window-controls">
-        @for (icon of controls; track icon.label) {
-          <li class="window-control">
-            <app-btn-basic
-              class="window-btn"
-              [titleBtn]="icon.label"
-              (click)="onClick(icon.label)"
-              [btnData]="icon" />
-          </li>
-        }
-      </ul>
-    </nav>
+  class="flex flex-col bg-[#ebebeb] dark:bg-[#2c2c2c] overflow-hidden rounded-t-xl shadow-2xl border border-black/10 dark:border-white/5 size-fit animate-fade-in"
+  cdkDrag
+  [cdkDragConstrainPosition]="constrainPosition">
+  <header
+    class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-[#f7f7f7] to-[#ebebeb] dark:from-[rgb(57,57,57)] dark:to-[#2c2c2c] border-b border-black/10 dark:border-white/5 select-none"
+    cdkDragHandle>
+    <div class="flex items-center gap-3">
+      <ng-content select="[header]" />
+      <h2
+        class="text-[13px] font-medium text-black/70 dark:text-white/80 capitalize">
+        {{ appTitle() || "Empty title" }}
+      </h2>
+    </div>
+
+    <div class="flex items-center gap-1.5">
+      <button
+        type="button"
+        (click)="onClick(WindowActions.MINIMIZE_WINDOW)"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+        title="Minimizar">
+        <span
+          class="material-symbols-outlined text-[16px] text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
+          >horizontal_rule</span
+        >
+      </button>
+
+      <button
+        type="button"
+        (click)="onClick(WindowActions.MAXIMIZE_WINDOW)"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+        title="Maximizar">
+        <span
+          class="material-symbols-outlined text-[16px] text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
+          >expand_content</span
+        >
+      </button>
+
+      <button
+        type="button"
+        (click)="onClick(WindowActions.CLOSE_WINDOW)"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-[#E95420]/10 hover:bg-[#E95420] transition-all duration-200"
+        title="Cerrar">
+        <span
+          class="material-symbols-outlined text-[16px] text-[#E95420] dark:text-[#E95420] group-hover:text-white"
+          >close</span
+        >
+      </button>
+    </div>
   </header>
-  <div>
+
+  <div
+    class="flex-1 overflow-auto bg-white/95 dark:bg-[#1e1e1e]/95 backdrop-blur-md">
     <ng-content select="[body]" />
   </div>
 </section>

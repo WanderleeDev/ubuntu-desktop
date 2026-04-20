@@ -1,10 +1,10 @@
+import { CdkDrag, CdkDragHandle, DragRef, Point } from "@angular/cdk/drag-drop";
 import {
   ChangeDetectionStrategy,
   Component,
   input,
   output,
 } from "@angular/core";
-import { BtnBasicComponent } from "../../shared/components/btn-basic/btn-basic.component";
 // import { WindowActions } from "../../shared/interfaces/WindowActions.enum";
 
 export enum WindowActions {
@@ -14,32 +14,37 @@ export enum WindowActions {
 }
 
 @Component({
-    selector: "app-window-wrapper",
-    imports: [BtnBasicComponent],
-    templateUrl: "./window-wrapper.component.html",
-    // styleUrl: "./window-wrapper.component.css",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-window-wrapper",
+  imports: [CdkDrag, CdkDragHandle],
+  templateUrl: "./window-wrapper.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: `
+    :host {
+      display: contents;
+    }
+  `,
 })
 export class WindowWrapperComponent {
+  protected readonly WindowActions = WindowActions;
   readonly windowAction = output<WindowActions>();
   readonly appTitle = input.required<string>();
-  protected readonly controls = [
-    {
-      urlSvg: "assets/controls-icons/minimize.svg",
-      label: WindowActions.MINIMIZE_WINDOW,
-    },
-    {
-      urlSvg: "assets/controls-icons/maximize.svg",
-      label: WindowActions.MAXIMIZE_WINDOW,
-    },
-    {
-      urlSvg: "assets/controls-icons/close.svg",
-      label: WindowActions.CLOSE_WINDOW,
-    },
-  ];
+
+  public constrainPosition = (
+    point: Point,
+    _dragRef: DragRef,
+    _initialRect: DOMRect,
+    pickupPositionInElement: Point
+  ) => {
+    const naturalX = point.x - pickupPositionInElement.x;
+    const naturalY = point.y - pickupPositionInElement.y;
+
+    return {
+      x: naturalX,
+      y: Math.max(naturalY, 28),
+    };
+  };
 
   public onClick(action: WindowActions) {
     this.windowAction.emit(action);
-    console.log(this);
   }
 }
