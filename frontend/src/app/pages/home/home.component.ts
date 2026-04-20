@@ -16,18 +16,17 @@ type MiniApps = string;
 type LazyComponent = any;
 
 @Component({
-  selector: "app-home",
-  standalone: true,
-  imports: [
+    selector: "app-home",
+    imports: [
     // SidebarComponent,
     // NavbarDesktopComponent,
     // DesktopComponent,
     // ListAppComponent,
     // AppItemComponent,
-  ],
-  templateUrl: "./home.component.html",
-  // styleUrls: ["./home.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    ],
+    templateUrl: "./home.component.html",
+    // styleUrls: ["./home.component.css"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class HomeComponent {
   protected readonly mainIcons = mainIconsSidebar;

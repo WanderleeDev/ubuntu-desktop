@@ -3,14 +3,13 @@ import { AuthWrapperComponent } from "../../layout/auth-wrapper/auth-wrapper.com
 import { RouterOutlet } from "@angular/router";
 
 @Component({
-  selector: "app-auth",
-  standalone: true,
-  imports: [AuthWrapperComponent, RouterOutlet],
-  template: `
+    selector: "app-auth",
+    imports: [AuthWrapperComponent, RouterOutlet],
+    template: `
     <app-auth-wrapper>
       <router-outlet />
     </app-auth-wrapper>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent {}

@@ -10,16 +10,15 @@ import {
 import { ICanvasConfig } from "../../interfaces/ICanvasConfig.interface";
 
 @Component({
-  selector: "app-canvas",
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: "./canvas.component.html",
-  styles: `
+    selector: "app-canvas",
+    imports: [CommonModule],
+    templateUrl: "./canvas.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CanvasComponent implements AfterViewInit {
   @ViewChild("canvas") canvas!: ElementRef<HTMLCanvasElement>;

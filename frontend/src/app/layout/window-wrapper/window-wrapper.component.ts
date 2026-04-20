@@ -15,12 +15,11 @@ export enum WindowActions {
 }
 
 @Component({
-  selector: "app-window-wrapper",
-  standalone: true,
-  imports: [CdkDrag, BtnBasicComponent, CdkDragHandle],
-  templateUrl: "./window-wrapper.component.html",
-  // styleUrl: "./window-wrapper.component.css",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-window-wrapper",
+    imports: [CdkDrag, BtnBasicComponent, CdkDragHandle],
+    templateUrl: "./window-wrapper.component.html",
+    // styleUrl: "./window-wrapper.component.css",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WindowWrapperComponent {
   readonly windowAction = output<WindowActions>();

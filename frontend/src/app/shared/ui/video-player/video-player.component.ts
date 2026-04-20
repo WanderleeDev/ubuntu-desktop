@@ -11,19 +11,18 @@ import { VgOverlayPlayModule } from "@videogular/ngx-videogular/overlay-play";
 import { VgBufferingModule } from "@videogular/ngx-videogular/buffering";
 
 @Component({
-  selector: "app-video-player",
-  standalone: true,
-  imports: [
-    CommonModule,
-    DragDropModule,
-    VgCoreModule,
-    VgControlsModule,
-    VgOverlayPlayModule,
-    VgBufferingModule,
-  ],
-  templateUrl: "./video-player.component.html",
-  styleUrls: [],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-video-player",
+    imports: [
+        CommonModule,
+        DragDropModule,
+        VgCoreModule,
+        VgControlsModule,
+        VgOverlayPlayModule,
+        VgBufferingModule,
+    ],
+    templateUrl: "./video-player.component.html",
+    styleUrls: [],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VideoPlayerComponent {
   @Input({ required: true }) dataVideo?: any;

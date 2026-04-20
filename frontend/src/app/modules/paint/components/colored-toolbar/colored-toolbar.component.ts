@@ -5,16 +5,15 @@ import { ColorPickerComponent } from "../color-picker/color-picker.component";
 import { PaintStore } from "../../local-store/paint.store";
 
 @Component({
-  selector: "app-colored-toolbar",
-  standalone: true,
-  imports: [ToolbarContainerComponent, ColorPickerComponent, NgStyle],
-  templateUrl: "./colored-toolbar.component.html",
-  styles: `
+    selector: "app-colored-toolbar",
+    imports: [ToolbarContainerComponent, ColorPickerComponent, NgStyle],
+    templateUrl: "./colored-toolbar.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ColoredToolbarComponent {
   #paintStore: PaintStore = inject(PaintStore);

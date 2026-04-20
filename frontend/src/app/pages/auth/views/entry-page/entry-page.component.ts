@@ -4,18 +4,17 @@ import { PersonalUserCardComponent } from "../../components/personal-user-card/p
 import { ScreenLockComponent } from "../../components/screen-lock/screen-lock.component";
 
 @Component({
-  selector: "app-entry-page",
-  standalone: true,
-  imports: [RouterLink, PersonalUserCardComponent, ScreenLockComponent],
-  templateUrl: "./entry-page.component.html",
-  // styleUrl: "./entry-page.component.css",
-  styles: `
+    selector: "app-entry-page",
+    imports: [RouterLink, PersonalUserCardComponent, ScreenLockComponent],
+    templateUrl: "./entry-page.component.html",
+    // styleUrl: "./entry-page.component.css",
+    styles: `
     :host {
       display: block;
       width: 100%;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class EntryPageComponent {
   isReadyToNavigate = signal<boolean>(false);

@@ -6,11 +6,10 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 // } from "../../interfaces/IBtnData.interface";
 
 @Component({
-  selector: "app-btn-basic",
-  standalone: true,
-  imports: [NgOptimizedImage, NgStyle],
-  templateUrl: "./btn-basic.component.html",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-btn-basic",
+    imports: [NgOptimizedImage, NgStyle],
+    templateUrl: "./btn-basic.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BtnBasicComponent {
   @Input({ required: true }) btnData!: any;

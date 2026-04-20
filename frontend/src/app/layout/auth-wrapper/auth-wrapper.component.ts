@@ -5,20 +5,19 @@ import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-
 import { ClockComponent } from "../../modules/clock/clock.component";
 
 @Component({
-  selector: "app-auth-wrapper",
-  standalone: true,
-  imports: [
-    UbuntuLogoComponent,
-    // NavDesktopControlComponent,
-    LoaderComponent,
-    ClockComponent,
-  ],
-  templateUrl: "./auth-wrapper.component.html",
-  styles: `
+    selector: "app-auth-wrapper",
+    imports: [
+        UbuntuLogoComponent,
+        // NavDesktopControlComponent,
+        LoaderComponent,
+        ClockComponent,
+    ],
+    templateUrl: "./auth-wrapper.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthWrapperComponent {}

@@ -9,16 +9,15 @@ import { BtnBasicComponent } from "../../../../shared/components/btn-basic/btn-b
 import { AsyncPipe } from "@angular/common";
 
 @Component({
-  selector: "app-header-control-extra",
-  standalone: true,
-  imports: [BtnBasicComponent, AsyncPipe],
-  templateUrl: "./header-control-extra.component.html",
-  styles: `
+    selector: "app-header-control-extra",
+    imports: [BtnBasicComponent, AsyncPipe],
+    templateUrl: "./header-control-extra.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderControlExtraComponent {
   isActiveFullscreen = input.required<boolean>();

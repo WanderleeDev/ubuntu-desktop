@@ -21,29 +21,28 @@ import { ToNumberPipe } from "./pipes/toNumber.pipe";
 import { ClockService } from "./services/clock.service";
 
 @Component({
-  selector: "app-clock",
-  standalone: true,
-  imports: [
-    ToNumberPipe,
-    DatePipe,
-    ClockSvgComponent,
-    AfternoonSvgComponent,
-    DaySvgComponent,
-    EveningSvgComponent,
-    SunriseSvgComponent,
-  ],
-  templateUrl: "./clock.component.html",
-  styles: [
-    `
+    selector: "app-clock",
+    imports: [
+        ToNumberPipe,
+        DatePipe,
+        ClockSvgComponent,
+        AfternoonSvgComponent,
+        DaySvgComponent,
+        EveningSvgComponent,
+        SunriseSvgComponent,
+    ],
+    templateUrl: "./clock.component.html",
+    styles: [
+        `
       :host {
         display: flex;
         gap: 0.5rem;
         align-items: center;
       }
     `,
-  ],
-  providers: [ClockService],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    ],
+    providers: [ClockService],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ClockComponent {
   clock: Signal<Date>;

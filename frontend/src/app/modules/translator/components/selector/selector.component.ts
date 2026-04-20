@@ -13,14 +13,13 @@ import { ActionLanguageType } from "../../interfaces/TranslationState.interface"
 // import { ClickOutsideDirective } from "../../../../shared/directives/ClickOutside.directive";
 
 @Component({
-  selector: "app-selector",
-  standalone: true,
-  imports: [
+    selector: "app-selector",
+    imports: [
     // ClickOutsideDirective
-  ],
-  templateUrl: "./selector.component.html",
-  // styleUrls: ["./selector.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    ],
+    templateUrl: "./selector.component.html",
+    // styleUrls: ["./selector.component.css"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelectorComponent {
   readonly action = input.required<ActionLanguageType>();

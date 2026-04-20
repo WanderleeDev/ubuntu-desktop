@@ -4,12 +4,11 @@ import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-fil
 import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: "app-register",
-  standalone: true,
-  imports: [CommonModule, BtnFileComponent, RouterLink],
-  templateUrl: "./register.component.html",
-  // styleUrl: "./register.component.css",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-register",
+    imports: [CommonModule, BtnFileComponent, RouterLink],
+    templateUrl: "./register.component.html",
+    // styleUrl: "./register.component.css",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class RegisterComponent {
   readonly socialMedia = [

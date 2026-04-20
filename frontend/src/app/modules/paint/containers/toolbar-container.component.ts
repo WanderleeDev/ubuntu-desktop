@@ -3,10 +3,9 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { orientation } from "../types/paint.types";
 
 @Component({
-  selector: "app-toolbar-container",
-  standalone: true,
-  imports: [CommonModule],
-  template: `
+    selector: "app-toolbar-container",
+    imports: [CommonModule],
+    template: `
     <div
       [class]="toolbarClass"
       [ngStyle]="{
@@ -15,12 +14,12 @@ import { orientation } from "../types/paint.types";
       <ng-content />
     </div>
   `,
-  styles: `
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolbarContainerComponent {
   readonly toolbarClass =

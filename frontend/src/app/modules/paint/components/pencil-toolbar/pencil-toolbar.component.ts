@@ -7,21 +7,20 @@ import { IPaintButton } from "../../interfaces/IPaintButton.interface";
 import { AsyncPipe } from "@angular/common";
 
 @Component({
-  selector: "app-pencil-toolbar",
-  standalone: true,
-  imports: [
-    ToolbarContainerComponent,
-    StrokeControlComponent,
-    BtnFileComponent,
-    AsyncPipe,
-  ],
-  templateUrl: "./pencil-toolbar.component.html",
-  styles: `
+    selector: "app-pencil-toolbar",
+    imports: [
+        ToolbarContainerComponent,
+        StrokeControlComponent,
+        BtnFileComponent,
+        AsyncPipe,
+    ],
+    templateUrl: "./pencil-toolbar.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PencilToolbarComponent {
   #paintStore: PaintStore = inject(PaintStore);

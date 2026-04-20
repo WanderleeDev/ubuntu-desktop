@@ -3,16 +3,15 @@ import { SelectorComponent } from "../selector/selector.component";
 import { TranslatorService } from "../../services/translator.service";
 
 @Component({
-  selector: "app-translator-controls",
-  standalone: true,
-  imports: [SelectorComponent],
-  templateUrl: "./translator-controls.component.html",
-  styles: `
+    selector: "app-translator-controls",
+    imports: [SelectorComponent],
+    templateUrl: "./translator-controls.component.html",
+    styles: `
     :host {
       display: block;
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TranslatorControlsComponent {
   readonly $isDisabled = input.required<boolean>();

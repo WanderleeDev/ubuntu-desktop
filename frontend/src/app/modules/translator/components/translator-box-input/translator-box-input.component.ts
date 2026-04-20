@@ -11,12 +11,11 @@ import { BtnFileComponent } from "../../../../shared/components/btn-file/btn-fil
 import { TranslatorService } from "../../services/translator.service";
 
 @Component({
-  selector: "app-translator-box-input",
-  standalone: true,
-  imports: [ClipboardModule, BtnFileComponent, ReactiveFormsModule],
-  templateUrl: "./translator-box-input.component.html",
-  // styleUrls: ["translator-box-input.component.css"],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-translator-box-input",
+    imports: [ClipboardModule, BtnFileComponent, ReactiveFormsModule],
+    templateUrl: "./translator-box-input.component.html",
+    // styleUrls: ["translator-box-input.component.css"],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TranslatorBoxInputComponent implements OnInit {
   readonly $maxInputCharacters = input.required<number>();

@@ -14,17 +14,16 @@ import { TranslatorService } from "./services/translator.service";
 import { TranslationState } from "./interfaces/TranslationState.interface";
 
 @Component({
-  selector: "app-translator",
-  standalone: true,
-  imports: [
-    WindowWrapperComponent,
-    TranslatorControlsComponent,
-    TranslatorBoxInputComponent,
-    // TranslatorBoxOutputComponent,
-  ],
-  providers: [TranslatorService],
-  templateUrl: "./translator.component.html",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-translator",
+    imports: [
+        WindowWrapperComponent,
+        TranslatorControlsComponent,
+        TranslatorBoxInputComponent,
+        // TranslatorBoxOutputComponent,
+    ],
+    providers: [TranslatorService],
+    templateUrl: "./translator.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class TranslatorComponent implements OnDestroy {
   protected readonly $translationState: Signal<TranslationState>;

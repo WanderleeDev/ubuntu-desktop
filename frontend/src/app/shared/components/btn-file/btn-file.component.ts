@@ -10,12 +10,11 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 // import { LabelPosition } from "../../types/LabelPosition.type";
 
 @Component({
-  selector: "app-btn-file",
-  standalone: true,
-  imports: [NgOptimizedImage, MatTooltipModule, NgStyle, NgClass],
-  templateUrl: "./btn-file.component.html",
-  styleUrl: "./btn-file.component.css",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-btn-file",
+    imports: [NgOptimizedImage, MatTooltipModule, NgStyle, NgClass],
+    templateUrl: "./btn-file.component.html",
+    styleUrl: "./btn-file.component.css",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BtnFileComponent {
   labelDirection = input<any>("right");

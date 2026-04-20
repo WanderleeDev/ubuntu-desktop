@@ -10,20 +10,19 @@ import { HeaderControlExtraComponent } from "./components/header-control-extra/h
 import { LetDirective } from "@ngrx/component";
 
 @Component({
-  selector: "app-paint",
-  standalone: true,
-  imports: [
-    WindowWrapperComponent,
-    CanvasComponent,
-    ColoredToolbarComponent,
-    ExtraToolbarComponent,
-    PencilToolbarComponent,
-    HeaderControlExtraComponent,
-    LetDirective,
-  ],
-  templateUrl: "./paint.component.html",
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PaintStore],
+    selector: "app-paint",
+    imports: [
+        WindowWrapperComponent,
+        CanvasComponent,
+        ColoredToolbarComponent,
+        ExtraToolbarComponent,
+        PencilToolbarComponent,
+        HeaderControlExtraComponent,
+        LetDirective,
+    ],
+    templateUrl: "./paint.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [PaintStore]
 })
 export default class PaintComponent {
   #paintStore: PaintStore = inject(PaintStore);

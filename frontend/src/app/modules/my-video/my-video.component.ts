@@ -4,11 +4,10 @@ import { WindowWrapperComponent } from "../../layout/window-wrapper/window-wrapp
 import { VideoPlayerComponent } from "../../shared/ui/video-player/video-player.component";
 
 @Component({
-  selector: "app-my-video",
-  standalone: true,
-  imports: [CommonModule, WindowWrapperComponent, VideoPlayerComponent],
-  templateUrl: "./my-video.component.html",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-my-video",
+    imports: [CommonModule, WindowWrapperComponent, VideoPlayerComponent],
+    templateUrl: "./my-video.component.html",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class MyVideoComponent {
   readonly titleVideo = `My Github ${new Date().getFullYear()}`;

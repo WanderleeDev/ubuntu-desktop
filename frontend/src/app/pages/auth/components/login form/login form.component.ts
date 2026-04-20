@@ -16,18 +16,17 @@ import { RouterLink } from "@angular/router";
 import { ScreenLockComponent } from "../screen-lock/screen-lock.component";
 
 @Component({
-  selector: "app-login-form",
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    BtnBasicComponent,
-    RouterLink,
-    ScreenLockComponent,
-  ],
-  templateUrl: "./login form.component.html",
-  styleUrl: "./login form.component.css",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-login-form",
+    imports: [
+        ReactiveFormsModule,
+        NgOptimizedImage,
+        BtnBasicComponent,
+        RouterLink,
+        ScreenLockComponent,
+    ],
+    templateUrl: "./login form.component.html",
+    styleUrl: "./login form.component.css",
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginFormComponent {
   isReadyToNavigate = signal<boolean>(false);
