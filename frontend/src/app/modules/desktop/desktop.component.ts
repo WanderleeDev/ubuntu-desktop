@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 import MainVideoPlayerComponent from "../apps/video-player/presentation/video-player.component";
+import { CodeEditorApp } from "../apps/code-editor/presentation/code-editor.component";
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -42,6 +43,12 @@ const desktopIcons: any[] = [
     icon: "assets/desktopIcons/video.svg",
     app: "github",
   },
+  {
+    id: "vsc",
+    name: "VS Code",
+    icon: "assets/sidebarIcons/vsc.svg",
+    app: "vsc",
+  },
 ];
 
 const fillMap = (x: any) => new Map();
@@ -55,6 +62,7 @@ type LazyComponent = any;
     NavbarDesktopComponent,
     AppItemComponent,
     MainVideoPlayerComponent,
+    CodeEditorApp,
   ],
   templateUrl: "./desktop.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,6 +74,7 @@ export default class DesktopComponent {
   protected readonly APPS: Record<string, LazyComponent> = {
     github: () =>
       import("../apps/video-player/presentation/video-player.component"),
+    vsc: () => import("../apps/code-editor/presentation/code-editor.component"),
     translator: () =>
       import("../apps/translator/presentation/translator.component"),
     paint: () => import("../apps/paint/presentation/paint.component"),
