@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 @Injectable({
   providedIn: "root",
 })
-export class AuthStorageService {
+export class StorageService {
   public setItem<T>(key: string, value: T): void {
     if (typeof window !== "undefined") {
       localStorage.setItem(key, JSON.stringify(value));
@@ -16,6 +16,7 @@ export class AuthStorageService {
       try {
         return item ? (JSON.parse(item) as T) : null;
       } catch (e) {
+        console.error("Error parsing storage item:", e);
         return null;
       }
     }
@@ -28,18 +29,9 @@ export class AuthStorageService {
     }
   }
 
-  // Auth specific helpers (optional but helpful for backward compatibility if needed)
-  private readonly TOKEN_KEY = "auth_token";
-
-  public saveToken(token: string): void {
-    this.setItem(this.TOKEN_KEY, token);
-  }
-
-  public getToken(): string | null {
-    return this.getItem<string>(this.TOKEN_KEY);
-  }
-
-  public removeToken(): void {
-    this.removeItem(this.TOKEN_KEY);
+  public clear(): void {
+    if (typeof window !== "undefined") {
+      localStorage.clear();
+    }
   }
 }
