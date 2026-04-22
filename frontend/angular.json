@@ -37,9 +37,9 @@
             ],
             "styles": [
               "src/styles.css",
-              "public/assets/styles/starting-animated.css",
-              "node_modules/@videogular/ngx-videogular/fonts/videogular.css"
+              "public/assets/styles/starting-animated.css"
             ],
+
             "scripts": []
           },
 
