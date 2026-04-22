@@ -1,9 +1,9 @@
-import { Component, ChangeDetectionStrategy, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { TodoStore } from "../infrastructure/todo.store";
 import { ListTasksComponent } from "./components/list-tasks/list-tasks.component";
 import { TaskInputFieldComponent } from "./components/task-input-field/task-input-field.component";
 import { FilterPipe } from "./pipes/filter.pipe";
-import { TodoStore } from "../infrastructure/todo.store";
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
 
 @Component({
   selector: "app-todo",

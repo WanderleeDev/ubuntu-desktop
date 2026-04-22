@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import {
+  WindowActions,
+  WindowWrapperComponent,
+} from "../../../../layout/window-wrapper/window-wrapper.component";
 import { PaintStore } from "../infrastructure/paint.store";
 import { CanvasComponent } from "./components/canvas/canvas.component";
 import { ColoredToolbarComponent } from "./components/colored-toolbar/colored-toolbar.component";
 import { HeaderControlExtraComponent } from "./components/header-control-extra/header-control-extra.component";
 import { PencilToolbarComponent } from "./components/pencil-toolbar/pencil-toolbar.component";
-import {
-  WindowActions,
-  WindowWrapperComponent,
-} from "../../../../layout/window-wrapper/window-wrapper.component";
 
 @Component({
   selector: "app-paint",

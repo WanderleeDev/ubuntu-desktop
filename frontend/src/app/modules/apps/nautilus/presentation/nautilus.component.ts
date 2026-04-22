@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { NautilusStore } from "../infrastructure/nautilus.store";
-import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus-sidebar.component";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
 import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
+import { NautilusStore } from "../infrastructure/nautilus.store";
+import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus-sidebar.component";
 
 @Component({
   selector: "app-nautilus",
