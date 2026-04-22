@@ -1,5 +1,11 @@
 import { isPlatformBrowser } from "@angular/common";
-import { Component, computed, inject, PLATFORM_ID } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  PLATFORM_ID,
+} from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { MonacoEditorModule } from "ngx-monaco-editor-v2";
 import { CodeEditorStore } from "../../infrastructure/code-editor.store";
@@ -32,6 +38,7 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
       width: 100%;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MonacoEditorComponent {
   readonly store = inject(CodeEditorStore);

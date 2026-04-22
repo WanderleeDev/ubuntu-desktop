@@ -6,12 +6,13 @@ import {
 } from "@angular/core";
 import { TodoStore } from "../../../infrastructure/todo.store";
 import { TodoAction } from "../../../domain/task.interface";
-import { NgClass } from "@angular/common";
+import { NgClass, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-controls-todo",
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, NgOptimizedImage],
+
   templateUrl: "./controls-todo.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

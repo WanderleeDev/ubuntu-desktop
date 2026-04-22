@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
   selector: "app-editor-status-bar",
@@ -28,5 +28,6 @@ import { Component } from "@angular/core";
       width: 100%;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorStatusBarComponent {}

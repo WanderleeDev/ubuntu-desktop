@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import {
   CodeEditorStore,
   FileType,
@@ -13,6 +13,7 @@ import {
       class="w-12 h-full bg-[#333333] border-r border-white/5 flex flex-col items-center py-4 gap-4">
       @for (file of files; track file.id) {
         <button
+          type="button"
           (click)="store.setActiveFile(file.id)"
           [class.text-orange-500]="store.activeFile() === file.id"
           [class.text-white/40]="store.activeFile() !== file.id"
@@ -42,6 +43,7 @@ import {
       height: 100%;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorSidebarComponent {
   readonly store = inject(CodeEditorStore);

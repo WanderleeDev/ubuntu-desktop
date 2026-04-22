@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { SafeHtmlPipe } from "../../../../../shared/pipes/safeHtml.pipe";
 import { CodeEditorStore } from "../../infrastructure/code-editor.store";
 
@@ -10,6 +10,9 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
     <div class="w-full h-full bg-white relative flex flex-col overflow-hidden">
       <div
         (click)="store.togglePreview()"
+        (keydown.enter)="store.togglePreview()"
+        role="button"
+        tabindex="0"
         class="h-8 bg-[#252526] border-b border-white/5 flex items-center justify-between px-4 text-white/40 cursor-pointer hover:text-white transition-colors shrink-0">
         <div class="flex items-center gap-2">
           <span class="material-symbols-outlined text-[14px]">visibility</span>
@@ -26,6 +29,7 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
       </iframe>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditorPreviewComponent {
   readonly store = inject(CodeEditorStore);

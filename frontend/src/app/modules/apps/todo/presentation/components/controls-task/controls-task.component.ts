@@ -6,6 +6,7 @@ import {
   model,
   OnInit,
 } from "@angular/core";
+import { NgOptimizedImage } from "@angular/common";
 import { TodoStore } from "../../../infrastructure/todo.store";
 import { Task } from "../../../domain/task.interface";
 
@@ -18,7 +19,7 @@ interface IBtnEditingTask {
 @Component({
   selector: "app-controls-task",
   standalone: true,
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: "./controls-task.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

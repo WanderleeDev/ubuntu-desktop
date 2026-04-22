@@ -8,6 +8,7 @@
         Editar Tarea
       </h3>
       <button
+        type="button"
         (click)="close()"
         class="p-1 hover:bg-white/10 rounded-full transition-colors">
         <span class="material-symbols-outlined text-[20px] text-white/50"
@@ -21,10 +22,13 @@
       (ngSubmit)="editTask()"
       class="p-6 flex flex-col gap-6">
       <div class="flex flex-col gap-2">
-        <label class="text-[11px] font-bold uppercase text-white/40 ml-1"
+        <label
+          for="task-input"
+          class="text-[11px] font-bold uppercase text-white/40 ml-1"
           >Descripción</label
         >
         <input
+          id="task-input"
           formControlName="task"
           type="text"
           class="w-full px-4 py-3 bg-black/20 border border-white/5 rounded-xl outline-none focus:border-[#e95420] focus:ring-2 focus:ring-[#e95420]/20 transition-all text-white text-sm"
@@ -32,10 +36,13 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <label class="text-[11px] font-bold uppercase text-white/40 ml-1"
+        <label
+          for="status-select"
+          class="text-[11px] font-bold uppercase text-white/40 ml-1"
           >Estado</label
         >
         <select
+          id="status-select"
           formControlName="status"
           class="w-full px-4 py-3 bg-black/20 border border-white/5 rounded-xl outline-none focus:border-[#e95420] focus:ring-2 focus:ring-[#e95420]/20 transition-all text-white text-sm appearance-none cursor-pointer">
           <option value="pending">Pendiente</option>

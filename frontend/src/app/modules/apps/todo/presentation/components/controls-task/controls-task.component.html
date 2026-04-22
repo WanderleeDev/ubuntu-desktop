@@ -2,9 +2,15 @@
   class="flex flex-col bg-[#333333] border border-white/10 rounded-lg shadow-2xl overflow-hidden min-w-[140px]">
   @for (btn of btnTaskList; track btn.label) {
     <button
+      type="button"
       (click)="btn.functionBtn()"
       class="flex items-center gap-3 px-4 py-3 text-[11px] font-bold uppercase tracking-wider text-white/70 hover:text-white hover:bg-white/5 transition-all duration-200 border-b border-white/5 last:border-0">
-      <img [src]="btn.urlSvg" class="w-4 h-4 opacity-70" [alt]="btn.label" />
+      <img
+        [ngSrc]="btn.urlSvg"
+        width="16"
+        height="16"
+        class="w-4 h-4 opacity-70"
+        [alt]="btn.label" />
       {{ btn.label }}
     </button>
   }

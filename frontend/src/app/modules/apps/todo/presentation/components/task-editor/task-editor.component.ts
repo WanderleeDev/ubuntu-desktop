@@ -12,7 +12,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from "@angular/forms";
-import { TaskEditor, StatusTask, Task } from "../../../domain/task.interface";
+import { TaskEditor, Task } from "../../../domain/task.interface";
 import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({
@@ -30,7 +30,7 @@ export class TaskEditorComponent implements OnInit {
   isViewEditorTask = model(false);
   formEditor!: FormGroup<TaskEditor>;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formEditor = this.fb.nonNullable.group({
       task: [
         this.currentTask().task,

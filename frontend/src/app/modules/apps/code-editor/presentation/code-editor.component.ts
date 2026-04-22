@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
 import { CodeEditorStore } from "../infrastructure/code-editor.store";
 import { EditorPreviewComponent } from "./components/editor-preview.component";
@@ -24,6 +24,7 @@ import { MonacoEditorComponent } from "./components/monaco-editor.component";
       height: 100%;
     }
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CodeEditorApp {
   readonly store = inject(CodeEditorStore);
