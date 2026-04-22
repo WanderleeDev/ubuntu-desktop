@@ -15,7 +15,6 @@ interface IBtnEditingTask {
   functionBtn: () => void;
 }
 
-
 @Component({
   selector: "app-controls-task",
   standalone: true,
@@ -23,7 +22,6 @@ interface IBtnEditingTask {
   templateUrl: "./controls-task.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class ControlsTaskComponent implements OnInit {
   private readonly todoStore = inject(TodoStore);
 
@@ -58,6 +56,5 @@ export class ControlsTaskComponent implements OnInit {
         },
       },
     ];
-
   }
 }

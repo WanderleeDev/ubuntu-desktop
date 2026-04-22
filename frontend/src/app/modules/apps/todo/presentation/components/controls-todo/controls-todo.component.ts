@@ -1,19 +1,17 @@
+import { NgClass } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
   inject,
   signal,
 } from "@angular/core";
-import { TodoStore } from "../../../infrastructure/todo.store";
 import { TodoAction } from "../../../domain/task.interface";
-import { NgClass } from "@angular/common";
-
+import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({
   selector: "app-controls-todo",
   standalone: true,
   imports: [NgClass],
-
 
   templateUrl: "./controls-todo.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -36,9 +36,9 @@
               }
             ],
             "styles": [
-              "src/styles.css",
-              "public/assets/styles/starting-animated.css"
+              "src/styles.css"
             ],
+
 
             "scripts": []
           },

@@ -23,7 +23,6 @@ import { TaskEditorComponent } from "../task-editor/task-editor.component";
     ControlsTaskComponent,
     TaskEditorComponent,
   ],
-
 })
 export class TaskComponent {
   task = input.required<Task>();
