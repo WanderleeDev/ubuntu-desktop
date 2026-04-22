@@ -3,9 +3,9 @@ import { LoginFormComponent } from "../../components/login form/login form.compo
 import { UserComponent } from "../../../../../shared/components/user/user.component";
 
 @Component({
-    selector: "app-login",
-    imports: [LoginFormComponent, UserComponent],
-    templateUrl: "./login.component.html",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-login",
+  imports: [LoginFormComponent, UserComponent],
+  templateUrl: "./login.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LoginComponent {}

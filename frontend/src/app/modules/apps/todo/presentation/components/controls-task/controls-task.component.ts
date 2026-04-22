@@ -24,7 +24,7 @@ interface IBtnEditingTask {
 })
 export class ControlsTaskComponent implements OnInit {
   private readonly todoStore = inject(TodoStore);
-  
+
   currentTask = input.required<Task>();
   isViewControlTask = model(false);
   isViewEditorTask = model(false);
@@ -58,4 +58,3 @@ export class ControlsTaskComponent implements OnInit {
     ];
   }
 }
-

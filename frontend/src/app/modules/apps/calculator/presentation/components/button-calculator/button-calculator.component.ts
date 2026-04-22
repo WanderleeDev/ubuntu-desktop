@@ -7,8 +7,7 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
     <button
       type="button"
       [attr.data-calculator]="value()"
-      class="w-full h-full py-3 rounded-lg text-lg font-semibold transition-all duration-200 active:scale-95 flex items-center justify-center bg-inherit text-inherit"
-    >
+      class="w-full h-full py-3 rounded-lg text-lg font-semibold transition-all duration-200 active:scale-95 flex items-center justify-center bg-inherit text-inherit">
       {{ label() }}
     </button>
   `,

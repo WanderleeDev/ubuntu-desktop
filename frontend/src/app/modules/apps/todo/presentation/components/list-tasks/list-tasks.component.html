@@ -1,20 +1,28 @@
 <div class="flex flex-col gap-4">
   <header class="flex items-center justify-between mb-2">
-    <h2 class="text-sm font-bold text-white/50 uppercase tracking-wider">My Tasks</h2>
+    <h2 class="text-sm font-bold text-white/50 uppercase tracking-wider">
+      My Tasks
+    </h2>
     @if (allTasksNumber() > 0) {
       <app-controls-todo class="transition-opacity duration-300" />
     }
   </header>
-  
-  <ul class="flex flex-col gap-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+
+  <ul
+    class="flex flex-col gap-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
     @for (task of tasks(); track task.id; let i = $index) {
-      <li class="animate-in fade-in slide-in-from-bottom-2 duration-300" [style.animation-delay]="i * 50 + 'ms'">
+      <li
+        class="animate-in fade-in slide-in-from-bottom-2 duration-300"
+        [style.animation-delay]="i * 50 + 'ms'">
         <app-task [task]="task" [indexTask]="i" />
       </li>
     } @empty {
-      <li class="flex flex-col items-center justify-center py-12 px-4 text-center bg-white/5 rounded-xl border border-dashed border-white/10 animate-in fade-in zoom-in duration-500">
+      <li
+        class="flex flex-col items-center justify-center py-12 px-4 text-center bg-white/5 rounded-xl border border-dashed border-white/10 animate-in fade-in zoom-in duration-500">
         <span class="text-4xl mb-4">🎊</span>
-        <p class="text-[#9ca3af] font-medium">Congratulations! You have no pending tasks.</p>
+        <p class="text-[#9ca3af] font-medium">
+          Congratulations! You have no pending tasks.
+        </p>
       </li>
     }
   </ul>

@@ -2,14 +2,14 @@ import { NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
-    selector: "app-ubuntu-logo",
-    imports: [NgOptimizedImage],
-    templateUrl: "./ubuntu-logo.component.html",
-    styles: `
+  selector: "app-ubuntu-logo",
+  imports: [NgOptimizedImage],
+  templateUrl: "./ubuntu-logo.component.html",
+  styles: `
     :host {
       display: block;
     }
   `,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UbuntuLogoComponent {}

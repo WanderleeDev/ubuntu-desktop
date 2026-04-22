@@ -1,34 +1,37 @@
-import { Injectable } from "@angular/core";
-import {
-  GoogleGenerativeAI,
-  ModelParams,
-} from "@google/generative-ai";
-import { environment } from "../../../../../environments/environment.development";
+import { HttpClient } from "@angular/common/http";
+import { Injectable, inject } from "@angular/core";
 import { TranslationRepository } from "../domain/translation.repository";
 
 @Injectable()
 export class GeminiTranslationRepository extends TranslationRepository {
-  readonly #gemini = new GoogleGenerativeAI(environment.GEMINI_API);
-
-  readonly #modelConfig: ModelParams = {
-    model: "gemini-1.5-pro",
-    generationConfig: { maxOutputTokens: 100 },
-    systemInstruction: `${environment.PROMT_TRANSLATOR}`,
-  };
+  private readonly http = inject(HttpClient);
 
   async *translate(
     text: string,
     from: string,
     to: string
   ): AsyncGenerator<string> {
-    const result = await this.#gemini
-      .getGenerativeModel(this.#modelConfig)
-      .generateContentStream(
-        `Translate this text:\n"${text}"\nFrom: ${from}\nTo: ${to}`
-      );
+    // This is now a placeholder for the backend call as requested.
+    // The backend will handle the Gemini API and prompts.
+    try {
+      const response = await fetch("/api/translate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text, from, to }),
+      });
 
-    for await (const chunk of result.stream) {
-      yield chunk.text();
+      const reader = response.body?.getReader();
+      if (!reader) return;
+
+      const decoder = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        yield decoder.decode(value);
+      }
+    } catch (error) {
+      console.error("Translation error:", error);
+      yield "Translation error. Please try again.";
     }
   }
 }

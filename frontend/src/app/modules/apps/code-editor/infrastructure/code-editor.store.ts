@@ -1,7 +1,13 @@
-import { signalStore, withState, withMethods, withComputed, patchState } from '@ngrx/signals';
-import { computed } from '@angular/core';
+import {
+  signalStore,
+  withState,
+  withMethods,
+  withComputed,
+  patchState,
+} from "@ngrx/signals";
+import { computed } from "@angular/core";
 
-export type FileType = 'html' | 'css' | 'javascript';
+export type FileType = "html" | "css" | "javascript";
 
 export interface CodeEditorState {
   files: {
@@ -12,7 +18,7 @@ export interface CodeEditorState {
   activeFile: FileType;
   settings: {
     fontSize: number;
-    theme: 'vs-dark' | 'vs-light';
+    theme: "vs-dark" | "vs-light";
     minimap: boolean;
     showPreview: boolean;
   };
@@ -72,10 +78,10 @@ btn.addEventListener('click', () => {
   console.log('Button clicked!');
 });`,
   },
-  activeFile: 'html',
+  activeFile: "html",
   settings: {
     fontSize: 13,
-    theme: 'vs-dark',
+    theme: "vs-dark",
     minimap: false,
     showPreview: true,
   },
@@ -83,7 +89,7 @@ btn.addEventListener('click', () => {
 
 export const CodeEditorStore = signalStore(
   withState(initialState),
-  withComputed((store) => ({
+  withComputed(store => ({
     currentCode: computed(() => store.files()[store.activeFile()]),
     fullPreview: computed(() => {
       const { html, css, javascript } = store.files();
@@ -108,10 +114,10 @@ export const CodeEditorStore = signalStore(
       `;
     }),
   })),
-  withMethods((store) => ({
+  withMethods(store => ({
     updateCode(code: string) {
       const active = store.activeFile();
-      patchState(store, (state) => ({
+      patchState(store, state => ({
         files: { ...state.files, [active]: code },
       }));
     },
@@ -119,8 +125,11 @@ export const CodeEditorStore = signalStore(
       patchState(store, { activeFile: file });
     },
     togglePreview() {
-      patchState(store, (state) => ({
-        settings: { ...state.settings, showPreview: !state.settings.showPreview },
+      patchState(store, state => ({
+        settings: {
+          ...state.settings,
+          showPreview: !state.settings.showPreview,
+        },
       }));
     },
   }))

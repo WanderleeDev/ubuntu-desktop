@@ -14,7 +14,7 @@ const initialState: PaintState = {
 
 export const PaintStore = signalStore(
   withState(initialState),
-  withMethods((store) => ({
+  withMethods(store => ({
     toggleFullscreen(): void {
       patchState(store, { hasFullScreen: !store.hasFullScreen() });
     },
@@ -32,22 +32,28 @@ export const PaintStore = signalStore(
     },
     setStrokeWidth(action: strokeAction) {
       if (action === "increment") {
-        patchState(store, (state) => ({ strokeWidth: Math.min(state.strokeWidth + 1, 50) }));
+        patchState(store, state => ({
+          strokeWidth: Math.min(state.strokeWidth + 1, 50),
+        }));
       } else {
-        patchState(store, (state) => ({ strokeWidth: Math.max(1, state.strokeWidth - 1) }));
+        patchState(store, state => ({
+          strokeWidth: Math.max(1, state.strokeWidth - 1),
+        }));
       }
     },
     selectEraser() {
       patchState(store, { currentColor: "#FFFFFF" });
     },
     clearAll() {
-      patchState(store, (state) => ({ 
+      patchState(store, state => ({
         clearSignal: state.clearSignal + 1,
-        currentColor: "#000000"
+        currentColor: "#000000",
       }));
     },
     download() {
-      patchState(store, (state) => ({ downloadSignal: state.downloadSignal + 1 }));
+      patchState(store, state => ({
+        downloadSignal: state.downloadSignal + 1,
+      }));
     },
   }))
 );

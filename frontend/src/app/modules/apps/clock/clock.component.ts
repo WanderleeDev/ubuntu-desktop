@@ -1,10 +1,12 @@
-import { DatePipe } from "@angular/common";
+import { DatePipe, NgComponentOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  inject,
   input,
   Signal,
-  computed,
+  Type,
 } from "@angular/core";
 import {
   AfternoonSvgComponent,
@@ -14,21 +16,12 @@ import {
   SunriseSvgComponent,
 } from "./components";
 import { ClockConfig } from "./interfaces/ClockConfig.interface";
-import { ToNumberPipe } from "./pipes/toNumber.pipe";
 import { ClockService } from "./services/clock.service";
 
 @Component({
   selector: "app-clock",
   standalone: true,
-  imports: [
-    ToNumberPipe,
-    DatePipe,
-    ClockSvgComponent,
-    AfternoonSvgComponent,
-    DaySvgComponent,
-    EveningSvgComponent,
-    SunriseSvgComponent,
-  ],
+  imports: [NgComponentOutlet],
   templateUrl: "./clock.component.html",
   styles: [
     `
@@ -40,8 +33,19 @@ import { ClockService } from "./services/clock.service";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ClockComponent {
-  clock: Signal<Date>;
+  private readonly clockSvc = inject(ClockService);
+  clock: Signal<Date> = this.clockSvc.getSignalClock();
   configClock = input<Partial<ClockConfig>>({});
+
+  private readonly datePipe = new DatePipe("en-US");
+
+  private readonly ICON_MAP: Record<string, Type<unknown>> = {
+    day: DaySvgComponent,
+    afternoon: AfternoonSvgComponent,
+    evening: EveningSvgComponent,
+    sunrise: SunriseSvgComponent,
+    clock: ClockSvgComponent,
+  };
 
   protected readonly config = computed<ClockConfig>(() => ({
     hasIcons: false,
@@ -52,7 +56,50 @@ export default class ClockComponent {
     ...this.configClock(),
   }));
 
-  constructor(private readonly clockSvc: ClockService) {
-    this.clock = this.clockSvc.getSignalClock();
-  }
+  protected readonly hour = computed(() => this.clock().getHours());
+
+  protected readonly iconType = computed(() => {
+    const h = this.hour();
+    if (h >= 7 && h < 14) return "day";
+    if (h >= 14 && h < 18) return "afternoon";
+    if (h >= 18 && h < 24) return "evening";
+    if (h >= 0 && h < 7) return "sunrise";
+    return "clock";
+  });
+
+  protected readonly activeIcon = computed(
+    () => this.ICON_MAP[this.iconType()] || ClockSvgComponent
+  );
+  protected readonly staticIcon = ClockSvgComponent;
+
+  // Pre-formatted strings to optimize template rendering
+  protected readonly dateHeader = computed(() => {
+    const format = this.config().isSimple ? "EEE, MMM d HH:mm" : "EEEE, d MMMM";
+    return this.datePipe.transform(this.clock(), format) || "";
+  });
+
+  protected readonly timeBasic = computed(
+    () => this.datePipe.transform(this.clock(), "HH:mm:ss") || ""
+  );
+  protected readonly timeRegular = computed(
+    () => this.datePipe.transform(this.clock(), "HH:mm") || ""
+  );
+  protected readonly seconds = computed(
+    () => this.datePipe.transform(this.clock(), "ss") || ""
+  );
+  protected readonly timeComplete = computed(
+    () => this.datePipe.transform(this.clock(), "h:mm:ss a") || ""
+  );
+  protected readonly timeZoneFull = computed(
+    () => this.datePipe.transform(this.clock(), "zzzz") || ""
+  );
+  protected readonly timeZoneShort = computed(
+    () => this.datePipe.transform(this.clock(), "Z") || ""
+  );
+  protected readonly weekNumber = computed(
+    () => this.datePipe.transform(this.clock(), "w") || ""
+  );
+  protected readonly isoDate = computed(
+    () => this.datePipe.transform(this.clock(), "y-MM-dd") || ""
+  );
 }

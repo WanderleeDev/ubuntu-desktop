@@ -1,5 +1,15 @@
-import { CommonModule, NgOptimizedImage, isPlatformBrowser } from "@angular/common";
-import { ChangeDetectionStrategy, Component, PLATFORM_ID, inject, signal } from "@angular/core";
+import {
+  CommonModule,
+  NgOptimizedImage,
+  isPlatformBrowser,
+} from "@angular/common";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  PLATFORM_ID,
+  inject,
+  signal,
+} from "@angular/core";
 import { RouterLink } from "@angular/router";
 import { BtnGradientComponent } from "../../shared/components/btn-gradient/btn-gradient.component";
 

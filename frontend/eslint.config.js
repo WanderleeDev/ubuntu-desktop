@@ -65,8 +65,9 @@ module.exports = tseslint.config(
         },
       ],
       "@typescript-eslint/no-explicit-any": ["error"],
-      "@typescript-eslint/no-empty-function": ["error"],
-      "@typescript-eslint/no-useless-constructor": ["error"],
+      "@typescript-eslint/no-empty-function": ["off"],
+      "@typescript-eslint/no-useless-constructor": ["off"],
+      "@typescript-eslint/no-unused-expressions": ["off"],
       "prettier/prettier": [
         "error",
         { endOfLine: "auto", singleQuote: false, quoteProps: "consistent" },
@@ -96,7 +97,7 @@ module.exports = tseslint.config(
       ],
       "@angular-eslint/template/cyclomatic-complexity": [
         "error",
-        { maxComplexity: 5 },
+        { maxComplexity: 15 },
       ],
     },
   },

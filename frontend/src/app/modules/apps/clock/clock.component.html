@@ -1,119 +1,117 @@
 @let cfg = config();
+@let iso = isoDate();
+@let header = dateHeader();
+@let basicTime = timeBasic();
+@let regTime = timeRegular();
+@let secs = seconds();
+@let compTime = timeComplete();
+@let tzFull = timeZoneFull();
+@let tzShort = timeZoneShort();
+@let weekNum = weekNumber();
+@let icon = activeIcon();
 
 <div
-  class="flex flex-col items-center justify-center text-white rounded-3xl transition-all duration-300 overflow-hidden relative group"
-  [class.p-10]="!cfg.isSimple"
-  [class.p-0]="cfg.isSimple"
-  [class.bg-white/5]="!cfg.isSimple"
-  [class.shadow-2xl]="!cfg.isSimple"
-  [class.border]="!cfg.isSimple"
-  [class.border-white/10]="!cfg.isSimple"
-  [class.backdrop-blur-xl]="!cfg.isSimple"
-  [class.min-w-[280px]]="!cfg.isSimple"
-  [class.w-full]="!cfg.isSimple"
-  [class.bg-transparent]="cfg.isSimple">
+  [class]="
+    'flex flex-col items-center justify-center text-white rounded-3xl transition-all duration-300 overflow-hidden relative group ' +
+    (cfg.isSimple
+      ? 'p-0 bg-transparent'
+      : 'p-10 bg-white/5 shadow-2xl border border-white/10 backdrop-blur-xl min-w-[280px] w-full')
+  ">
   @if (!cfg.isSimple) {
+    <!-- Decorative Glows -->
     <div
-      class="absolute -top-10 -right-10 w-40 h-40 bg-[#e95420]/10 rounded-full blur-3xl"></div>
+      class="absolute -top-10 -right-10 w-40 h-40 bg-[#e95420]/10 rounded-full blur-3xl pointer-events-none"></div>
     <div
-      class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#772953]/10 rounded-full blur-3xl"></div>
+      class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#772953]/10 rounded-full blur-3xl pointer-events-none"></div>
   }
 
+  <!-- Date Header -->
   @if (cfg.hasDayAndMonth) {
     <time
-      [dateTime]="clock() | date: 'y-M-d'"
-      class="text-xl font-medium tracking-wide uppercase"
-      [class.mb-2]="!cfg.isSimple"
-      [class.text-[#aea79f]]="!cfg.isSimple"
-      [class.text-white/60]="cfg.isSimple">
-      {{ clock() | date: (cfg.isSimple ? "EEE, MMM d HH:mm" : "EEEE, d MMMM") }}
+      [dateTime]="iso"
+      [class]="
+        'text-xl font-medium tracking-wide uppercase transition-colors ' +
+        (!cfg.isSimple ? 'mb-2 text-[#aea79f]' : 'text-white/60')
+      ">
+      {{ header }}
     </time>
   }
 
+  <!-- Main Time Display -->
   @if (cfg.isSimple) {
-    <time
-      [dateTime]="clock() | date: 'y-M-d HH:mm'"
-      class="text-[13px] font-medium text-white/90">
-      {{ clock() | date: "EEE, MMM d HH:mm" }}
-    </time>
+    @if (!cfg.hasDayAndMonth) {
+      <time [dateTime]="iso" class="text-[13px] font-medium text-white/90">
+        {{ header }}
+      </time>
+    }
   } @else {
-    <div class="relative" [class.mb-8]="!cfg.isSimple">
+    <div class="relative mb-8">
       <time
-        [dateTime]="clock() | date: 'HH:mm:ss aaa'"
-        class="tracking-tighter text-white drop-shadow-sm"
-        [class.text-7xl]="!cfg.isSimple"
-        [class.text-2xl]="cfg.isSimple"
-        [class.font-extralight]="!cfg.isSimple"
-        [class.font-medium]="cfg.isSimple">
+        [dateTime]="basicTime"
+        class="tracking-tighter text-white drop-shadow-sm text-7xl font-extralight">
         @switch (cfg.type) {
           @case ("basic") {
-            {{ clock() | date: "HH:mm:ss" }}
+            {{ basicTime }}
           }
           @case ("regular") {
             <span class="flex items-baseline gap-2">
-              {{ clock() | date: "HH:mm" }}
-              @if (!cfg.isSimple) {
-                <span
-                  class="text-3xl text-[#e95420] font-normal tabular-nums animate-pulse"
-                  >{{ clock() | date: "ss" }}</span
-                >
-              }
+              {{ regTime }}
+              <span
+                class="text-3xl text-[#e95420] font-normal tabular-nums animate-pulse">
+                {{ secs }}
+              </span>
             </span>
           }
           @case ("complete") {
-            {{ clock() | date: "h:mm:ss a zzzz" }}
+            <div class="flex flex-col items-center">
+              <span class="text-7xl">{{ compTime }}</span>
+              <span class="text-sm font-medium opacity-60">{{ tzFull }}</span>
+            </div>
           }
           @default {
-            {{ clock() | date: "HH:mm" }}
+            {{ regTime }}
           }
         }
       </time>
     </div>
   }
 
+  <!-- Icons Section -->
   @if (cfg.hasIcons || cfg.hasVariableIcons) {
     <div class="flex items-center gap-10">
+      @let iconSize = cfg.isSimple ? 100 : 70;
+      @let iconBaseClasses = "p-4 rounded-2xl transition-colors duration-300";
+      @let iconBg = !cfg.isSimple ? "bg-white/5 hover:bg-white/10" : "";
+
       @if (cfg.hasIcons) {
-        <div
-          class="p-4 rounded-2xl transition-colors duration-300"
-          [class.bg-white/5]="!cfg.isSimple"
-          [class.hover:bg-white/10]="!cfg.isSimple">
-          <app-clock-svg [size]="cfg.isSimple ? 100 : 70" />
+        <div [class]="iconBaseClasses + ' ' + iconBg">
+          <ng-container
+            [ngComponentOutlet]="staticIcon"
+            [ngComponentOutletInputs]="{ size: iconSize }" />
         </div>
       }
 
-      @let hour = clock() | date: "H" | toNumber;
       @if (cfg.hasVariableIcons) {
-        <div
-          class="p-4 rounded-2xl transition-colors duration-300"
-          [class.bg-white/5]="!cfg.isSimple"
-          [class.hover:bg-white/10]="!cfg.isSimple">
-          @if (hour >= 7 && hour < 14) {
-            <app-day-svg [size]="cfg.isSimple ? 100 : 70" />
-          } @else if (hour >= 14 && hour < 18) {
-            <app-afternoon-svg [size]="cfg.isSimple ? 100 : 70" />
-          } @else if (hour >= 18 && hour < 24) {
-            <app-evening-svg [size]="cfg.isSimple ? 100 : 70" />
-          } @else if (hour >= 0 && hour < 7) {
-            <app-sunrise-svg [size]="cfg.isSimple ? 100 : 70" />
-          } @else {
-            <app-clock-svg [size]="cfg.isSimple ? 100 : 70" />
-          }
+        <div [class]="iconBaseClasses + ' ' + iconBg">
+          <ng-container
+            [ngComponentOutlet]="icon"
+            [ngComponentOutletInputs]="{ size: iconSize }" />
         </div>
       }
     </div>
   }
 
+  <!-- Footer Info -->
   @if (!cfg.isSimple) {
     <div
       class="mt-8 pt-6 border-t border-white/5 w-full flex justify-around text-[#aea79f] text-xs font-medium uppercase tracking-widest">
       <div class="flex flex-col items-center">
         <span>Time Zone</span>
-        <span class="text-white mt-1">UTC{{ clock() | date: "Z" }}</span>
+        <span class="text-white mt-1">UTC{{ tzShort }}</span>
       </div>
       <div class="flex flex-col items-center">
         <span>Week</span>
-        <span class="text-white mt-1">{{ clock() | date: "w" }}</span>
+        <span class="text-white mt-1">{{ weekNum }}</span>
       </div>
     </div>
   }

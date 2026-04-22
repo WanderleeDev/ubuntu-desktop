@@ -5,11 +5,7 @@ import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-
 
 @Component({
   selector: "app-auth-wrapper",
-  imports: [
-    UbuntuLogoComponent,
-    LoaderComponent,
-    ClockComponent,
-  ],
+  imports: [UbuntuLogoComponent, LoaderComponent, ClockComponent],
   templateUrl: "./auth-wrapper.component.html",
   styles: `
     :host {

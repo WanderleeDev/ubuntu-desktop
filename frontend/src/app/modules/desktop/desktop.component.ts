@@ -64,7 +64,6 @@ const desktopIcons: any[] = [
 ];
 
 @Component({
-
   selector: "app-desktop-view",
   standalone: true,
   imports: [
@@ -89,15 +88,17 @@ export default class DesktopComponent {
   protected readonly APPS: Record<string, any> = {
     "video-player": () =>
       import("../apps/video-player/presentation/video-player.component"),
-    vsc: () => import("../apps/code-editor/presentation/code-editor.component"),
-    translator: () =>
+    "vsc": () =>
+      import("../apps/code-editor/presentation/code-editor.component"),
+    "translator": () =>
       import("../apps/translator/presentation/translator.component"),
-    paint: () => import("../apps/paint/presentation/paint.component"),
-    calculator: () =>
+    "paint": () => import("../apps/paint/presentation/paint.component"),
+    "calculator": () =>
       import("../apps/calculator/presentation/calculator.component"),
-    nautilus: () => import("../apps/nautilus/presentation/nautilus.component"),
-    todo: () => import("../apps/todo/presentation/todo.component"),
-    clock: () => import("../apps/clock/clock.component"),
+    "nautilus": () =>
+      import("../apps/nautilus/presentation/nautilus.component"),
+    "todo": () => import("../apps/todo/presentation/todo.component"),
+    "clock": () => import("../apps/clock/clock.component"),
   };
 
   protected resolveApp(appKey: string) {

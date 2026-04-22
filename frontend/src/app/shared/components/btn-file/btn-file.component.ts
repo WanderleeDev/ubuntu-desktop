@@ -7,11 +7,11 @@ import {
   input,
 } from "@angular/core";
 @Component({
-    selector: "app-btn-file",
-    imports: [NgOptimizedImage, NgStyle, NgClass],
-    templateUrl: "./btn-file.component.html",
-    styleUrl: "./btn-file.component.css",
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: "app-btn-file",
+  imports: [NgOptimizedImage, NgStyle, NgClass],
+  templateUrl: "./btn-file.component.html",
+  styleUrl: "./btn-file.component.css",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnFileComponent {
   labelDirection = input<any>("right");

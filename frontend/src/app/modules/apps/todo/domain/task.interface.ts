@@ -23,4 +23,3 @@ export enum StatusTask {
 
 export type TodoAction = "pending" | "completed" | "all";
 export type TaskDto = Partial<Task> & { id: string };
-

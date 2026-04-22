@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from "@angular/core";
 import { CalculatorManagerService } from "../services/calculator-manager.service";
 import { CalculatorStore } from "../infrastructure/calculator.store";
 import { CalculatorControlsComponent } from "./components/calculator-controls/calculator-controls.component";
@@ -29,8 +34,11 @@ export default class CalculatorComponent {
   @HostListener("window:keydown", ["$event"])
   handleKeyboardEvent(event: KeyboardEvent) {
     const key = event.key;
-    
-    if (/[0-9]/.test(key) || ["+", "-", "*", "/", ".", "(", ")"].includes(key)) {
+
+    if (
+      /[0-9]/.test(key) ||
+      ["+", "-", "*", "/", ".", "(", ")"].includes(key)
+    ) {
       this.store.updateExpression(key);
     } else if (key === "Enter" || key === "=") {
       this.store.executeOperation();
@@ -44,7 +52,7 @@ export default class CalculatorComponent {
   @HostListener("click", ["$event.target"])
   onClick(target: any): void {
     if (!(target instanceof HTMLElement)) return;
-    
+
     const btnAttribute = target.getAttribute("data-calculator");
     if (!btnAttribute) return;
 

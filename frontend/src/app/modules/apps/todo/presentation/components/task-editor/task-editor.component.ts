@@ -25,14 +25,17 @@ import { TodoStore } from "../../../infrastructure/todo.store";
 export class TaskEditorComponent implements OnInit {
   private readonly todoStore = inject(TodoStore);
   private readonly fb = inject(FormBuilder);
-  
+
   currentTask = input.required<Task>();
   isViewEditorTask = model(false);
   formEditor!: FormGroup<TaskEditor>;
 
   ngOnInit() {
     this.formEditor = this.fb.nonNullable.group({
-      task: [this.currentTask().task, [Validators.required, Validators.minLength(3)]],
+      task: [
+        this.currentTask().task,
+        [Validators.required, Validators.minLength(3)],
+      ],
       status: [this.currentTask().status, Validators.required],
     });
   }
@@ -59,4 +62,3 @@ export class TaskEditorComponent implements OnInit {
     this.isViewEditorTask.set(false);
   }
 }
-

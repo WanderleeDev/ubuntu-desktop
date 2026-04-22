@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from "@angular/core";
 import { TodoStore } from "../../../infrastructure/todo.store";
 import { TodoAction } from "../../../domain/task.interface";
 import { NgClass } from "@angular/common";
@@ -12,7 +17,7 @@ import { NgClass } from "@angular/common";
 })
 export class ControlsTodoComponent {
   private readonly todoStore = inject(TodoStore);
-  
+
   taskControls: TodoAction[] = ["all", "pending", "completed"];
   activeBtn = signal(0);
 
@@ -25,4 +30,3 @@ export class ControlsTodoComponent {
     this.todoStore.clearTasks();
   }
 }
-

@@ -34,4 +34,3 @@ export class TaskInputFieldComponent {
     this.inputTask.reset();
   }
 }
-

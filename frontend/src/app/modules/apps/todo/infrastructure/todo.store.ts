@@ -6,10 +6,14 @@ import {
   withMethods,
   withState,
 } from "@ngrx/signals";
-import { Task, StatusTask, TaskDto, TodoAction } from "../domain/task.interface";
+import {
+  Task,
+  StatusTask,
+  TaskDto,
+  TodoAction,
+} from "../domain/task.interface";
 import { StorageService } from "../../../../shared/services/storage.service";
 import { GenerateRandomId } from "../../../../shared/services/generateRandomId.service";
-
 
 export interface TodoState {
   todos: Task[];
@@ -54,9 +58,9 @@ export const TodoStore = signalStore(
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },
       updateTask(taskDto: TaskDto) {
-        const updatedTodos = store.todos().map(t =>
-          t.id === taskDto.id ? { ...t, ...(taskDto as any) } : t
-        );
+        const updatedTodos = store
+          .todos()
+          .map(t => (t.id === taskDto.id ? { ...t, ...(taskDto as any) } : t));
         patchState(store, { todos: updatedTodos });
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },

@@ -12,7 +12,7 @@ import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window
     TaskInputFieldComponent,
     ListTasksComponent,
     FilterPipe,
-    WindowWrapperComponent
+    WindowWrapperComponent,
   ],
   templateUrl: "./todo.component.html",
   providers: [TodoStore],
@@ -20,11 +20,8 @@ import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window
 })
 export default class TodoComponent {
   protected readonly store = inject(TodoStore);
-  
+
   protected readonly todos = this.store.todos;
   protected readonly isLoading = this.store.isLoading;
   protected readonly currentFilter = this.store.currentFilter;
 }
-
-
-

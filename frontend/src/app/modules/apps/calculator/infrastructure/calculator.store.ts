@@ -16,13 +16,13 @@ export const CalculatorStore = signalStore(
   withState(initialState),
   withMethods((store, managerSvc = inject(CalculatorManagerService)) => ({
     updateExpression(value: string): void {
-      patchState(store, (state) => ({
+      patchState(store, state => ({
         expression: state.expression + value,
         error: null,
       }));
     },
     deleteLastCharacter(): void {
-      patchState(store, (state) => ({
+      patchState(store, state => ({
         expression: state.expression.slice(0, -1),
         error: null,
       }));
@@ -35,7 +35,7 @@ export const CalculatorStore = signalStore(
       patchState(store, { expression: "", result: null, error: null });
     },
     toggleAbsoluteFn(): void {
-      patchState(store, (state) => ({ hasAbsoluteFn: !state.hasAbsoluteFn }));
+      patchState(store, state => ({ hasAbsoluteFn: !state.hasAbsoluteFn }));
     },
     executeOperation(): void {
       const { error, result } = managerSvc.calculateResult(
@@ -51,7 +51,7 @@ export const CalculatorStore = signalStore(
           result: result as number,
         };
 
-        patchState(store, (state) => ({
+        patchState(store, state => ({
           result: result as number,
           numOperations: state.numOperations + 1,
           record: [...state.record, newRecord],
@@ -65,16 +65,16 @@ export const CalculatorStore = signalStore(
       if (records.length === 0) return;
 
       const { lastDelete, newRecords } = managerSvc.backHistory(records as any);
-      
+
       patchState(store, {
         record: newRecords as ICalculatorRecord[],
         expression: lastDelete.expression,
         result: null,
-        error: null
+        error: null,
       });
     },
     clearHistory(): void {
       patchState(store, { record: [] });
-    }
+    },
   }))
 );

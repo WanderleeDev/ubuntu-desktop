@@ -7,7 +7,11 @@ import {
   withProps,
   withState,
 } from "@ngrx/signals";
-import { ActionLanguageType, LanguageOptions, TranslationState } from "../domain/translation.model";
+import {
+  ActionLanguageType,
+  LanguageOptions,
+  TranslationState,
+} from "../domain/translation.model";
 import { TranslateTextUseCase } from "../use-cases/translate-text.use-case";
 
 export interface TranslatorStoreState {
@@ -35,19 +39,21 @@ export const TranslatorStore = signalStore(
     _translateUseCase: inject(TranslateTextUseCase),
   })),
 
-  withComputed(({ textBase, translation, error, loading, languageFrom, languageTo }) => ({
-    translationState: computed<TranslationState>(() => ({
-      textBase: textBase(),
-      translation: translation(),
-      error: error(),
-      loading: loading(),
-    })),
+  withComputed(
+    ({ textBase, translation, error, loading, languageFrom, languageTo }) => ({
+      translationState: computed<TranslationState>(() => ({
+        textBase: textBase(),
+        translation: translation(),
+        error: error(),
+        loading: loading(),
+      })),
 
-    languageOptions: computed<LanguageOptions>(() => ({
-      from: languageFrom(),
-      to: languageTo(),
-    })),
-  })),
+      languageOptions: computed<LanguageOptions>(() => ({
+        from: languageFrom(),
+        to: languageTo(),
+      })),
+    })
+  ),
 
   withMethods(store => ({
     updateTextBase(text: string): void {

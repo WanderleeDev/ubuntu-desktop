@@ -9,7 +9,7 @@ const initialState: NautilusState = {
 
 export const NautilusStore = signalStore(
   withState(initialState),
-  withMethods((store) => ({
+  withMethods(store => ({
     setSection(section: NautilusSection): void {
       patchState(store, { currentSection: section, error: null });
     },
@@ -18,6 +18,6 @@ export const NautilusStore = signalStore(
     },
     setError(error: string | null): void {
       patchState(store, { error, isLoading: false });
-    }
+    },
   }))
 );
