@@ -6,23 +6,24 @@ import {
   model,
   OnInit,
 } from "@angular/core";
-import { NgOptimizedImage } from "@angular/common";
 import { TodoStore } from "../../../infrastructure/todo.store";
 import { Task } from "../../../domain/task.interface";
 
 interface IBtnEditingTask {
   label: string;
-  urlSvg: string;
+  icon: string;
   functionBtn: () => void;
 }
+
 
 @Component({
   selector: "app-controls-task",
   standalone: true,
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: "./controls-task.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class ControlsTaskComponent implements OnInit {
   private readonly todoStore = inject(TodoStore);
 
@@ -35,7 +36,7 @@ export class ControlsTaskComponent implements OnInit {
     this.btnTaskList = [
       {
         label: "Cambiar estado",
-        urlSvg: "/assets/extra-icons/exchange.svg",
+        icon: "sync_alt",
         functionBtn: (): void => {
           this.todoStore.changeStatusTask(this.currentTask().id);
           this.isViewControlTask.set(false);
@@ -43,19 +44,20 @@ export class ControlsTaskComponent implements OnInit {
       },
       {
         label: "Eliminar",
-        urlSvg: "/assets/extra-icons/trash.svg",
+        icon: "delete",
         functionBtn: (): void => {
           this.todoStore.deleteTask(this.currentTask().id);
         },
       },
       {
         label: "Editar",
-        urlSvg: "/assets/extra-icons/edit.svg",
+        icon: "edit",
         functionBtn: (): void => {
           this.isViewEditorTask.update(prev => !prev);
           this.isViewControlTask.set(false);
         },
       },
     ];
+
   }
 }

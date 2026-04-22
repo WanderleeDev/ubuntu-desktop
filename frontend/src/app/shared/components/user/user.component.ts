@@ -9,7 +9,8 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent {
-  userImage = input<string>("/assets/extra-icons/user.svg");
+  userImage = input<string>("person");
+
   userName = input<string>("Unknown");
   size = input<number>(40);
 }

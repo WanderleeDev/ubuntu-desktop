@@ -5,8 +5,8 @@ import {
   input,
   signal,
 } from "@angular/core";
-import { NgOptimizedImage } from "@angular/common";
 import { CapitalizePipe } from "../../../../../../shared/pipes/capitalize.pipe";
+
 import { FormatListPipe } from "../../../../../../shared/pipes/formatList.pipe";
 import { Task } from "../../../domain/task.interface";
 import { ControlsTaskComponent } from "../controls-task/controls-task.component";
@@ -22,8 +22,8 @@ import { TaskEditorComponent } from "../task-editor/task-editor.component";
     FormatListPipe,
     ControlsTaskComponent,
     TaskEditorComponent,
-    NgOptimizedImage,
   ],
+
 })
 export class TaskComponent {
   task = input.required<Task>();
