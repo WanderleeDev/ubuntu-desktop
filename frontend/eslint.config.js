@@ -35,7 +35,7 @@ module.exports = tseslint.config(
       ],
       "@angular-eslint/no-empty-lifecycle-method": ["error"],
       "@angular-eslint/use-lifecycle-interface": ["error"],
-      "@angular-eslint/component-class-suffix": ["error"],
+      "@angular-eslint/component-class-suffix": ["off"],
       "@angular-eslint/component-max-inline-declarations": [
         "error",
         {

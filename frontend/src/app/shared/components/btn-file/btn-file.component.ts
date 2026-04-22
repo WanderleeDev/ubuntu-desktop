@@ -14,7 +14,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BtnFileComponent {
-  labelDirection = input<any>("right");
+  labelDirection = input<unknown>("right");
   @Input() nameFile?: string;
   @Input() label?: string;
   @Input({ required: true }) size = 10;

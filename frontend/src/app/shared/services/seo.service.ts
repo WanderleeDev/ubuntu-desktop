@@ -1,5 +1,6 @@
 import { Injectable, inject, DOCUMENT } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
+import { SeoMetadata } from "../../config/metadata/metadata.seo";
 
 @Injectable({
   providedIn: "root",
@@ -33,18 +34,18 @@ export class SeoService {
     });
   }
 
-  public updateMetaTags({ metaTags, ogTags }: Partial<any>): void {
+  public updateMetaTags({ metaTags, ogTags }: Partial<SeoMetadata>): void {
     if (!metaTags && !ogTags) return;
 
-    this.setMetaTags(metaTags);
-    this.setMetaTags(ogTags);
+    if (metaTags) this.setMetaTags(metaTags);
+    if (ogTags) this.setMetaTags(ogTags);
   }
 
   public setTitle(title: string): void {
     this.#title.setTitle(title);
   }
 
-  private setMetaTags(objectTags: Partial<any | undefined>): void {
+  private setMetaTags(objectTags: Record<string, string> | undefined): void {
     if (objectTags === undefined || Object.keys(objectTags).length <= 0) return;
 
     for (const [key, value] of Object.entries(objectTags)) {

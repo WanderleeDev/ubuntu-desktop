@@ -2,16 +2,14 @@ import { DatePipe } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
-  signal,
   computed,
+  signal,
 } from "@angular/core";
 import ClockComponent from "../../../modules/apps/clock/clock.component";
-import TodoComponent from "../../../modules/apps/todo/presentation/todo.component";
-
 @Component({
   selector: "app-calendar",
   standalone: true,
-  imports: [DatePipe, TodoComponent, ClockComponent],
+  imports: [DatePipe, ClockComponent],
   templateUrl: "./calendar.component.html",
   styles: `
     :host {

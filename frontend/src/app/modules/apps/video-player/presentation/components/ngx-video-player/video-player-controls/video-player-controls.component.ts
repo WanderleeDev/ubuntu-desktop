@@ -1,12 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { VideoPlayerService } from "../../../services/video-player.service";
 
 @Component({
   selector: "app-video-player-controls",
+  standalone: true,
   imports: [],
   templateUrl: "./video-player-controls.component.html",
   styles: `
@@ -19,27 +16,23 @@ import {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoPlayerControlsComponent {
-  isPlaying = input.required<boolean>();
-  currentTime = input.required<number>();
-  duration = input.required<number>();
-  playbackRate = input.required<number>();
-  volume = input.required<number>();
-  isMuted = input.required<boolean>();
-  progress = input.required<number>();
-  isPlaylistOpen = input.required<boolean>();
+export class VideoPlayerControls {
+  readonly service = inject(VideoPlayerService);
 
-  togglePlay = output<void>();
-  changeSpeed = output<void>();
-  toggleMute = output<void>();
-  toggleFullscreen = output<void>();
-  togglePlaylist = output<void>();
-  seek = output<any>();
-  setVolume = output<any>();
+  changeSpeed(): void {
+    const rates = [1, 1.5, 2, 0.5];
+    const nextRate =
+      rates[(rates.indexOf(this.service.playbackRate()) + 1) % rates.length];
+    this.service.setPlaybackRate(nextRate);
+  }
 
-  formatTime(time: number): string {
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+  seek(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    if (target) this.service.seek(Number(target.value));
+  }
+
+  setVolume(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    if (target) this.service.setVolume(Number(target.value));
   }
 }

@@ -36,11 +36,8 @@ export class GenerateRandomId {
     if (params.includeNumbers) chars += this.numbers;
     if (params.includeSpecialChars) chars += this.specialChars;
 
-    let id = "";
-
-    for (let i = 0; i < params.length; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
+    return Array.from({ length: params.length }, () =>
+      chars.charAt(Math.floor(Math.random() * chars.length))
+    ).join("");
   }
 }

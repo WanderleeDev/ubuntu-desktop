@@ -7,7 +7,7 @@ import { isPlatformBrowser } from "@angular/common";
 export class StorageService {
   private readonly platformId = inject(PLATFORM_ID);
 
-  public setItem(key: string, value: any): void {
+  public setItem(key: string, value: unknown): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(key, JSON.stringify(value));
     }

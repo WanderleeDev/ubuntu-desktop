@@ -17,4 +17,6 @@ export interface VideoState {
   duration: number;
   isBuffering: boolean;
   isFullscreen: boolean;
+  playbackRate: number;
+  showPlaylist: boolean;
 }

@@ -49,7 +49,7 @@ export const AuthStore = signalStore(
   })),
 
   withMethods(store => ({
-    async login(payload: LoginPayload) {
+    async login(payload: LoginPayload): Promise<void> {
       patchState(store, { loading: true, error: null });
       try {
         const response = await store._loginUseCase.execute(payload);
@@ -58,31 +58,35 @@ export const AuthStore = signalStore(
           loading: false,
         });
         store._storage.setItem(TOKEN_KEY, response.accessToken);
-      } catch (error: any) {
+      } catch (error: unknown) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Login failed";
         patchState(store, {
-          error: error.message || "Login failed",
+          error: errorMessage,
           loading: false,
         });
       }
     },
 
-    async register(data: any) {
+    async register(data: unknown): Promise<void> {
       patchState(store, { loading: true, error: null });
       try {
         await store._registerUseCase.execute(data);
-      } catch (error: any) {
+      } catch (error: unknown) {
+        const errorMessage =
+          error instanceof Error ? error.message : "Registration failed";
         patchState(store, {
-          error: error.message || "Registration failed",
+          error: errorMessage,
         });
       }
     },
 
-    logout() {
+    logout(): void {
       store._storage.removeItem(TOKEN_KEY);
       patchState(store, initialState);
     },
 
-    loadToken() {
+    loadToken(): void {
       const token = store._storage.getItem<string>(TOKEN_KEY);
       if (token) {
         patchState(store, { token });

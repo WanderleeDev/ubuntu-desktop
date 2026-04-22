@@ -1,33 +1,16 @@
 <div
   class="relative w-full min-w-2xl aspect-video overflow-hidden group bg-black rounded-xl border border-white/5 shadow-2xl font-sans mx-auto">
-  <app-video-player-top-bar
-    [title]="store.currentVideo().title"
-    (togglePlaylist)="togglePlaylist()" />
+  <app-video-player-top-bar />
 
   <video
     #videoRef
+    appVideoController
     class="w-full h-full absolute inset-0 object-contain"
-    [src]="store.currentVideo().url.mp4 || store.currentVideo().url.webm"
-    [muted]="true"></video>
+    [src]="service.currentVideo().url.mp4 || service.currentVideo().url.webm"></video>
 
-  @if (showPlaylist()) {
-  <app-video-playlist-overlay (close)="showPlaylist.set(false)" />
+  @if (service.showPlaylist()) {
+  <app-video-playlist-overlay />
   }
 
-  <app-video-player-controls
-    [isPlaying]="isPlaying()"
-    [currentTime]="currentTime()"
-    [duration]="duration()"
-    [playbackRate]="playbackRate()"
-    [volume]="volume()"
-    [isMuted]="isMuted()"
-    [progress]="progress()"
-    [isPlaylistOpen]="showPlaylist()"
-    (togglePlay)="togglePlay()"
-    (changeSpeed)="changeSpeed()"
-    (toggleMute)="toggleMute()"
-    (toggleFullscreen)="toggleFullscreen()"
-    (togglePlaylist)="togglePlaylist()"
-    (seek)="seek($event)"
-    (setVolume)="setVolume($event)" />
+  <app-video-player-controls />
 </div>

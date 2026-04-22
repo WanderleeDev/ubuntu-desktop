@@ -5,6 +5,7 @@ import { NgxVideoPlayer } from "./components/ngx-video-player/ngx-video-player";
 @Component({
   selector: "app-video-player-app",
   imports: [WindowWrapperComponent, NgxVideoPlayer],
+
   template: `
     <app-window-wrapper appTitle="Video Player">
       <app-ngx-video-player body />
@@ -12,4 +13,4 @@ import { NgxVideoPlayer } from "./components/ngx-video-player/ngx-video-player";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class MainVideoPlayerComponent {}
+export default class VideoPlayerApp {}

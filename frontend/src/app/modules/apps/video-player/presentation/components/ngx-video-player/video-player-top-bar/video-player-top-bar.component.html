@@ -4,13 +4,13 @@
     <div class="w-1 h-4 bg-orange-600 rounded-full"></div>
     <h2
       class="text-white text-sm font-bold tracking-wide drop-shadow-lg uppercase">
-      {{ title() }}
+      {{ service.title() }}
     </h2>
   </div>
 
   <button
     type="button"
-    (click)="togglePlaylist.emit()"
+    (click)="service.togglePlaylist()"
     class="pointer-events-auto p-2 bg-black/40 hover:bg-orange-600 text-white rounded-full transition-all active:scale-90 border border-white/10 flex items-center justify-center">
     <span class="material-symbols-outlined text-[20px]">playlist_play</span>
   </button>

@@ -1,12 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { VideoPlayerService } from "../../../services/video-player.service";
 
 @Component({
   selector: "app-video-player-top-bar",
+  standalone: true,
   imports: [],
   templateUrl: "./video-player-top-bar.component.html",
   styles: `
@@ -16,7 +13,6 @@ import {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoPlayerTopBarComponent {
-  title = input.required<string>();
-  togglePlaylist = output<void>();
+export class VideoPlayerTopBar {
+  readonly service = inject(VideoPlayerService);
 }

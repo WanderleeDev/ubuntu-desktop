@@ -4,15 +4,15 @@
     <input
       type="range"
       [min]="0"
-      [max]="duration()"
-      [value]="currentTime()"
-      (input)="seek.emit($event)"
+      [max]="service.duration()"
+      [value]="service.currentTime()"
+      (input)="seek($event)"
       class="absolute inset-0 w-full h-full cursor-pointer z-20 opacity-0" />
     <div
       class="absolute inset-0 w-full h-full bg-white/20 rounded-full overflow-hidden">
       <div
         class="h-full bg-orange-600 shadow-[0_0_10px_rgba(234,88,12,0.5)]"
-        [style.width.%]="progress()"></div>
+        [style.width.%]="service.progress()"></div>
     </div>
   </div>
 
@@ -20,42 +20,43 @@
     <div class="flex items-center gap-5">
       <button
         type="button"
-        (click)="togglePlay.emit()"
+        (click)="service.togglePlay()"
         class="text-white hover:text-orange-500 transition-all transform active:scale-90 flex items-center justify-center">
         <span class="material-symbols-outlined text-[32px]">
-          {{ isPlaying() ? "pause" : "play_arrow" }}
+          {{ service.isPlaying() ? "pause" : "play_arrow" }}
         </span>
       </button>
 
       <button
         type="button"
-        (click)="changeSpeed.emit()"
+        (click)="changeSpeed()"
         class="px-2 py-1 bg-white/10 hover:bg-white/20 text-[10px] font-bold text-white rounded border border-white/10 transition-colors min-w-[44px]">
-        {{ playbackRate() }}x
+        {{ service.playbackRate() }}x
       </button>
 
       <div
         class="text-[11px] font-mono font-bold text-white/80 tracking-widest">
-        {{ formatTime(currentTime()) }}
-        <span class="text-white/20">/</span> {{ formatTime(duration()) }}
+        {{ service.formattedCurrentTime() }}
+        <span class="text-white/20">/</span>
+        {{ service.formattedDuration() }}
       </div>
     </div>
 
     <div class="flex items-center gap-6">
       <button
         type="button"
-        (click)="togglePlaylist.emit()"
+        (click)="service.togglePlaylist()"
         class="text-white/80 hover:text-orange-500 transition-all flex items-center justify-center"
-        [class.text-orange-500]="isPlaylistOpen()">
-        <span class="material-symbols-outlined">queue_music</span>
+        [class.text-orange-500]="service.showPlaylist()">
+        <span class="material-symbols-outlined">playlist_play</span>
       </button>
 
       <div class="flex items-center gap-3 group/volume">
         <button
           type="button"
-          (click)="toggleMute.emit()"
+          (click)="service.toggleMute()"
           class="text-white/80 hover:text-orange-500 transition-colors flex items-center justify-center">
-          @let isVolume = isMuted() || volume() === 0;
+          @let isVolume = service.isMuted() || service.volume() === 0;
           <span class="material-symbols-outlined">
             {{ isVolume ? "volume_off" : "volume_up" }}
           </span>
@@ -65,17 +66,18 @@
           min="0"
           max="1"
           step="0.1"
-          [value]="volume()"
-          (input)="setVolume.emit($event)"
+          [value]="service.volume()"
+          (input)="setVolume($event)"
           class="w-0 group-hover/volume:w-20 transition-all duration-300 h-1 rounded-full appearance-none bg-white/20" />
       </div>
 
       <button
         type="button"
-        (click)="toggleFullscreen.emit()"
+        (click)="service.toggleFullscreen()"
         class="text-white/80 hover:text-orange-500 transition-all flex items-center justify-center">
         <span class="material-symbols-outlined">fullscreen</span>
       </button>
     </div>
   </div>
+
 </div>

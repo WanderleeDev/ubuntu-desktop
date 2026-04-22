@@ -13,7 +13,7 @@ export const WindowManagerStore = signalStore(
     nextZIndex: 100,
   }),
   withMethods(store => ({
-    openApp(appId: string) {
+    openApp(appId: string): void {
       const exists = store.openedApps().find(app => app.app === appId);
       if (exists) {
         this.focusApp(exists.id);
@@ -29,7 +29,7 @@ export const WindowManagerStore = signalStore(
         nextZIndex: state.nextZIndex + 1,
       }));
     },
-    focusApp(instanceId: string) {
+    focusApp(instanceId: string): void {
       patchState(store, state => ({
         openedApps: state.openedApps.map(app =>
           app.id === instanceId ? { ...app, zIndex: state.nextZIndex } : app
@@ -37,7 +37,7 @@ export const WindowManagerStore = signalStore(
         nextZIndex: state.nextZIndex + 1,
       }));
     },
-    closeApp(instanceId: string) {
+    closeApp(instanceId: string): void {
       patchState(store, state => ({
         openedApps: state.openedApps.filter(app => app.id !== instanceId),
       }));

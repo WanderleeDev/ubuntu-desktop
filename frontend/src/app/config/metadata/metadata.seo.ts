@@ -3,7 +3,7 @@ const description = "Ubuntu clone with Angular and express js";
 const logo =
   "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp";
 
-const openGraphConfig: Partial<any> = {
+const openGraphConfig: Record<string, string> = {
   "og:title": title,
   "og:description": description,
   "og:type": "website",
@@ -16,14 +16,19 @@ const openGraphConfig: Partial<any> = {
   "twitter:image": logo,
 };
 
-const metaTagConfig: Partial<any> = {
+const metaTagConfig: Record<string, string> = {
   author: "Wanderlee Max Gutierrez",
   keywords:
     "Ubuntu, Linux, desktop environment, web clone, Angular application",
   description,
 };
 
-export const ubuntuCloneMetadata: any = {
+export interface SeoMetadata {
+  metaTags: Record<string, string>;
+  ogTags: Record<string, string>;
+}
+
+export const ubuntuCloneMetadata: SeoMetadata = {
   metaTags: metaTagConfig,
   ogTags: openGraphConfig,
 };

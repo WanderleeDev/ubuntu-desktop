@@ -1,12 +1,18 @@
 import { AsyncPipe, NgComponentOutlet } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Type,
+} from "@angular/core";
 import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
+import { AppIcon, DesktopIcon } from "./interfaces/app-icon.interface";
 
-const mainIconsSidebar: any[] = [
+const mainIconsSidebar: AppIcon[] = [
   { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
   { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },
   { id: "folder", icon: "assets/sidebarIcons/settings.svg", app: "nautilus" },
@@ -14,11 +20,11 @@ const mainIconsSidebar: any[] = [
   { id: "trash", icon: "assets/sidebarIcons/trash.webp", app: "trash" },
 ];
 
-const secondaryIconsSidebar: any[] = [
+const secondaryIconsSidebar: AppIcon[] = [
   { id: "menu", icon: "assets/sidebarIcons/menuDots.svg", app: "menu" },
 ];
 
-const desktopIcons: any[] = [
+const desktopIcons: DesktopIcon[] = [
   {
     id: "calculator",
     name: "Calculator",
@@ -79,13 +85,16 @@ const desktopIcons: any[] = [
 })
 export default class DesktopComponent {
   readonly windowManager = inject(WindowManagerStore);
-  private _componentCache: Record<string, Promise<any>> = {};
+  private _componentCache: Record<string, Promise<Type<unknown>>> = {};
 
   protected readonly mainIcons = mainIconsSidebar;
   protected readonly secondaryIcons = secondaryIconsSidebar;
   protected readonly desktopIcons = desktopIcons;
 
-  protected readonly APPS: Record<string, any> = {
+  protected readonly APPS: Record<
+    string,
+    () => Promise<{ default: Type<unknown> }>
+  > = {
     "video-player": () =>
       import("../apps/video-player/presentation/video-player.component"),
     "vsc": () =>
@@ -101,12 +110,10 @@ export default class DesktopComponent {
     "clock": () => import("../apps/clock/clock.component"),
   };
 
-  protected resolveApp(appKey: string) {
+  protected resolveApp(appKey: string): Promise<Type<unknown>> | null {
     if (!this.APPS[appKey]) return null;
     if (!this._componentCache[appKey]) {
-      this._componentCache[appKey] = this.APPS[appKey]().then(
-        (m: any) => m.default
-      );
+      this._componentCache[appKey] = this.APPS[appKey]().then(m => m.default);
     }
     return this._componentCache[appKey];
   }

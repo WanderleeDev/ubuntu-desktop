@@ -1,20 +1,14 @@
 import { NgOptimizedImage } from "@angular/common";
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  output,
-} from "@angular/core";
-import { VideoPlayerStore } from "../../../infrastructure/video-player.store";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { VideoPlayerService } from "../../services/video-player.service";
 
 @Component({
   selector: "app-video-playlist-overlay",
+  standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: "./video-playlist-overlay.component.html",
-
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VideoPlaylistOverlayComponent {
-  readonly store = inject(VideoPlayerStore);
-  close = output<void>();
+export class VideoPlaylistOverlay {
+  readonly service = inject(VideoPlayerService);
 }

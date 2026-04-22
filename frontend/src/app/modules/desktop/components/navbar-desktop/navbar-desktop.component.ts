@@ -1,4 +1,10 @@
-import { Component, inject, signal, computed } from "@angular/core";
+import {
+  Component,
+  inject,
+  signal,
+  computed,
+  ChangeDetectionStrategy,
+} from "@angular/core";
 import { CalendarComponent } from "../../../../shared/ui/calendar/calendar.component";
 import { ClockService } from "../../../apps/clock/services/clock.service";
 import { WindowManagerStore } from "../../infrastructure/window-manager.store";
@@ -8,6 +14,7 @@ import { WindowManagerStore } from "../../infrastructure/window-manager.store";
   standalone: true,
   imports: [CalendarComponent],
   templateUrl: "./navbar-desktop.component.html",
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarDesktopComponent {
   private readonly clockSvc = inject(ClockService);
@@ -32,7 +39,7 @@ export class NavbarDesktopComponent {
     );
   });
 
-  openClock() {
+  openClock(): void {
     this.isClockOpen.update(v => !v);
   }
 }

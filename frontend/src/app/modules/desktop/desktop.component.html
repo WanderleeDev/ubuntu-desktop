@@ -10,7 +10,6 @@
         <li class="list-none">
           <app-app-item
             [$appData]="icon"
-            [lazeComponent]="APPS[icon.app]"
             (click)="windowManager.openApp(icon.app)" />
         </li>
       }
