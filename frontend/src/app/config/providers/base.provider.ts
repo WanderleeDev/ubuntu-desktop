@@ -5,14 +5,10 @@ import {
   provideBrowserGlobalErrorListeners,
   Provider,
 } from "@angular/core";
-import {
-  provideClientHydration,
-  withEventReplay,
-} from "@angular/platform-browser";
 
 const providersBase: (Provider | EnvironmentProviders)[] = [
-  provideClientHydration(withEventReplay()),
   provideBrowserGlobalErrorListeners(),
+
   provideHttpClient(withFetch()),
   {
     provide: IMAGE_LOADER,
