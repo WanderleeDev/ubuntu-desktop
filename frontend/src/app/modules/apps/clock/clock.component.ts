@@ -4,53 +4,53 @@ import {
   Component,
   input,
   Signal,
+  computed,
 } from "@angular/core";
-//  components
 import {
-  ClockSvgComponent,
   AfternoonSvgComponent,
+  ClockSvgComponent,
   DaySvgComponent,
   EveningSvgComponent,
   SunriseSvgComponent,
 } from "./components";
-//  interface
 import { ClockConfig } from "./interfaces/ClockConfig.interface";
-//  pipe
 import { ToNumberPipe } from "./pipes/toNumber.pipe";
-//  services
 import { ClockService } from "./services/clock.service";
 
 @Component({
-    selector: "app-clock",
-    imports: [
-        ToNumberPipe,
-        DatePipe,
-        ClockSvgComponent,
-        AfternoonSvgComponent,
-        DaySvgComponent,
-        EveningSvgComponent,
-        SunriseSvgComponent,
-    ],
-    templateUrl: "./clock.component.html",
-    styles: [
-        `
+  selector: "app-clock",
+  standalone: true,
+  imports: [
+    ToNumberPipe,
+    DatePipe,
+    ClockSvgComponent,
+    AfternoonSvgComponent,
+    DaySvgComponent,
+    EveningSvgComponent,
+    SunriseSvgComponent,
+  ],
+  templateUrl: "./clock.component.html",
+  styles: [
+    `
       :host {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
+        display: block;
       }
     `,
-    ],
-    providers: [ClockService],
-    changeDetection: ChangeDetectionStrategy.OnPush
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClockComponent {
+export default class ClockComponent {
   clock: Signal<Date>;
-  configClock = input<Partial<ClockConfig>>({
+  configClock = input<Partial<ClockConfig>>({});
+
+  protected readonly config = computed<ClockConfig>(() => ({
     hasIcons: false,
     hasDayAndMonth: false,
     hasVariableIcons: false,
-  });
+    type: "regular",
+    isSimple: true,
+    ...this.configClock(),
+  }));
 
   constructor(private readonly clockSvc: ClockService) {
     this.clock = this.clockSvc.getSignalClock();

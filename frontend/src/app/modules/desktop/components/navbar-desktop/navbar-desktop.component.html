@@ -1,7 +1,26 @@
 <nav
-  class="flex h-[28px] items-center justify-between bg-black/80 px-3 text-[13px] font-medium text-white backdrop-blur-md z-[900]">
+  class="flex h-[28px] items-center justify-between bg-black/80 px-3 text-[13px] font-medium text-white backdrop-blur-md z-900 relative">
   <div class="flex items-center gap-4">Activities</div>
-  <div class="flex items-center">{{ currentTime }}</div>
+
+  <div class="flex items-center h-full">
+    <button
+      type="button"
+      class="flex items-center cursor-pointer hover:bg-white/10 px-2 rounded transition-colors h-full"
+      (click)="openClock()"
+      #clockTrigger>
+      {{ currentTime() }}
+    </button>
+
+    @defer (on hover(clockTrigger)) {
+      @if (isClockOpen()) {
+        <div
+          class="absolute top-[30px] left-1/2 -translate-x-1/2 z-1000">
+          <app-calendar />
+        </div>
+      }
+    }
+  </div>
+
   <div class="flex items-center gap-4">
     <span class="cursor-pointer text-sm">🔊</span>
     <span class="cursor-pointer text-sm">🔋</span>

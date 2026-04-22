@@ -6,7 +6,6 @@ import { RouterLink } from "@angular/router";
   selector: "app-register",
   imports: [CommonModule, RouterLink, NgOptimizedImage],
   templateUrl: "./register.component.html",
-  // styleUrl: "./register.component.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class RegisterComponent {

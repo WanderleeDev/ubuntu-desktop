@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-// import { NavDesktopControlComponent } from "../../pages/home/components/navbarDesktop/components/navDesktopControl/navDesktopControl.component";
-import { ClockComponent } from "../../modules/apps/clock/clock.component";
+import ClockComponent from "../../modules/apps/clock/clock.component";
 import { LoaderComponent } from "../../shared/components/loader/loader.component";
 import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-logo.component";
 
@@ -8,7 +7,6 @@ import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-
   selector: "app-auth-wrapper",
   imports: [
     UbuntuLogoComponent,
-    // NavDesktopControlComponent,
     LoaderComponent,
     ClockComponent,
   ],

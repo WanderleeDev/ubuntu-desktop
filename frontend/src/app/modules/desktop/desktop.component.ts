@@ -41,7 +41,7 @@ const desktopIcons: any[] = [
     id: "video",
     name: "Video Player",
     icon: "assets/desktopIcons/video.svg",
-    app: "github",
+    app: "video-player",
   },
   {
     id: "vsc",
@@ -57,13 +57,14 @@ const desktopIcons: any[] = [
   },
   {
     id: "nautilus",
-    name: "Configuración",
+    name: "Settings",
     icon: "assets/sidebarIcons/settings.svg",
     app: "nautilus",
   },
 ];
 
 @Component({
+
   selector: "app-desktop-view",
   standalone: true,
   imports: [
@@ -86,7 +87,7 @@ export default class DesktopComponent {
   protected readonly desktopIcons = desktopIcons;
 
   protected readonly APPS: Record<string, any> = {
-    github: () =>
+    "video-player": () =>
       import("../apps/video-player/presentation/video-player.component"),
     vsc: () => import("../apps/code-editor/presentation/code-editor.component"),
     translator: () =>
@@ -96,8 +97,9 @@ export default class DesktopComponent {
       import("../apps/calculator/presentation/calculator.component"),
     nautilus: () => import("../apps/nautilus/presentation/nautilus.component"),
     todo: () => import("../apps/todo/presentation/todo.component"),
+    clock: () => import("../apps/clock/clock.component"),
   };
-  // En desktop.component.ts
+
   protected resolveApp(appKey: string) {
     if (!this.APPS[appKey]) return null;
     if (!this._componentCache[appKey]) {

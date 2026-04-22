@@ -11,7 +11,7 @@ import {
 import { LoginPayload } from "../domain/token.model";
 import { LoginUseCase } from "../use-cases/login.use-case";
 import { RegisterUseCase } from "../use-cases/register.use-case";
-import { AuthStorageService } from "./storage/auth-storage.service";
+import { StorageService } from "../../../shared/services/storage.service";
 
 export interface AuthState {
   token: string | null;
@@ -25,19 +25,21 @@ const initialState: AuthState = {
   error: null,
 };
 
+const TOKEN_KEY = "auth_token";
+
 export const AuthStore = signalStore(
   { providedIn: "root" },
-  withState(initialState),
+  withState<AuthState>(initialState),
 
   withProps(() => ({
     _loginUseCase: inject(LoginUseCase),
     _registerUseCase: inject(RegisterUseCase),
-    _storage: inject(AuthStorageService),
+    _storage: inject(StorageService),
   })),
 
   withHooks({
     onInit(store) {
-      const token = store._storage.getToken();
+      const token = store._storage.getItem<string>(TOKEN_KEY);
       if (token) patchState(store, { token });
     },
   }),
@@ -55,7 +57,7 @@ export const AuthStore = signalStore(
           token: response.accessToken,
           loading: false,
         });
-        store._storage.saveToken(response.accessToken);
+        store._storage.setItem(TOKEN_KEY, response.accessToken);
       } catch (error: any) {
         patchState(store, {
           error: error.message || "Login failed",
@@ -67,22 +69,21 @@ export const AuthStore = signalStore(
     async register(data: any) {
       patchState(store, { loading: true, error: null });
       try {
-        const response = await store._registerUseCase.execute(data);
+        await store._registerUseCase.execute(data);
       } catch (error: any) {
         patchState(store, {
           error: error.message || "Registration failed",
         });
-      } finally {
       }
     },
 
     logout() {
-      store._storage.removeToken();
+      store._storage.removeItem(TOKEN_KEY);
       patchState(store, initialState);
     },
 
     loadToken() {
-      const token = store._storage.getToken();
+      const token = store._storage.getItem<string>(TOKEN_KEY);
       if (token) {
         patchState(store, { token });
       }

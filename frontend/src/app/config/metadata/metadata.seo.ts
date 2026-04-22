@@ -1,9 +1,4 @@
 import { environment } from "../../../environments/environment.development";
-// import {
-//   Metadata,
-//   OpenGraph,
-//   MetaTagConfig,
-// } from "../../shared/interfaces/Metadata.interface";
 
 const title = "Ubuntu clone";
 const description = "Ubuntu clone with Angular and express js";

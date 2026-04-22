@@ -9,7 +9,9 @@ import {
 } from "@angular/core";
 import { PLATFORM_ID } from "@angular/core";
 
-@Injectable()
+@Injectable({
+  providedIn: "root",
+})
 export class ClockService implements OnDestroy {
   #signalClock = signal(new Date());
   #signalClockStream = computed(() => this.#signalClock());

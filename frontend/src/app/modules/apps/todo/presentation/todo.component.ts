@@ -21,7 +21,6 @@ import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window
 export default class TodoComponent {
   protected readonly store = inject(TodoStore);
   
-  // Expose signals explicitly for the template to avoid inference issues
   protected readonly todos = this.store.todos;
   protected readonly isLoading = this.store.isLoading;
   protected readonly currentFilter = this.store.currentFilter;

@@ -4,9 +4,8 @@
   <app-sidebar [$mainIcons]="mainIcons" [$secondaryIcons]="secondaryIcons" />
 
   <div class="flex-1 relative ml-[48px] p-5 h-full">
-    <!-- Desktop Icons Grid -->
     <ul
-      class="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] grid-rows-[repeat(auto-fill,minmax(100px,1fr))] gap-5 p-0 m-0 h-full">
+      class="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] grid-rows-[repeat(auto-fill,minmax(100px,1fr))] p-0 m-0 h-full">
       @for (icon of desktopIcons; track icon.id) {
         <li class="list-none">
           <app-app-item
@@ -25,7 +24,5 @@
         <ng-container *ngComponentOutlet="resolveApp(window.app) | async" />
       </div>
     }
-    <!-- Applications Windows -->
-    <div class="absolute inset-0 pointer-events-none"></div>
   </div>
 </main>

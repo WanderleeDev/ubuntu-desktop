@@ -6,7 +6,6 @@ import { UserComponent } from "../../../../../shared/components/user/user.compon
     selector: "app-login",
     imports: [LoginFormComponent, UserComponent],
     templateUrl: "./login.component.html",
-    // styleUrl: "./login.component.css",
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class LoginComponent {}

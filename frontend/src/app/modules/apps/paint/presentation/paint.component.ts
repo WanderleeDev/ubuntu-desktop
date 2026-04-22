@@ -28,7 +28,6 @@ export default class PaintComponent {
   readonly store = inject(PaintStore);
 
   public onWindowAction(action: WindowActions): void {
-    // Por ahora no realizamos ninguna acción automática al maximizar/cerrar/minimizar desde el wrapper
     console.log("Window action:", action);
   }
 }

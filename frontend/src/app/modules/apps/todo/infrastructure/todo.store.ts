@@ -7,7 +7,7 @@ import {
   withState,
 } from "@ngrx/signals";
 import { Task, StatusTask, TaskDto, TodoAction } from "../domain/task.interface";
-import { AuthStorageService } from "../../../auth/infrastructure/storage/auth-storage.service";
+import { StorageService } from "../../../../shared/services/storage.service";
 import { GenerateRandomId } from "../../../../shared/services/generateRandomId.service";
 
 
@@ -30,7 +30,7 @@ export const TodoStore = signalStore(
   withMethods(
     (
       store,
-      storage = inject(AuthStorageService),
+      storage = inject(StorageService),
       randomId = inject(GenerateRandomId)
     ) => ({
       loadTodos() {

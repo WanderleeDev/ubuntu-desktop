@@ -1,6 +1,5 @@
 import { Injectable, inject, DOCUMENT } from "@angular/core";
 import { Title, Meta } from "@angular/platform-browser";
-// import { MetaTagConfig, MetaIndex } from "../interfaces/Metadata.interface";
 
 
 @Injectable({

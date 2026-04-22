@@ -7,7 +7,6 @@ import { ScreenLockComponent } from "../../components/screen-lock/screen-lock.co
     selector: "app-entry-page",
     imports: [RouterLink, PersonalUserCardComponent, ScreenLockComponent],
     templateUrl: "./entry-page.component.html",
-    // styleUrl: "./entry-page.component.css",
     styles: `
     :host {
       display: block;

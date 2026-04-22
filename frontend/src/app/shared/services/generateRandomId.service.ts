@@ -38,7 +38,6 @@ export class GenerateRandomId {
 
     let id = "";
 
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < params.length; i++) {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }

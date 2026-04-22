@@ -3,6 +3,7 @@ export interface ClockConfig {
   hasDayAndMonth: boolean;
   type: typeClock;
   hasVariableIcons: boolean;
+  isSimple: boolean;
 }
 
 type typeClock = "basic" | "regular" | "complete";
