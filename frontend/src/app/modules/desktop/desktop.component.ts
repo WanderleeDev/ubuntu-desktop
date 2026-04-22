@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { AsyncPipe, NgComponentOutlet } from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
-import MainVideoPlayerComponent from "../apps/video-player/presentation/video-player.component";
-import { CodeEditorApp } from "../apps/code-editor/presentation/code-editor.component";
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -9,7 +9,7 @@ import { SidebarComponent } from "./components/sidebar/sidebar.component";
 const mainIconsSidebar: any[] = [
   { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
   { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },
-  { id: "folder", icon: "assets/sidebarIcons/folder.svg", app: "nautilus" },
+  { id: "folder", icon: "assets/sidebarIcons/settings.svg", app: "nautilus" },
   { id: "github", icon: "assets/sidebarIcons/github.svg", app: "github" },
   { id: "trash", icon: "assets/sidebarIcons/trash.webp", app: "trash" },
 ];
@@ -49,29 +49,43 @@ const desktopIcons: any[] = [
     icon: "assets/sidebarIcons/vsc.svg",
     app: "vsc",
   },
+  {
+    id: "todo",
+    name: "ToDo",
+    icon: "assets/desktopIcons/bloc.svg",
+    app: "todo",
+  },
+  {
+    id: "nautilus",
+    name: "Configuración",
+    icon: "assets/sidebarIcons/settings.svg",
+    app: "nautilus",
+  },
 ];
-
-const fillMap = (x: any) => new Map();
-type MiniApps = string;
-type LazyComponent = any;
 
 @Component({
   selector: "app-desktop-view",
+  standalone: true,
   imports: [
     SidebarComponent,
     NavbarDesktopComponent,
     AppItemComponent,
-    MainVideoPlayerComponent,
-    CodeEditorApp,
+    NgComponentOutlet,
+    AsyncPipe,
   ],
+  providers: [WindowManagerStore],
   templateUrl: "./desktop.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class DesktopComponent {
+  readonly windowManager = inject(WindowManagerStore);
+  private _componentCache: Record<string, Promise<any>> = {};
+
   protected readonly mainIcons = mainIconsSidebar;
   protected readonly secondaryIcons = secondaryIconsSidebar;
   protected readonly desktopIcons = desktopIcons;
-  protected readonly APPS: Record<string, LazyComponent> = {
+
+  protected readonly APPS: Record<string, any> = {
     github: () =>
       import("../apps/video-player/presentation/video-player.component"),
     vsc: () => import("../apps/code-editor/presentation/code-editor.component"),
@@ -81,10 +95,16 @@ export default class DesktopComponent {
     calculator: () =>
       import("../apps/calculator/presentation/calculator.component"),
     nautilus: () => import("../apps/nautilus/presentation/nautilus.component"),
+    todo: () => import("../apps/todo/presentation/todo.component"),
   };
-  protected readonly appComponents: Map<MiniApps, LazyComponent>;
-
-  constructor() {
-    this.appComponents = fillMap(this.APPS);
+  // En desktop.component.ts
+  protected resolveApp(appKey: string) {
+    if (!this.APPS[appKey]) return null;
+    if (!this._componentCache[appKey]) {
+      this._componentCache[appKey] = this.APPS[appKey]().then(
+        (m: any) => m.default
+      );
+    }
+    return this._componentCache[appKey];
   }
 }

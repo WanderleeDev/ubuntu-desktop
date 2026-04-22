@@ -25,6 +25,6 @@ import { MonacoEditorComponent } from "./components/monaco-editor.component";
     }
   `,
 })
-export class CodeEditorApp {
+export default class CodeEditorApp {
   readonly store = inject(CodeEditorStore);
 }
