@@ -1,0 +1,41 @@
+<div class="group flex items-center justify-between p-4 bg-[#2d2d2d] border border-white/5 rounded-xl transition-all duration-200 hover:bg-[#333333] hover:border-white/10 hover:shadow-lg">
+  <div class="flex items-center gap-4 flex-1">
+    <span class="text-xs font-bold text-white/20 tabular-nums">{{ indexTask() + 1 }}</span>
+    <p
+      class="text-sm font-medium transition-colors duration-200"
+      [class.text-[#a2ff9f]]="task().status === 'completed'"
+      [class.line-through]="task().status === 'completed'"
+      [class.opacity-50]="task().status === 'completed'"
+      [class.text-white]="task().status !== 'completed'"
+      [title]="[taskStatusStream(), task().task] | formatList">
+      {{ task().task | capitalize }}
+    </p>
+  </div>
+
+  <div class="relative flex items-center">
+    <button 
+      (click)="toggleControlTask()"
+      class="p-2 text-white/30 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
+      title="Mostrar controles">
+      <img src="/assets/extra-icons/dotsControl.svg" class="w-5 h-5" alt="dots" />
+    </button>
+
+    @if (task() && isViewControlTask()) {
+      <div class="absolute right-0 top-full mt-2 z-50 animate-in fade-in zoom-in duration-200">
+        <app-controls-task
+          [(isViewControlTask)]="isViewControlTask"
+          [(isViewEditorTask)]="isViewEditorTask"
+          [currentTask]="task()" />
+      </div>
+    }
+  </div>
+</div>
+
+@defer (when task(); prefetch on idle) {
+  @if (isViewEditorTask()) {
+    <app-task-editor
+      [(isViewEditorTask)]="isViewEditorTask"
+      [currentTask]="task()" />
+  }
+}
+

@@ -1,0 +1,26 @@
+<app-window-wrapper appTitle="ToDo">
+  <section
+    body
+    class="todo flex flex-col gap-6 p-6 min-w-[380px] bg-[#1e1e1e] text-white rounded-b-lg">
+    <app-task-input-field />
+    
+    <div class="border-t border-white/10"></div>
+
+    @if (isLoading()) {
+      <div class="flex flex-col items-center justify-center py-8 gap-3">
+        <div class="w-8 h-8 border-4 border-[#e95420] border-t-transparent rounded-full animate-spin"></div>
+        <span class="text-[#9ca3af] font-medium animate-pulse">Cargando tareas...</span>
+      </div>
+    } @else {
+      @let filteredTodos =
+        currentFilter() === "all"
+          ? todos()
+          : (todos() | filter: currentFilter() : "status");
+
+      <app-list-tasks [tasks]="filteredTodos" [allTasksNumber]="todos().length" />
+    }
+
+  </section>
+</app-window-wrapper>
+
+

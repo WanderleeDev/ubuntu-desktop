@@ -1,0 +1,46 @@
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+  <div class="bg-[#2d2d2d] w-[90%] max-w-md rounded-2xl shadow-2xl border border-white/10 overflow-hidden animate-in zoom-in-95 duration-200">
+    <header class="flex items-center justify-between p-4 border-b border-white/5 bg-white/5">
+      <h3 class="text-sm font-bold uppercase tracking-wider text-white/80">Editar Tarea</h3>
+      <button (click)="close()" class="p-1 hover:bg-white/10 rounded-full transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-white/50">close</span>
+      </button>
+    </header>
+
+    <form [formGroup]="formEditor" (ngSubmit)="editTask()" class="p-6 flex flex-col gap-6">
+      <div class="flex flex-col gap-2">
+        <label class="text-[11px] font-bold uppercase text-white/40 ml-1">Descripción</label>
+        <input
+          formControlName="task"
+          type="text"
+          class="w-full px-4 py-3 bg-black/20 border border-white/5 rounded-xl outline-none focus:border-[#e95420] focus:ring-2 focus:ring-[#e95420]/20 transition-all text-white text-sm"
+          placeholder="Descripción de la tarea" />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-[11px] font-bold uppercase text-white/40 ml-1">Estado</label>
+        <select
+          formControlName="status"
+          class="w-full px-4 py-3 bg-black/20 border border-white/5 rounded-xl outline-none focus:border-[#e95420] focus:ring-2 focus:ring-[#e95420]/20 transition-all text-white text-sm appearance-none cursor-pointer">
+          <option value="pending">Pendiente</option>
+          <option value="completed">Completada</option>
+        </select>
+      </div>
+
+      <div class="flex items-center gap-3 mt-2">
+        <button
+          type="button"
+          (click)="close()"
+          class="flex-1 px-4 py-3 text-sm font-bold rounded-xl border border-white/10 text-white/60 hover:bg-white/5 transition-all">
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          [disabled]="formEditor.invalid"
+          class="flex-1 px-4 py-3 text-sm font-bold rounded-xl bg-[#e95420] text-white hover:bg-[#ff6a35] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-[#e95420]/20">
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
