@@ -49,8 +49,8 @@ export class LoginFormComponent {
   public async onSubmit(): Promise<void> {
     if (this.formLogin.invalid) return;
 
-    const { password } = this.formLogin.value;
-    await this.authStore.login({ password: "", username: "" });
+    const { password } = this.formLogin.getRawValue();
+    await this.authStore.login({ password, username: "wanderlee" });
 
     if (this.authStore.isAuthenticated()) {
       this.isReadyToNavigate.set(true);

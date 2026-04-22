@@ -7,6 +7,7 @@ import { LoginPayload, Token } from "../domain/token.model";
 })
 export class MockAuthRepository implements AuthRepository {
   async login(payload: LoginPayload): Promise<Token> {
+    console.log("Mock login for:", payload.username);
     return new Promise(resolve => {
       setTimeout(() => {
         resolve({
@@ -17,7 +18,8 @@ export class MockAuthRepository implements AuthRepository {
     });
   }
 
-  async register(data: any): Promise<void> {
+  async register(data: unknown): Promise<void> {
+    console.log("Mock register with:", data);
     return new Promise(resolve => {
       setTimeout(() => resolve(), 1000);
     });

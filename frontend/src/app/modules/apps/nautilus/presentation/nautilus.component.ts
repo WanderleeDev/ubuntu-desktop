@@ -21,7 +21,7 @@ import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
 export default class NautilusComponent {
   readonly store = inject(NautilusStore);
 
-  get currentSectionLabel() {
+  get currentSectionLabel(): string {
     return (
       NAUTILUS_SECTIONS.find(s => s.id === this.store.currentSection())
         ?.label || "Settings"

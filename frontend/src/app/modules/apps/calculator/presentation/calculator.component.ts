@@ -4,11 +4,11 @@ import {
   HostListener,
   inject,
 } from "@angular/core";
-import { CalculatorManagerService } from "../services/calculator-manager.service";
+import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
 import { CalculatorStore } from "../infrastructure/calculator.store";
+import { CalculatorManagerService } from "../services/calculator-manager.service";
 import { CalculatorControlsComponent } from "./components/calculator-controls/calculator-controls.component";
 import { CalculatorDisplayComponent } from "./components/calculator-display/calculator-display.component";
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
 import { CalculatorUndoBtnComponent } from "./components/calculator-undo-btn/calculator-undo-btn.component";
 
 @Component({
@@ -32,7 +32,7 @@ export default class CalculatorComponent {
   readonly store = inject(CalculatorStore);
 
   @HostListener("window:keydown", ["$event"])
-  handleKeyboardEvent(event: KeyboardEvent) {
+  handleKeyboardEvent(event: KeyboardEvent): void {
     const key = event.key;
 
     if (
@@ -50,7 +50,7 @@ export default class CalculatorComponent {
   }
 
   @HostListener("click", ["$event.target"])
-  onClick(target: any): void {
+  onClick(target: EventTarget | null): void {
     if (!(target instanceof HTMLElement)) return;
 
     const btnAttribute = target.getAttribute("data-calculator");

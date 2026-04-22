@@ -30,7 +30,7 @@ export const PaintStore = signalStore(
     setColor(color: string): void {
       patchState(store, { currentColor: color });
     },
-    setStrokeWidth(action: strokeAction) {
+    setStrokeWidth(action: strokeAction): void {
       if (action === "increment") {
         patchState(store, state => ({
           strokeWidth: Math.min(state.strokeWidth + 1, 50),
@@ -41,16 +41,16 @@ export const PaintStore = signalStore(
         }));
       }
     },
-    selectEraser() {
+    selectEraser(): void {
       patchState(store, { currentColor: "#FFFFFF" });
     },
-    clearAll() {
+    clearAll(): void {
       patchState(store, state => ({
         clearSignal: state.clearSignal + 1,
         currentColor: "#000000",
       }));
     },
-    download() {
+    download(): void {
       patchState(store, state => ({
         downloadSignal: state.downloadSignal + 1,
       }));

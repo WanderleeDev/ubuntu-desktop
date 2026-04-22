@@ -2,8 +2,9 @@ import { Injectable } from "@angular/core";
 import { evaluate, abs } from "mathjs";
 import { expressionFormatter } from "../infrastructure/utils/expressionFormatter";
 import { calculatorValidator } from "../infrastructure/utils/calculatorValidation";
+import { ICalculatorRecord } from "../domain/calculator.model";
 
-const errorHandler = (e: any) => String(e);
+const errorHandler = (e: unknown): string => String(e);
 
 export interface EvalResponse {
   result: number | null;
@@ -45,7 +46,10 @@ export class CalculatorManagerService {
     }
   }
 
-  public backHistory(record: any[]): { lastDelete: any; newRecords: any[] } {
+  public backHistory(record: ICalculatorRecord[]): {
+    lastDelete: ICalculatorRecord;
+    newRecords: ICalculatorRecord[];
+  } {
     return {
       lastDelete: record.slice(-1)[0],
       newRecords: record.slice(0, -1),

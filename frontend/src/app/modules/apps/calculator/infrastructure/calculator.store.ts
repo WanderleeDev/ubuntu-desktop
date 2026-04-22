@@ -64,10 +64,10 @@ export const CalculatorStore = signalStore(
       const records = store.record();
       if (records.length === 0) return;
 
-      const { lastDelete, newRecords } = managerSvc.backHistory(records as any);
+      const { lastDelete, newRecords } = managerSvc.backHistory(records);
 
       patchState(store, {
-        record: newRecords as ICalculatorRecord[],
+        record: newRecords,
         expression: lastDelete.expression,
         result: null,
         error: null,

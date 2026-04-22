@@ -115,16 +115,16 @@ export const CodeEditorStore = signalStore(
     }),
   })),
   withMethods(store => ({
-    updateCode(code: string) {
+    updateCode(code: string): void {
       const active = store.activeFile();
       patchState(store, state => ({
         files: { ...state.files, [active]: code },
       }));
     },
-    setActiveFile(file: FileType) {
+    setActiveFile(file: FileType): void {
       patchState(store, { activeFile: file });
     },
-    togglePreview() {
+    togglePreview(): void {
       patchState(store, state => ({
         settings: {
           ...state.settings,

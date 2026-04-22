@@ -34,7 +34,7 @@ export class WindowWrapperComponent {
     _dragRef: DragRef,
     _initialRect: DOMRect,
     pickupPositionInElement: Point
-  ) => {
+  ): Point => {
     const naturalX = point.x - pickupPositionInElement.x;
     const naturalY = point.y - pickupPositionInElement.y;
 
@@ -44,7 +44,7 @@ export class WindowWrapperComponent {
     };
   };
 
-  public onClick(action: WindowActions) {
+  public onClick(action: WindowActions): void {
     this.windowAction.emit(action);
   }
 }

@@ -40,6 +40,7 @@ import { NgClass } from "@angular/common";
                 track section.id
               ) {
                 <button
+                  type="button"
                   (click)="selectSection(section.id)"
                   [ngClass]="{
                     'bg-orange-500/10 text-orange-500 font-medium':
@@ -82,13 +83,13 @@ export class NautilusSidebarComponent {
     { id: "system", label: "System" },
   ];
 
-  getSectionsByCategory(category: string) {
+  getSectionsByCategory(category: string): INautilusSection[] {
     return this.sections.filter(
       (s: INautilusSection) => s.category === category
     );
   }
 
-  selectSection(section: NautilusSection) {
+  selectSection(section: NautilusSection): void {
     this.store.setSection(section);
   }
 }

@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { ToolbarContainerComponent } from "../toolbar-container.component";
-import { StrokeControlComponent } from "../stroke-control/stroke-control.component";
-import { PaintStore } from "../../../infrastructure/paint.store";
-import { IPaintButton } from "../../../domain/paint.model";
 import { NgStyle } from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { IPaintButton } from "../../../domain/paint.model";
+import { PaintStore } from "../../../infrastructure/paint.store";
+import { StrokeControlComponent } from "../stroke-control/stroke-control.component";
+import { ToolbarContainerComponent } from "../toolbar-container.component";
 
 @Component({
   selector: "app-pencil-toolbar",
@@ -25,32 +25,32 @@ export class PencilToolbarComponent {
       {
         label: "Grosor",
         icon: "line_weight",
-        onclick: () => this.store.toggleStrokeMenu(),
+        onclick: (): void => this.store.toggleStrokeMenu(),
       },
       {
         label: "Paleta",
         icon: "palette",
-        onclick: () => this.store.toggleColorBar(),
+        onclick: (): void => this.store.toggleColorBar(),
       },
       {
         label: "Borrador",
         icon: "ink_eraser",
-        onclick: () => this.store.selectEraser(),
+        onclick: (): void => this.store.selectEraser(),
       },
       {
         label: "Limpiar",
         icon: "delete",
-        onclick: () => this.store.clearAll(),
+        onclick: (): void => this.store.clearAll(),
       },
       {
         label: "Descargar",
         icon: "download",
-        onclick: () => this.store.download(),
+        onclick: (): void => this.store.download(),
       },
       {
         label: "Modo Zen",
         icon: "visibility_off",
-        onclick: () => this.store.toggleFullscreen(),
+        onclick: (): void => this.store.toggleFullscreen(),
       },
     ];
   }

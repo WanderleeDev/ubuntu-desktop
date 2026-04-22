@@ -37,11 +37,11 @@ export const TodoStore = signalStore(
       storage = inject(StorageService),
       randomId = inject(GenerateRandomId)
     ) => ({
-      loadTodos() {
+      loadTodos(): void {
         const todos = storage.getItem<Task[]>(TODO_STORAGE_KEY) || [];
         patchState(store, { todos, isLoading: false });
       },
-      addTask(task: string) {
+      addTask(task: string): void {
         if (!task.trim()) return;
         const newTask: Task = {
           id: randomId.generateRandomId(),
@@ -52,19 +52,19 @@ export const TodoStore = signalStore(
         patchState(store, { todos: updatedTodos });
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },
-      deleteTask(id: string) {
+      deleteTask(id: string): void {
         const updatedTodos = store.todos().filter(t => t.id !== id);
         patchState(store, { todos: updatedTodos });
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },
-      updateTask(taskDto: TaskDto) {
+      updateTask(taskDto: TaskDto): void {
         const updatedTodos = store
           .todos()
-          .map(t => (t.id === taskDto.id ? { ...t, ...(taskDto as any) } : t));
+          .map(t => (t.id === taskDto.id ? { ...t, ...taskDto } : t));
         patchState(store, { todos: updatedTodos });
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },
-      changeStatusTask(id: string) {
+      changeStatusTask(id: string): void {
         const updatedTodos = store.todos().map(t =>
           t.id === id
             ? {
@@ -79,10 +79,10 @@ export const TodoStore = signalStore(
         patchState(store, { todos: updatedTodos });
         storage.setItem(TODO_STORAGE_KEY, updatedTodos);
       },
-      changeFilter(currentFilter: TodoAction) {
+      changeFilter(currentFilter: TodoAction): void {
         patchState(store, { currentFilter });
       },
-      clearTasks() {
+      clearTasks(): void {
         patchState(store, { todos: [] });
         storage.removeItem(TODO_STORAGE_KEY);
       },

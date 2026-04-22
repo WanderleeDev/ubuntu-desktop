@@ -1,13 +1,13 @@
 import { isPlatformServer } from "@angular/common";
 import {
-  Inject,
   Injectable,
   OnDestroy,
   Signal,
   computed,
   signal,
+  inject,
+  PLATFORM_ID,
 } from "@angular/core";
-import { PLATFORM_ID } from "@angular/core";
 
 @Injectable({
   providedIn: "root",
@@ -16,8 +16,9 @@ export class ClockService implements OnDestroy {
   #signalClock = signal(new Date());
   #signalClockStream = computed(() => this.#signalClock());
   #timer?: NodeJS.Timeout;
+  private readonly platformID = inject(PLATFORM_ID);
 
-  constructor(@Inject(PLATFORM_ID) private platformID: object) {
+  constructor() {
     this.initClock();
   }
 
@@ -33,7 +34,7 @@ export class ClockService implements OnDestroy {
     return this.#signalClockStream;
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     clearInterval(this.#timer);
   }
 }
