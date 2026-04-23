@@ -7,10 +7,11 @@
   <div class="flex-1 relative ml-[48px] p-5 h-full">
     <ul
       class="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] grid-rows-[repeat(auto-fill,minmax(100px,1fr))] p-0 m-0 h-full">
-      @for (icon of desktopIcons; track icon.id) {
+      @for (icon of desktopIcons; track icon.id; let i = $index) {
         <li class="list-none">
           <app-app-item
             [$appData]="icon"
+            [priority]="i < 4"
             (click)="windowManager.openApp(icon.app)" />
         </li>
       }

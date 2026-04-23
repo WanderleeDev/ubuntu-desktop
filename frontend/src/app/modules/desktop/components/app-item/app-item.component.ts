@@ -11,4 +11,5 @@ import { DesktopIcon } from "../../interfaces/app-icon.interface";
 })
 export class AppItemComponent {
   $appData = input.required<DesktopIcon>();
+  priority = input<boolean>(false);
 }

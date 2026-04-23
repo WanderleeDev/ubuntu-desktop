@@ -7,6 +7,10 @@ import { NautilusStore } from "../infrastructure/nautilus.store";
 import { BackgroundComponent } from "./views/background/background.component";
 import { AppearanceComponent } from "./views/appearance/appearance.component";
 import { PrivacyComponent } from "./views/privacy/privacy.component";
+import { NotificationsComponent } from "./views/notifications/notifications.component";
+import { AboutComponent } from "./views/about/about.component";
+import { ApplicationsComponent } from "./views/applications/applications.component";
+import { UsersComponent } from "./views/users/users.component";
 import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus-sidebar.component";
 
 @Component({
@@ -19,6 +23,10 @@ import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus
     BackgroundComponent,
     AppearanceComponent,
     PrivacyComponent,
+    NotificationsComponent,
+    AboutComponent,
+    ApplicationsComponent,
+    UsersComponent,
   ],
   templateUrl: "./nautilus.component.html",
   styles: `

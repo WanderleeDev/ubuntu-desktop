@@ -8,26 +8,20 @@
   <div
     class="flex h-[600px] w-[1000px] bg-[#2d2d2d] text-white overflow-hidden rounded-b-xl border border-white/5"
     body>
-    <!-- Sidebar de navegación -->
     <app-nautilus-sidebar class="h-full border-r border-black/20" />
 
-    <!-- Área de contenido principal -->
     <div class="flex-1 flex flex-col h-full bg-[#1e1e1e]/40 backdrop-blur-md">
-      <!-- Cabecera de la sección -->
-      @if (store.currentSection() !== NautilusSection.BACKGROUND && 
-           store.currentSection() !== NautilusSection.APPEARANCE &&
-           store.currentSection() !== NautilusSection.PRIVACY) {
+      @if (!['background', 'appearance', 'privacy', 'notifications', 'about', 'applications', 'users'].includes(store.currentSection())) {
         <div class="px-8 pt-10 pb-6 border-b border-white/5 bg-white/5">
           <h2 class="text-4xl font-extrabold tracking-tight text-white/95">
             {{ currentSectionLabel }}
           </h2>
           <p class="text-white/40 text-sm mt-2 font-medium italic">
-            Configuraciones de sistema para {{ currentSectionLabel | lowercase }}
+            System settings for {{ currentSectionLabel | lowercase }}
           </p>
         </div>
       }
 
-      <!-- Contenido dinámico -->
       <div class="flex-1 overflow-y-auto px-8 py-8 custom-scrollbar">
         <div class="max-w-3xl mx-auto">
           @switch (store.currentSection()) {
@@ -40,40 +34,38 @@
             @case (NautilusSection.PRIVACY) {
               <app-nautilus-privacy />
             }
+            @case (NautilusSection.NOTIFICATIONS) {
+              <app-nautilus-notifications />
+            }
+            @case (NautilusSection.ABOUT) {
+              <app-nautilus-about />
+            }
+            @case (NautilusSection.APPLICATIONS) {
+              <app-nautilus-applications />
+            }
+            @case (NautilusSection.USERS) {
+              <app-nautilus-users />
+            }
             @default {
-              <div class="space-y-6">
-                <div
-                  class="flex items-center gap-6 p-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-3xl shadow-xl transition-all hover:scale-[1.01]">
-                  <div
-                    class="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20 text-orange-500">
-                    <span class="material-symbols-outlined text-3xl">settings</span>
+              <div class="flex flex-col items-center justify-center py-20 animate-in zoom-in duration-500">
+                <div class="relative mb-10">
+                  <div class="w-24 h-24 bg-white/5 rounded-3xl flex items-center justify-center rotate-12 border border-white/10 shadow-2xl">
+                    <span class="material-symbols-outlined text-5xl text-white/10">construction</span>
                   </div>
-                  <div>
-                    <h3 class="text-xl font-bold text-white">
-                      {{ currentSectionLabel }}
-                    </h3>
-                    <p class="text-white/40 text-sm leading-relaxed mt-1">
-                      Este módulo está siendo optimizado. Pronto podrás gestionar
-                      todos los parámetros aquí.
-                    </p>
+                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center shadow-lg animate-bounce">
+                    <span class="material-symbols-outlined text-white text-xl">build</span>
                   </div>
                 </div>
+                
+                <h3 class="text-2xl font-bold text-white tracking-tight">Coming Soon</h3>
+                <p class="text-white/30 mt-3 text-center max-w-sm leading-relaxed font-medium">
+                  We're currently building the <span class="text-white/60">{{ currentSectionLabel }}</span> experience. Stay tuned for more updates!
+                </p>
 
-                <!-- Filas de ejemplo -->
-                <div
-                  class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden divide-y divide-white/5 shadow-lg">
-                  @for (item of [1, 2, 3]; track item) {
-                    <div
-                      class="p-5 flex items-center justify-between hover:bg-white/10 transition-all cursor-pointer group">
-                      <span class="text-white/80 font-semibold tracking-wide"
-                        >Opción de {{ currentSectionLabel }} #{{ item }}</span
-                      >
-                      <span
-                        class="material-symbols-outlined text-white/20 group-hover:text-white/60"
-                        >chevron_right</span
-                      >
-                    </div>
-                  }
+                <div class="mt-10 flex gap-3">
+                   <div class="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+                   <div class="w-2 h-2 rounded-full bg-orange-500/50 animate-pulse delay-75"></div>
+                   <div class="w-2 h-2 rounded-full bg-orange-500/20 animate-pulse delay-150"></div>
                 </div>
               </div>
             }
