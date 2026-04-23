@@ -4,7 +4,6 @@ import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-privacy",
-  standalone: true,
   imports: [CommonModule],
   templateUrl: "./privacy.html",
   styles: `

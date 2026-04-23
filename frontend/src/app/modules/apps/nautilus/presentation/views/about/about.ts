@@ -4,7 +4,6 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-about",
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: "./about.html",
   styles: `

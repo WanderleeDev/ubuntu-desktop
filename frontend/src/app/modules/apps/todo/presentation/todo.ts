@@ -7,7 +7,6 @@ import { FilterPipe } from "./pipes/filter.pipe";
 
 @Component({
   selector: "app-todo",
-  standalone: true,
   imports: [
     TaskInputField,
     ListTasks,

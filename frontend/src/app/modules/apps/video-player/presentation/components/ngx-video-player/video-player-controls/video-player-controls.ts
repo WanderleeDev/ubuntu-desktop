@@ -3,7 +3,6 @@ import { VideoPlayerService } from "../../../services/video-player.service";
 
 @Component({
   selector: "app-video-player-controls",
-  standalone: true,
   imports: [],
   templateUrl: "./video-player-controls.html",
   styles: `

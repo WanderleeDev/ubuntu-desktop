@@ -6,7 +6,6 @@ import { TaskMessages } from "../../../domain/TaskMessages.enum";
 
 @Component({
   selector: "app-task-input-field",
-  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: "./task-input-field.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

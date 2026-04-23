@@ -10,7 +10,6 @@ import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({
   selector: "app-controls-todo",
-  standalone: true,
   imports: [NgClass],
 
   templateUrl: "./controls-todo.html",

@@ -4,7 +4,6 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
 
 @Component({
   selector: "app-editor-preview",
-  standalone: true,
   imports: [SafeHtmlPipe],
   template: `
     <div class="w-full h-full bg-white relative flex flex-col overflow-hidden">

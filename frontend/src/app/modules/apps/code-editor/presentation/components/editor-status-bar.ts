@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 
 @Component({
   selector: "app-editor-status-bar",
-  standalone: true,
   template: `
     <div
       class="h-6 bg-[#e95420] flex items-center justify-between px-3 text-[10px] text-white font-medium">

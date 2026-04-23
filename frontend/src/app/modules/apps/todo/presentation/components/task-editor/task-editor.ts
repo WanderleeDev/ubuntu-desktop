@@ -17,7 +17,6 @@ import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({
   selector: "app-task-editor",
-  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: "./task-editor.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

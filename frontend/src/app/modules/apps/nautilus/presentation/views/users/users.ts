@@ -5,7 +5,6 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-users",
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: "./users.html",
   styles: `

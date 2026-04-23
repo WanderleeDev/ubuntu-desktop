@@ -4,7 +4,6 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-notifications",
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: "./notifications.html",
   styles: `

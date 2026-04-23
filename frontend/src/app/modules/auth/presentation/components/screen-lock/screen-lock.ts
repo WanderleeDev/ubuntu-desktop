@@ -12,7 +12,6 @@ import { Loader } from "../../../../../shared/components/loader/loader";
 
 @Component({
   selector: "app-screen-lock",
-  standalone: true,
   imports: [Loader],
   templateUrl: "./screen-lock.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

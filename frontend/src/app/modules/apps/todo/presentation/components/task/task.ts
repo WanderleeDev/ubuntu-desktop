@@ -14,7 +14,6 @@ import { TaskEditor } from "../task-editor/task-editor";
 
 @Component({
   selector: "app-task",
-  standalone: true,
   templateUrl: "./task.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [

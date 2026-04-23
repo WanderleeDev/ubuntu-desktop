@@ -4,7 +4,6 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-applications",
-  standalone: true,
   imports: [CommonModule, NgOptimizedImage],
   templateUrl: "./applications.html",
   styles: `

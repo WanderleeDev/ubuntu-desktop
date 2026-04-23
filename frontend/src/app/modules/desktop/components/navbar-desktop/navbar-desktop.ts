@@ -11,7 +11,6 @@ import { WindowManagerStore } from "../../infrastructure/window-manager.store";
 
 @Component({
   selector: "app-navbar-desktop",
-  standalone: true,
   imports: [DatePipe, Calendar],
   templateUrl: "./navbar-desktop.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

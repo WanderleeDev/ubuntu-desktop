@@ -8,7 +8,6 @@ import {
 import Clock from "../../../modules/apps/clock/clock";
 @Component({
   selector: "app-calendar",
-  standalone: true,
   imports: [DatePipe, Clock],
   templateUrl: "./calendar.html",
   styles: `

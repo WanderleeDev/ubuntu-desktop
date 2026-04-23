@@ -4,7 +4,6 @@ import { VideoPlayerService } from "../../services/video-player.service";
 
 @Component({
   selector: "app-video-playlist-overlay",
-  standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: "./video-playlist-overlay.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

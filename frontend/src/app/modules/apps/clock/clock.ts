@@ -20,7 +20,6 @@ import { ClockService } from "./services/clock.service";
 
 @Component({
   selector: "app-clock",
-  standalone: true,
   imports: [NgComponentOutlet],
   templateUrl: "./clock.html",
   styles: [

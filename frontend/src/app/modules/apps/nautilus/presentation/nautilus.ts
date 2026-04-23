@@ -15,7 +15,6 @@ import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar"
 
 @Component({
   selector: "app-nautilus",
-  standalone: true,
   imports: [
     CommonModule,
     WindowWrapper,

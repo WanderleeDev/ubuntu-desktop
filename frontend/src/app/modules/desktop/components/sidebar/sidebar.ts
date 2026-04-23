@@ -10,7 +10,6 @@ import { AppIcon } from "../../interfaces/app-icon.interface";
 
 @Component({
   selector: "app-sidebar",
-  standalone: true,
   imports: [NgOptimizedImage, DragDropModule],
   templateUrl: "./sidebar.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

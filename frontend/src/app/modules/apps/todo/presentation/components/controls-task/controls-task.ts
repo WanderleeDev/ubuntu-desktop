@@ -17,7 +17,6 @@ interface IBtnEditingTask {
 
 @Component({
   selector: "app-controls-task",
-  standalone: true,
   imports: [],
   templateUrl: "./controls-task.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

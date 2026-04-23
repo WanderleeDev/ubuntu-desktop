@@ -4,7 +4,6 @@ import { DesktopIcon } from "../../interfaces/app-icon.interface";
 
 @Component({
   selector: "app-item",
-  standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: "./app-item.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

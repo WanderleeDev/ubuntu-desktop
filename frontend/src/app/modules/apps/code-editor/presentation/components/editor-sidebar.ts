@@ -6,7 +6,6 @@ import {
 
 @Component({
   selector: "app-editor-sidebar",
-  standalone: true,
   imports: [],
   template: `
     <div

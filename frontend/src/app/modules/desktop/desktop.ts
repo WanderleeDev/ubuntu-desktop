@@ -61,7 +61,6 @@ const desktopIcons: DesktopIcon[] = [
 
 @Component({
   selector: "app-desktop-view",
-  standalone: true,
   imports: [Sidebar, NavbarDesktop, AppItem, NgComponentOutlet, AsyncPipe],
   providers: [WindowManagerStore],
   templateUrl: "./desktop.html",

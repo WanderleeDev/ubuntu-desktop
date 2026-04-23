@@ -5,7 +5,6 @@ import { ControlsTodo } from "../controls-todo/controls-todo";
 
 @Component({
   selector: "app-list-tasks",
-  standalone: true,
   imports: [Task, ControlsTodo],
   templateUrl: "./list-tasks.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

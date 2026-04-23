@@ -3,7 +3,6 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-appearance",
-  standalone: true,
   imports: [],
   templateUrl: "./appearance.html",
   styles: `

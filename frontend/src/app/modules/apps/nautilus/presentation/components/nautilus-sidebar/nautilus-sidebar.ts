@@ -9,7 +9,6 @@ import { NgClass } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-sidebar",
-  standalone: true,
   imports: [NgClass],
   template: `
     <div

@@ -7,7 +7,6 @@ import { VideoPlayerTopBar } from "./video-player-top-bar/video-player-top-bar";
 
 @Component({
   selector: "app-ngx-video-player",
-  standalone: true,
   imports: [
     VideoPlaylistOverlay,
     VideoPlayerTopBar,

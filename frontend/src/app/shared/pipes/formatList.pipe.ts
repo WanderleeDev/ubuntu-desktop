@@ -5,7 +5,6 @@ type styleType = Intl.ListFormatStyle;
 
 @Pipe({
   name: "formatList",
-  standalone: true,
 })
 export class FormatListPipe implements PipeTransform {
   transform(

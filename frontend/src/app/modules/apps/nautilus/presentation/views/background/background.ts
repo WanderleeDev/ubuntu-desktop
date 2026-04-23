@@ -4,7 +4,6 @@ import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-background",
-  standalone: true,
   imports: [NgOptimizedImage],
   templateUrl: "./background.html",
   styles: `

@@ -9,7 +9,6 @@ import { VideoPlayerService } from "../services/video-player.service";
 
 @Directive({
   selector: "video[appVideoController]",
-  standalone: true,
 })
 export class VideoControllerDirective {
   private readonly service = inject(VideoPlayerService);
