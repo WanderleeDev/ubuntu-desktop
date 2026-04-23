@@ -1,0 +1,85 @@
+<div class="flex flex-col gap-8 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
+  
+  <!-- Style Section -->
+  <div class="flex flex-col gap-4">
+    <h3 class="text-base font-bold text-white/90">Style</h3>
+    
+    <div class="bg-[#2d2d2d] rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+      <div class="p-8">
+        <div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
+          
+          <!-- Default (Light) Card -->
+          <div class="flex flex-col items-center gap-4">
+            <button 
+              (click)="store.setTheme('default')"
+              [class]="'relative w-full aspect-[4/3] rounded-xl overflow-hidden transition-all duration-200 group border-2 ' + (store.theme() === 'default' ? 'border-orange-500 ring-2 ring-orange-500/20' : 'border-transparent hover:border-white/10')"
+            >
+              <!-- Background Preview -->
+              <div class="absolute inset-0 bg-[#3484c4] flex items-center justify-center">
+                 <!-- Mock Windows -->
+                 <div class="relative w-3/4 h-3/4">
+                    <div class="absolute right-0 top-0 w-2/3 h-2/3 bg-[#1e1e1e] rounded-md shadow-lg border border-white/5"></div>
+                    <div class="absolute left-0 bottom-0 w-2/3 h-2/3 bg-[#ebebeb] rounded-md shadow-xl border border-black/10"></div>
+                 </div>
+              </div>
+              @if (store.theme() === 'default') {
+                <div class="absolute top-2 right-2 w-5 h-5 flex items-center justify-center bg-orange-500 rounded-full text-white shadow-lg">
+                  <span class="material-symbols-outlined text-[12px] font-bold">check</span>
+                </div>
+              }
+            </button>
+            <span class="text-sm font-medium text-white/70">Default</span>
+          </div>
+
+          <!-- Dark Card -->
+          <div class="flex flex-col items-center gap-4">
+            <button 
+              (click)="store.setTheme('dark')"
+              [class]="'relative w-full aspect-[4/3] rounded-xl overflow-hidden transition-all duration-200 group border-2 ' + (store.theme() === 'dark' ? 'border-orange-500 ring-2 ring-orange-500/20' : 'border-transparent hover:border-white/10')"
+            >
+              <!-- Background Preview -->
+              <div class="absolute inset-0 bg-[#3484c4] flex items-center justify-center">
+                 <!-- Mock Windows -->
+                 <div class="relative w-3/4 h-3/4">
+                    <div class="absolute right-0 top-0 w-2/3 h-2/3 bg-[#262626] rounded-md shadow-lg border border-white/5 opacity-80"></div>
+                    <div class="absolute left-0 bottom-0 w-2/3 h-2/3 bg-[#1e1e1e] rounded-md shadow-xl border border-white/10"></div>
+                 </div>
+              </div>
+              @if (store.theme() === 'dark') {
+                <div class="absolute top-2 right-2 w-5 h-5 flex items-center justify-center bg-orange-500 rounded-full text-white shadow-lg">
+                  <span class="material-symbols-outlined text-[12px] font-bold">check</span>
+                </div>
+              }
+            </button>
+            <span class="text-sm font-medium text-white/70">Dark</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Color Accent Section -->
+      <div class="h-px bg-white/5 mx-8"></div>
+      
+      <div class="p-8 flex items-center gap-6">
+        <span class="text-sm font-medium text-white/90">Color</span>
+        <div class="flex flex-wrap items-center gap-3">
+          @for (color of accentColors; track color.hex) {
+            <button 
+              (click)="store.setAccentColor(color.hex)"
+              [class]="'group relative w-8 h-8 rounded-full transition-transform hover:scale-110 active:scale-95 '"
+              [style.background-color]="color.hex"
+            >
+              @if (store.accentColor() === color.hex) {
+                <div 
+                  class="absolute -inset-1.5 rounded-full border-2 border-orange-500 animate-in zoom-in duration-300"
+                  [style.border-color]="color.hex"
+                ></div>
+              }
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
