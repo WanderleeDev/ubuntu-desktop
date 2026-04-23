@@ -1,0 +1,64 @@
+<aside
+  class="absolute left-0 top-[28px] bottom-0 w-[48px] bg-black/40 flex flex-col py-2 backdrop-blur-md z-[900]"
+  cdkDropListGroup>
+  <div
+    cdkDropList
+    [cdkDropListData]="mainIcons()"
+    (cdkDropListDropped)="onDrop($event)"
+    class="flex flex-col items-center gap-2">
+    @for (item of mainIcons(); track item.id) {
+      <button
+        cdkDrag
+        [cdkDragData]="item"
+        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
+        type="button"
+        [title]="item.id">
+        <img
+          [ngSrc]="item.icon"
+          [alt]="item.id"
+          width="32"
+          height="32"
+          priority />
+        <div
+          *cdkDragPlaceholder
+          class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
+      </button>
+    }
+  </div>
+
+  <div class="w-8 h-[1px] bg-white/20 my-2 self-center"></div>
+
+  <div
+    cdkDropList
+    [cdkDropListData]="secondaryIcons()"
+    (cdkDropListDropped)="onDrop($event)"
+    class="flex flex-col items-center gap-2">
+    @for (item of secondaryIcons(); track item.id) {
+      <button
+        cdkDrag
+        [cdkDragData]="item"
+        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
+        type="button"
+        [title]="item.id">
+        <img [ngSrc]="item.icon" [alt]="item.id" width="32" height="32" />
+        <div
+          *cdkDragPlaceholder
+          class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
+      </button>
+    }
+  </div>
+
+  <div class="mt-auto flex flex-col items-center">
+    <button
+      class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10"
+      type="button"
+      title="Show Applications">
+      <img
+        [ngSrc]="'assets/sidebarIcons/menuDots.svg'"
+        alt="menu"
+        width="32"
+        priority
+        height="32" />
+    </button>
+  </div>
+</aside>
