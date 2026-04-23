@@ -5,32 +5,32 @@ import {
   inject,
 } from "@angular/core";
 
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { TranslationRepository } from "../domain/translation.repository";
 import { GeminiTranslationRepository } from "../infrastructure/gemini-translation.repository";
 import { TranslatorStore } from "../infrastructure/translator.store";
 import { TranslateTextUseCase } from "../use-cases/translate-text.use-case";
-import { TranslatorBoxInputComponent } from "./components/translator-box-input/translator-box-input.component";
-import { TranslatorBoxOutputComponent } from "./components/translator-box-output/translator-box-output.component";
-import { TranslatorControlsComponent } from "./components/translator-controls/translator-controls.component";
+import { TranslatorBoxInput } from "./components/translator-box-input/translator-box-input";
+import { TranslatorBoxOutput } from "./components/translator-box-output/translator-box-output";
+import { TranslatorControls } from "./components/translator-controls/translator-controls";
 
 @Component({
   selector: "app-translator",
   imports: [
-    WindowWrapperComponent,
-    TranslatorControlsComponent,
-    TranslatorBoxInputComponent,
-    TranslatorBoxOutputComponent,
+    WindowWrapper,
+    TranslatorControls,
+    TranslatorBoxInput,
+    TranslatorBoxOutput,
   ],
   providers: [
     TranslatorStore,
     TranslateTextUseCase,
     { provide: TranslationRepository, useClass: GeminiTranslationRepository },
   ],
-  templateUrl: "./translator.component.html",
+  templateUrl: "./translator.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TranslatorComponent {
+export default class Translator {
   protected readonly store = inject(TranslatorStore);
   protected readonly MAX_INPUT_CHARACTERS = 100;
 

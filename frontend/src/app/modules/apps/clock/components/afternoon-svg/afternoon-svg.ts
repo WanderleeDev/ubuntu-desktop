@@ -4,7 +4,7 @@ import { BaseIcon } from "../../interfaces/BaseIcon.class";
 @Component({
   selector: "app-afternoon-svg",
   imports: [],
-  templateUrl: "./afternoon-svg.component.html",
+  templateUrl: "./afternoon-svg.html",
   styles: `
     :host {
       display: block;
@@ -12,4 +12,4 @@ import { BaseIcon } from "../../interfaces/BaseIcon.class";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AfternoonSvgComponent extends BaseIcon {}
+export class AfternoonSvg extends BaseIcon {}

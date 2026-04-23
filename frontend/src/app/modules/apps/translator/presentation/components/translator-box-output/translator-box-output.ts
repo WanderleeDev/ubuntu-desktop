@@ -1,12 +1,12 @@
 import { ClipboardModule } from "@angular/cdk/clipboard";
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { TranslationState } from "../../../domain/translation.model";
-import { TranslatorLoaderComponent } from "../translator-loader/translator-loader.component";
+import { TranslatorLoader } from "../translator-loader/translator-loader";
 
 @Component({
   selector: "app-translator-box-output",
-  imports: [ClipboardModule, TranslatorLoaderComponent],
-  templateUrl: "./translator-box-output.component.html",
+  imports: [ClipboardModule, TranslatorLoader],
+  templateUrl: "./translator-box-output.html",
   styles: `
     :host {
       display: flex;
@@ -15,6 +15,6 @@ import { TranslatorLoaderComponent } from "../translator-loader/translator-loade
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorBoxOutputComponent {
+export class TranslatorBoxOutput {
   readonly $translationState = input.required<TranslationState>();
 }

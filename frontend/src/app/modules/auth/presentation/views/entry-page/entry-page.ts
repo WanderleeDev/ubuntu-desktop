@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, signal } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { PersonalUserCardComponent } from "../../components/personal-user-card/personal-user-card.component";
-import { ScreenLockComponent } from "../../components/screen-lock/screen-lock.component";
+import { PersonalUserCard } from "../../components/personal-user-card/personal-user-card";
+import { ScreenLock } from "../../components/screen-lock/screen-lock";
 
 @Component({
   selector: "app-entry-page",
-  imports: [RouterLink, PersonalUserCardComponent, ScreenLockComponent],
-  templateUrl: "./entry-page.component.html",
+  imports: [RouterLink, PersonalUserCard, ScreenLock],
+  templateUrl: "./entry-page.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { ScreenLockComponent } from "../../components/screen-lock/screen-lock.co
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class EntryPageComponent {
+export default class EntryPage {
   isReadyToNavigate = signal<boolean>(false);
 
   public onClick(): void {

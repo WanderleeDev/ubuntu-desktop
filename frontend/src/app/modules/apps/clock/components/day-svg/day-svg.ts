@@ -4,7 +4,7 @@ import { BaseIcon } from "../../interfaces/BaseIcon.class";
 @Component({
   selector: "app-day-svg",
   imports: [],
-  templateUrl: "./day-svg.component.html",
+  templateUrl: "./day-svg.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DaySvgComponent extends BaseIcon {}
+export class DaySvg extends BaseIcon {}

@@ -13,10 +13,10 @@ import { TodoStore } from "../../../infrastructure/todo.store";
   standalone: true,
   imports: [NgClass],
 
-  templateUrl: "./controls-todo.component.html",
+  templateUrl: "./controls-todo.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ControlsTodoComponent {
+export class ControlsTodo {
   private readonly todoStore = inject(TodoStore);
 
   taskControls: TodoAction[] = ["all", "pending", "completed"];

@@ -25,6 +25,6 @@ import { NgClass } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorUndoBtnComponent {
+export class CalculatorUndoBtn {
   isDisabled = input.required<boolean>();
 }

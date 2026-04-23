@@ -6,7 +6,7 @@ import { VideoPlayerService } from "../../services/video-player.service";
   selector: "app-video-playlist-overlay",
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: "./video-playlist-overlay.component.html",
+  templateUrl: "./video-playlist-overlay.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VideoPlaylistOverlay {

@@ -5,7 +5,7 @@ import { VideoPlayerService } from "../../../services/video-player.service";
   selector: "app-video-player-controls",
   standalone: true,
   imports: [],
-  templateUrl: "./video-player-controls.component.html",
+  templateUrl: "./video-player-controls.html",
   styles: `
     :host {
       display: contents;

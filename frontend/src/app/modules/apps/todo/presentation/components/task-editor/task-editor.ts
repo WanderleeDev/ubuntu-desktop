@@ -19,10 +19,10 @@ import { TodoStore } from "../../../infrastructure/todo.store";
   selector: "app-task-editor",
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: "./task-editor.component.html",
+  templateUrl: "./task-editor.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskEditorComponent implements OnInit {
+export class TaskEditor implements OnInit {
   private readonly todoStore = inject(TodoStore);
   private readonly fb = inject(FormBuilder);
 

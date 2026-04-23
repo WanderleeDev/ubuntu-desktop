@@ -5,12 +5,12 @@ import {
   computed,
   signal,
 } from "@angular/core";
-import ClockComponent from "../../../modules/apps/clock/clock.component";
+import Clock from "../../../modules/apps/clock/clock";
 @Component({
   selector: "app-calendar",
   standalone: true,
-  imports: [DatePipe, ClockComponent],
-  templateUrl: "./calendar.component.html",
+  imports: [DatePipe, Clock],
+  templateUrl: "./calendar.html",
   styles: `
     :host {
       display: block;
@@ -18,7 +18,7 @@ import ClockComponent from "../../../modules/apps/clock/clock.component";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalendarComponent {
+export class Calendar {
   protected readonly actuallyDate = signal(new Date());
 
   protected readonly daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];

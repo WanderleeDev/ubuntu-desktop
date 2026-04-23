@@ -5,7 +5,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   selector: "app-nautilus-appearance",
   standalone: true,
   imports: [],
-  templateUrl: "./appearance.component.html",
+  templateUrl: "./appearance.html",
   styles: `
     :host {
       display: block;
@@ -14,7 +14,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppearanceComponent {
+export class Appearance {
   readonly store = inject(NautilusStore);
 
   readonly accentColors = [

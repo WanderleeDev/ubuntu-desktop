@@ -6,7 +6,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   selector: "app-nautilus-about",
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
-  templateUrl: "./about.component.html",
+  templateUrl: "./about.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent {
+export class About {
   readonly store = inject(NautilusStore);
 
   readonly developerInfo = {

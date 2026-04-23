@@ -5,12 +5,12 @@ import {
   input,
 } from "@angular/core";
 import { TranslatorStore } from "../../../infrastructure/translator.store";
-import { SelectorComponent } from "../selector/selector.component";
+import { Selector } from "../selector/selector";
 
 @Component({
   selector: "app-translator-controls",
-  imports: [SelectorComponent],
-  templateUrl: "./translator-controls.component.html",
+  imports: [Selector],
+  templateUrl: "./translator-controls.html",
   styles: `
     :host {
       display: block;
@@ -18,7 +18,7 @@ import { SelectorComponent } from "../selector/selector.component";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorControlsComponent {
+export class TranslatorControls {
   readonly $isDisabled = input.required<boolean>();
   protected readonly store = inject(TranslatorStore);
 

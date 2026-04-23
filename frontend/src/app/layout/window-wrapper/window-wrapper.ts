@@ -15,7 +15,7 @@ export enum WindowActions {
 @Component({
   selector: "app-window-wrapper",
   imports: [CdkDrag, CdkDragHandle],
-  templateUrl: "./window-wrapper.component.html",
+  templateUrl: "./window-wrapper.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     :host {
@@ -23,7 +23,7 @@ export enum WindowActions {
     }
   `,
 })
-export class WindowWrapperComponent {
+export class WindowWrapper {
   protected readonly WindowActions = WindowActions;
   readonly windowAction = output<WindowActions>();
   readonly appTitle = input.required<string>();

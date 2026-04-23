@@ -15,10 +15,10 @@ import { TranslatorStore } from "../../../infrastructure/translator.store";
 @Component({
   selector: "app-selector",
   imports: [],
-  templateUrl: "./selector.component.html",
+  templateUrl: "./selector.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SelectorComponent {
+export class Selector {
   readonly action = input.required<ActionLanguageType>();
   readonly currentLanguage = model.required<string>();
   readonly element = viewChild<ElementRef<HTMLUListElement>>("selector");

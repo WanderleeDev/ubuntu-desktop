@@ -3,13 +3,13 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { DesktopIcon } from "../../interfaces/app-icon.interface";
 
 @Component({
-  selector: "app-app-item",
+  selector: "app-item",
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: "./app-item.component.html",
+  templateUrl: "./app-item.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppItemComponent {
+export class AppItem {
   $appData = input.required<DesktopIcon>();
   priority = input<boolean>(false);
 }

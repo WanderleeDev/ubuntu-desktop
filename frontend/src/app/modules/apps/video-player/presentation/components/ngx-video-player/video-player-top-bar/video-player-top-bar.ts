@@ -5,7 +5,7 @@ import { VideoPlayerService } from "../../../services/video-player.service";
   selector: "app-video-player-top-bar",
   standalone: true,
   imports: [],
-  templateUrl: "./video-player-top-bar.component.html",
+  templateUrl: "./video-player-top-bar.html",
   styles: `
     :host {
       display: contents;

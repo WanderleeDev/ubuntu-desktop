@@ -2,13 +2,13 @@ import { NgStyle } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { IPaintButton } from "../../../domain/paint.model";
 import { PaintStore } from "../../../infrastructure/paint.store";
-import { StrokeControlComponent } from "../stroke-control/stroke-control.component";
-import { ToolbarContainerComponent } from "../toolbar-container.component";
+import { StrokeControl } from "../stroke-control/stroke-control";
+import { ToolbarContainer } from "../toolbar-container";
 
 @Component({
   selector: "app-pencil-toolbar",
-  imports: [ToolbarContainerComponent, StrokeControlComponent, NgStyle],
-  templateUrl: "./pencil-toolbar.component.html",
+  imports: [ToolbarContainer, StrokeControl, NgStyle],
+  templateUrl: "./pencil-toolbar.html",
   styles: `
     :host {
       display: block;
@@ -16,7 +16,7 @@ import { ToolbarContainerComponent } from "../toolbar-container.component";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PencilToolbarComponent {
+export class PencilToolbar {
   readonly store = inject(PaintStore);
   readonly tools: IPaintButton[];
 

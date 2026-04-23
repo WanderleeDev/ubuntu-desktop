@@ -16,7 +16,7 @@ import { PaintStore } from "../../../infrastructure/paint.store";
 @Component({
   selector: "app-canvas",
   imports: [CommonModule],
-  templateUrl: "./canvas.component.html",
+  templateUrl: "./canvas.html",
   styles: `
     :host {
       display: block;
@@ -31,7 +31,7 @@ import { PaintStore } from "../../../infrastructure/paint.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CanvasComponent implements AfterViewInit {
+export class Canvas implements AfterViewInit {
   readonly canvas = viewChild<ElementRef<HTMLCanvasElement>>("canvas");
   readonly store = inject(PaintStore);
   private platformId = inject(PLATFORM_ID);

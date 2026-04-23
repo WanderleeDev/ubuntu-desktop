@@ -1,4 +1,4 @@
-import { AsyncPipe, NgComponentOutlet } from "@angular/common";
+import { AsyncPipe, NgOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,22 +9,10 @@ import {
 import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
 import { NautilusStore } from "../apps/nautilus/infrastructure/nautilus.store";
-import { AppItemComponent } from "./components/app-item/app-item.component";
-import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
-import { SidebarComponent } from "./components/sidebar/sidebar.component";
-import { AppIcon, DesktopIcon } from "./interfaces/app-icon.interface";
-
-const mainIconsSidebar: AppIcon[] = [
-  { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
-  { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },
-  { id: "folder", icon: "assets/sidebarIcons/settings.svg", app: "nautilus" },
-  { id: "github", icon: "assets/sidebarIcons/github.svg", app: "github" },
-  { id: "trash", icon: "assets/sidebarIcons/trash.webp", app: "trash" },
-];
-
-const secondaryIconsSidebar: AppIcon[] = [
-  { id: "menu", icon: "assets/sidebarIcons/menuDots.svg", app: "menu" },
-];
+import { AppItem } from "./components/app-item/app-item";
+import { NavbarDesktop } from "./components/navbar-desktop/navbar-desktop";
+import { Sidebar } from "./components/sidebar/sidebar";
+import { DesktopIcon } from "./interfaces/app-icon.interface";
 
 const desktopIcons: DesktopIcon[] = [
   {
@@ -74,18 +62,12 @@ const desktopIcons: DesktopIcon[] = [
 @Component({
   selector: "app-desktop-view",
   standalone: true,
-  imports: [
-    SidebarComponent,
-    NavbarDesktopComponent,
-    AppItemComponent,
-    NgComponentOutlet,
-    AsyncPipe,
-  ],
+  imports: [Sidebar, NavbarDesktop, AppItem, NgOutlet, AsyncPipe],
   providers: [WindowManagerStore],
-  templateUrl: "./desktop.component.html",
+  templateUrl: "./desktop.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class DesktopComponent {
+export default class Desktop {
   protected readonly windowManager = inject(WindowManagerStore);
   protected readonly nautilusStore = inject(NautilusStore);
 
@@ -96,8 +78,6 @@ export default class DesktopComponent {
 
   private _componentCache: Record<string, Promise<Type<unknown>>> = {};
 
-  protected readonly mainIcons = mainIconsSidebar;
-  protected readonly secondaryIcons = secondaryIconsSidebar;
   protected readonly desktopIcons = desktopIcons;
 
   protected readonly APPS: Record<
@@ -105,18 +85,14 @@ export default class DesktopComponent {
     () => Promise<{ default: Type<unknown> }>
   > = {
     "video-player": () =>
-      import("../apps/video-player/presentation/video-player.component"),
-    "vsc": () =>
-      import("../apps/code-editor/presentation/code-editor.component"),
-    "translator": () =>
-      import("../apps/translator/presentation/translator.component"),
-    "paint": () => import("../apps/paint/presentation/paint.component"),
-    "calculator": () =>
-      import("../apps/calculator/presentation/calculator.component"),
-    "nautilus": () =>
-      import("../apps/nautilus/presentation/nautilus.component"),
-    "todo": () => import("../apps/todo/presentation/todo.component"),
-    "clock": () => import("../apps/clock/clock.component"),
+      import("../apps/video-player/presentation/video-player"),
+    "vsc": () => import("../apps/code-editor/presentation/code-editor"),
+    "translator": () => import("../apps/translator/presentation/translator"),
+    "paint": () => import("../apps/paint/presentation/paint"),
+    "calculator": () => import("../apps/calculator/presentation/calculator"),
+    "nautilus": () => import("../apps/nautilus/presentation/nautilus"),
+    "todo": () => import("../apps/todo/presentation/todo"),
+    "clock": () => import("../apps/clock/clock"),
   };
 
   protected resolveApp(appKey: string): Promise<Type<unknown>> | null {

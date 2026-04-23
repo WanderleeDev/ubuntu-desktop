@@ -9,22 +9,22 @@ import { CapitalizePipe } from "../../../../../../shared/pipes/capitalize.pipe";
 
 import { FormatListPipe } from "../../../../../../shared/pipes/formatList.pipe";
 import { Task } from "../../../domain/task.interface";
-import { ControlsTaskComponent } from "../controls-task/controls-task.component";
-import { TaskEditorComponent } from "../task-editor/task-editor.component";
+import { ControlsTask } from "../controls-task/controls-task";
+import { TaskEditor } from "../task-editor/task-editor";
 
 @Component({
   selector: "app-task",
   standalone: true,
-  templateUrl: "./task.component.html",
+  templateUrl: "./task.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CapitalizePipe,
     FormatListPipe,
-    ControlsTaskComponent,
-    TaskEditorComponent,
+    ControlsTask,
+    TaskEditor,
   ],
 })
-export class TaskComponent {
+export class Task {
   task = input.required<Task>();
   indexTask = input.required<number>();
   taskStatusStream = computed(() => `[${this.task().status}] : `);

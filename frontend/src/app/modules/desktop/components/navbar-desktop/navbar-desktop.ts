@@ -5,18 +5,18 @@ import {
   computed,
   ChangeDetectionStrategy,
 } from "@angular/core";
-import { CalendarComponent } from "../../../../shared/ui/calendar/calendar.component";
+import { Calendar } from "../../../../shared/ui/calendar/calendar";
 import { ClockService } from "../../../apps/clock/services/clock.service";
 import { WindowManagerStore } from "../../infrastructure/window-manager.store";
 
 @Component({
   selector: "app-navbar-desktop",
   standalone: true,
-  imports: [CalendarComponent],
-  templateUrl: "./navbar-desktop.component.html",
+  imports: [NgOptimizedImage, AsyncPipe],
+  templateUrl: "./navbar-desktop.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NavbarDesktopComponent {
+export class NavbarDesktop {
   private readonly clockSvc = inject(ClockService);
   private readonly windowManager = inject(WindowManagerStore);
 

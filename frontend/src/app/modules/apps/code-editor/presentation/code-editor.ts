@@ -1,22 +1,22 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { CodeEditorStore } from "../infrastructure/code-editor.store";
-import { EditorPreviewComponent } from "./components/editor-preview.component";
-import { EditorSidebarComponent } from "./components/editor-sidebar.component";
-import { EditorStatusBarComponent } from "./components/editor-status-bar.component";
-import { MonacoEditorComponent } from "./components/monaco-editor.component";
+import { EditorPreview } from "./components/editor-preview";
+import { EditorSidebar } from "./components/editor-sidebar";
+import { EditorStatusBar } from "./components/editor-status-bar";
+import { MonacoEditor } from "./components/monaco-editor";
 
 @Component({
   selector: "app-code-editor-app",
   imports: [
-    WindowWrapperComponent,
-    MonacoEditorComponent,
-    EditorSidebarComponent,
-    EditorPreviewComponent,
-    EditorStatusBarComponent,
+    WindowWrapper,
+    MonacoEditor,
+    EditorSidebar,
+    EditorPreview,
+    EditorStatusBar,
   ],
   providers: [CodeEditorStore],
-  templateUrl: "./code-editor.component.html",
+  templateUrl: "./code-editor.html",
   styles: `
     :host {
       display: block;

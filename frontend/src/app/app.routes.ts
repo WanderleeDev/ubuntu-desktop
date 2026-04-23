@@ -1,21 +1,21 @@
 import { Routes } from "@angular/router";
-import { AuthComponent } from "./modules/auth/auth.component";
+import { Auth } from "./modules/auth/auth";
 
 export const routes: Routes = [
   {
     path: "",
-    component: AuthComponent,
+    component: Auth,
     loadChildren: () => import("./modules/auth/auth.routing"),
     title: "Ubuntu | auth",
   },
   {
     path: "home",
-    loadComponent: () => import("./modules/desktop/desktop.component"),
+    loadComponent: () => import("./modules/desktop/desktop"),
     title: "Ubuntu | home",
   },
   {
     path: "**",
-    loadComponent: () => import("./modules/not-found/notFound.component"),
+    loadComponent: () => import("./modules/not-found/notFound"),
     title: "Ubuntu | not found",
   },
 ];

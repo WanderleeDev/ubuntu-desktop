@@ -1,5 +1,5 @@
-export { AfternoonSvgComponent } from "./afternoon-svg/afternoon-svg.component";
-export { ClockSvgComponent } from "./clock-svg/clock-svg.component";
-export { DaySvgComponent } from "./day-svg/day-svg.component";
-export { EveningSvgComponent } from "./evening-svg/evening-svg.component";
-export { SunriseSvgComponent } from "./sunrise-svg/sunrise-svg.component";
+export { AfternoonSvg } from "./afternoon-svg/afternoon-svg";
+export { ClockSvg } from "./clock-svg/clock-svg";
+export { DaySvg } from "./day-svg/day-svg";
+export { EveningSvg } from "./evening-svg/evening-svg";
+export { SunriseSvg } from "./sunrise-svg/sunrise-svg";

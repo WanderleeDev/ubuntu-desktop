@@ -9,7 +9,7 @@ import { PaintStore } from "../../../infrastructure/paint.store";
 @Component({
   selector: "app-header-control-extra",
   imports: [],
-  templateUrl: "./header-control-extra.component.html",
+  templateUrl: "./header-control-extra.html",
   styles: `
     :host {
       display: block;
@@ -17,7 +17,7 @@ import { PaintStore } from "../../../infrastructure/paint.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderControlExtraComponent {
+export class HeaderControlExtra {
   isActiveFullscreen = input.required<boolean>();
   readonly store = inject(PaintStore);
 

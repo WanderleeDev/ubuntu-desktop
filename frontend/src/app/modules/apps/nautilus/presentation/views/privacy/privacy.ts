@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
   selector: "app-nautilus-privacy",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: "./privacy.component.html",
+  templateUrl: "./privacy.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { CommonModule } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrivacyComponent {
+export class Privacy {
   readonly store = inject(NautilusStore);
 
   readonly privacySettings = [

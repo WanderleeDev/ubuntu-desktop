@@ -19,10 +19,10 @@ interface IBtnEditingTask {
   selector: "app-controls-task",
   standalone: true,
   imports: [],
-  templateUrl: "./controls-task.component.html",
+  templateUrl: "./controls-task.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ControlsTaskComponent implements OnInit {
+export class ControlsTask implements OnInit {
   private readonly todoStore = inject(TodoStore);
 
   currentTask = input.required<Task>();

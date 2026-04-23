@@ -6,7 +6,7 @@ import { NgOptimizedImage } from "@angular/common";
   selector: "app-nautilus-background",
   standalone: true,
   imports: [NgOptimizedImage],
-  templateUrl: "./background.component.html",
+  templateUrl: "./background.html",
   styles: `
     :host {
       display: block;
@@ -15,6 +15,6 @@ import { NgOptimizedImage } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class BackgroundComponent {
+export class Background {
   readonly store = inject(NautilusStore);
 }

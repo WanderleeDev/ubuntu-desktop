@@ -4,7 +4,7 @@ import { BaseIcon } from "../../interfaces/BaseIcon.class";
 @Component({
   selector: "app-clock-svg",
   imports: [],
-  templateUrl: "./clock-svg.component.html",
+  templateUrl: "./clock-svg.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClockSvgComponent extends BaseIcon {}
+export class ClockSvg extends BaseIcon {}

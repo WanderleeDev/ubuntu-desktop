@@ -19,4 +19,4 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorRecordEmptyComponent {}
+export class CalculatorRecordEmpty {}

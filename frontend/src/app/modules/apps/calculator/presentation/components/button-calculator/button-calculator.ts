@@ -19,7 +19,7 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonCalculatorComponent {
+export class ButtonCalculator {
   label = input.required<string>();
   value = input.required<string>();
 }

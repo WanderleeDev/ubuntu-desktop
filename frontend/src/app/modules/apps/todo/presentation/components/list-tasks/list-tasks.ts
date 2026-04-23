@@ -1,16 +1,16 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 import { Task } from "../../../domain/task.interface";
-import { TaskComponent } from "../task/task.component";
-import { ControlsTodoComponent } from "../controls-todo/controls-todo.component";
+import { Task } from "../task/task";
+import { ControlsTodo } from "../controls-todo/controls-todo";
 
 @Component({
   selector: "app-list-tasks",
   standalone: true,
-  imports: [TaskComponent, ControlsTodoComponent],
-  templateUrl: "./list-tasks.component.html",
+  imports: [Task, ControlsTodo],
+  templateUrl: "./list-tasks.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ListTasksComponent {
+export class ListTasks {
   tasks = input.required<Task[]>();
   allTasksNumber = input.required<number>();
 }

@@ -30,4 +30,4 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditorStatusBarComponent {}
+export class EditorStatusBar {}

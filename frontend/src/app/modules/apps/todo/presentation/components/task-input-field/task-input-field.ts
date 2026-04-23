@@ -8,10 +8,10 @@ import { TaskMessages } from "../../../domain/TaskMessages.enum";
   selector: "app-task-input-field",
   standalone: true,
   imports: [ReactiveFormsModule],
-  templateUrl: "./task-input-field.component.html",
+  templateUrl: "./task-input-field.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TaskInputFieldComponent {
+export class TaskInputField {
   private readonly todoStore = inject(TodoStore);
 
   inputTask = new FormControl("", {

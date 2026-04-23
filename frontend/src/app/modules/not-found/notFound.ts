@@ -11,12 +11,12 @@ import {
   signal,
 } from "@angular/core";
 import { RouterLink } from "@angular/router";
-import { BtnGradientComponent } from "../../shared/components/btn-gradient/btn-gradient.component";
+import { BtnGradient } from "../../shared/components/btn-gradient/btn-gradient";
 
 @Component({
   selector: "app-not-found",
-  imports: [CommonModule, NgOptimizedImage, RouterLink, BtnGradientComponent],
-  templateUrl: "./notFound.component.html",
+  imports: [CommonModule, NgOptimizedImage, RouterLink, BtnGradient],
+  templateUrl: "./notFound.html",
   styles: `
     :host {
       display: contents;
@@ -24,7 +24,7 @@ import { BtnGradientComponent } from "../../shared/components/btn-gradient/btn-g
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class NotFoundComponent {
+export default class NotFound {
   private platformId = inject(PLATFORM_ID);
   readonly url = signal<string>("");
 

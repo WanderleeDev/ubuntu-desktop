@@ -4,11 +4,11 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 @Component({
   selector: "app-user",
   imports: [NgOptimizedImage, NgStyle],
-  templateUrl: "./user.component.html",
-  styleUrl: "./user.component.css",
+  templateUrl: "./user.html",
+  styleUrl: "./user.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserComponent {
+export class User {
   userImage = input<string>("person");
 
   userName = input<string>("Unknown");

@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import { ButtonCalculatorComponent } from "../button-calculator/button-calculator.component";
+import { ButtonCalculator } from "../button-calculator/button-calculator";
 
 @Component({
   selector: "app-calculator-controls",
-  imports: [ButtonCalculatorComponent],
-  templateUrl: "./calculator-controls.component.html",
-  styleUrl: "./calculator-controls.component.css",
+  imports: [ButtonCalculator],
+  templateUrl: "./calculator-controls.html",
+  styleUrl: "./calculator-controls.css",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorControlsComponent {
+export class CalculatorControls {
   readonly buttons = [
     {
       label: "C",

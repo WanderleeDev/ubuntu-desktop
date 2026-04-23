@@ -6,7 +6,7 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
   selector: "app-nautilus-notifications",
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
-  templateUrl: "./notifications.component.html",
+  templateUrl: "./notifications.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NotificationsComponent {
+export class Notifications {
   readonly store = inject(NautilusStore);
 
   readonly appNotifications = [

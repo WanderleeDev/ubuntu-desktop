@@ -6,7 +6,7 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
   selector: "app-nautilus-applications",
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
-  templateUrl: "./applications.component.html",
+  templateUrl: "./applications.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ApplicationsComponent {
+export class Applications {
   readonly store = inject(NautilusStore);
 
   readonly apps = [

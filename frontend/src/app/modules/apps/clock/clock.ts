@@ -1,4 +1,4 @@
-import { DatePipe, NgComponentOutlet } from "@angular/common";
+import { DatePipe, NgOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -9,11 +9,11 @@ import {
   Type,
 } from "@angular/core";
 import {
-  AfternoonSvgComponent,
-  ClockSvgComponent,
-  DaySvgComponent,
-  EveningSvgComponent,
-  SunriseSvgComponent,
+  AfternoonSvg,
+  ClockSvg,
+  DaySvg,
+  EveningSvg,
+  SunriseSvg,
 } from "./components";
 import { ClockConfig } from "./interfaces/ClockConfig.interface";
 import { ClockService } from "./services/clock.service";
@@ -21,8 +21,8 @@ import { ClockService } from "./services/clock.service";
 @Component({
   selector: "app-clock",
   standalone: true,
-  imports: [NgComponentOutlet],
-  templateUrl: "./clock.component.html",
+  imports: [NgOutlet],
+  templateUrl: "./clock.html",
   styles: [
     `
       :host {
@@ -32,7 +32,7 @@ import { ClockService } from "./services/clock.service";
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ClockComponent {
+export default class Clock {
   private readonly clockSvc = inject(ClockService);
   clock: Signal<Date> = this.clockSvc.getSignalClock();
   configClock = input<Partial<ClockConfig>>({});
@@ -40,11 +40,11 @@ export default class ClockComponent {
   private readonly datePipe = new DatePipe("en-US");
 
   private readonly ICON_MAP: Record<string, Type<unknown>> = {
-    day: DaySvgComponent,
-    afternoon: AfternoonSvgComponent,
-    evening: EveningSvgComponent,
-    sunrise: SunriseSvgComponent,
-    clock: ClockSvgComponent,
+    day: DaySvg,
+    afternoon: AfternoonSvg,
+    evening: EveningSvg,
+    sunrise: SunriseSvg,
+    clock: ClockSvg,
   };
 
   protected readonly config = computed<ClockConfig>(() => ({
@@ -68,9 +68,9 @@ export default class ClockComponent {
   });
 
   protected readonly activeIcon = computed(
-    () => this.ICON_MAP[this.iconType()] || ClockSvgComponent
+    () => this.ICON_MAP[this.iconType()] || ClockSvg
   );
-  protected readonly staticIcon = ClockSvgComponent;
+  protected readonly staticIcon = ClockSvg;
 
   // Pre-formatted strings to optimize template rendering
   protected readonly dateHeader = computed(() => {

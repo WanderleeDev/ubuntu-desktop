@@ -40,7 +40,7 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MonacoEditorComponent {
+export class MonacoEditor {
   readonly store = inject(CodeEditorStore);
   readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 

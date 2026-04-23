@@ -31,6 +31,6 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditorPreviewComponent {
+export class EditorPreview {
   readonly store = inject(CodeEditorStore);
 }

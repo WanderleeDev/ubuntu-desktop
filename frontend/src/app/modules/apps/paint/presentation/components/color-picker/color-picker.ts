@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, output } from "@angular/core";
 @Component({
   selector: "app-color-picker",
   imports: [CommonModule],
-  templateUrl: "./color-picker.component.html",
+  templateUrl: "./color-picker.html",
   styles: `
     :host {
       display: block;
@@ -12,7 +12,7 @@ import { ChangeDetectionStrategy, Component, output } from "@angular/core";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColorPickerComponent {
+export class ColorPicker {
   changeColor = output<string>();
 
   public onChange(color: string): void {

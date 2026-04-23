@@ -1,24 +1,24 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { TodoStore } from "../infrastructure/todo.store";
-import { ListTasksComponent } from "./components/list-tasks/list-tasks.component";
-import { TaskInputFieldComponent } from "./components/task-input-field/task-input-field.component";
+import { ListTasks } from "./components/list-tasks/list-tasks";
+import { TaskInputField } from "./components/task-input-field/task-input-field";
 import { FilterPipe } from "./pipes/filter.pipe";
 
 @Component({
   selector: "app-todo",
   standalone: true,
   imports: [
-    TaskInputFieldComponent,
-    ListTasksComponent,
+    TaskInputField,
+    ListTasks,
     FilterPipe,
-    WindowWrapperComponent,
+    WindowWrapper,
   ],
-  templateUrl: "./todo.component.html",
+  templateUrl: "./todo.html",
   providers: [TodoStore],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class TodoComponent {
+export default class Todo {
   protected readonly store = inject(TodoStore);
 
   protected readonly todos = this.store.todos;

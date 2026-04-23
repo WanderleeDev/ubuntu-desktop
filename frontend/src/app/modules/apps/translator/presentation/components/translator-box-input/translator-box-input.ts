@@ -12,7 +12,7 @@ import { TranslatorStore } from "../../../infrastructure/translator.store";
 @Component({
   selector: "app-translator-box-input",
   imports: [ReactiveFormsModule, ClipboardModule],
-  templateUrl: "./translator-box-input.component.html",
+  templateUrl: "./translator-box-input.html",
   styles: `
     :host {
       display: flex;
@@ -21,7 +21,7 @@ import { TranslatorStore } from "../../../infrastructure/translator.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorBoxInputComponent implements OnInit {
+export class TranslatorBoxInput implements OnInit {
   readonly $maxInputCharacters = input.required<number>();
 
   protected readonly store = inject(TranslatorStore);

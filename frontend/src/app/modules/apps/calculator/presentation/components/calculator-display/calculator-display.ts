@@ -1,12 +1,12 @@
 import { DecimalPipe } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { CalculatorStore } from "../../../infrastructure/calculator.store";
-import { CalculatorRecordEmptyComponent } from "../calculator-record-empty/calculator-record-empty.component";
+import { CalculatorRecordEmpty } from "../calculator-record-empty/calculator-record-empty";
 
 @Component({
   selector: "app-calculator-display",
-  imports: [CalculatorRecordEmptyComponent, DecimalPipe],
-  templateUrl: "./calculator-display.component.html",
+  imports: [CalculatorRecordEmpty, DecimalPipe],
+  templateUrl: "./calculator-display.html",
   styles: `
     :host {
       display: block;
@@ -15,6 +15,6 @@ import { CalculatorRecordEmptyComponent } from "../calculator-record-empty/calcu
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CalculatorDisplayComponent {
+export class CalculatorDisplay {
   readonly store = inject(CalculatorStore);
 }

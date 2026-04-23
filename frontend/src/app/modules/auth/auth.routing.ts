@@ -4,16 +4,16 @@ const AUTH_ROUTES: Routes = [
   {
     path: "",
     loadComponent: () =>
-      import("./presentation/views/entry-page/entry-page.component"),
+      import("./presentation/views/entry-page/entry-page"),
   },
   {
     path: "login",
-    loadComponent: () => import("./presentation/views/login/login.component"),
+    loadComponent: () => import("./presentation/views/login/login"),
   },
   {
     path: "register",
     loadComponent: () =>
-      import("./presentation/views/register/register.component"),
+      import("./presentation/views/register/register"),
   },
 ];
 

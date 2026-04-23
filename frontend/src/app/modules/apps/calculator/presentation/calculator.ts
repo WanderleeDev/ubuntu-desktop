@@ -4,23 +4,23 @@ import {
   HostListener,
   inject,
 } from "@angular/core";
-import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { CalculatorStore } from "../infrastructure/calculator.store";
 import { CalculatorManagerService } from "../services/calculator-manager.service";
-import { CalculatorControlsComponent } from "./components/calculator-controls/calculator-controls.component";
-import { CalculatorDisplayComponent } from "./components/calculator-display/calculator-display.component";
-import { CalculatorUndoBtnComponent } from "./components/calculator-undo-btn/calculator-undo-btn.component";
+import { CalculatorControls } from "./components/calculator-controls/calculator-controls";
+import { CalculatorDisplay } from "./components/calculator-display/calculator-display";
+import { CalculatorUndoBtn } from "./components/calculator-undo-btn/calculator-undo-btn";
 
 @Component({
   selector: "app-calculator",
   imports: [
-    WindowWrapperComponent,
-    CalculatorControlsComponent,
-    CalculatorDisplayComponent,
-    CalculatorUndoBtnComponent,
+    WindowWrapper,
+    CalculatorControls,
+    CalculatorDisplay,
+    CalculatorUndoBtn,
   ],
   providers: [CalculatorManagerService, CalculatorStore],
-  templateUrl: "./calculator.component.html",
+  templateUrl: "./calculator.html",
   styles: `
     :host {
       display: contents;
@@ -28,7 +28,7 @@ import { CalculatorUndoBtnComponent } from "./components/calculator-undo-btn/cal
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class CalculatorComponent {
+export default class Calculator {
   readonly store = inject(CalculatorStore);
 
   @HostListener("window:keydown", ["$event"])

@@ -8,15 +8,15 @@ import {
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 import { AuthStore } from "../../../infrastructure/auth.store";
-import { ScreenLockComponent } from "../screen-lock/screen-lock.component";
+import { ScreenLock } from "../screen-lock/screen-lock";
 
 @Component({
   selector: "app-login-form",
-  imports: [ReactiveFormsModule, RouterLink, ScreenLockComponent],
-  templateUrl: "./login form.component.html",
+  imports: [ReactiveFormsModule, RouterLink, ScreenLock],
+  templateUrl: "./login form.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginFormComponent {
+export class LoginForm {
   private readonly fb = inject(FormBuilder);
   public readonly authStore = inject(AuthStore);
 

@@ -45,7 +45,7 @@ import {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EditorSidebarComponent {
+export class EditorSidebar {
   readonly store = inject(CodeEditorStore);
 
   files: { id: FileType; label: string; icon: string; color: string }[] = [

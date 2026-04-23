@@ -16,7 +16,7 @@ import { SeoService } from "./shared/services/seo.service";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class App {
   readonly #seoService = inject(SeoService);
 
   constructor() {

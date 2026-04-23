@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { UserComponent } from "../../../../../shared/components/user/user.component";
+import { User } from "../../../../../shared/components/user/user";
 
 @Component({
   selector: "app-personal-user-card",
-  imports: [UserComponent],
-  templateUrl: "./personal-user-card.component.html",
+  imports: [User],
+  templateUrl: "./personal-user-card.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PersonalUserCardComponent {
+export class PersonalUserCard {
   username = input<string>("Unknown");
 }

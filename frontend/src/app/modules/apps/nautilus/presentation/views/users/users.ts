@@ -7,7 +7,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   selector: "app-nautilus-users",
   standalone: true,
   imports: [CommonModule, NgOptimizedImage],
-  templateUrl: "./users.component.html",
+  templateUrl: "./users.html",
   styles: `
     :host {
       display: block;
@@ -16,7 +16,7 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UsersComponent {
+export class Users {
   readonly store = inject(NautilusStore);
   readonly authStore = inject(AuthStore);
 

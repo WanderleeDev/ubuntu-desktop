@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
-import ClockComponent from "../../modules/apps/clock/clock.component";
-import { LoaderComponent } from "../../shared/components/loader/loader.component";
-import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-logo.component";
+import Clock from "../../modules/apps/clock/clock";
+import { Loader } from "../../shared/components/loader/loader";
+import { UbuntuLogo } from "../../shared/components/ubuntu-logo/ubuntu-logo";
 
 @Component({
   selector: "app-auth-wrapper",
-  imports: [UbuntuLogoComponent, LoaderComponent, ClockComponent],
-  templateUrl: "./auth-wrapper.component.html",
+  imports: [UbuntuLogo, Loader, Clock],
+  templateUrl: "./auth-wrapper.html",
   styles: `
     :host {
       display: block;
@@ -14,4 +14,4 @@ import { UbuntuLogoComponent } from "../../shared/components/ubuntu-logo/ubuntu-
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthWrapperComponent {}
+export class AuthWrapper {}

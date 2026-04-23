@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
 @Component({
   selector: "app-translator-loader",
   imports: [],
-  templateUrl: "./translator-loader.component.html",
+  templateUrl: "./translator-loader.html",
   styles: `
     :host {
       display: flex;
@@ -11,4 +11,4 @@ import { ChangeDetectionStrategy, Component } from "@angular/core";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TranslatorLoaderComponent {}
+export class TranslatorLoader {}

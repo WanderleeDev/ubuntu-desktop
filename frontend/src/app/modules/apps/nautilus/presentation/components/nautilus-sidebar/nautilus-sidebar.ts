@@ -73,7 +73,7 @@ import { NgClass } from "@angular/common";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NautilusSidebarComponent {
+export class NautilusSidebar {
   readonly store = inject(NautilusStore);
   readonly sections = NAUTILUS_SECTIONS;
 

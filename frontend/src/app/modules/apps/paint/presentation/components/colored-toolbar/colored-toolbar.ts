@@ -1,13 +1,13 @@
 import { NgStyle } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { PaintStore } from "../../../infrastructure/paint.store";
-import { ColorPickerComponent } from "../color-picker/color-picker.component";
-import { ToolbarContainerComponent } from "../toolbar-container.component";
+import { ColorPicker } from "../color-picker/color-picker";
+import { ToolbarContainer } from "../toolbar-container";
 
 @Component({
   selector: "app-colored-toolbar",
-  imports: [ToolbarContainerComponent, ColorPickerComponent, NgStyle],
-  templateUrl: "./colored-toolbar.component.html",
+  imports: [ToolbarContainer, ColorPicker, NgStyle],
+  templateUrl: "./colored-toolbar.html",
   styles: `
     :host {
       display: block;
@@ -15,7 +15,7 @@ import { ToolbarContainerComponent } from "../toolbar-container.component";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColoredToolbarComponent {
+export class ColoredToolbar {
   readonly store = inject(PaintStore);
   readonly hexColors = [
     "#1D1D1D",

@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { PaintStore } from "../../../infrastructure/paint.store";
-import { ToolbarContainerComponent } from "../toolbar-container.component";
+import { ToolbarContainer } from "../toolbar-container";
 
 @Component({
   selector: "app-stroke-control",
-  imports: [ToolbarContainerComponent],
-  templateUrl: "./stroke-control.component.html",
+  imports: [ToolbarContainer],
+  templateUrl: "./stroke-control.html",
   styles: `
     :host {
       display: block;
@@ -13,6 +13,6 @@ import { ToolbarContainerComponent } from "../toolbar-container.component";
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StrokeControlComponent {
+export class StrokeControl {
   readonly store = inject(PaintStore);
 }
