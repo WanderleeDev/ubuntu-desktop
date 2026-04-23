@@ -8,16 +8,14 @@
       class="flex items-center cursor-pointer hover:bg-white/10 px-2 rounded transition-colors h-full"
       (click)="openClock()"
       #clockTrigger>
-      {{ currentTime() }}
+      {{ now() | date: "EEE MMM d HH:mm" }}
     </button>
 
-    @defer (on hover(clockTrigger)) {
-      @if (isClockOpen()) {
-        <div class="absolute top-[30px] left-1/2 -translate-x-1/2 z-1000">
-          <app-calendar />
-        </div>
-      }
-    }
+    @defer (on hover(clockTrigger)) { @if (isClockOpen()) {
+    <div class="absolute top-[30px] left-1/2 -translate-x-1/2 z-1000">
+      <app-calendar />
+    </div>
+    } }
   </div>
 
   <div class="flex items-center gap-4">

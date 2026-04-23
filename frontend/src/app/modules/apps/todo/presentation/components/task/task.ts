@@ -8,7 +8,7 @@ import {
 import { CapitalizePipe } from "../../../../../../shared/pipes/capitalize.pipe";
 
 import { FormatListPipe } from "../../../../../../shared/pipes/formatList.pipe";
-import { Task } from "../../../domain/task.interface";
+import { Task as TaskData } from "../../../domain/task.interface";
 import { ControlsTask } from "../controls-task/controls-task";
 import { TaskEditor } from "../task-editor/task-editor";
 
@@ -25,7 +25,8 @@ import { TaskEditor } from "../task-editor/task-editor";
   ],
 })
 export class Task {
-  task = input.required<Task>();
+  task = input.required<TaskData>();
+
   indexTask = input.required<number>();
   taskStatusStream = computed(() => `[${this.task().status}] : `);
   isViewControlTask = signal(false);

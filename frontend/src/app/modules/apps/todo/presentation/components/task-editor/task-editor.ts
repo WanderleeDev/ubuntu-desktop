@@ -12,7 +12,7 @@ import {
   Validators,
   ReactiveFormsModule,
 } from "@angular/forms";
-import { TaskEditor, Task } from "../../../domain/task.interface";
+import { TaskEditor as ITaskEditor, Task as ITask } from "../../../domain/task.interface";
 import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({
@@ -26,9 +26,10 @@ export class TaskEditor implements OnInit {
   private readonly todoStore = inject(TodoStore);
   private readonly fb = inject(FormBuilder);
 
-  currentTask = input.required<Task>();
+  currentTask = input.required<ITask>();
   isViewEditorTask = model(false);
-  formEditor!: FormGroup<TaskEditor>;
+  formEditor!: FormGroup<ITaskEditor>;
+
 
   ngOnInit(): void {
     this.formEditor = this.fb.nonNullable.group({

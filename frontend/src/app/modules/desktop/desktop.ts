@@ -1,4 +1,4 @@
-import { AsyncPipe, NgOutlet } from "@angular/common";
+import { AsyncPipe, NgComponentOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -62,7 +62,7 @@ const desktopIcons: DesktopIcon[] = [
 @Component({
   selector: "app-desktop-view",
   standalone: true,
-  imports: [Sidebar, NavbarDesktop, AppItem, NgOutlet, AsyncPipe],
+  imports: [Sidebar, NavbarDesktop, AppItem, NgComponentOutlet, AsyncPipe],
   providers: [WindowManagerStore],
   templateUrl: "./desktop.html",
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -8,22 +8,23 @@
     <ul
       class="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] grid-rows-[repeat(auto-fill,minmax(100px,1fr))] p-0 m-0 h-full">
       @for (icon of desktopIcons; track icon.id; let i = $index) {
-        <li class="list-none">
-          <app-app-item
-            [$appData]="icon"
-            [priority]="i < 4"
-            (click)="windowManager.openApp(icon.app)" />
-        </li>
+      <li class="list-none">
+        <app-item
+          [$appData]="icon"
+          [priority]="i < 4"
+          (click)="windowManager.openApp(icon.app)" />
+      </li>
+
       }
     </ul>
 
     @for (window of windowManager.openedApps(); track window.id) {
-      <div
-        class="absolute pointer-events-auto z-0 left-2/4 -translate-x-1/2 top-2/4 -translate-y-1/2 starting:scale-50 transition-transform duration-200 origin-top"
-        [tabindex]="window.id"
-        (mousedown)="windowManager.focusApp(window.id)">
-        <ng-container *ngComponentOutlet="resolveApp(window.app) | async" />
-      </div>
+    <div
+      class="absolute pointer-events-auto z-0 left-2/4 -translate-x-1/2 top-2/4 -translate-y-1/2 starting:scale-50 transition-transform duration-200 origin-top"
+      [tabindex]="window.id"
+      (mousedown)="windowManager.focusApp(window.id)">
+      <ng-container *ngComponentOutlet="resolveApp(window.app) | async" />
+    </div>
     }
   </div>
 </main>

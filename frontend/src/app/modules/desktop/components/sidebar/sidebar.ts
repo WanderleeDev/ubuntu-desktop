@@ -16,7 +16,6 @@ import { AppIcon } from "../../interfaces/app-icon.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Sidebar {
-
   mainIcons = signal<AppIcon[]>([
     { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
     { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },

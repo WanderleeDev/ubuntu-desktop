@@ -1,4 +1,4 @@
-import { DatePipe, NgOutlet } from "@angular/common";
+import { DatePipe, NgComponentOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -21,7 +21,7 @@ import { ClockService } from "./services/clock.service";
 @Component({
   selector: "app-clock",
   standalone: true,
-  imports: [NgOutlet],
+  imports: [NgComponentOutlet],
   templateUrl: "./clock.html",
   styles: [
     `

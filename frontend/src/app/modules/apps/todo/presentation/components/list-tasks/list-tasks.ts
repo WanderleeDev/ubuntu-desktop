@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { Task } from "../../../domain/task.interface";
+import { Task as TaskData } from "../../../domain/task.interface";
 import { Task } from "../task/task";
 import { ControlsTodo } from "../controls-todo/controls-todo";
 
@@ -11,6 +11,7 @@ import { ControlsTodo } from "../controls-todo/controls-todo";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ListTasks {
-  tasks = input.required<Task[]>();
+  tasks = input.required<TaskData[]>();
+
   allTasksNumber = input.required<number>();
 }
