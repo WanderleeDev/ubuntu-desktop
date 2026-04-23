@@ -71,7 +71,6 @@ export default class Clock {
   );
   protected readonly staticIcon = ClockSvg;
 
-  // Pre-formatted strings to optimize template rendering
   protected readonly dateHeader = computed(() => {
     const format = this.config().isSimple ? "EEE, MMM d HH:mm" : "EEEE, d MMMM";
     return this.datePipe.transform(this.clock(), format) || "";

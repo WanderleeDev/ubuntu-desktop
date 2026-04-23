@@ -1,14 +1,7 @@
-@let cfg = config();
-@let iso = isoDate();
-@let header = dateHeader();
-@let basicTime = timeBasic();
-@let regTime = timeRegular();
-@let secs = seconds();
-@let compTime = timeComplete();
-@let tzFull = timeZoneFull();
-@let tzShort = timeZoneShort();
-@let weekNum = weekNumber();
-@let icon = activeIcon();
+@let cfg = config(); @let iso = isoDate(); @let header = dateHeader(); @let
+basicTime = timeBasic(); @let regTime = timeRegular(); @let secs = seconds();
+@let compTime = timeComplete(); @let tzFull = timeZoneFull(); @let tzShort =
+timeZoneShort(); @let weekNum = weekNumber(); @let icon = activeIcon();
 
 <div
   [class]="
@@ -18,101 +11,87 @@
       : 'p-10 bg-white/5 shadow-2xl border border-white/10 backdrop-blur-xl min-w-[280px] w-full')
   ">
   @if (!cfg.isSimple) {
-    <!-- Decorative Glows -->
-    <div
-      class="absolute -top-10 -right-10 w-40 h-40 bg-[#e95420]/10 rounded-full blur-3xl pointer-events-none"></div>
-    <div
-      class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#772953]/10 rounded-full blur-3xl pointer-events-none"></div>
+  
+  <div
+    class="absolute -top-10 -right-10 w-40 h-40 bg-[#e95420]/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div
+    class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#772953]/10 rounded-full blur-3xl pointer-events-none"></div>
   }
 
-  <!-- Date Header -->
+  
   @if (cfg.hasDayAndMonth) {
-    <time
-      [dateTime]="iso"
-      [class]="
+  <time
+    [dateTime]="iso"
+    [class]="
         'text-xl font-medium tracking-wide uppercase transition-colors ' +
         (!cfg.isSimple ? 'mb-2 text-[#aea79f]' : 'text-white/60')
       ">
-      {{ header }}
+    {{ header }}
+  </time>
+  }
+
+  
+  @if (cfg.isSimple) { @if (!cfg.hasDayAndMonth) {
+  <time [dateTime]="iso" class="text-[13px] font-medium text-white/90">
+    {{ header }}
+  </time>
+  } } @else {
+  <div class="relative mb-8">
+    <time
+      [dateTime]="basicTime"
+      class="tracking-tighter text-white drop-shadow-sm text-7xl font-extralight">
+      @switch (cfg.type) { @case ("basic") { {{ basicTime }} } @case ("regular")
+      {
+      <span class="flex items-baseline gap-2">
+        {{ regTime }}
+        <span
+          class="text-3xl text-[#e95420] font-normal tabular-nums animate-pulse">
+          {{ secs }}
+        </span>
+      </span>
+      } @case ("complete") {
+      <div class="flex flex-col items-center">
+        <span class="text-7xl">{{ compTime }}</span>
+        <span class="text-sm font-medium opacity-60">{{ tzFull }}</span>
+      </div>
+      } @default { {{ regTime }} } }
     </time>
+  </div>
   }
 
-  <!-- Main Time Display -->
-  @if (cfg.isSimple) {
-    @if (!cfg.hasDayAndMonth) {
-      <time [dateTime]="iso" class="text-[13px] font-medium text-white/90">
-        {{ header }}
-      </time>
-    }
-  } @else {
-    <div class="relative mb-8">
-      <time
-        [dateTime]="basicTime"
-        class="tracking-tighter text-white drop-shadow-sm text-7xl font-extralight">
-        @switch (cfg.type) {
-          @case ("basic") {
-            {{ basicTime }}
-          }
-          @case ("regular") {
-            <span class="flex items-baseline gap-2">
-              {{ regTime }}
-              <span
-                class="text-3xl text-[#e95420] font-normal tabular-nums animate-pulse">
-                {{ secs }}
-              </span>
-            </span>
-          }
-          @case ("complete") {
-            <div class="flex flex-col items-center">
-              <span class="text-7xl">{{ compTime }}</span>
-              <span class="text-sm font-medium opacity-60">{{ tzFull }}</span>
-            </div>
-          }
-          @default {
-            {{ regTime }}
-          }
-        }
-      </time>
-    </div>
-  }
-
-  <!-- Icons Section -->
+  
   @if (cfg.hasIcons || cfg.hasVariableIcons) {
-    <div class="flex items-center gap-10">
-      @let iconSize = cfg.isSimple ? 100 : 70;
-      @let iconBaseClasses = "p-4 rounded-2xl transition-colors duration-300";
-      @let iconBg = !cfg.isSimple ? "bg-white/5 hover:bg-white/10" : "";
-
-      @if (cfg.hasIcons) {
-        <div [class]="iconBaseClasses + ' ' + iconBg">
-          <ng-container
-            [ngComponentOutlet]="staticIcon"
-            [ngComponentOutletInputs]="{ size: iconSize }" />
-        </div>
-      }
-
-      @if (cfg.hasVariableIcons) {
-        <div [class]="iconBaseClasses + ' ' + iconBg">
-          <ng-container
-            [ngComponentOutlet]="icon"
-            [ngComponentOutletInputs]="{ size: iconSize }" />
-        </div>
-      }
+  <div class="flex items-center gap-10">
+    @let iconSize = cfg.isSimple ? 100 : 70; @let iconBaseClasses = "p-4
+    rounded-2xl transition-colors duration-300"; @let iconBg = !cfg.isSimple ?
+    "bg-white/5 hover:bg-white/10" : ""; @if (cfg.hasIcons) {
+    <div [class]="iconBaseClasses + ' ' + iconBg">
+      <ng-container
+        [ngComponentOutlet]="staticIcon"
+        [ngComponentOutletInputs]="{ size: iconSize }" />
     </div>
+    } @if (cfg.hasVariableIcons) {
+    <div [class]="iconBaseClasses + ' ' + iconBg">
+      <ng-container
+        [ngComponentOutlet]="icon"
+        [ngComponentOutletInputs]="{ size: iconSize }" />
+    </div>
+    }
+  </div>
   }
 
-  <!-- Footer Info -->
+  
   @if (!cfg.isSimple) {
-    <div
-      class="mt-8 pt-6 border-t border-white/5 w-full flex justify-around text-[#aea79f] text-xs font-medium uppercase tracking-widest">
-      <div class="flex flex-col items-center">
-        <span>Time Zone</span>
-        <span class="text-white mt-1">UTC{{ tzShort }}</span>
-      </div>
-      <div class="flex flex-col items-center">
-        <span>Week</span>
-        <span class="text-white mt-1">{{ weekNum }}</span>
-      </div>
+  <div
+    class="mt-8 pt-6 border-t border-white/5 w-full flex justify-around text-[#aea79f] text-xs font-medium uppercase tracking-widest">
+    <div class="flex flex-col items-center">
+      <span>Time Zone</span>
+      <span class="text-white mt-1">UTC{{ tzShort }}</span>
     </div>
+    <div class="flex flex-col items-center">
+      <span>Week</span>
+      <span class="text-white mt-1">{{ weekNum }}</span>
+    </div>
+  </div>
   }
 </div>

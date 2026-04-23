@@ -32,7 +32,7 @@ const initialState: CodeEditorState = {
   <p>Try editing the HTML, CSS and JS to see live changes.</p>
   <button id="actionBtn">Click Me</button>
 </div>`,
-    css: `/* Ubuntu Styles */
+    css: `
 body {
   font-family: 'Ubuntu', sans-serif;
   background: #2c2c2c;

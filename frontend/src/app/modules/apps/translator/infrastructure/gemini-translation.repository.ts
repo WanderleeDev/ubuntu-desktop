@@ -11,8 +11,7 @@ export class GeminiTranslationRepository extends TranslationRepository {
     from: string,
     to: string
   ): AsyncGenerator<string> {
-    // This is now a placeholder for the backend call as requested.
-    // The backend will handle the Gemini API and prompts.
+
     try {
       const response = await fetch("/api/translate", {
         method: "POST",

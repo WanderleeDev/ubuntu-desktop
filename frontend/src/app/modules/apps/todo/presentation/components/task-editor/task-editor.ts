@@ -29,7 +29,6 @@ export class TaskEditor implements OnInit {
   isViewEditorTask = model(false);
   formEditor!: FormGroup<ITaskEditor>;
 
-
   ngOnInit(): void {
     this.formEditor = this.fb.nonNullable.group({
       task: [
