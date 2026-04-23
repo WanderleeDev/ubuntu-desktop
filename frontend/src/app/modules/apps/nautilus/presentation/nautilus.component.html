@@ -14,7 +14,9 @@
     <!-- Área de contenido principal -->
     <div class="flex-1 flex flex-col h-full bg-[#1e1e1e]/40 backdrop-blur-md">
       <!-- Cabecera de la sección -->
-      @if (store.currentSection() !== NautilusSection.BACKGROUND) {
+      @if (store.currentSection() !== NautilusSection.BACKGROUND && 
+           store.currentSection() !== NautilusSection.APPEARANCE &&
+           store.currentSection() !== NautilusSection.PRIVACY) {
         <div class="px-8 pt-10 pb-6 border-b border-white/5 bg-white/5">
           <h2 class="text-4xl font-extrabold tracking-tight text-white/95">
             {{ currentSectionLabel }}
@@ -31,6 +33,12 @@
           @switch (store.currentSection()) {
             @case (NautilusSection.BACKGROUND) {
               <app-nautilus-background />
+            }
+            @case (NautilusSection.APPEARANCE) {
+              <app-nautilus-appearance />
+            }
+            @case (NautilusSection.PRIVACY) {
+              <app-nautilus-privacy />
             }
             @default {
               <div class="space-y-6">

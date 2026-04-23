@@ -5,6 +5,8 @@ import { NautilusSection } from "../domain/nautilus.model";
 import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
 import { NautilusStore } from "../infrastructure/nautilus.store";
 import { BackgroundComponent } from "./views/background/background.component";
+import { AppearanceComponent } from "./views/appearance/appearance.component";
+import { PrivacyComponent } from "./views/privacy/privacy.component";
 import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus-sidebar.component";
 
 @Component({
@@ -15,6 +17,8 @@ import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus
     WindowWrapperComponent,
     NautilusSidebarComponent,
     BackgroundComponent,
+    AppearanceComponent,
+    PrivacyComponent,
   ],
   templateUrl: "./nautilus.component.html",
   styles: `

@@ -1,0 +1,37 @@
+<div class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
+  
+  <div class="flex items-center justify-between mb-2">
+    <h3 class="text-base font-bold text-white/90">Privacy</h3>
+  </div>
+
+  <div class="bg-[#2d2d2d] rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+    <div class="flex flex-col divide-y divide-white/5">
+      @for (setting of privacySettings; track setting.id) {
+        <button 
+          class="flex items-center justify-between p-5 hover:bg-white/5 transition-colors group text-left"
+        >
+          <div class="flex items-center gap-5">
+            <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white/60 group-hover:text-white transition-colors">
+              <span class="material-symbols-outlined text-2xl">{{ setting.icon }}</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-sm font-semibold text-white/90">{{ setting.label }}</span>
+              <span class="text-xs text-white/30">{{ setting.description }}</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-white/20 group-hover:text-white/40 transition-colors">chevron_right</span>
+          </div>
+        </button>
+      }
+    </div>
+  </div>
+
+  <!-- Additional Info -->
+  <div class="px-2">
+    <p class="text-xs text-white/20 leading-relaxed italic">
+      Your privacy is important. These settings help you control how your information is shared and accessed by applications.
+    </p>
+  </div>
+
+</div>

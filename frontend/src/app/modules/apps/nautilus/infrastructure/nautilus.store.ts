@@ -12,6 +12,8 @@ interface NautilusState {
   currentSection: NautilusSection;
   currentWallpaper: string;
   wallpapers: string[];
+  theme: "default" | "dark";
+  accentColor: string;
 }
 const DEFAULT_WALLPAPER =
   "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp";
@@ -33,6 +35,8 @@ const initialState: NautilusState = {
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553758/background2_ve9fa9.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp",
   ],
+  theme: "dark",
+  accentColor: "#E95420",
 };
 
 export const NautilusStore = signalStore(
@@ -50,6 +54,12 @@ export const NautilusStore = signalStore(
     },
     resetWallpaper(): void {
       patchState(store, { currentWallpaper: DEFAULT_WALLPAPER });
+    },
+    setTheme(theme: "default" | "dark"): void {
+      patchState(store, { theme });
+    },
+    setAccentColor(color: string): void {
+      patchState(store, { accentColor: color });
     },
   }))
 );
