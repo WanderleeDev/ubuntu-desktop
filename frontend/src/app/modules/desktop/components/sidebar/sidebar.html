@@ -7,22 +7,22 @@
     (cdkDropListDropped)="onDrop($event)"
     class="flex flex-col items-center gap-2">
     @for (item of mainIcons(); track item.id) {
-      <button
-        cdkDrag
-        [cdkDragData]="item"
-        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
-        type="button"
-        [title]="item.id">
-        <img
-          [ngSrc]="item.icon"
-          [alt]="item.id"
-          width="32"
-          height="32"
-          priority />
-        <div
-          *cdkDragPlaceholder
-          class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
-      </button>
+    <button
+      cdkDrag
+      [cdkDragData]="item"
+      class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
+      type="button"
+      [title]="item.id">
+      <img
+        [ngSrc]="item.icon"
+        [alt]="item.id"
+        width="32"
+        height="32"
+        priority />
+      <div
+        *cdkDragPlaceholder
+        class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
+    </button>
     }
   </div>
 
@@ -34,17 +34,17 @@
     (cdkDropListDropped)="onDrop($event)"
     class="flex flex-col items-center gap-2">
     @for (item of secondaryIcons(); track item.id) {
-      <button
-        cdkDrag
-        [cdkDragData]="item"
-        class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
-        type="button"
-        [title]="item.id">
-        <img [ngSrc]="item.icon" [alt]="item.id" width="32" height="32" />
-        <div
-          *cdkDragPlaceholder
-          class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
-      </button>
+    <button
+      cdkDrag
+      [cdkDragData]="item"
+      class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
+      type="button"
+      [title]="item.id">
+      <img [ngSrc]="item.icon" [alt]="item.id" width="32" height="32" />
+      <div
+        *cdkDragPlaceholder
+        class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
+    </button>
     }
   </div>
 

@@ -18,10 +18,14 @@
     } }
   </div>
 
-  <div class="flex items-center gap-4">
-    <span class="cursor-pointer text-sm">🔊</span>
-    <span class="cursor-pointer text-sm">🔋</span>
-    <span class="cursor-pointer text-sm">📶</span>
-    <span class="cursor-pointer text-sm">▼</span>
+  <div class="flex items-center gap-3">
+    @for (icon of statusIcons; track icon) {
+    <span
+      class="material-symbols-outlined cursor-pointer hover:text-white transition-colors"
+      style="font-size: 18px; font-variation-settings: &quot;opsz&quot; 14">
+      {{ icon }}
+    </span>
+
+    }
   </div>
 </nav>
