@@ -1,3 +1,4 @@
+import { NautilusStore } from "../modules/apps/nautilus/infrastructure/nautilus.store";
 import providersBase from "./providers/base.provider";
 import providersRouter from "./providers/router.provider";
 import providersAuth from "./providers/auth.provider";
@@ -9,4 +10,5 @@ export const APP_PROVIDERS = [
   ...providersRouter,
   ...providersAuth,
   ...providersMonaco,
+  NautilusStore,
 ];

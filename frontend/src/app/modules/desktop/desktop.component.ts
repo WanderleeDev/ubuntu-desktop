@@ -2,11 +2,13 @@ import { AsyncPipe, NgComponentOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   Type,
 } from "@angular/core";
 import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
+import { NautilusStore } from "../apps/nautilus/infrastructure/nautilus.store";
 import { AppItemComponent } from "./components/app-item/app-item.component";
 import { NavbarDesktopComponent } from "./components/navbar-desktop/navbar-desktop.component";
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
@@ -84,7 +86,14 @@ const desktopIcons: DesktopIcon[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class DesktopComponent {
-  readonly windowManager = inject(WindowManagerStore);
+  protected readonly windowManager = inject(WindowManagerStore);
+  protected readonly nautilusStore = inject(NautilusStore);
+
+  protected readonly desktopBackground = computed(() => {
+    const current = this.nautilusStore.currentWallpaper();
+    return current ? `url(${current})` : "black";
+  });
+
   private _componentCache: Record<string, Promise<Type<unknown>>> = {};
 
   protected readonly mainIcons = mainIconsSidebar;

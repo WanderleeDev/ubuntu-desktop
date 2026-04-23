@@ -1,15 +1,21 @@
 import { CommonModule } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { WindowWrapperComponent } from "../../../../layout/window-wrapper/window-wrapper.component";
+import { NautilusSection } from "../domain/nautilus.model";
 import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
 import { NautilusStore } from "../infrastructure/nautilus.store";
+import { BackgroundComponent } from "./views/background/background.component";
 import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus-sidebar.component";
 
 @Component({
   selector: "app-nautilus",
   standalone: true,
-  imports: [CommonModule, WindowWrapperComponent, NautilusSidebarComponent],
-  providers: [NautilusStore],
+  imports: [
+    CommonModule,
+    WindowWrapperComponent,
+    NautilusSidebarComponent,
+    BackgroundComponent,
+  ],
   templateUrl: "./nautilus.component.html",
   styles: `
     :host {
@@ -20,6 +26,7 @@ import { NautilusSidebarComponent } from "./components/nautilus-sidebar/nautilus
 })
 export default class NautilusComponent {
   readonly store = inject(NautilusStore);
+  readonly NautilusSection = NautilusSection;
 
   get currentSectionLabel(): string {
     return (

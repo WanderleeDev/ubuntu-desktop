@@ -19,8 +19,19 @@ export interface INautilusSection {
   category: "connectivity" | "personalization" | "system";
 }
 
+export interface Wallpaper {
+  id: string;
+  name: string;
+  thumbnail: string;
+  fullRes: string;
+  isDark?: boolean;
+  type?: "image" | "gradient" | "color";
+}
+
 export interface NautilusState {
   currentSection: NautilusSection;
+  wallpapers: Wallpaper[];
+  selectedWallpaperId: string | null;
   isLoading: boolean;
   error: string | null;
 }
