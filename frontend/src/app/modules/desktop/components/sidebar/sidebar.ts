@@ -16,7 +16,7 @@ import { AppIcon } from "../../interfaces/app-icon.interface";
 })
 export class Sidebar {
   mainIcons = signal<AppIcon[]>([
-    { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
+    { id: "chrome", icon: "assets/sidebarIcons/chrome.svg", app: "browser" },
     { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },
     { id: "github", icon: "assets/sidebarIcons/github.svg", app: "github" },
   ]);
