@@ -27,6 +27,7 @@
   
   /* System / Brand (Defaults) */
   --color-system: #e95420;
+  --image-filter: grayscale(100%) brightness(0.5);
 }
 
 .dark {
@@ -52,4 +53,5 @@
 
   /* Inversion */
   --filter-invert: invert(0);
+  --image-filter: grayscale(100%) brightness(0) invert(1);
 }
