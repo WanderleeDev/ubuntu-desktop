@@ -26,7 +26,7 @@
                 </div>
               </div>
               @if (isLightTheme()) {
-              <app-check-badge />
+              <app-check-badge className="absolute top-2 right-2" />
               }
             </button>
             <span class="text-sm font-medium text-text/70">Default</span>
@@ -51,7 +51,7 @@
                 </div>
               </div>
               @if (isDarkTheme()) {
-              <app-check-badge />
+              <app-check-badge className="absolute top-2 right-2" />
               }
             </button>
             <span class="text-sm font-medium text-text/70">Dark</span>
@@ -67,10 +67,10 @@
           @for (color of accentColors; track color.hex) {
           <button
             type="button"
-            (click)="store.setAccentColor(color.hex)"
+            (click)="settingsStore.setAccentColor(color.hex)"
             class="group relative w-8 h-8 rounded-full transition-transform hover:scale-110 active:scale-95"
             [style.background-color]="color.hex">
-            @if (store.accentColor() === color.hex) {
+            @if (settingsStore.accentColor() === color.hex) {
             <div
               class="absolute -inset-1.5 rounded-full border-2 border-system animate-in zoom-in duration-300"
               [style.border-color]="color.hex"></div>

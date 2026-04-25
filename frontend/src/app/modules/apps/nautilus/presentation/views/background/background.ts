@@ -1,10 +1,12 @@
 import { NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { NautilusStore } from "../../../infrastructure/nautilus.store";
+import { SettingsStore } from "../../../infrastructure/settings.store";
+import { NautilusButton } from "../../components/nautilus-button/nautilus-button";
+import { CheckBadgeComponent } from "../../../../../../shared/components/check-badge/check-badge";
 
 @Component({
   selector: "app-nautilus-background",
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, NautilusButton, CheckBadgeComponent],
   templateUrl: "./background.html",
   styles: `
     :host {
@@ -15,5 +17,5 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Background {
-  readonly store = inject(NautilusStore);
+  protected readonly settingsStore = inject(SettingsStore);
 }

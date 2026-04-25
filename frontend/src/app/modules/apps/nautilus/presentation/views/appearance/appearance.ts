@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { ThemeSelectService } from "ngx-theme-stack";
 import { CheckBadgeComponent } from "../../../../../../shared/components/check-badge/check-badge";
+import { SettingsStore } from "../../../infrastructure/settings.store";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
@@ -16,7 +17,8 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Appearance {
-  readonly store = inject(NautilusStore);
+  protected readonly store = inject(NautilusStore);
+  protected readonly settingsStore = inject(SettingsStore);
   readonly themeService = inject(ThemeSelectService);
   readonly isDarkTheme = this.themeService.isDark;
   readonly isLightTheme = this.themeService.isLight;

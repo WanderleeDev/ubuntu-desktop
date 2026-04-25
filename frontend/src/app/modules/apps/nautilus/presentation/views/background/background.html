@@ -2,12 +2,10 @@
   class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
   <div class="flex items-center justify-between mb-2">
     <h3 class="text-base font-bold text-text/90">Background</h3>
-    <button
-      type="button"
-      class="flex items-center gap-2 px-4 py-2 bg-system/10 hover:bg-system/20 text-system rounded-xl border border-system/20 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider">
-      <span class="material-symbols-outlined text-lg">add</span>
-      <span class="text-xs">Add Picture...</span>
-    </button>
+    <app-nautilus-button
+      label="Add Picture..."
+      icon="add"
+      variant="secondary" />
   </div>
 
   <div
@@ -15,7 +13,7 @@
     <div class="p-8 pb-6">
       <div
         class="relative w-full aspect-video sm:aspect-[21/9] rounded-xl overflow-hidden border border-white/10 group shadow-lg bg-black">
-        @if (store.currentWallpaper(); as wpUrl) {
+        @if (settingsStore.currentWallpaper(); as wpUrl) {
         <img
           [ngSrc]="wpUrl"
           alt="Current Background"
@@ -26,16 +24,11 @@
         <div class="absolute top-4 right-4 flex gap-2">
           <button
             type="button"
-            (click)="store.resetWallpaper()"
+            (click)="settingsStore.resetWallpaper()"
             class="w-8 h-8 flex items-center justify-center bg-black/60 hover:bg-black/80 rounded-full text-white transition-all scale-0 group-hover:scale-100 border border-white/10">
             <span class="material-symbols-outlined text-sm">close</span>
           </button>
-          <div
-            class="w-8 h-8 flex items-center justify-center bg-system rounded-full text-white shadow-lg border border-white/20">
-            <span class="material-symbols-outlined text-sm font-bold"
-              >check</span
-            >
-          </div>
+          <app-check-badge size="md" />
         </div>
         } @else {
         <div class="absolute inset-0 flex items-center justify-center">
@@ -51,11 +44,11 @@
 
     <div class="p-8 pt-6">
       <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        @for (wpUrl of store.wallpapers(); track wpUrl) { @let isActive =
-        store.currentWallpaper() === wpUrl;
+        @for (wpUrl of settingsStore.wallpapers(); track wpUrl) { @let isActive
+        = settingsStore.currentWallpaper() === wpUrl;
         <button
           type="button"
-          (click)="store.selectWallpaper(wpUrl)"
+          (click)="settingsStore.selectWallpaper(wpUrl)"
           class="relative aspect-video rounded-lg overflow-hidden transition-all duration-200 group border border-transparent"
           [class.ring-2]="isActive"
           [class.ring-system]="isActive"
@@ -70,7 +63,11 @@
             class="object-cover" />
 
           @if (isActive) {
-          <div class="absolute inset-0 bg-black/20"></div>
+          <div
+            class="absolute inset-0 bg-black/20 starting:opacity-0 transition-opacity">
+            <app-check-badge
+              class="absolute bottom-2 right-2 starting:scale-0 transition-transform origin-center" />
+          </div>
           }
 
           <div

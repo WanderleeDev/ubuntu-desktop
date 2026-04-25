@@ -1,66 +1,83 @@
-<div class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
-  
+<div
+  class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
   <div class="flex items-center justify-between mb-2">
     <h3 class="text-base font-bold text-text/90">Notifications</h3>
   </div>
 
-  <div class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+  <div
+    class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
     <div class="flex flex-col divide-y divide-white/5">
-      
       <div class="flex items-center justify-between p-5">
         <div class="flex flex-col gap-0.5">
           <span class="text-sm font-semibold text-text/90">Do Not Disturb</span>
           <span class="text-xs text-text/30">Mute all notifications</span>
         </div>
-        <button 
-          (click)="store.toggleDoNotDisturb()"
-          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (store.doNotDisturb() ? 'bg-system' : 'bg-white/10')"
-        >
-          <div [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (store.doNotDisturb() ? 'translate-x-5' : 'translate-x-0')"></div>
+        <button
+          type="button"
+          (click)="settingsStore.toggleDoNotDisturb()"
+          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (settingsStore.doNotDisturb() ? 'bg-system' : 'bg-white/10')">
+          <div
+            [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (settingsStore.doNotDisturb() ? 'translate-x-5' : 'translate-x-0')"></div>
         </button>
       </div>
 
       <div class="flex items-center justify-between p-5">
         <div class="flex flex-col gap-0.5">
-          <span class="text-sm font-semibold text-text/90">Lock Screen Notifications</span>
-          <span class="text-xs text-text/30">Show notifications on the lock screen</span>
+          <span class="text-sm font-semibold text-text/90"
+            >Lock Screen Notifications</span
+          >
+          <span class="text-xs text-text/30"
+            >Show notifications on the lock screen</span
+          >
         </div>
-        <button 
-          (click)="store.toggleLockScreenNotifications()"
-          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (store.lockScreenNotifications() ? 'bg-system' : 'bg-white/10')"
-        >
-          <div [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (store.lockScreenNotifications() ? 'translate-x-5' : 'translate-x-0')"></div>
+        <button
+          type="button"
+          (click)="settingsStore.toggleLockScreenNotifications()"
+          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (settingsStore.lockScreenNotifications() ? 'bg-system' : 'bg-white/10')">
+          <div
+            [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (settingsStore.lockScreenNotifications() ? 'translate-x-5' : 'translate-x-0')"></div>
         </button>
       </div>
-
     </div>
   </div>
 
   <div class="mt-4 mb-2">
-    <h4 class="text-sm font-bold text-text/50 px-1">Application Notifications</h4>
+    <h4 class="text-sm font-bold text-text/50 px-1">
+      Application Notifications
+    </h4>
   </div>
 
-  <div class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+  <div
+    class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
     <div class="flex flex-col divide-y divide-white/5">
       @for (app of appNotifications; track app.id) {
-        <button class="flex items-center justify-between p-5 hover:bg-white/5 transition-colors group">
-          <div class="flex items-center gap-4">
-            <div class="w-8 h-8 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center p-1.5">
-               <img [ngSrc]="app.icon" [alt]="app.label" width="32" height="32" class="object-contain">
-            </div>
-            <span class="text-sm font-medium text-text/90">{{ app.label }}</span>
+      <button
+        class="flex items-center justify-between p-5 hover:bg-white/5 transition-colors group">
+        <div class="flex items-center gap-4">
+          <div
+            class="w-8 h-8 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center p-1.5">
+            <img
+              [ngSrc]="app.icon"
+              [alt]="app.label"
+              width="32"
+              height="32"
+              class="object-contain" />
           </div>
-          <div class="flex items-center gap-3">
-            @if (app.enabled) {
-              <span class="text-xs font-bold text-text/20 mr-1">On</span>
-            } @else {
-              <span class="text-xs font-bold text-text/10 mr-1 italic">Off</span>
-            }
-            <span class="material-symbols-outlined text-text/20 group-hover:text-text/40 transition-colors">chevron_right</span>
-          </div>
-        </button>
+          <span class="text-sm font-medium text-text/90">{{ app.label }}</span>
+        </div>
+        <div class="flex items-center gap-3">
+          @if (app.enabled) {
+          <span class="text-xs font-bold text-text/20 mr-1">On</span>
+          } @else {
+          <span class="text-xs font-bold text-text/10 mr-1 italic">Off</span>
+          }
+          <span
+            class="material-symbols-outlined text-text/20 group-hover:text-text/40 transition-colors"
+            >chevron_right</span
+          >
+        </div>
+      </button>
       }
     </div>
   </div>
-
 </div>

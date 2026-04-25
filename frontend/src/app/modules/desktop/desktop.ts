@@ -8,7 +8,7 @@ import {
 } from "@angular/core";
 import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
-import { NautilusStore } from "../apps/nautilus/infrastructure/nautilus.store";
+import { SettingsStore } from "../apps/nautilus/infrastructure/settings.store";
 import { AppItem } from "./components/app-item/app-item";
 import { NavbarDesktop } from "./components/navbar-desktop/navbar-desktop";
 import { Sidebar } from "./components/sidebar/sidebar";
@@ -68,10 +68,10 @@ const desktopIcons: DesktopIcon[] = [
 })
 export default class Desktop {
   protected readonly windowManager = inject(WindowManagerStore);
-  protected readonly nautilusStore = inject(NautilusStore);
+  protected readonly settingsStore = inject(SettingsStore);
 
   protected readonly desktopBackground = computed(() => {
-    const current = this.nautilusStore.currentWallpaper();
+    const current = this.settingsStore.currentWallpaper();
     return current ? `url(${current})` : "black";
   });
 

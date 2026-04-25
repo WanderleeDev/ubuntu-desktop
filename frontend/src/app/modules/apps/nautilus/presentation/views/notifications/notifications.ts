@@ -1,5 +1,6 @@
 import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { SettingsStore } from "../../../infrastructure/settings.store";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
@@ -15,7 +16,8 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Notifications {
-  readonly store = inject(NautilusStore);
+  protected readonly store = inject(NautilusStore);
+  protected readonly settingsStore = inject(SettingsStore);
 
   readonly appNotifications = [
     {
