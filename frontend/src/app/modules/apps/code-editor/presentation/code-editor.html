@@ -1,14 +1,14 @@
 <app-window-wrapper appTitle="Ubuntu Web Playground - Code Editor">
   <div
     body
-    class="w-[920px] h-[620px] min-w-[600px] min-h-[400px] bg-[#1e1e1e] overflow-hidden flex flex-col font-sans">
+    class="w-[920px] h-[620px] min-w-[600px] min-h-[400px] bg-[var(--bg-darker)] overflow-hidden flex flex-col font-sans">
     <div class="flex-1 flex overflow-hidden">
       <div class="w-12 h-full overflow-hidden">
         <app-editor-sidebar class="w-full h-full" />
       </div>
 
       <div
-        class="flex-1 flex flex-col bg-[#1e1e1e] border-r border-white/5 overflow-hidden">
+        class="flex-1 flex flex-col bg-[var(--bg-darker)] border-r border-white/5 overflow-hidden">
         <div
           class="flex items-center justify-between px-4 py-2 bg-[#252526] border-b border-white/5">
           <div class="flex items-center gap-2">
@@ -30,7 +30,7 @@
               ">
               <span
                 class="material-symbols-outlined text-[18px]"
-                [class.text-orange-500]="store.settings().showPreview">
+                [class.text-system]="store.settings().showPreview">
                 {{
                   store.settings().showPreview ? "visibility" : "visibility_off"
                 }}

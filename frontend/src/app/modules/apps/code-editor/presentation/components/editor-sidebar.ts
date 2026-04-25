@@ -14,12 +14,12 @@ import {
         <button
           type="button"
           (click)="store.setActiveFile(file.id)"
-          [class.text-orange-500]="store.activeFile() === file.id"
+          [class.text-system]="store.activeFile() === file.id"
           [class.text-white/40]="store.activeFile() !== file.id"
           class="group relative flex items-center justify-center w-full transition-all hover:text-white"
           [title]="file.label">
           @if (store.activeFile() === file.id) {
-            <div class="absolute left-0 w-0.5 h-6 bg-orange-600"></div>
+            <div class="absolute left-0 w-0.5 h-6 bg-system-active"></div>
           }
 
           <span

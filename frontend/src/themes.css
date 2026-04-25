@@ -1,0 +1,55 @@
+/* ngx-theme-stack tokens */
+
+:root,
+.light {
+  /* Text */
+  --text-color: #3d3d3d;
+  --text-muted: #6b7280;
+
+  /* Backgrounds */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ebebeb;
+  --bg-tertiary: #fff;
+  --bg-surface: #ffffff;
+  
+  /* Accent Colors */
+  --accent-color: #d6d5d5;
+  --accent-color-hover: #dfdede;
+  --accent-color-active: #cac9c9;
+
+  /* Scrollbar */
+  --scroll-bg-color: #00000015;
+  --scroll-thumb-color: #00000045;
+  --scroll-border-color: #ffffff;
+
+  /* Inversion */
+  --filter-invert: invert(0.8);
+  
+  /* System / Brand (Defaults) */
+  --color-system: #e95420;
+}
+
+.dark {
+  /* Text */
+  --text-color: #f7f7f7;
+  --text-muted: #aea79f;
+
+  /* Backgrounds */
+  --bg-primary: #2c2c2c;
+  --bg-secondary: #303030;
+  --bg-tertiary: #393939;
+  --bg-surface: #1e1e1e;
+
+  /* Accent Colors */
+  --accent-color: #444444;
+  --accent-color-hover: #3d3d3d;
+  --accent-color-active: #494949;
+
+  /* Scrollbar */
+  --scroll-bg-color: #ffffff20;
+  --scroll-thumb-color: #ffffff60;
+  --scroll-border-color: #000;
+
+  /* Inversion */
+  --filter-invert: invert(0);
+}

@@ -3,7 +3,7 @@
     (click)="listToggle()"
     [title]="currentLanguage()"
     type="button"
-    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 w-28 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-orange-500 dark:focus:border-orange-500 font-medium max-w-40 px-4 py-2 flex items-center gap-2 capitalize">
+    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-system focus:border-system w-28 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-system dark:focus:border-system font-medium max-w-40 px-4 py-2 flex items-center gap-2 capitalize">
     <span class="truncate">
       {{ currentLanguage() }}
     </span>
@@ -26,8 +26,8 @@
       @for (lang of listLanguages; track lang.no; let i = $index) {
         <li>
           <button
-            class="w-40 truncate text-left p-2 block hover:bg-orange-500 rounded-sm text-white"
-            [class.bg-orange-500]="currentIndex() === i"
+            class="w-40 truncate text-left p-2 block hover:bg-system rounded-sm text-white"
+            [class.bg-system]="currentIndex() === i"
             (click)="selectLanguage(lang.name, i)"
             type="button">
             {{ lang.name }}

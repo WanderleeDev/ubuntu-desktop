@@ -14,7 +14,7 @@
     <div
       class="p-4 flex justify-between items-center border-b border-white/10 bg-black/20">
       <span
-        class="text-xs font-black text-orange-500 uppercase tracking-widest flex items-center gap-2">
+        class="text-xs font-black text-system uppercase tracking-widest flex items-center gap-2">
         <span class="material-symbols-outlined text-sm">playlist_play</span>
         Playlist ({{ service.playlist().length }})
       </span>
@@ -32,10 +32,10 @@
         <button
           type="button"
           (click)="service.selectVideo($index)"
-          [class.bg-orange-600/10]="isActive"
+          [class.bg-system-active/10]="isActive"
           class="w-full text-left p-3 border-b border-white/5 hover:bg-white/5 transition-all flex gap-3 group relative overflow-hidden outline-none focus-visible:bg-white/10">
           @if (isActive) {
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-orange-600"></div>
+            <div class="absolute left-0 top-0 bottom-0 w-1 bg-system-active"></div>
           }
 
           <div
@@ -55,17 +55,17 @@
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="flex gap-1 items-end h-3">
                   <div
-                    class="w-1 h-2 bg-orange-500 animate-[bounce_1s_infinite]"></div>
+                    class="w-1 h-2 bg-system animate-[bounce_1s_infinite]"></div>
                   <div
-                    class="w-1 h-3 bg-orange-500 animate-[bounce_1s_infinite_0.2s]"></div>
+                    class="w-1 h-3 bg-system animate-[bounce_1s_infinite_0.2s]"></div>
                   <div
-                    class="w-1 h-1.5 bg-orange-500 animate-[bounce_1s_infinite_0.4s]"></div>
+                    class="w-1 h-1.5 bg-system animate-[bounce_1s_infinite_0.4s]"></div>
                 </div>
               </div>
             } @else if (isActive) {
               <div
                 class="absolute inset-0 flex items-center justify-center bg-black/20">
-                <span class="material-symbols-outlined text-orange-500 text-lg"
+                <span class="material-symbols-outlined text-system text-lg"
                   >play_circle</span
                 >
               </div>
@@ -75,7 +75,7 @@
           <div class="flex-1 min-w-0 py-1 pointer-events-none">
             <p
               class="text-[11px] font-bold truncate transition-colors"
-              [class.text-orange-500]="isActive"
+              [class.text-system]="isActive"
               [class.text-white/90]="!isActive">
               {{ video.title }}
             </p>

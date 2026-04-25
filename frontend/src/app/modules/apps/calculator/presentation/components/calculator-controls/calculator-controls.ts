@@ -29,7 +29,7 @@ export class CalculatorControls {
       label: "÷",
       value: "/",
       class:
-        "btn-div bg-orange-500/20 text-orange-500 hover:bg-orange-500/30 text-xl",
+        "btn-div bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -51,7 +51,7 @@ export class CalculatorControls {
       label: "×",
       value: "*",
       class:
-        "btn-mul bg-orange-500/20 text-orange-500 hover:bg-orange-500/30 text-xl",
+        "btn-mul bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -73,7 +73,7 @@ export class CalculatorControls {
       label: "−",
       value: "-",
       class:
-        "btn-sub bg-orange-500/20 text-orange-500 hover:bg-orange-500/30 text-xl",
+        "btn-sub bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -95,7 +95,7 @@ export class CalculatorControls {
       label: "+",
       value: "+",
       class:
-        "btn-add bg-orange-500/20 text-orange-500 hover:bg-orange-500/30 text-xl",
+        "btn-add bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -112,7 +112,7 @@ export class CalculatorControls {
       label: "=",
       value: "CALCULATE",
       class:
-        "btn-eq bg-orange-500 text-white hover:bg-orange-600 shadow-lg shadow-orange-500/20 text-xl font-bold",
+        "btn-eq bg-system text-white hover:bg-system-active shadow-lg shadow-system/20 text-xl font-bold",
     },
   ];
 }

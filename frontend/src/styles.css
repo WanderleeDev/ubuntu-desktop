@@ -1,36 +1,39 @@
 @import "tailwindcss";
-@source "../src";
+@import "./themes.css";
 
 @theme {
   --animate-fade-in: fade-in 0.5s ease-out;
-
   @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
+
+  /* Theme Mapping for Tailwind Classes */
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+  --color-tertiary: var(--bg-tertiary);
+  --color-surface: var(--bg-surface);
+  
+  --color-text: var(--text-color);
+  --color-muted: var(--text-muted);
+  
+  --color-accent: var(--accent-color);
+  --color-accent-hover: var(--accent-color-hover);
+  --color-accent-active: var(--accent-color-active);
+  
+  --color-system: var(--color-system);
+  --color-system-hover: color-mix(in srgb, var(--color-system), white 10%);
+  --color-system-active: color-mix(in srgb, var(--color-system), black 10%);
 }
 
 @layer base {
   :root {
-    --text-color: #3d3d3d;
-    --bg-primary: #fafafa;
-    --bg-secondary: #ebebeb;
-    --bg-tertiary: #fff;
-    --accent-color: #d6d5d5;
-    --accent-color-hover: #dfdede;
-    --accent-color-active: #cac9c9;
-    --color-system: #e95420;
-    --scroll-bg-color: #00000015;
-    --scroll-thumb-color: #00000045;
-    --scroll-border-color: #ffffff;
+  /* Global Static Variables */
+    --color-system-secondary: #772953;
+    --auth-bg: #4f194c;
+    --bg-dark: var(--bg-tertiary);
     --radius-base: 0.7rem;
-    --filter-invert: invert(0.8);
+    
     --z-sm: -1;
     --z-base: 1;
     --z-md: 10;
@@ -40,100 +43,29 @@
     --z-max: 50;
   }
 
-  svg {
-    fill: currentColor;
+  svg { fill: currentColor; }
+  
+  body { 
+    color: var(--text-color); 
+    background-color: var(--bg-primary);
+    transition: color 0.2s linear, background-color 0.2s linear; 
   }
 
-  body {
-    color: var(--text-color);
-    transition:
-      color 0.2s linear,
-      background-color 0.2s linear;
+  *::-webkit-scrollbar { width: 6px; height: 6px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb {
+    background: var(--scroll-thumb-color);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-clip: content-box;
   }
+  *::-webkit-scrollbar-thumb:hover { background: var(--accent-color-active); }
 }
 
 @layer utilities {
-  .dark {
-    --text-color: #f7f7f7;
-    --bg-primary: #2c2c2c;
-    --bg-secondary: #303030;
-    --bg-tertiary: #393939;
-    --accent-color: #444444;
-    --accent-color-hover: #3d3d3d;
-    --accent-color-active: #494949;
-    --scroll-bg-color: #ffffff20;
-    --scroll-thumb-color: #ffffff60;
-    --scroll-border-color: #000;
-    --filter-invert: invert(0);
-  }
-
   .translate-center {
     inset: 50% auto 50% auto;
     transform: translate(-50%, -50%);
-  }
-
-  .resize-window-max {
-    width: 100%;
-    height: 100%;
-    transition:
-      width 0.2s linear,
-      height 0.2s linear;
-  }
-
-  .resize-window-min {
-    scale: 0;
-    transition: scale linear 0.2s;
-  }
-
-  .close-window {
-    animation: closeWindow linear 0.1s forwards;
-  }
-
-  .siz {
-    width: 100%;
-    height: 100%;
-  }
-
-  .btn-image-styles {
-    background-repeat: no-repeat;
-    background-position: 0.5rem center;
-    background-size: 1rem;
-    padding-left: 2.5rem !important;
-  }
-
-  .w-window {
-    width: min(50rem, 100%);
-  }
-
-*::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  border: 1px solid transparent;
-  background-clip: content-box;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
-  background-clip: content-box;
-}
-
-  .shadow-window {
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
-
-  .shadow-bar {
-    box-shadow:
-      rgba(0, 0, 0, 0.16) 0px 3px 6px,
-      rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
 
   .window-style {
@@ -141,18 +73,12 @@
     border-radius: var(--radius-base);
     background-color: var(--bg-tertiary);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    overflow: hidden;
   }
+
+  .shadow-window { box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
+  .shadow-bar { box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px; }
 }
 
-@keyframes maximizeWindow {
-  to {
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes closeWindow {
-  to {
-    scale: 0.5;
-  }
-}
+@keyframes maximizeWindow { to { width: 100%; height: 100%; } }
+@keyframes closeWindow { to { scale: 0.5; } }
