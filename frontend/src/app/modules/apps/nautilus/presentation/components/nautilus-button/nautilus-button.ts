@@ -1,23 +1,18 @@
-import { NgTemplateOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  inject,
+  Injector,
   input,
 } from "@angular/core";
-
-const BUTTON_STYLES = {
-  base: "flex items-center gap-2 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider rounded-xl cursor-pointer select-none",
-  primary:
-    "px-6 py-2.5 bg-system hover:bg-system-active text-white shadow-lg shadow-system/20",
-  secondary:
-    "px-4 py-2 bg-system/10 hover:bg-system/20 text-system border border-system/20",
-};
+import { Router } from "@angular/router";
+import { BUTTON_STYLES, ButtonVariant } from "./nautilus-button.styles";
 
 @Component({
   selector: "app-nautilus-button",
+  imports: [],
   templateUrl: "./nautilus-button.html",
-  imports: [NgTemplateOutlet],
   styles: `
     :host {
       display: inline-block;
@@ -26,14 +21,30 @@ const BUTTON_STYLES = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NautilusButton {
+  readonly #injector = inject(Injector);
+
   label = input.required<string>();
   icon = input<string>();
-  variant = input<"primary" | "secondary">("secondary");
+  variant = input<ButtonVariant>("secondary");
   type = input<"button" | "submit" | "reset">("button");
-  href = input<string>();
-  target = input<string>("_self");
+  routerLink = input<string | string[]>();
+  disabled = input<boolean>(false);
 
   protected buttonClasses = computed(() => {
     return `${BUTTON_STYLES.base} ${BUTTON_STYLES[this.variant()]}`;
   });
+
+  protected handleClick(): void {
+    if (this.disabled()) return;
+
+    const link = this.routerLink();
+    if (link) {
+      const router = this.#injector.get(Router);
+      if (Array.isArray(link)) {
+        router.navigate(link);
+      } else {
+        router.navigateByUrl(link);
+      }
+    }
+  }
 }

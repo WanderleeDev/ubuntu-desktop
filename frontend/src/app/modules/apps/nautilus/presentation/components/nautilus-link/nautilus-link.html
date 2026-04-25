@@ -1,10 +1,11 @@
-<button
-  [type]="type()"
+<a
+  [href]="href()"
+  [target]="target()"
   [class]="buttonClasses()"
-  [disabled]="disabled()"
-  (click)="handleClick()">
+  [attr.disabled]="disabled() ? true : null"
+  (click)="handleClick($event)">
   @if (icon()) {
   <span class="material-symbols-outlined text-lg">{{ icon() }}</span>
   }
   <span class="text-xs">{{ label() }}</span>
-</button>
+</a>
