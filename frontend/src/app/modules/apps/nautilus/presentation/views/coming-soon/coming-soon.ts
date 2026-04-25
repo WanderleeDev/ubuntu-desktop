@@ -1,9 +1,10 @@
+import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-coming-soon",
-  imports: [],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: "./coming-soon.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

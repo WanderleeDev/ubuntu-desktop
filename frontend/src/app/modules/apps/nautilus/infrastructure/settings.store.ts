@@ -1,5 +1,5 @@
-import { computed, inject } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
+import { computed, effect, inject } from "@angular/core";
 import {
   patchState,
   signalStore,
@@ -9,7 +9,6 @@ import {
   withProps,
   withState,
 } from "@ngrx/signals";
-import { effect } from "@angular/core";
 import { StorageService } from "../../../../shared/services/storage.service";
 
 interface SettingsState {
@@ -21,7 +20,6 @@ interface SettingsState {
 }
 
 const STORAGE_KEY_SETTINGS = "nautilus_settings";
-
 const initialState: SettingsState = {
   currentWallpaper:
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp",
@@ -34,7 +32,7 @@ const initialState: SettingsState = {
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553761/background7_nswkou.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553760/background6_c84sqk.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553759/background5_sgtqm2.webp",
-    "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553759/background4_sdrhcl.webp",
+    "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553757/background1_r3ehga.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553758/background3_buv4q6.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1731553758/background2_ve9fa9.webp",
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp",
