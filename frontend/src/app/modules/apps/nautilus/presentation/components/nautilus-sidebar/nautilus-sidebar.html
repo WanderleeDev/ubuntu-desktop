@@ -1,0 +1,47 @@
+<div
+  class="w-64 bg-secondary border-r border-text/5 h-full flex flex-col overflow-y-auto custom-scrollbar">
+  <div class="p-4">
+    <div class="relative">
+      <span
+        class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text/40 text-sm"
+        >search</span
+      >
+      <input
+        type="text"
+        placeholder="Search"
+        class="w-full bg-tertiary text-xs py-1.5 pl-9 pr-3 rounded-md border border-text/5 focus:outline-none focus:border-system/50 text-text/80 placeholder:text-text/30" />
+    </div>
+  </div>
+
+  <div class="flex-1 space-y-6 pb-6">
+    @for (cat of categories; track cat.id) {
+    <div>
+      <h3
+        class="px-6 mb-2 text-[10px] font-bold uppercase tracking-wider text-text/30">
+        {{ cat.label }}
+      </h3>
+      <div class="space-y-0.5">
+        @for ( section of getSectionsByCategory(cat.id); track section.id ) {
+        <button
+          type="button"
+          (click)="selectSection(section.id)"
+          class="w-full flex items-center gap-3 px-6 py-2 transition-colors text-sm relative group"
+          [class.bg-system/10]="store.currentSection() === section.id"
+          [class.text-system]="store.currentSection() === section.id"
+          [class.font-medium]="store.currentSection() === section.id"
+          [class.text-text/70]="store.currentSection() !== section.id"
+          [class.hover:bg-text/5]="store.currentSection() !== section.id">
+          @if (store.currentSection() === section.id) {
+          <div class="absolute left-0 w-1 h-6 bg-system rounded-r-full"></div>
+          }
+          <span class="material-symbols-outlined text-lg opacity-80"
+            >{{ section.icon }}</span
+          >
+          <span>{{ section.label }}</span>
+        </button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+</div>
