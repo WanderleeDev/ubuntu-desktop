@@ -1,0 +1,40 @@
+<div
+  class="flex gap-4 p-4 rounded-2xl bg-tertiary/90 backdrop-blur-xl border border-white/5 shadow-2xl min-w-[350px] overflow-hidden group relative">
+  <div
+    class="absolute left-0 top-0 bottom-0 w-1 rounded-l-2xl"
+    [class.bg-red-500]="type() === 'error'"
+    [class.bg-blue-500]="type() === 'info'"
+    [class.bg-yellow-500]="type() === 'warning'"
+    [class.bg-green-500]="type() === 'success'"></div>
+
+  <div
+    class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 border border-white/5"
+    [class.bg-red-500/10]="type() === 'error'"
+    [class.bg-blue-500/10]="type() === 'info'"
+    [class.bg-yellow-500/10]="type() === 'warning'"
+    [class.bg-green-500/10]="type() === 'success'">
+    <span
+      class="material-symbols-outlined text-2xl"
+      [class.text-red-400]="type() === 'error'"
+      [class.text-blue-400]="type() === 'info'"
+      [class.text-yellow-400]="type() === 'warning'"
+      [class.text-green-400]="type() === 'success'">
+      @switch (type()) { @case ("error") { error } @case ("warning") { warning }
+      @case ("success") { check_circle } @default { info } }
+    </span>
+  </div>
+
+  <div class="flex flex-col gap-1 pr-4">
+    <h4 class="text-sm font-bold text-text tracking-tight">{{ title() }}</h4>
+    <p class="text-xs text-text/60 leading-relaxed line-clamp-3">
+      {{ message() }}
+    </p>
+  </div>
+
+  <div
+    class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+    <span class="material-symbols-outlined text-[14px] text-text/20"
+      >close</span
+    >
+  </div>
+</div>

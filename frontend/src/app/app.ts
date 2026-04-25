@@ -10,8 +10,8 @@ import { SeoService } from "./shared/services/seo.service";
   template: `
     <ng-container>
       <h1 class="sr-only">Ubuntu Clone Local Fossa</h1>
-      <ngx-sonner-toaster position="top-center" />
       <router-outlet />
+      <ngx-sonner-toaster position="bottom-right" richColors />
     </ng-container>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
