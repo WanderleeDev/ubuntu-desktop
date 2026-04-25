@@ -1,0 +1,16 @@
+@if (href()) {
+<a [href]="href()" [target]="target()" [class]="buttonClasses()">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+} @else {
+<button [type]="type()" [class]="buttonClasses()">
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</button>
+}
+
+<ng-template #content>
+  @if (icon()) {
+  <span class="material-symbols-outlined text-lg">{{ icon() }}</span>
+  }
+  <span class="text-xs">{{ label() }}</span>
+</ng-template>

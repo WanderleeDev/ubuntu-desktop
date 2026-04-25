@@ -23,12 +23,12 @@
         </div>
 
         <div class="flex gap-4 mt-8 pt-8 border-t border-white/5">
-          <button class="px-6 py-2.5 bg-system hover:bg-system-active rounded-xl text-white text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-system/20 active:scale-95">
-            Manage Account
-          </button>
-          <button class="px-6 py-2.5 bg-system/10 hover:bg-system/20 text-system rounded-xl border border-system/20 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider">
-            Add User
-          </button>
+          <app-nautilus-button
+            label="Manage Account"
+            variant="primary" />
+          <app-nautilus-button
+            label="Add User"
+            variant="secondary" />
         </div>
       </div>
     </div>
@@ -41,9 +41,9 @@
       <p class="text-text/30 mt-2 text-center max-w-xs leading-relaxed text-sm">
         Please sign in to see the registered users and manage account permissions.
       </p>
-      <button class="mt-8 px-8 py-3 bg-system/10 hover:bg-system/20 text-system rounded-xl border border-system/20 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider">
-        Go to Login
-      </button>
+      <app-nautilus-button
+        label="Go to Login"
+        variant="secondary" />
     </div>
   }
 

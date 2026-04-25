@@ -52,21 +52,15 @@
       </div>
 
       <div class="flex gap-4 mt-8 pt-8 border-t border-white/5">
-        <a
+        <app-nautilus-button
+          label="GitHub"
+          icon="code"
           [href]="developerInfo.github"
-          target="_blank"
-          class="flex items-center gap-2 px-4 py-2 bg-system/10 hover:bg-system/20 text-system rounded-xl border border-system/20 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider">
-          <span class="material-symbols-outlined text-xl">code</span>
-          <span class="text-xs uppercase tracking-wider">GitHub</span>
-        </a>
-        <a
-          [href]="'mailto:' + developerInfo.email"
-          class="flex items-center gap-2 px-4 py-2 bg-system/10 hover:bg-system/20 text-system rounded-xl border border-system/20 transition-all active:scale-95 font-bold text-xs uppercase tracking-wider">
-          <span class="material-symbols-outlined text-xl">mail</span>
-          <span class="text-xs uppercase tracking-wider"
-            >Contact</span
-          >
-        </a>
+          target="_blank" />
+        <app-nautilus-button
+          label="Contact"
+          icon="mail"
+          [href]="'mailto:' + developerInfo.email" />
       </div>
     </div>
   </div>

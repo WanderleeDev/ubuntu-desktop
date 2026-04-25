@@ -2,10 +2,11 @@ import { CommonModule, NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { AuthStore } from "../../../../../auth/infrastructure/auth.store";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
+import { NautilusButton } from "../../components/nautilus-button/nautilus-button";
 
 @Component({
   selector: "app-nautilus-users",
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, NautilusButton],
   templateUrl: "./users.html",
   styles: `
     :host {
