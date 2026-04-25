@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-coming-soon",
@@ -7,5 +8,6 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ComingSoon {
-  readonly sectionLabel = input.required<string>();
+  readonly #nautilusStore = inject(NautilusStore);
+  readonly currentSection = this.#nautilusStore.currentSection;
 }

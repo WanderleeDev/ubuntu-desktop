@@ -7,13 +7,14 @@ import {
   Type,
 } from "@angular/core";
 import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
-import { NautilusSectionKey } from "../domain/nautilus.model";
+import { NautilusSection } from "../domain/nautilus.model";
 import { NautilusStore } from "../infrastructure/nautilus.store";
 import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar";
 
 @Component({
   selector: "app-nautilus",
   imports: [NgComponentOutlet, WindowWrapper, NautilusSidebar],
+  providers: [NautilusStore],
   templateUrl: "./nautilus.html",
   styles: `
     :host {
@@ -23,11 +24,11 @@ import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar"
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class Nautilus {
-  readonly store = inject(NautilusStore);
-  protected readonly currentSection = this.store.currentSection;
+  readonly #store = inject(NautilusStore);
+  protected readonly currentSection = this.#store.currentSection;
 
   private readonly LOADERS: Partial<
-    Record<NautilusSectionKey, () => Promise<Type<unknown>>>
+    Record<NautilusSection, () => Promise<Type<unknown>>>
   > = {
     background: () =>
       import("./views/background/background").then(m => m.Background),
@@ -44,11 +45,11 @@ export default class Nautilus {
 
   readonly activeView = resource({
     params: () => this.currentSection(),
-    loader: ({ params: section }) => {
+    loader: async ({ params: section }) => {
       const loader = this.LOADERS[section];
-      if (loader) return loader();
+      if (loader) return await loader();
 
-      return import("./views/coming-soon/coming-soon").then(m => m.ComingSoon);
+      return (await import("./views/coming-soon/coming-soon")).ComingSoon;
     },
   });
 }
