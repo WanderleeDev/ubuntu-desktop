@@ -3,8 +3,7 @@ import { Routes } from "@angular/router";
 const AUTH_ROUTES: Routes = [
   {
     path: "",
-    loadComponent: () =>
-      import("./presentation/views/entry-page/entry-page"),
+    loadComponent: () => import("./presentation/views/entry-page/entry-page"),
   },
   {
     path: "login",
@@ -12,8 +11,7 @@ const AUTH_ROUTES: Routes = [
   },
   {
     path: "register",
-    loadComponent: () =>
-      import("./presentation/views/register/register"),
+    loadComponent: () => import("./presentation/views/register/register"),
   },
 ];
 

@@ -1,5 +1,5 @@
 <div
-  class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
+  class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden pb-10">
   <div class="flex items-center justify-between mb-2">
     <h3 class="text-base font-bold text-text/90">Notifications</h3>
   </div>
@@ -12,13 +12,9 @@
           <span class="text-sm font-semibold text-text/90">Do Not Disturb</span>
           <span class="text-xs text-text/30">Mute all notifications</span>
         </div>
-        <button
-          type="button"
-          (click)="settingsStore.toggleDoNotDisturb()"
-          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (settingsStore.doNotDisturb() ? 'bg-system' : 'bg-white/10')">
-          <div
-            [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (settingsStore.doNotDisturb() ? 'translate-x-5' : 'translate-x-0')"></div>
-        </button>
+        <app-switch
+          [checked]="settingsStore.doNotDisturb()"
+          (checkedChange)="settingsStore.toggleDoNotDisturb()" />
       </div>
 
       <div class="flex items-center justify-between p-5">
@@ -30,53 +26,91 @@
             >Show notifications on the lock screen</span
           >
         </div>
-        <button
-          type="button"
-          (click)="settingsStore.toggleLockScreenNotifications()"
-          [class]="'relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none ' + (settingsStore.lockScreenNotifications() ? 'bg-system' : 'bg-white/10')">
-          <div
-            [class]="'absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform duration-200 ' + (settingsStore.lockScreenNotifications() ? 'translate-x-5' : 'translate-x-0')"></div>
-        </button>
+        <app-switch
+          [checked]="settingsStore.lockScreenNotifications()"
+          (checkedChange)="settingsStore.toggleLockScreenNotifications()" />
+      </div>
+
+      <div class="flex items-center justify-between p-5 bg-white/[0.02]">
+        <div class="flex flex-col gap-0.5">
+          <span class="text-sm font-semibold text-text/90"
+            >Test Notifications</span
+          >
+          <span class="text-xs text-text/30"
+            >Fire a simulated application error</span
+          >
+        </div>
+        <app-nautilus-button
+          variant="primary"
+          label="Probar test notification"
+          (click)="testNotification()" />
       </div>
     </div>
   </div>
 
-  <div class="mt-4 mb-2">
-    <h4 class="text-sm font-bold text-text/50 px-1">
-      Application Notifications
-    </h4>
+  <div class="mt-4 mb-2 flex items-center justify-between">
+    <h4 class="text-sm font-bold text-text/50 px-1">Application Logs</h4>
+    @if (notificationStore.count() > 0) {
+    <app-nautilus-button
+      variant="danger"
+      label="Clear History"
+      icon="delete"
+      (click)="clearHistory()" />
+    }
   </div>
 
   <div
-    class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
+    class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl min-h-[100px]">
     <div class="flex flex-col divide-y divide-white/5">
-      @for (app of appNotifications; track app.id) {
-      <button
-        class="flex items-center justify-between p-5 hover:bg-white/5 transition-colors group">
-        <div class="flex items-center gap-4">
+      @for (item of notificationStore.recentNotifications(); track item.id) {
+      <div
+        class="flex items-start justify-between p-5 hover:bg-white/2 group starting:opacity-0 starting:translate-y-4 transition-all duration-500 will-change-auto">
+        <div class="flex gap-4">
           <div
-            class="w-8 h-8 rounded-lg overflow-hidden bg-white/5 flex items-center justify-center p-1.5">
-            <img
-              [ngSrc]="app.icon"
-              [alt]="app.label"
-              width="32"
-              height="32"
-              class="object-contain" />
+            class="w-10 h-10 rounded-xl overflow-hidden bg-white/5 flex items-center justify-center shrink-0 mt-0.5 border border-white/5">
+            <span
+              class="material-symbols-outlined text-red-400 text-xl"
+              [class.text-red-400]="item.type === 'error'"
+              [class.text-blue-400]="item.type === 'info'"
+              [class.text-yellow-400]="item.type === 'warning'"
+              [class.text-green-400]="item.type === 'success'">
+              @if (item.type === 'error') { error } @else if (item.type ===
+              'warning') { warning } @else { info }
+            </span>
           </div>
-          <span class="text-sm font-medium text-text/90">{{ app.label }}</span>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-bold text-text/90"
+                >{{ item.title }}</span
+              >
+              <span class="text-[10px] text-text/20 font-medium"
+                >{{ item.timestamp | date : "HH:mm:ss" }}</span
+              >
+            </div>
+            <p class="text-xs text-text/40 leading-relaxed max-w-[400px]">
+              {{ item.message }}
+            </p>
+          </div>
         </div>
-        <div class="flex items-center gap-3">
-          @if (app.enabled) {
-          <span class="text-xs font-bold text-text/20 mr-1">On</span>
-          } @else {
-          <span class="text-xs font-bold text-text/10 mr-1 italic">Off</span>
-          }
-          <span
-            class="material-symbols-outlined text-text/20 group-hover:text-text/40 transition-colors"
-            >chevron_right</span
-          >
-        </div>
-      </button>
+        <button
+          type="button"
+          (click)="notificationStore.removeNotification(item.id)"
+          class="opacity-0 group-hover:opacity-100 p-1.5 hover:bg-white/10 rounded-lg transition-all text-text/20 hover:text-text/60">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+      } @empty {
+      <div class="flex flex-col items-center justify-center p-12 text-center">
+        <span class="material-symbols-outlined text-text/5 text-5xl mb-3"
+          >notifications_off</span
+        >
+        <span class="text-sm font-medium text-text/20"
+          >No notification history</span
+        >
+        <span class="text-[10px] text-text/10 mt-1"
+          >Application errors will appear here</span
+        >
+      </div>
       }
     </div>
   </div>

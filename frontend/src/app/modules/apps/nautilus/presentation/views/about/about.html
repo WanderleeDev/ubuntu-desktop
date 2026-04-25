@@ -19,8 +19,7 @@
   </div>
 
   <div class="flex flex-col gap-4">
-    <h3
-      class="text-xs font-black uppercase tracking-[0.2em] text-text/20 px-1">
+    <h3 class="text-xs font-black uppercase tracking-[0.2em] text-text/20 px-1">
       Developed By
     </h3>
     <div
@@ -38,11 +37,8 @@
             class="object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
         </div>
         <div class="flex flex-col gap-1">
-          <h4 class="text-2xl font-bold text-text">
-            {{ developerInfo.name }}
-          </h4>
-          <span
-            class="text-system font-bold text-sm uppercase tracking-widest"
+          <h4 class="text-2xl font-bold text-text">{{ developerInfo.name }}</h4>
+          <span class="text-system font-bold text-sm uppercase tracking-widest"
             >{{ developerInfo.role }}</span
           >
           <p class="text-text/40 text-sm mt-3 leading-relaxed max-w-md">
@@ -52,12 +48,11 @@
       </div>
 
       <div class="flex gap-4 mt-8 pt-8 border-t border-white/5">
-        <app-nautilus-button
+        <app-nautilus-link
           label="GitHub"
           icon="code"
-          [href]="developerInfo.github"
-          target="_blank" />
-        <app-nautilus-button
+          [href]="developerInfo.github" />
+        <app-nautilus-link
           label="Contact"
           icon="mail"
           [href]="'mailto:' + developerInfo.email" />
@@ -66,22 +61,17 @@
   </div>
 
   <div class="flex flex-col gap-4">
-    <h3
-      class="text-xs font-black uppercase tracking-[0.2em] text-text/20 px-1">
+    <h3 class="text-xs font-black uppercase tracking-[0.2em] text-text/20 px-1">
       System Information
     </h3>
     <div
       class="bg-tertiary rounded-2xl border border-white/5 overflow-hidden shadow-xl">
       <div class="flex flex-col divide-y divide-white/5">
         @for (spec of systemSpecs; track spec.label) {
-          <div class="flex items-center justify-between p-5">
-            <span class="text-sm font-medium text-text/40">{{
-              spec.label
-            }}</span>
-            <span class="text-sm font-bold text-text/90">{{
-              spec.value
-            }}</span>
-          </div>
+        <div class="flex items-center justify-between p-5">
+          <span class="text-sm font-medium text-text/40">{{ spec.label }}</span>
+          <span class="text-sm font-bold text-text/90">{{ spec.value }}</span>
+        </div>
         }
       </div>
     </div>

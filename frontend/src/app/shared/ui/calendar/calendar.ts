@@ -6,9 +6,11 @@ import {
   signal,
 } from "@angular/core";
 import Clock from "../../../modules/apps/clock/clock";
+import { SwitchComponent } from "../../components/switch/switch";
+
 @Component({
   selector: "app-calendar",
-  imports: [DatePipe, Clock],
+  imports: [DatePipe, Clock, SwitchComponent],
   templateUrl: "./calendar.html",
   styles: `
     :host {
@@ -19,6 +21,7 @@ import Clock from "../../../modules/apps/clock/clock";
 })
 export class Calendar {
   protected readonly actuallyDate = signal(new Date());
+  protected readonly isSilentMode = signal(false);
 
   protected readonly daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
 

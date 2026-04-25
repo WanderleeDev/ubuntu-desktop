@@ -1,64 +1,77 @@
-<div class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
-  
+<div
+  class="flex flex-col gap-6 animate-in fade-in duration-500 max-w-full overflow-x-hidden">
   <div class="flex items-center justify-between mb-2">
     <h3 class="text-base font-bold text-text/90">Users</h3>
   </div>
 
   @if (authStore.token()) {
-    <div class="flex flex-col gap-4">
-      <div class="bg-tertiary rounded-3xl border border-white/10 p-8 shadow-2xl relative overflow-hidden group">
-        <div class="absolute -top-24 -right-24 w-48 h-48 bg-system/10 blur-[80px] rounded-full group-hover:bg-system/20 transition-colors duration-700"></div>
-        
-        <div class="relative flex items-center gap-8">
-          <div class="w-20 h-20 rounded-full overflow-hidden shadow-xl border-2 border-system">
-            <img [ngSrc]="currentUser.avatarUrl" [alt]="currentUser.name" width="80" height="80" class="object-cover">
-          </div>
-          <div class="flex flex-col gap-1">
-            <h4 class="text-2xl font-bold text-text">{{ currentUser.name }}</h4>
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-green-500"></span>
-              <span class="text-text/40 font-bold text-xs uppercase tracking-widest">{{ currentUser.role }}</span>
-            </div>
-          </div>
-        </div>
+  <div class="flex flex-col gap-4">
+    <div
+      class="bg-tertiary rounded-3xl border border-white/10 p-8 shadow-2xl relative overflow-hidden group">
+      <div
+        class="absolute -top-24 -right-24 w-48 h-48 bg-system/10 blur-[80px] rounded-full group-hover:bg-system/20 transition-colors duration-700"></div>
 
-        <div class="flex gap-4 mt-8 pt-8 border-t border-white/5">
-          <app-nautilus-button
-            label="Manage Account"
-            variant="primary" />
-          <app-nautilus-button
-            label="Add User"
-            variant="secondary" />
+      <div class="relative flex items-center gap-8">
+        <div
+          class="w-20 h-20 rounded-full overflow-hidden shadow-xl border-2 border-system">
+          <img
+            [ngSrc]="currentUser.avatarUrl"
+            [alt]="currentUser.name"
+            width="80"
+            height="80"
+            class="object-cover" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <h4 class="text-2xl font-bold text-text">{{ currentUser.name }}</h4>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            <span
+              class="text-text/40 font-bold text-xs uppercase tracking-widest"
+              >{{ currentUser.role }}</span
+            >
+          </div>
         </div>
       </div>
-    </div>
-  } @else {
-    <div class="flex flex-col items-center justify-center py-20 bg-tertiary rounded-3xl border border-dashed border-white/10">
-      <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
-        <span class="material-symbols-outlined text-4xl text-text/20">person_off</span>
+
+      <div class="flex gap-4 mt-8 pt-8 border-t border-white/5">
+        <app-nautilus-button label="Manage Account" variant="primary" />
+        <app-nautilus-button label="Add User" variant="secondary" />
       </div>
-      <h3 class="text-xl font-bold text-text/90">No users registered</h3>
-      <p class="text-text/30 mt-2 text-center max-w-xs leading-relaxed text-sm">
-        Please sign in to see the registered users and manage account permissions.
-      </p>
-      <app-nautilus-button
-        label="Go to Login"
-        variant="secondary" />
     </div>
+  </div>
+  } @else {
+  <div
+    class="flex flex-col items-center justify-center py-20 bg-tertiary rounded-3xl border border-dashed border-white/10">
+    <div
+      class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mb-6">
+      <span class="material-symbols-outlined text-4xl text-text/20"
+        >person_off</span
+      >
+    </div>
+    <h3 class="text-xl font-bold text-text/90">No users registered</h3>
+    <p class="text-text/30 mt-2 text-center max-w-xs leading-relaxed text-sm">
+      Please sign in to see the registered users and manage account permissions.
+    </p>
+    <app-nautilus-button
+      label="Go to Login"
+      variant="secondary"
+      routerLink="/login" />
+  </div>
   }
 
   <div class="bg-white/5 border border-white/10 rounded-2xl p-6 mt-2">
     <div class="flex items-start gap-4">
-      <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text/40 shrink-0">
+      <div
+        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-text/40 shrink-0">
         <span class="material-symbols-outlined">security</span>
       </div>
       <div>
         <h4 class="text-sm font-bold text-text/80">User Security</h4>
         <p class="text-xs text-text/30 leading-relaxed mt-1">
-          Each user has their own private space and individual settings. Administrators can manage system-wide permissions and user groups.
+          Each user has their own private space and individual settings.
+          Administrators can manage system-wide permissions and user groups.
         </p>
       </div>
     </div>
   </div>
-
 </div>
