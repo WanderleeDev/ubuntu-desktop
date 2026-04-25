@@ -1,9 +1,7 @@
 <app-window-wrapper
-  [appTitle]="currentSectionLabel"
+  [appTitle]="currentSection()"
   cdkDragBoundary="#container-boundary">
-  <span class="u-padding-left text-text/80 font-medium" header>
-    Settings
-  </span>
+  <span class="u-padding-left text-text/80 font-medium" header> Settings </span>
 
   <div
     class="flex h-[600px] w-[1000px] bg-primary text-text overflow-hidden rounded-b-xl border border-text/5"
@@ -11,64 +9,22 @@
     <app-nautilus-sidebar class="h-full border-r border-text/10" />
 
     <div class="flex-1 flex flex-col h-full bg-secondary/40 backdrop-blur-md">
-      @if (!['background', 'appearance', 'privacy', 'notifications', 'about', 'applications', 'users'].includes(store.currentSection())) {
-        <div class="px-8 pt-10 pb-6 border-b border-text/5 bg-text/5">
-          <h2 class="text-4xl font-extrabold tracking-tight text-text/95">
-            {{ currentSectionLabel }}
-          </h2>
-          <p class="text-text/40 text-sm mt-2 font-medium italic">
-            System settings for {{ currentSectionLabel | lowercase }}
-          </p>
-        </div>
+      @if (!['background', 'appearance', 'privacy', 'notifications', 'about',
+      'applications', 'users'].includes(currentSection())) {
+      <div class="px-8 pt-10 pb-6 border-b border-text/5 bg-text/5">
+        <h2 class="text-4xl font-extrabold tracking-tight text-text/95">
+          {{ currentSection() }}
+        </h2>
+        <p class="text-text/40 text-sm mt-2 font-medium italic">
+          System settings for {{ currentSection() }}
+        </p>
+      </div>
       }
 
       <div class="flex-1 overflow-y-auto px-8 py-8 custom-scrollbar">
         <div class="max-w-3xl mx-auto">
-          @switch (store.currentSection()) {
-            @case (NautilusSection.BACKGROUND) {
-              <app-nautilus-background />
-            }
-            @case (NautilusSection.APPEARANCE) {
-              <app-nautilus-appearance />
-            }
-            @case (NautilusSection.PRIVACY) {
-              <app-nautilus-privacy />
-            }
-            @case (NautilusSection.NOTIFICATIONS) {
-              <app-nautilus-notifications />
-            }
-            @case (NautilusSection.ABOUT) {
-              <app-nautilus-about />
-            }
-            @case (NautilusSection.APPLICATIONS) {
-              <app-nautilus-applications />
-            }
-            @case (NautilusSection.USERS) {
-              <app-nautilus-users />
-            }
-            @default {
-              <div class="flex flex-col items-center justify-center py-20 animate-in zoom-in duration-500">
-                <div class="relative mb-10">
-                  <div class="w-24 h-24 bg-text/5 rounded-3xl flex items-center justify-center rotate-12 border border-text/10 shadow-2xl">
-                    <span class="material-symbols-outlined text-5xl text-text/10">construction</span>
-                  </div>
-                  <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-system rounded-xl flex items-center justify-center shadow-lg animate-bounce">
-                    <span class="material-symbols-outlined text-white text-xl">build</span>
-                  </div>
-                </div>
-                
-                <h3 class="text-2xl font-bold text-text tracking-tight">Coming Soon</h3>
-                <p class="text-text/30 mt-3 text-center max-w-sm leading-relaxed font-medium">
-                  We're currently building the <span class="text-text/60">{{ currentSectionLabel }}</span> experience. Stay tuned for more updates!
-                </p>
-
-                <div class="mt-10 flex gap-3">
-                   <div class="w-2 h-2 rounded-full bg-system animate-pulse"></div>
-                   <div class="w-2 h-2 rounded-full bg-system/50 animate-pulse delay-75"></div>
-                   <div class="w-2 h-2 rounded-full bg-system/20 animate-pulse delay-150"></div>
-                </div>
-              </div>
-            }
+          @if (activeView.value(); as component) {
+          <ng-container *ngComponentOutlet="component" />
           }
         </div>
       </div>

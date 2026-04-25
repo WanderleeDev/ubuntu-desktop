@@ -1,32 +1,19 @@
-import { CommonModule } from "@angular/common";
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { NgComponentOutlet } from "@angular/common";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  resource,
+  Type,
+} from "@angular/core";
 import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
-import { NautilusSection } from "../domain/nautilus.model";
-import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
+import { NautilusSectionKey } from "../domain/nautilus.model";
 import { NautilusStore } from "../infrastructure/nautilus.store";
-import { About } from "./views/about/about";
-import { Appearance } from "./views/appearance/appearance";
-import { Applications } from "./views/applications/applications";
-import { Background } from "./views/background/background";
-import { Notifications } from "./views/notifications/notifications";
-import { Privacy } from "./views/privacy/privacy";
-import { Users } from "./views/users/users";
 import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar";
 
 @Component({
   selector: "app-nautilus",
-  imports: [
-    CommonModule,
-    WindowWrapper,
-    NautilusSidebar,
-    Background,
-    Appearance,
-    Privacy,
-    Notifications,
-    About,
-    Applications,
-    Users,
-  ],
+  imports: [NgComponentOutlet, WindowWrapper, NautilusSidebar],
   templateUrl: "./nautilus.html",
   styles: `
     :host {
@@ -37,12 +24,31 @@ import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar"
 })
 export default class Nautilus {
   readonly store = inject(NautilusStore);
-  readonly NautilusSection = NautilusSection;
+  protected readonly currentSection = this.store.currentSection;
 
-  get currentSectionLabel(): string {
-    return (
-      NAUTILUS_SECTIONS.find(s => s.id === this.store.currentSection())
-        ?.label || "Settings"
-    );
-  }
+  private readonly LOADERS: Partial<
+    Record<NautilusSectionKey, () => Promise<Type<unknown>>>
+  > = {
+    background: () =>
+      import("./views/background/background").then(m => m.Background),
+    appearance: () =>
+      import("./views/appearance/appearance").then(m => m.Appearance),
+    privacy: () => import("./views/privacy/privacy").then(m => m.Privacy),
+    notifications: () =>
+      import("./views/notifications/notifications").then(m => m.Notifications),
+    about: () => import("./views/about/about").then(m => m.About),
+    applications: () =>
+      import("./views/applications/applications").then(m => m.Applications),
+    users: () => import("./views/users/users").then(m => m.Users),
+  };
+
+  readonly activeView = resource({
+    params: () => this.currentSection(),
+    loader: ({ params: section }) => {
+      const loader = this.LOADERS[section];
+      if (loader) return loader();
+
+      return import("./views/coming-soon/coming-soon").then(m => m.ComingSoon);
+    },
+  });
 }

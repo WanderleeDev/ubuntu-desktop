@@ -1,0 +1,29 @@
+<div
+  class="flex flex-col items-center justify-center py-20 animate-in zoom-in duration-500">
+  <div class="relative mb-10">
+    <div
+      class="w-24 h-24 bg-text/5 rounded-3xl flex items-center justify-center rotate-12 border border-text/10 shadow-2xl">
+      <span class="material-symbols-outlined text-5xl text-text/10"
+        >construction</span
+      >
+    </div>
+    <div
+      class="absolute -bottom-2 -right-2 w-10 h-10 bg-system rounded-xl flex items-center justify-center shadow-lg animate-bounce">
+      <span class="material-symbols-outlined text-white text-xl">build</span>
+    </div>
+  </div>
+
+  <h3 class="text-2xl font-bold text-text tracking-tight">Coming Soon</h3>
+  <p class="text-text/30 mt-3 text-center max-w-sm leading-relaxed font-medium">
+    We're currently building the
+    <span class="text-text/60">{{ sectionLabel() }}</span>
+    experience. Stay tuned for more updates!
+  </p>
+
+  <div class="mt-10 flex gap-3">
+    <div class="w-2 h-2 rounded-full bg-system animate-pulse"></div>
+    <div class="w-2 h-2 rounded-full bg-system/50 animate-pulse delay-75"></div>
+    <div
+      class="w-2 h-2 rounded-full bg-system/20 animate-pulse delay-150"></div>
+  </div>
+</div>

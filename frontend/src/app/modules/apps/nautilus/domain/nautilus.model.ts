@@ -12,6 +12,19 @@ export enum NautilusSection {
   ABOUT = "about",
 }
 
+export type NautilusSectionKey =
+  | "network"
+  | "wifi"
+  | "bluetooth"
+  | "background"
+  | "appearance"
+  | "notifications"
+  | "search"
+  | "applications"
+  | "privacy"
+  | "users"
+  | "about";
+
 export interface INautilusSection {
   id: NautilusSection;
   label: string;
