@@ -3,7 +3,7 @@
   [formGroup]="formLogin">
   <div class="flex items-center w-full gap-3">
     <a
-      class="group flex items-center justify-center w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50"
+      class="group flex items-center justify-center w-9 h-9 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-system/50"
       routerLink="/"
       title="volver atrás">
       <span
@@ -14,7 +14,7 @@
 
     <div class="relative flex-1 group">
       <input
-        class="w-full bg-white/5 border border-white/10 rounded-lg pl-4 pr-10 py-2 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:bg-white/10 transition-all duration-200 shadow-inner"
+        class="w-full bg-white/5 border border-white/10 rounded-lg pl-4 pr-10 py-2 text-white placeholder-white/30 focus:outline-none focus:ring-2 focus:ring-system/50 focus:bg-white/10 transition-all duration-200 shadow-inner"
         (keydown.enter)="onSubmit()"
         formControlName="password"
         [type]="inputTypeStream()"
@@ -36,30 +36,28 @@
     <button
       (click)="onSubmit()"
       [disabled]="formLogin.invalid || authStore.loading()"
-      class="flex items-center justify-center w-9 h-9 rounded-full bg-orange-600 hover:bg-orange-500 disabled:bg-white/5 disabled:text-white/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-400 active:scale-95 relative"
+      class="flex items-center justify-center w-9 h-9 rounded-full bg-system-active hover:bg-system-hover disabled:bg-white/5 disabled:text-white/20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-system/50 active:scale-95 relative"
       type="button">
       @if (authStore.loading()) {
-        <span class="material-symbols-outlined text-white text-xl animate-spin"
-          >refresh</span
-        >
+      <span class="material-symbols-outlined text-white text-xl animate-spin"
+        >refresh</span
+      >
       } @else {
-        <span class="material-symbols-outlined text-white text-xl"
-          >chevron_right</span
-        >
+      <span class="material-symbols-outlined text-white text-xl"
+        >chevron_right</span
+      >
       }
     </button>
   </div>
 
   @if (authStore.error()) {
-    <div
-      class="w-full p-3 rounded-lg bg-red-500/10 border border-red-500/20 animate-fade-in">
-      <p class="text-red-400 text-xs text-center">{{ authStore.error() }}</p>
-    </div>
+  <div
+    class="w-full p-3 rounded-lg bg-red-500/10 border border-red-500/20 animate-fade-in">
+    <p class="text-red-400 text-xs text-center">{{ authStore.error() }}</p>
+  </div>
   }
 </form>
 
-@defer (when formLogin.valid) {
-  @if (isReadyToNavigate()) {
-    <app-screen-lock redirectRoute="" />
-  }
-}
+@defer (when formLogin.valid) { @if (isReadyToNavigate()) {
+<app-screen-lock redirectRoute="" />
+} }

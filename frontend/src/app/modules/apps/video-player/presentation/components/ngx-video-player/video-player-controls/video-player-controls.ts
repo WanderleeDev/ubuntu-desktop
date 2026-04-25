@@ -10,7 +10,7 @@ import { VideoPlayerService } from "../../../services/video-player.service";
       display: contents;
     }
     input[type="range"] {
-      accent-color: #e95420;
+      accent-color: var(--color-system);
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

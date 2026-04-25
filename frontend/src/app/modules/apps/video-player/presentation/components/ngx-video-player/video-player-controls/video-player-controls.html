@@ -11,7 +11,7 @@
     <div
       class="absolute inset-0 w-full h-full bg-white/20 rounded-full overflow-hidden">
       <div
-        class="h-full bg-orange-600 shadow-[0_0_10px_rgba(234,88,12,0.5)]"
+        class="h-full bg-system shadow-[0_0_10px_var(--color-system)]"
         [style.width.%]="service.progress()"></div>
     </div>
   </div>
@@ -21,7 +21,7 @@
       <button
         type="button"
         (click)="service.togglePlay()"
-        class="text-white hover:text-orange-500 transition-all transform active:scale-90 flex items-center justify-center">
+        class="text-white hover:text-system transition-all transform active:scale-90 flex items-center justify-center">
         <span class="material-symbols-outlined text-[32px]">
           {{ service.isPlaying() ? "pause" : "play_arrow" }}
         </span>
@@ -46,8 +46,8 @@
       <button
         type="button"
         (click)="service.togglePlaylist()"
-        class="text-white/80 hover:text-orange-500 transition-all flex items-center justify-center"
-        [class.text-orange-500]="service.showPlaylist()">
+        class="text-white/80 hover:text-system transition-all flex items-center justify-center"
+        [class.text-system]="service.showPlaylist()">
         <span class="material-symbols-outlined">playlist_play</span>
       </button>
 
@@ -55,7 +55,7 @@
         <button
           type="button"
           (click)="service.toggleMute()"
-          class="text-white/80 hover:text-orange-500 transition-colors flex items-center justify-center">
+          class="text-white/80 hover:text-system transition-colors flex items-center justify-center">
           @let isVolume = service.isMuted() || service.volume() === 0;
           <span class="material-symbols-outlined">
             {{ isVolume ? "volume_off" : "volume_up" }}
@@ -74,7 +74,7 @@
       <button
         type="button"
         (click)="service.toggleFullscreen()"
-        class="text-white/80 hover:text-orange-500 transition-all flex items-center justify-center">
+        class="text-white/80 hover:text-system transition-all flex items-center justify-center">
         <span class="material-symbols-outlined">fullscreen</span>
       </button>
     </div>

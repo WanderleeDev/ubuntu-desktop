@@ -9,20 +9,21 @@ import { NgClass } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-sidebar",
+  standalone: true,
   imports: [NgClass],
   template: `
     <div
-      class="w-64 bg-[#383838] border-r border-white/5 h-full flex flex-col overflow-y-auto custom-scrollbar">
+      class="w-64 bg-secondary border-r border-text/5 h-full flex flex-col overflow-y-auto custom-scrollbar">
       <div class="p-4">
         <div class="relative">
           <span
-            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm"
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text/40 text-sm"
             >search</span
           >
           <input
             type="text"
             placeholder="Search"
-            class="w-full bg-[#4a4a4a] text-xs py-1.5 pl-9 pr-3 rounded-md border border-white/5 focus:outline-none focus:border-orange-500/50 text-white/80 placeholder:text-white/30" />
+            class="w-full bg-tertiary text-xs py-1.5 pl-9 pr-3 rounded-md border border-text/5 focus:outline-none focus:border-system/50 text-text/80 placeholder:text-text/30" />
         </div>
       </div>
 
@@ -30,7 +31,7 @@ import { NgClass } from "@angular/common";
         @for (cat of categories; track cat.id) {
           <div>
             <h3
-              class="px-6 mb-2 text-[10px] font-bold uppercase tracking-wider text-white/30">
+              class="px-6 mb-2 text-[10px] font-bold uppercase tracking-wider text-text/30">
               {{ cat.label }}
             </h3>
             <div class="space-y-0.5">
@@ -42,15 +43,15 @@ import { NgClass } from "@angular/common";
                   type="button"
                   (click)="selectSection(section.id)"
                   [ngClass]="{
-                    'bg-orange-500/10 text-orange-500 font-medium':
+                    'bg-system/10 text-system font-medium':
                       store.currentSection() === section.id,
-                    'text-white/70 hover:bg-white/5':
+                    'text-text/70 hover:bg-text/5':
                       store.currentSection() !== section.id,
                   }"
                   class="w-full flex items-center gap-3 px-6 py-2 transition-colors text-sm relative group">
                   @if (store.currentSection() === section.id) {
                     <div
-                      class="absolute left-0 w-1 h-6 bg-orange-500 rounded-r-full"></div>
+                      class="absolute left-0 w-1 h-6 bg-system rounded-r-full"></div>
                   }
                   <span class="material-symbols-outlined text-lg opacity-80">{{
                     section.icon

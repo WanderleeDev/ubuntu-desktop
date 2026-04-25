@@ -3,14 +3,14 @@
   (input)="onInput(textBoxControl.value)"
   aria-label="Text to translate"
   placeholder="Enter text to translate…"
-  class="w-full min-h-[160px] resize-none bg-transparent p-4 text-sm leading-relaxed text-black/80 dark:text-white/80 placeholder:text-black/30 dark:placeholder:text-white/30 outline-none border-none scrollStyle"></textarea>
+  class="w-full min-h-[160px] resize-none bg-transparent p-4 text-sm leading-relaxed text-text/80 placeholder:text-text/30 outline-none border-none scrollStyle"></textarea>
 
 <div
-  class="flex items-center justify-between px-3 py-1.5 border-t border-black/8 dark:border-white/8">
+  class="flex items-center justify-between px-3 py-1.5 border-t border-text/10">
   <span
-    class="text-[0.7rem] text-black/40 dark:text-white/40 flex items-center gap-1">
+    class="text-[0.7rem] text-text/40 flex items-center gap-1">
     @if (textBoxControl.value.length > $maxInputCharacters()) {
-      <strong class="font-semibold text-orange-500">Limit exceeded —</strong>
+      <strong class="font-semibold text-system">Limit exceeded —</strong>
     }
     {{ textBoxControl.value.length }} / {{ $maxInputCharacters() }}
   </span>
@@ -19,7 +19,7 @@
     <button
       type="button"
       title="Copy text"
-      class="flex items-center justify-center p-1 rounded-md text-black/35 dark:text-white/35 hover:text-[#E95420] hover:bg-[#E95420]/10 active:scale-90 transition-all duration-150"
+      class="flex items-center justify-center p-1 rounded-md text-text/35 hover:text-system hover:bg-system/10 active:scale-90 transition-all duration-150"
       [cdkCopyToClipboard]="textBoxControl.value">
       <span class="material-symbols-outlined text-[17px]">content_copy</span>
     </button>

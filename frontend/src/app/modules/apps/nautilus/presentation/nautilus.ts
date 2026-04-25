@@ -4,12 +4,12 @@ import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper"
 import { NautilusSection } from "../domain/nautilus.model";
 import { NAUTILUS_SECTIONS } from "../infrastructure/data/sections";
 import { NautilusStore } from "../infrastructure/nautilus.store";
-import { Background } from "./views/background/background";
-import { Appearance } from "./views/appearance/appearance";
-import { Privacy } from "./views/privacy/privacy";
-import { Notifications } from "./views/notifications/notifications";
 import { About } from "./views/about/about";
+import { Appearance } from "./views/appearance/appearance";
 import { Applications } from "./views/applications/applications";
+import { Background } from "./views/background/background";
+import { Notifications } from "./views/notifications/notifications";
+import { Privacy } from "./views/privacy/privacy";
 import { Users } from "./views/users/users";
 import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar";
 

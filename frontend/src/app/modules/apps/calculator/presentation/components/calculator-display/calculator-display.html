@@ -1,10 +1,10 @@
 <div
-  class="bg-[#1e1e1e] rounded-lg p-5 text-right shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] min-h-[100px] flex flex-col justify-end gap-1 border border-white/5">
-  <div class="text-base text-white/50 min-h-[1.5rem] font-['Inter']">
+  class="bg-primary rounded-lg p-5 text-right shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] min-h-[100px] flex flex-col justify-end gap-1 border border-text/5">
+  <div class="text-base text-text/50 min-h-[1.5rem] font-['Inter']">
     {{ store.expression() }}
   </div>
 
-  <div class="text-3xl text-white font-semibold leading-none font-['Outfit']">
+  <div class="text-3xl text-text font-semibold leading-none font-['Outfit']">
     @if (store.result() !== null) {
       = {{ store.result() | number: "1.0-8" }}
     } @else {
@@ -13,23 +13,23 @@
   </div>
 
   @if (store.error()) {
-    <div class="text-[#ff5555] text-xs mt-1">
+    <div class="text-red-500 text-xs mt-1">
       {{ store.error() }}
     </div>
   }
 </div>
 
 @if (store.record().length > 0) {
-  <div class="mt-3 p-3 bg-white/5 rounded-lg max-h-[120px] overflow-y-auto">
+  <div class="mt-3 p-3 bg-text/5 rounded-lg max-h-[120px] overflow-y-auto">
     <div
-      class="text-[9px] uppercase text-white/40 font-bold mb-1 tracking-widest">
+      class="text-[9px] uppercase text-text/40 font-bold mb-1 tracking-widest">
       History
     </div>
     @for (item of store.record(); track $index) {
       <div
-        class="flex justify-between text-[11px] py-1.5 border-b border-white/5 text-white/60 last:border-0">
+        class="flex justify-between text-[11px] py-1.5 border-b border-text/5 text-text/60 last:border-0">
         <span>{{ item.expression }}</span>
-        <span class="text-white font-medium">= {{ item.result }}</span>
+        <span class="text-text font-medium">= {{ item.result }}</span>
       </div>
     }
   </div>

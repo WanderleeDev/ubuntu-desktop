@@ -1,4 +1,4 @@
-import { computed, effect, inject } from "@angular/core";
+import { computed, DOCUMENT, effect, inject } from "@angular/core";
 import {
   patchState,
   signalStore,
@@ -42,7 +42,7 @@ const initialState: NautilusState = {
     "https://res.cloudinary.com/dy8gpozi6/image/upload/v1727476270/fossa_bcankr.webp",
   ],
   theme: "dark",
-  accentColor: "#E95420",
+  accentColor: "var(--color-system)",
   doNotDisturb: false,
   lockScreenNotifications: true,
 } as const;
@@ -51,6 +51,7 @@ export const NautilusStore = signalStore(
   { providedIn: "root" },
   withProps(() => ({
     _storageService: inject(StorageService),
+    _document: inject(DOCUMENT),
   })),
 
   withState(() => {
@@ -94,6 +95,7 @@ export const NautilusStore = signalStore(
   withHooks(
     ({
       _storageService,
+      _document,
       currentWallpaper,
       theme,
       accentColor,
@@ -111,6 +113,13 @@ export const NautilusStore = signalStore(
           };
 
           _storageService.setItem(STORAGE_KEY_SETTINGS, stateToSave);
+        });
+
+        effect(() => {
+          _document.documentElement.style.setProperty(
+            "--color-system",
+            accentColor()
+          );
         });
       },
     })

@@ -22,7 +22,7 @@ import { VideoPlayerTopBar } from "./video-player-top-bar/video-player-top-bar";
     }
     input[type="range"] {
       cursor: pointer;
-      accent-color: #e95420;
+      accent-color: var(--color-system);
     }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

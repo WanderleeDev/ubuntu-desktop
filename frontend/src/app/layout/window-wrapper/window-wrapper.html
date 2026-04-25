@@ -1,5 +1,5 @@
 <section
-  class="flex flex-col bg-[#ebebeb] dark:bg-[#2c2c2c] overflow-hidden shadow-2xl border border-black/10 dark:border-white/5"
+  class="flex flex-col bg-secondary overflow-hidden shadow-2xl border border-text/10 select-none"
   [class.size-fit]="!isMaximized()"
   [class.rounded-t-xl]="!isMaximized()"
   [class.fixed]="isMaximized()"
@@ -10,12 +10,11 @@
   [cdkDragDisabled]="isMaximized()"
   [cdkDragConstrainPosition]="constrainPosition">
   <header
-    class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-[#f7f7f7] to-[#ebebeb] dark:from-[rgb(57,57,57)] dark:to-[#2c2c2c] border-b border-black/10 dark:border-white/5 select-none"
+    class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-tertiary to-secondary border-b border-text/10 select-none"
     cdkDragHandle>
     <div class="flex items-center gap-3">
       <ng-content select="[header]" />
-      <h2
-        class="text-[13px] font-medium text-black/70 dark:text-white/80 capitalize">
+      <h2 class="text-[13px] font-medium text-text/70 capitalize">
         {{ appTitle() || "Empty title" }}
       </h2>
     </div>
@@ -24,10 +23,10 @@
       <button
         type="button"
         (click)="onClick(WindowActions.MINIMIZE_WINDOW)"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
         title="Minimizar">
         <span
-          class="material-symbols-outlined text-[16px] text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
+          class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
           >horizontal_rule</span
         >
       </button>
@@ -35,10 +34,10 @@
       <button
         type="button"
         (click)="onClick(WindowActions.MAXIMIZE_WINDOW)"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
         title="Maximizar">
         <span
-          class="material-symbols-outlined text-[16px] text-black/60 dark:text-white/50 group-hover:text-black dark:group-hover:text-white"
+          class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
           >{{ isMaximized() ? "collapse_content" : "expand_content" }}</span
         >
       </button>
@@ -46,18 +45,17 @@
       <button
         type="button"
         (click)="onClick(WindowActions.CLOSE_WINDOW)"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-[#E95420]/10 hover:bg-[#E95420] transition-all duration-200"
+        class="group flex items-center justify-center w-6 h-6 rounded-full bg-system/10 hover:bg-system transition-all duration-200"
         title="Cerrar">
         <span
-          class="material-symbols-outlined text-[16px] text-[#E95420] dark:text-[#E95420] group-hover:text-white"
+          class="material-symbols-outlined text-[16px] text-system group-hover:text-white"
           >close</span
         >
       </button>
     </div>
   </header>
 
-  <div
-    class="flex-1 overflow-auto bg-white/95 dark:bg-[#1e1e1e]/95 backdrop-blur-md">
+  <div class="flex-1 overflow-auto bg-tertiary/95 backdrop-blur-md">
     <ng-content select="[body]" />
   </div>
 </section>

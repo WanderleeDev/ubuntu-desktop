@@ -1,16 +1,16 @@
 <app-window-wrapper appTitle="ToDo">
   <section
     body
-    class="todo flex flex-col gap-6 p-6 min-w-[380px] bg-[#1e1e1e] text-white rounded-b-lg">
+    class="todo flex flex-col gap-6 p-6 min-w-[380px] bg-primary text-text rounded-b-lg">
     <app-task-input-field />
 
-    <div class="border-t border-white/10"></div>
+    <div class="border-t border-text/10"></div>
 
     @if (isLoading()) {
       <div class="flex flex-col items-center justify-center py-8 gap-3">
         <div
-          class="w-8 h-8 border-4 border-[#e95420] border-t-transparent rounded-full animate-spin"></div>
-        <span class="text-[#9ca3af] font-medium animate-pulse"
+          class="w-8 h-8 border-4 border-system border-t-transparent rounded-full animate-spin"></div>
+        <span class="text-muted font-medium animate-pulse"
           >Loading tasks...</span
         >
       </div>

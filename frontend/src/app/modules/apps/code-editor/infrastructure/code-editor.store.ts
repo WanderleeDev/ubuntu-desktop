@@ -53,10 +53,10 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-h1 { color: #e95420; }
+h1 { color: var(--color-system); }
 
 button {
-  background: #e95420;
+  background: var(--color-system);
   color: white;
   border: none;
   padding: 10px 20px;

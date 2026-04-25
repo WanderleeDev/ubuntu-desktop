@@ -5,7 +5,7 @@
         type="button"
         (click)="onClick(control, i)"
         [ngClass]="{
-          'bg-[#e95420] text-white shadow-md': activeBtn() === i,
+          'bg-[var(--color-system)] text-white shadow-md': activeBtn() === i,
           'text-white/40 hover:text-white/70 hover:bg-white/5':
             activeBtn() !== i,
         }"

@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ThemeSelectService } from "ngx-theme-stack";
+import { CheckBadgeComponent } from "../../../../../../shared/components/check-badge/check-badge";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
 
 @Component({
   selector: "app-nautilus-appearance",
-  imports: [],
+  imports: [CheckBadgeComponent],
   templateUrl: "./appearance.html",
   styles: `
     :host {
@@ -15,9 +17,12 @@ import { NautilusStore } from "../../../infrastructure/nautilus.store";
 })
 export class Appearance {
   readonly store = inject(NautilusStore);
+  readonly themeService = inject(ThemeSelectService);
+  readonly isDarkTheme = this.themeService.isDark;
+  readonly isLightTheme = this.themeService.isLight;
 
   readonly accentColors = [
-    { name: "Orange", hex: "#E95420" },
+    { name: "Orange", hex: "#e85725" },
     { name: "Yellow", hex: "#C7A62C" },
     { name: "Green", hex: "#6D7A37" },
     { name: "Lime", hex: "#6E8B0E" },

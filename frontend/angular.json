@@ -19,7 +19,9 @@
           "builder": "@ngx-env/builder:application",
           "options": {
             "outputPath": "dist/ubuntu-desktop",
-            "ngxEnv": { "prefix": "NG_" },
+            "ngxEnv": {
+              "prefix": "NG_"
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [],
@@ -35,14 +37,9 @@
                 "output": "assets/monaco-editor/vs"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-
-
+            "styles": ["src/themes.css", "src/styles.css"],
             "scripts": []
           },
-
           "configurations": {
             "production": {
               "budgets": [
@@ -57,7 +54,12 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "styles": {
+                  "inlineCritical": false
+                }
+              }
             },
             "development": {
               "optimization": false,

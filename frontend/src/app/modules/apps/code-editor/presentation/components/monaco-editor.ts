@@ -22,7 +22,7 @@ import { CodeEditorStore } from "../../infrastructure/code-editor.store";
         (ngModelChange)="store.updateCode($event)"></ngx-monaco-editor>
     } @else {
       <div
-        class="w-full h-full bg-[#1e1e1e] flex items-center justify-center text-white/20">
+        class="w-full h-full bg-[var(--bg-darker)] flex items-center justify-center text-white/20">
         Loading Editor...
       </div>
     }
