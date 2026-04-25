@@ -1,13 +1,6 @@
 <section
   class="flex flex-col bg-secondary overflow-hidden shadow-2xl border border-text/10 select-none"
-  [class.size-fit]="!isMaximized()"
-  [class.rounded-t-xl]="!isMaximized()"
-  [class.fixed]="isMaximized()"
-  [class.inset-0]="isMaximized()"
-  [class.z-[999]]="isMaximized()"
-  [class.m-0]="isMaximized()"
   cdkDrag
-  [cdkDragDisabled]="isMaximized()"
   [cdkDragConstrainPosition]="constrainPosition">
   <header
     class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-tertiary to-secondary border-b border-text/10 select-none"
@@ -22,7 +15,6 @@
     <div class="flex items-center gap-1.5">
       <button
         type="button"
-        (click)="onClick(WindowActions.MINIMIZE_WINDOW)"
         class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
         title="Minimizar">
         <span
@@ -33,18 +25,16 @@
 
       <button
         type="button"
-        (click)="onClick(WindowActions.MAXIMIZE_WINDOW)"
         class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
         title="Maximizar">
         <span
           class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
-          >{{ isMaximized() ? "collapse_content" : "expand_content" }}</span
+          >{{ "expand_content" }}</span
         >
       </button>
 
       <button
         type="button"
-        (click)="onClick(WindowActions.CLOSE_WINDOW)"
         class="group flex items-center justify-center w-6 h-6 rounded-full bg-system/10 hover:bg-system transition-all duration-200"
         title="Cerrar">
         <span

@@ -1,16 +1,5 @@
 import { CdkDrag, CdkDragHandle, DragRef, Point } from "@angular/cdk/drag-drop";
-import {
-  ChangeDetectionStrategy,
-  Component,
-  input,
-  output,
-} from "@angular/core";
-
-export enum WindowActions {
-  MINIMIZE_WINDOW = "MINIMIZE_WINDOW",
-  MAXIMIZE_WINDOW = "MAXIMIZE_WINDOW",
-  CLOSE_WINDOW = "CLOSE_WINDOW",
-}
+import { ChangeDetectionStrategy, Component, input } from "@angular/core";
 
 @Component({
   selector: "app-window-wrapper",
@@ -24,10 +13,8 @@ export enum WindowActions {
   `,
 })
 export class WindowWrapper {
-  protected readonly WindowActions = WindowActions;
-  readonly windowAction = output<WindowActions>();
+  protected readonly APP_ID = input<string>();
   readonly appTitle = input.required<string>();
-  readonly isMaximized = input<boolean>(false);
 
   public constrainPosition = (
     point: Point,
@@ -44,7 +31,7 @@ export class WindowWrapper {
     };
   };
 
-  public onClick(action: WindowActions): void {
-    this.windowAction.emit(action);
+  public onClick(): void {
+    console.log(this.APP_ID());
   }
 }

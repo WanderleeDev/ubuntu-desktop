@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import {
-  WindowActions,
-  WindowWrapper,
-} from "../../../../layout/window-wrapper/window-wrapper";
+import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { PaintStore } from "../infrastructure/paint.store";
 import { Canvas } from "./components/canvas/canvas";
 import { ColoredToolbar } from "./components/colored-toolbar/colored-toolbar";
@@ -29,8 +26,4 @@ import { PencilToolbar } from "./components/pencil-toolbar/pencil-toolbar";
 })
 export default class Paint {
   readonly store = inject(PaintStore);
-
-  public onWindowAction(action: WindowActions): void {
-    console.log("Window action:", action);
-  }
 }

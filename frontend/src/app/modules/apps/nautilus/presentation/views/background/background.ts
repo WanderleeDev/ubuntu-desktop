@@ -1,6 +1,6 @@
+import { NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { NautilusStore } from "../../../infrastructure/nautilus.store";
-import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-nautilus-background",
