@@ -1,18 +1,4 @@
-export enum NautilusSection {
-  NETWORK = "network",
-  WIFI = "wifi",
-  BLUETOOTH = "bluetooth",
-  BACKGROUND = "background",
-  APPEARANCE = "appearance",
-  NOTIFICATIONS = "notifications",
-  SEARCH = "search",
-  APPLICATIONS = "applications",
-  PRIVACY = "privacy",
-  USERS = "users",
-  ABOUT = "about",
-}
-
-export type NautilusSectionKey =
+export type NautilusSection =
   | "network"
   | "wifi"
   | "bluetooth"

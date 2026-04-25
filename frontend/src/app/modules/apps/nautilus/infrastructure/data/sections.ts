@@ -1,70 +1,70 @@
-import { INautilusSection, NautilusSection } from "../../domain/nautilus.model";
+import { INautilusSection } from "../../domain/nautilus.model";
 
 export const NAUTILUS_SECTIONS: INautilusSection[] = [
   {
-    id: NautilusSection.NETWORK,
+    id: "network",
     label: "Network",
     icon: "settings_ethernet",
     category: "connectivity",
   },
   {
-    id: NautilusSection.WIFI,
+    id: "wifi",
     label: "Wi-Fi",
     icon: "wifi",
     category: "connectivity",
   },
   {
-    id: NautilusSection.BLUETOOTH,
+    id: "bluetooth",
     label: "Bluetooth",
     icon: "bluetooth",
     category: "connectivity",
   },
 
   {
-    id: NautilusSection.BACKGROUND,
+    id: "background",
     label: "Background",
     icon: "image",
     category: "personalization",
   },
   {
-    id: NautilusSection.APPEARANCE,
+    id: "appearance",
     label: "Appearance",
     icon: "palette",
     category: "personalization",
   },
   {
-    id: NautilusSection.NOTIFICATIONS,
+    id: "notifications",
     label: "Notifications",
     icon: "notifications",
     category: "personalization",
   },
   {
-    id: NautilusSection.SEARCH,
+    id: "search",
     label: "Search",
     icon: "search",
     category: "personalization",
   },
 
   {
-    id: NautilusSection.APPLICATIONS,
+    id: "applications",
     label: "Applications",
     icon: "apps",
     category: "system",
   },
   {
-    id: NautilusSection.PRIVACY,
+    id: "privacy",
     label: "Privacy",
     icon: "security",
     category: "system",
   },
   {
-    id: NautilusSection.USERS,
+    id: "users",
     label: "Users",
     icon: "person",
     category: "system",
   },
   {
-    id: NautilusSection.ABOUT,
+    id: "about",
     label: "About",
     icon: "info",
     category: "system",
