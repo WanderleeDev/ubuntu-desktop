@@ -5,6 +5,7 @@ import {
   inject,
 } from "@angular/core";
 import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { APP_DESKTOP_ID } from "../../../desktop/infrastructure/app-desktop-id.token";
 import { CalculatorStore } from "../infrastructure/calculator.store";
 import { CalculatorManagerService } from "../services/calculator-manager.service";
 import { CalculatorControls } from "./components/calculator-controls/calculator-controls";
@@ -30,6 +31,7 @@ import { CalculatorUndoBtn } from "./components/calculator-undo-btn/calculator-u
 })
 export default class Calculator {
   readonly store = inject(CalculatorStore);
+  readonly id = inject(APP_DESKTOP_ID);
 
   @HostListener("window:keydown", ["$event"])
   handleKeyboardEvent(event: KeyboardEvent): void {

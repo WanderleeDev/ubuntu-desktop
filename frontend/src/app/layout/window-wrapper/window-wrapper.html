@@ -3,7 +3,7 @@
   cdkDrag
   [cdkDragConstrainPosition]="constrainPosition">
   <header
-    class="flex items-center justify-between px-4 py-2 bg-gradient-to-b from-tertiary to-secondary border-b border-text/10 select-none"
+    class="flex items-center justify-between px-4 py-2 bg-linear-to-b from-tertiary to-secondary border-b border-text/10 select-none"
     cdkDragHandle>
     <div class="flex items-center gap-3">
       <ng-content select="[header]" />
@@ -36,6 +36,7 @@
       <button
         type="button"
         class="group flex items-center justify-center w-6 h-6 rounded-full bg-system/10 hover:bg-system transition-all duration-200"
+        (click)="onClick()"
         title="Cerrar">
         <span
           class="material-symbols-outlined text-[16px] text-system group-hover:text-white"

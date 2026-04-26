@@ -1,5 +1,11 @@
 import { CdkDrag, CdkDragHandle, DragRef, Point } from "@angular/cdk/drag-drop";
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from "@angular/core";
+import { APP_DESKTOP_ID } from "../../modules/desktop/infrastructure/app-desktop-id.token";
 
 @Component({
   selector: "app-window-wrapper",
@@ -13,7 +19,7 @@ import { ChangeDetectionStrategy, Component, input } from "@angular/core";
   `,
 })
 export class WindowWrapper {
-  protected readonly APP_ID = input<string>();
+  readonly appDesktopId = inject(APP_DESKTOP_ID);
   readonly appTitle = input.required<string>();
 
   public constrainPosition = (
@@ -32,6 +38,6 @@ export class WindowWrapper {
   };
 
   public onClick(): void {
-    console.log(this.APP_ID());
+    console.log(this.appDesktopId);
   }
 }
