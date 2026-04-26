@@ -10,9 +10,15 @@
 
     <div
       class="flex-1 overflow-y-auto bg-secondary/40 backdrop-blur-md custom-scrollbar px-8 py-8">
-      @if (activeView.value(); as component) {
-      <ng-container *ngComponentOutlet="component" />
-      }
+      @switch (currentSection()) { @case ('background') { @defer {
+      <app-nautilus-background /> } } @case ('appearance') { @defer {
+      <app-nautilus-appearance /> } } @case ('privacy') { @defer {
+      <app-nautilus-privacy /> } } @case ('notifications') { @defer {
+      <app-nautilus-notifications /> } } @case ('about') { @defer {
+      <app-nautilus-about /> } } @case ('applications') { @defer {
+      <app-nautilus-applications /> } } @case ('users') { @defer {
+      <app-nautilus-users /> } } @default { @defer {
+      <app-nautilus-coming-soon /> } } }
     </div>
   </div>
 </app-window-wrapper>
