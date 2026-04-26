@@ -1,17 +1,23 @@
-import { AsyncPipe, NgComponentOutlet } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   Component,
+  ComponentRef,
   computed,
   inject,
+  Injector,
+  signal,
   Type,
+  viewChild,
+  ViewContainerRef,
 } from "@angular/core";
 import { WindowManagerStore } from "./infrastructure/window-manager.store";
 
 import { SettingsStore } from "../apps/nautilus/infrastructure/settings.store";
+import Nautilus from "../apps/nautilus/presentation/nautilus";
 import { AppItem } from "./components/app-item/app-item";
 import { NavbarDesktop } from "./components/navbar-desktop/navbar-desktop";
 import { Sidebar } from "./components/sidebar/sidebar";
+import { APP_DESKTOP_ID } from "./infrastructure/app-desktop-id.token";
 import { DesktopIcon } from "./interfaces/app-icon.interface";
 
 const desktopIcons: DesktopIcon[] = [
@@ -61,7 +67,7 @@ const desktopIcons: DesktopIcon[] = [
 
 @Component({
   selector: "app-desktop-view",
-  imports: [Sidebar, NavbarDesktop, AppItem, NgComponentOutlet, AsyncPipe],
+  imports: [Sidebar, NavbarDesktop, AppItem],
   providers: [WindowManagerStore],
   templateUrl: "./desktop.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -69,13 +75,47 @@ const desktopIcons: DesktopIcon[] = [
 export default class Desktop {
   protected readonly windowManager = inject(WindowManagerStore);
   protected readonly settingsStore = inject(SettingsStore);
+  readonly #injector = inject(Injector);
+
+  protected container = viewChild.required("container", {
+    read: ViewContainerRef,
+  });
+  readonly #refs: ComponentRef<unknown>[] = [];
+  isView = false;
+
+  protected createAll(): void {
+    const components = [Nautilus];
+
+    components.forEach(cmp => {
+      const ref = this.container().createComponent(cmp as Type<unknown>, {
+        injector: Injector.create({
+          providers: [
+            { provide: APP_DESKTOP_ID, useValue: crypto.randomUUID() },
+          ],
+          parent: this.#injector,
+        }),
+      });
+      this.#refs.push(ref);
+    });
+  }
 
   protected readonly desktopBackground = computed(() => {
     const current = this.settingsStore.currentWallpaper();
     return current ? `url(${current})` : "black";
   });
 
-  private _componentCache: Record<string, Promise<Type<unknown>>> = {};
+  #loadedApps = signal<Record<string, Type<unknown>>>({});
+
+  public async openApp(id: string): Promise<void> {
+    if (this.#loadedApps()[id]) return;
+
+    const module = await this.APPS[id]();
+
+    this.#loadedApps.update(apps => ({
+      ...apps,
+      [id]: module.default,
+    }));
+  }
 
   protected readonly desktopIcons = desktopIcons;
 
@@ -94,11 +134,11 @@ export default class Desktop {
     "clock": () => import("../apps/clock/clock"),
   };
 
-  protected resolveApp(appKey: string): Promise<Type<unknown>> | null {
-    if (!this.APPS[appKey]) return null;
-    if (!this._componentCache[appKey]) {
-      this._componentCache[appKey] = this.APPS[appKey]().then(m => m.default);
-    }
-    return this._componentCache[appKey];
-  }
+  // protected resolveApp(appKey: string): Promise<Type<unknown>> | null {
+  //   if (!this.APPS[appKey]) return null;
+  //   if (!this._componentCache[appKey]) {
+  //     this._componentCache[appKey] = this.APPS[appKey]().then(m => m.default);
+  //   }
+  //   return this._componentCache[appKey];
+  // }
 }

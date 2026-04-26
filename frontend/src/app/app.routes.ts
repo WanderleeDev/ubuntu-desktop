@@ -1,5 +1,6 @@
 import { Routes } from "@angular/router";
 import { Auth } from "./modules/auth/auth";
+import { WindowManagerStore } from "./modules/desktop/infrastructure/window-manager.store";
 
 export const routes: Routes = [
   {
@@ -11,6 +12,7 @@ export const routes: Routes = [
   {
     path: "home",
     loadComponent: () => import("./modules/desktop/desktop"),
+    providers: [WindowManagerStore],
     title: "Ubuntu | home",
   },
   {

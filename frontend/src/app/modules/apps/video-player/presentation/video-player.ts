@@ -1,6 +1,10 @@
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, InputSignal } from "@angular/core";
 import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { NgxVideoPlayer } from "./components/ngx-video-player/ngx-video-player";
+
+export abstract class DesktopApp {
+  protected abstract readonly AppId: InputSignal<string>;
+}
 
 @Component({
   selector: "app-video-player-app",
