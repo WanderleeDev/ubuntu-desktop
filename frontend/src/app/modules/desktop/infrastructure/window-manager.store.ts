@@ -1,4 +1,4 @@
-import { signalStore, withState, withMethods, patchState } from "@ngrx/signals";
+import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
 
 export interface WindowInstance {
   id: string;
@@ -7,7 +7,6 @@ export interface WindowInstance {
 }
 
 export const WindowManagerStore = signalStore(
-  { providedIn: "root" },
   withState({
     openedApps: [] as WindowInstance[],
     nextZIndex: 100,
