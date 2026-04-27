@@ -10,16 +10,20 @@ import { AppManagerStore } from "../../infrastructure/app-manager.store";
 
 @Component({
   selector: "app-window",
-  imports: [CdkDrag, CdkDragHandle],
+  imports: [CdkDragHandle],
   templateUrl: "./app-window.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styles: `
-    :host {
-      display: contents;
-    }
-  `,
+  hostDirectives: [CdkDrag],
+  host: {
+    class:
+      "flex flex-col bg-secondary overflow-hidden shadow-2xl border border-text/10 select-none w-fit absolute z-0 left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2 starting:scale-50 will-change-transform",
+  },
 })
 export class AppWindow {
+  constructor() {
+    inject(CdkDrag, { self: true }).constrainPosition = this.constrainPosition;
+  }
+
   readonly appDesktopId = inject(APP_DESKTOP_ID);
   readonly #appManager = inject(AppManagerStore);
   readonly appTitle = input.required<string>();

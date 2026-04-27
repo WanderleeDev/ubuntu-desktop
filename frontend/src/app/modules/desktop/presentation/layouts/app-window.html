@@ -1,52 +1,47 @@
-<section
-  class="flex flex-col bg-secondary overflow-hidden shadow-2xl border border-text/10 select-none w-fit"
-  cdkDrag
-  [cdkDragConstrainPosition]="constrainPosition">
-  <header
-    class="flex items-center justify-between px-4 py-2 bg-linear-to-b from-tertiary to-secondary border-b border-text/10 select-none"
-    cdkDragHandle>
-    <div class="flex items-center gap-3">
-      <ng-content select="[header]" />
-      <h2 class="text-[13px] font-medium text-text/70 capitalize">
-        {{ appTitle() || "Empty title" }}
-      </h2>
-    </div>
-
-    <div class="flex items-center gap-1.5">
-      <button
-        type="button"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
-        title="Minimizar">
-        <span
-          class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
-          >horizontal_rule</span
-        >
-      </button>
-
-      <button
-        type="button"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
-        title="Maximizar">
-        <span
-          class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
-          >{{ "expand_content" }}</span
-        >
-      </button>
-
-      <button
-        type="button"
-        class="group flex items-center justify-center w-6 h-6 rounded-full bg-system/10 hover:bg-system transition-all duration-200"
-        (click)="onClick()"
-        title="Cerrar">
-        <span
-          class="material-symbols-outlined text-[16px] text-system group-hover:text-white"
-          >close</span
-        >
-      </button>
-    </div>
-  </header>
-
-  <div class="flex-1 overflow-auto bg-tertiary/95 backdrop-blur-md">
-    <ng-content select="[body]" />
+<header
+  class="flex items-center justify-between px-4 py-2 bg-linear-to-b from-tertiary to-secondary border-b border-text/10 select-none"
+  cdkDragHandle>
+  <div class="flex items-center gap-3">
+    <ng-content select="[header]" />
+    <h2 class="text-[13px] font-medium text-text/70 capitalize">
+      {{ appTitle() || "Empty title" }}
+    </h2>
   </div>
-</section>
+
+  <div class="flex items-center gap-1.5">
+    <button
+      type="button"
+      class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
+      title="Minimizar">
+      <span
+        class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
+        >horizontal_rule</span
+      >
+    </button>
+
+    <button
+      type="button"
+      class="group flex items-center justify-center w-6 h-6 rounded-full bg-text/5 hover:bg-text/10 transition-all duration-200"
+      title="Maximizar">
+      <span
+        class="material-symbols-outlined text-[16px] text-text/50 group-hover:text-text"
+        >{{ "expand_content" }}</span
+      >
+    </button>
+
+    <button
+      type="button"
+      class="group flex items-center justify-center w-6 h-6 rounded-full bg-system/10 hover:bg-system transition-all duration-200"
+      (click)="onClick()"
+      title="Cerrar">
+      <span
+        class="material-symbols-outlined text-[16px] text-system group-hover:text-white"
+        >close</span
+      >
+    </button>
+  </div>
+</header>
+
+<div class="flex-1 overflow-auto bg-tertiary/95 backdrop-blur-md">
+  <ng-content select="[body]" />
+</div>
