@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { AuthWrapper } from "../../layout/auth-wrapper/auth-wrapper";
+import { AuthLayout } from "./layouts/auth-layout";
 
 @Component({
   selector: "app-auth",
-  imports: [AuthWrapper, RouterOutlet],
+  imports: [AuthLayout, RouterOutlet],
   template: `
-    <app-auth-wrapper>
+    <app-auth-layout>
       <router-outlet />
-    </app-auth-wrapper>
+    </app-auth-layout>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
