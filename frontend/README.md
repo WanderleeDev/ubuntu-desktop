@@ -1,64 +1,30 @@
-# GithubProfile
+# Ubuntu Desktop Clone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+A high-fidelity clone of the Ubuntu Desktop environment built with modern web technologies.
 
-## Development server
+## 🚀 Live Demo
+[ubuntu-clone.wanderlee.site](https://ubuntu-clone.wanderlee.site/)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🛠️ Tech Stack
+- **Framework**: Angular 18 (Standalone Components)
+- **Styling**: Tailwind CSS v4 (Modern, utility-first)
+- **State Management**: NgRx SignalStore (Reactive state)
+- **Reactivity**: Angular Signals
+- **Drag & Drop**: Angular CDK
+- **Theme**: ngx-theme-stack (Light/Dark mode)
+- **Icons**: Material Symbols & Custom SVGs
 
-## Code scaffolding
+## 🏗️ Architecture
+The project follows a modular structure inspired by Domain-Driven Design (DDD) principles:
+- **`modules/`**: Feature-based modules (Auth, Desktop, Apps).
+  - **`domain/`**: Interfaces and business logic.
+  - **`infrastructure/`**: Stores, services, and repositories.
+  - **`presentation/`**: UI components, layouts, and views.
+- **`shared/`**: Common components, services, and utilities used across modules.
+- **`public/assets/`**: Static assets including wallpapers and icons.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 📂 Repository
+[GitHub - WanderleeDev/ubuntu-desktop](https://github.com/WanderleeDev/ubuntu-desktop/tree/main/frontend)
 
-## Structure
-
-```
-└── 📁angular-17-tailwind
-    └── README.md
-    └── package.json
-    └── pnpm-lock.yaml
-    └── 📁src
-        └── 📁app
-            └── 📁Pages
-                └── 📁home
-                    └── home.component.html
-                    └── home.component.ts
-                └── 📁notFound
-                    └── notFound.component.html
-                    └── notFound.component.ts
-            └── app.component.ts
-            └── app.config.ts
-            └── 📁cms
-            └── 📁components
-            └── 📁interface
-            └── 📁services
-            └── 📁shared
-                └── 📁btn-gradient
-                    └── btn-gradient.component.ts
-        └── 📁assets
-            ├── img
-        └── favicon.ico
-        └── index.html
-        └── main.ts
-        └── styles.css
-    └── tailwind.config.js
-    └── tsconfig.app.json
-    └── tsconfig.json
-    └── tsconfig.spec.json
-```
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+Generated with ❤️ by [WanderleeDev](https://github.com/WanderleeDev)
