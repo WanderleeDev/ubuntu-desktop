@@ -5,8 +5,8 @@ import {
   computed,
   signal,
 } from "@angular/core";
-import Clock from "../../../modules/apps/clock/clock";
-import { SwitchComponent } from "../../components/switch/switch";
+import Clock from "../../../../apps/clock/clock";
+import { SwitchComponent } from "../../../../../shared/components/switch/switch";
 
 @Component({
   selector: "app-calendar",

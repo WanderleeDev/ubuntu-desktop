@@ -5,7 +5,7 @@ import {
   inject,
   signal,
 } from "@angular/core";
-import { Calendar } from "../../../../../shared/ui/calendar/calendar";
+import { Calendar } from "../calendar/calendar";
 import { ClockService } from "../../../../apps/clock/services/clock.service";
 
 @Component({
