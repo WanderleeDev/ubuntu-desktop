@@ -16,10 +16,12 @@ import { AppManagerStore } from "../../infrastructure/app-manager.store";
   hostDirectives: [CdkDrag],
   host: {
     class:
-      "flex flex-col bg-secondary overflow-hidden shadow-2xl border border-text/10 select-none w-fit absolute z-0 left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2 starting:scale-50 will-change-transform",
+      "flex flex-col overflow-hidden shadow-2xl border border-text/10 select-none w-fit absolute z-0 left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2",
   },
 })
 export class AppWindow {
+  readonly #MARGIN_TOP = 25;
+
   constructor() {
     inject(CdkDrag, { self: true }).constrainPosition = this.constrainPosition;
   }
@@ -39,7 +41,7 @@ export class AppWindow {
 
     return {
       x: naturalX,
-      y: Math.max(naturalY, 28),
+      y: Math.max(naturalY, this.#MARGIN_TOP),
     };
   };
 

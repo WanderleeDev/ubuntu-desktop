@@ -16,17 +16,15 @@ import { AppIcon } from "../../../infrastructure/interfaces/app-icon.interface";
 })
 export class Sidebar {
   mainIcons = signal<AppIcon[]>([
-    { id: "chrome", icon: "assets/sidebarIcons/chrome.svg", app: "browser" },
     { id: "firefox", icon: "assets/sidebarIcons/firefox.svg", app: "browser" },
-    { id: "vsc", icon: "assets/sidebarIcons/vsc.svg", app: "vsc" },
     { id: "github", icon: "assets/sidebarIcons/github.svg", app: "github" },
     { id: "claude", icon: "assets/sidebarIcons/claude.svg", app: "claude" },
     { id: "ngrx", icon: "assets/sidebarIcons/ngrx.svg", app: "ngrx" },
+    { id: "edge", icon: "assets/sidebarIcons/edge.svg", app: "edge" },
   ]);
 
   secondaryIcons = signal<AppIcon[]>([
     { id: "folder", icon: "assets/sidebarIcons/folder.svg", app: "nautilus" },
-    { id: "settings", icon: "assets/sidebarIcons/settings.svg", app: "settings" },
     { id: "trash", icon: "assets/sidebarIcons/trash.webp", app: "trash" },
   ]);
 
