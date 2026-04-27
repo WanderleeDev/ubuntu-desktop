@@ -10,9 +10,8 @@ import { NgClass } from "@angular/common";
       [disabled]="isDisabled()"
       class="flex items-center justify-center p-1.5 rounded-md transition-all duration-200"
       [ngClass]="{
-        'text-black/20 dark:text-white/20 cursor-not-allowed': isDisabled(),
-        'text-black/70 dark:text-white/70 hover:bg-black/10 dark:hover:bg-white/10 hover:text-black dark:hover:text-white':
-          !isDisabled(),
+        'text-text/20 cursor-not-allowed': isDisabled(),
+        'text-text/70 hover:bg-text/10 hover:text-text': !isDisabled(),
       }"
       title="Deshacer última operación">
       <span class="material-symbols-outlined text-[20px]">history</span>
