@@ -40,7 +40,12 @@
       class="w-[38px] h-[38px] flex items-center justify-center rounded-md transition-colors hover:bg-white/10 cursor-pointer active:cursor-grabbing"
       type="button"
       [title]="item.id">
-      <img [ngSrc]="item.icon" [alt]="item.id" width="32" height="32" />
+      <img
+        [ngSrc]="item.icon"
+        [alt]="item.id"
+        width="32"
+        height="32"
+        priority />
       <div
         *cdkDragPlaceholder
         class="w-full h-full bg-white/5 rounded-md border border-dashed border-white/20"></div>
