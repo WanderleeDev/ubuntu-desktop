@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, InputSignal } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { NgxVideoPlayer } from "./components/ngx-video-player/ngx-video-player";
 
 export abstract class DesktopApp {
@@ -8,12 +8,12 @@ export abstract class DesktopApp {
 
 @Component({
   selector: "app-video-player-app",
-  imports: [WindowWrapper, NgxVideoPlayer],
+  imports: [AppWindow, NgxVideoPlayer],
 
   template: `
-    <app-window-wrapper appTitle="Video Player">
+    <app-window appTitle="Video Player">
       <app-ngx-video-player body />
-    </app-window-wrapper>
+    </app-window>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

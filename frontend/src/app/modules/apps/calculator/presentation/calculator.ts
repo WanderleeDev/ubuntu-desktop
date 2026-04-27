@@ -4,8 +4,8 @@ import {
   HostListener,
   inject,
 } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { APP_DESKTOP_ID } from "../../../desktop/infrastructure/app-desktop-id.token";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { CalculatorStore } from "../infrastructure/calculator.store";
 import { CalculatorManagerService } from "../services/calculator-manager.service";
 import { CalculatorControls } from "./components/calculator-controls/calculator-controls";
@@ -15,7 +15,7 @@ import { CalculatorUndoBtn } from "./components/calculator-undo-btn/calculator-u
 @Component({
   selector: "app-calculator",
   imports: [
-    WindowWrapper,
+    AppWindow,
     CalculatorControls,
     CalculatorDisplay,
     CalculatorUndoBtn,

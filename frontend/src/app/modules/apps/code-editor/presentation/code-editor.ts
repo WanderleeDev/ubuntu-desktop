@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { CodeEditorStore } from "../infrastructure/code-editor.store";
 import { EditorPreview } from "./components/editor-preview";
 import { EditorSidebar } from "./components/editor-sidebar";
@@ -9,7 +9,7 @@ import { MonacoEditor } from "./components/monaco-editor";
 @Component({
   selector: "app-code-editor-app",
   imports: [
-    WindowWrapper,
+    AppWindow,
     MonacoEditor,
     EditorSidebar,
     EditorPreview,

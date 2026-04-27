@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { TodoStore } from "../infrastructure/todo.store";
 import { ListTasks } from "./components/list-tasks/list-tasks";
 import { TaskInputField } from "./components/task-input-field/task-input-field";
@@ -7,12 +7,7 @@ import { FilterPipe } from "./pipes/filter.pipe";
 
 @Component({
   selector: "app-todo",
-  imports: [
-    TaskInputField,
-    ListTasks,
-    FilterPipe,
-    WindowWrapper,
-  ],
+  imports: [TaskInputField, ListTasks, FilterPipe, AppWindow],
   templateUrl: "./todo.html",
   providers: [TodoStore],
   changeDetection: ChangeDetectionStrategy.OnPush,

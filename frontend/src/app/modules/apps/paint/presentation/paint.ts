@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { PaintStore } from "../infrastructure/paint.store";
 import { Canvas } from "./components/canvas/canvas";
 import { ColoredToolbar } from "./components/colored-toolbar/colored-toolbar";
@@ -9,7 +9,7 @@ import { PencilToolbar } from "./components/pencil-toolbar/pencil-toolbar";
 @Component({
   selector: "app-paint",
   imports: [
-    WindowWrapper,
+    AppWindow,
     Canvas,
     ColoredToolbar,
     PencilToolbar,

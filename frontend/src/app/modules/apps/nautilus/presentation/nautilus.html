@@ -1,6 +1,4 @@
-<app-window-wrapper
-  [appTitle]="currentSection()"
-  cdkDragBoundary="#container-boundary">
+<app-window [appTitle]="currentSection()" cdkDragBoundary="#container-boundary">
   <span class="u-padding-left text-text/80 font-medium" header> Settings </span>
 
   <div
@@ -10,15 +8,14 @@
 
     <div
       class="flex-1 overflow-y-auto bg-secondary/40 backdrop-blur-md custom-scrollbar px-8 py-8">
-      @switch (currentSection()) { @case ('background') { @defer {
-      <app-nautilus-background /> } } @case ('appearance') { @defer {
-      <app-nautilus-appearance /> } } @case ('privacy') { @defer {
-      <app-nautilus-privacy /> } } @case ('notifications') { @defer {
-      <app-nautilus-notifications /> } } @case ('about') { @defer {
-      <app-nautilus-about /> } } @case ('applications') { @defer {
-      <app-nautilus-applications /> } } @case ('users') { @defer {
-      <app-nautilus-users /> } } @default { @defer {
-      <app-nautilus-coming-soon /> } } }
+      @switch (currentSection()) { @case ('background') {
+      <app-nautilus-background /> } @case ('appearance') {
+      <app-nautilus-appearance /> } @case ('privacy') {
+      <app-nautilus-privacy /> } @case ('notifications') {
+      <app-nautilus-notifications /> } @case ('about') {
+      <app-nautilus-about /> } @case ('applications') {
+      <app-nautilus-applications /> } @case ('users') { <app-nautilus-users /> }
+      @default { <app-nautilus-coming-soon /> } }
     </div>
   </div>
-</app-window-wrapper>
+</app-window>

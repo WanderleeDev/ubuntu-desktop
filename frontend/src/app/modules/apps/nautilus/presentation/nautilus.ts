@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
 import { NautilusStore } from "../infrastructure/nautilus.store";
 import { NautilusSidebar } from "./components/nautilus-sidebar/nautilus-sidebar";
 
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { About } from "./views/about/about";
 import { Appearance } from "./views/appearance/appearance";
 import { Applications } from "./views/applications/applications";
@@ -13,9 +13,8 @@ import { Privacy } from "./views/privacy/privacy";
 import { Users } from "./views/users/users";
 
 @Component({
-  selector: "app-nautilus",
   imports: [
-    WindowWrapper,
+    AppWindow,
     NautilusSidebar,
     Background,
     Appearance,
@@ -38,5 +37,4 @@ import { Users } from "./views/users/users";
 export default class Nautilus {
   readonly #store = inject(NautilusStore);
   protected readonly currentSection = this.#store.currentSection;
-  isView = false;
 }

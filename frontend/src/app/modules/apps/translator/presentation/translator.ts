@@ -5,7 +5,7 @@ import {
   inject,
 } from "@angular/core";
 
-import { WindowWrapper } from "../../../../layout/window-wrapper/window-wrapper";
+import { AppWindow } from "../../../desktop/presentation/layouts/app-window";
 import { TranslationRepository } from "../domain/translation.repository";
 import { GeminiTranslationRepository } from "../infrastructure/gemini-translation.repository";
 import { TranslatorStore } from "../infrastructure/translator.store";
@@ -17,7 +17,7 @@ import { TranslatorControls } from "./components/translator-controls/translator-
 @Component({
   selector: "app-translator",
   imports: [
-    WindowWrapper,
+    AppWindow,
     TranslatorControls,
     TranslatorBoxInput,
     TranslatorBoxOutput,
