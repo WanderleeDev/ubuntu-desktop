@@ -1,6 +1,5 @@
 import { NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { DesktopIcon } from "../../interfaces/app-icon.interface";
 
 @Component({
   selector: "app-item",
@@ -9,6 +8,6 @@ import { DesktopIcon } from "../../interfaces/app-icon.interface";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppItem {
-  $appData = input.required<DesktopIcon>();
-  priority = input<boolean>(false);
+  readonly icon = input.required<string>();
+  readonly name = input.required<string>();
 }

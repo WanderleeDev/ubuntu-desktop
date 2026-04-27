@@ -6,7 +6,7 @@ import {
 } from "@angular/cdk/drag-drop";
 import { NgOptimizedImage } from "@angular/common";
 import { ChangeDetectionStrategy, Component, signal } from "@angular/core";
-import { AppIcon } from "../../interfaces/app-icon.interface";
+import { AppIcon } from "../../../infrastructure/interfaces/app-icon.interface";
 
 @Component({
   selector: "app-sidebar",

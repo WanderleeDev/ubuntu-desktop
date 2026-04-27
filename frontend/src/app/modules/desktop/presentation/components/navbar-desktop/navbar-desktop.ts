@@ -5,8 +5,8 @@ import {
   inject,
   signal,
 } from "@angular/core";
-import { Calendar } from "../../../../shared/ui/calendar/calendar";
-import { ClockService } from "../../../apps/clock/services/clock.service";
+import { Calendar } from "../../../../../shared/ui/calendar/calendar";
+import { ClockService } from "../../../../apps/clock/services/clock.service";
 
 @Component({
   selector: "app-navbar-desktop",

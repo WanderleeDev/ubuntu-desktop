@@ -1,28 +1,28 @@
 <main
   class="w-screen h-screen overflow-hidden flex flex-col bg-no-repeat bg-cover bg-center relative transition-[background-image] duration-1000"
-  [style.background-image]="desktopBackground()">
+  [style.background-image]="'url(' + background() + ')'">
   <app-navbar-desktop />
   <app-sidebar />
 
   <div class="flex-1 relative ml-[48px] p-5 h-full">
     <ul
       class="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] grid-rows-[repeat(auto-fill,minmax(100px,1fr))] p-0 m-0 h-full">
-      @for (icon of desktopIcons; track icon.id; let i = $index) {
+      @for (icon of appsList; track icon.name) {
       <li class="list-none">
         <app-item
-          [$appData]="icon"
-          [priority]="i < 4"
-          (click)="windowManager.openApp(icon.app)" />
+          [icon]="icon.icon"
+          [name]="icon.name"
+          (click)="openApp(icon.name, icon.component)" />
       </li>
 
       }
     </ul>
 
-    <button type="button" (click)="createAll()">criar</button>
-
     <div
       class="absolute pointer-events-auto z-0 left-2/4 -translate-x-1/2 top-2/4 -translate-y-1/2 starting:scale-50 transition-transform duration-200 origin-top will-change-transform">
-      <ng-container #container />
+      @for (app of apps(); track app.id) {
+      <ng-container *ngComponentOutlet="app.comp; injector: app.injector" />
+      }
     </div>
   </div>
 </main>
