@@ -5,12 +5,13 @@ import {
   inject,
   input,
 } from "@angular/core";
-import { APP_DESKTOP_ID } from "../../modules/desktop/infrastructure/app-desktop-id.token";
+import { APP_DESKTOP_ID } from "../../infrastructure/app-desktop-id.token";
+import { AppManagerStore } from "../../infrastructure/app-manager.store";
 
 @Component({
-  selector: "app-window-wrapper",
+  selector: "app-window",
   imports: [CdkDrag, CdkDragHandle],
-  templateUrl: "./window-wrapper.html",
+  templateUrl: "./app-window.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: `
     :host {
@@ -18,8 +19,9 @@ import { APP_DESKTOP_ID } from "../../modules/desktop/infrastructure/app-desktop
     }
   `,
 })
-export class WindowWrapper {
+export class AppWindow {
   readonly appDesktopId = inject(APP_DESKTOP_ID);
+  readonly #appManager = inject(AppManagerStore);
   readonly appTitle = input.required<string>();
 
   public constrainPosition = (
@@ -38,6 +40,6 @@ export class WindowWrapper {
   };
 
   public onClick(): void {
-    console.log(this.appDesktopId);
+    this.#appManager.remove(this.appDesktopId);
   }
 }
