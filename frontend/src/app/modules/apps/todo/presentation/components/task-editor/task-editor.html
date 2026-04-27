@@ -1,17 +1,17 @@
 <div
   class="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
   <div
-    class="bg-tertiary w-[90%] max-w-md rounded-2xl shadow-2xl border border-white/10 overflow-hidden animate-in zoom-in-95 duration-200">
+    class="bg-tertiary w-[90%] max-w-md rounded-2xl shadow-2xl border border-text/10 overflow-hidden animate-in zoom-in-95 duration-200">
     <header
-      class="flex items-center justify-between p-4 border-b border-white/5 bg-white/5">
+      class="flex items-center justify-between p-4 border-b border-text/5 bg-text/5">
       <h3 class="text-sm font-bold uppercase tracking-wider text-text/80">
         Editar Tarea
       </h3>
       <button
         type="button"
         (click)="close()"
-        class="p-1 hover:bg-white/10 rounded-full transition-colors">
-        <span class="material-symbols-outlined text-[20px] text-white/50"
+        class="p-1 hover:bg-accent-hover rounded-full transition-colors">
+        <span class="material-symbols-outlined text-[20px] text-text/50"
           >close</span
         >
       </button>
@@ -24,29 +24,29 @@
       <div class="flex flex-col gap-2">
         <label
           for="task-input"
-          class="text-[11px] font-bold uppercase text-white/40 ml-1"
+          class="text-[11px] font-bold uppercase text-text/40 ml-1"
           >Descripción</label
         >
         <input
           id="task-input"
           formControlName="task"
           type="text"
-          class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-system focus:ring-2 focus:ring-system/20 transition-all text-text text-sm"
+          class="w-full px-4 py-3 bg-text/5 border border-text/10 rounded-xl outline-none focus:border-system focus:ring-2 focus:ring-system/20 transition-all text-text text-sm"
           placeholder="Descripción de la tarea" />
       </div>
 
       <div class="flex flex-col gap-2">
         <label
           for="status-select"
-          class="text-[11px] font-bold uppercase text-white/40 ml-1"
+          class="text-[11px] font-bold uppercase text-text/40 ml-1"
           >Estado</label
         >
         <select
           id="status-select"
           formControlName="status"
-          class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl outline-none focus:border-system focus:ring-2 focus:ring-system/20 transition-all text-text text-sm appearance-none cursor-pointer">
-          <option value="pending">Pendiente</option>
-          <option value="completed">Completada</option>
+          class="w-full px-4 py-3 bg-text/5 border border-text/10 rounded-xl outline-none focus:border-system focus:ring-2 focus:ring-system/20 transition-all text-text text-sm appearance-none cursor-pointer">
+          <option value="pending" class="bg-surface">Pendiente</option>
+          <option value="completed" class="bg-surface">Completada</option>
         </select>
       </div>
 
@@ -60,7 +60,7 @@
         <button
           type="submit"
           [disabled]="formEditor.invalid"
-          class="flex-1 px-4 py-3 text-sm font-bold rounded-xl bg-[var(--color-system)] text-white hover:bg-[#ff6a35] disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-[var(--color-system)]/20">
+          class="flex-1 px-4 py-3 text-sm font-bold rounded-xl bg-system text-white hover:bg-system-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-system/20">
           Guardar Cambios
         </button>
       </div>

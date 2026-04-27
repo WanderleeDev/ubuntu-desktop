@@ -1,15 +1,15 @@
 <div
-  class="group flex items-center justify-between p-4 bg-[var(--bg-dark)] border border-white/5 rounded-xl transition-all duration-200 hover:bg-[#333333] hover:border-white/10 hover:shadow-lg">
+  class="group flex items-center justify-between p-4 bg-tertiary border border-text/5 rounded-xl transition-all duration-200 hover:bg-accent-hover hover:border-text/10 hover:shadow-lg">
   <div class="flex items-center gap-4 flex-1">
-    <span class="text-xs font-bold text-white/20 tabular-nums"
+    <span class="text-xs font-bold text-text/20 tabular-nums"
       >{{ indexTask() + 1 }}</span
     >
     <p
       class="text-sm font-medium transition-colors duration-200"
-      [class.text-[#a2ff9f]]="task().status === 'completed'"
+      [class.text-green-500]="task().status === 'completed'"
       [class.line-through]="task().status === 'completed'"
       [class.opacity-50]="task().status === 'completed'"
-      [class.text-white]="task().status !== 'completed'"
+      [class.text-text]="task().status !== 'completed'"
       [title]="[taskStatusStream(), task().task] | formatList">
       {{ task().task | capitalize }}
     </p>
@@ -19,7 +19,7 @@
     <button
       type="button"
       (click)="toggleControlTask()"
-      class="p-2 text-white/30 hover:text-white hover:bg-white/5 rounded-lg transition-all duration-200"
+      class="p-2 text-text/30 hover:text-text hover:bg-accent-hover rounded-lg transition-all duration-200"
       title="Mostrar controles">
       <span class="material-symbols-outlined text-[20px]"> more_vert </span>
     </button>
