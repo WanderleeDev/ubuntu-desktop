@@ -30,9 +30,9 @@ interface AppDesktop {
 export default class Desktop {
   protected readonly appManager = inject(AppManagerStore);
   protected readonly settingsStore = inject(SettingsStore);
+  readonly #injector = inject(Injector);
   protected readonly apps = this.appManager.openedApps;
   protected readonly background = this.settingsStore.currentWallpaper;
-  readonly #injector = inject(Injector);
   protected readonly appsList: readonly AppDesktop[] = [
     {
       name: "Settings",
