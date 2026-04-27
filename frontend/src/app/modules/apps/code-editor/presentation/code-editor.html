@@ -31,9 +31,8 @@
               <span
                 class="material-symbols-outlined text-[18px]"
                 [class.text-system]="store.settings().showPreview">
-                {{
-                  store.settings().showPreview ? "visibility" : "visibility_off"
-                }}
+                {{ store.settings().showPreview ? "visibility" :
+                "visibility_off" }}
               </span>
               <span
                 class="text-[10px] text-white/40 group-hover:text-white/60 uppercase font-bold tracking-tighter"
@@ -49,9 +48,9 @@
       </div>
 
       @if (store.settings().showPreview) {
-        <div class="w-[480px] animate-in slide-in-from-right duration-300">
-          <app-editor-preview class="w-full h-full" />
-        </div>
+      <div class="w-[480px] animate-in slide-in-from-right duration-300">
+        <app-editor-preview class="w-full h-full" />
+      </div>
       }
     </div>
 

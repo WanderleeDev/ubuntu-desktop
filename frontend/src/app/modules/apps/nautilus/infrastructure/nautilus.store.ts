@@ -1,9 +1,4 @@
-import {
-  patchState,
-  signalStore,
-  withMethods,
-  withState,
-} from "@ngrx/signals";
+import { patchState, signalStore, withMethods, withState } from "@ngrx/signals";
 import { NautilusSection } from "../domain/nautilus.model";
 
 interface NautilusState {

@@ -16,12 +16,7 @@ import { TaskEditor } from "../task-editor/task-editor";
   selector: "app-task",
   templateUrl: "./task.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    CapitalizePipe,
-    FormatListPipe,
-    ControlsTask,
-    TaskEditor,
-  ],
+  imports: [CapitalizePipe, FormatListPipe, ControlsTask, TaskEditor],
 })
 export class Task {
   task = input.required<TaskData>();

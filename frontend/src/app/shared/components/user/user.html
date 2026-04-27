@@ -5,17 +5,17 @@
     height: size() + 'px',
   }">
   @if (userImage().includes("/")) {
-    <img
-      class="user-image object-cover p-1.5"
-      [ngSrc]="userImage()"
-      alt="user image"
-      fill />
+  <img
+    class="user-image object-cover p-1.5"
+    [ngSrc]="userImage()"
+    alt="user image"
+    fill />
   } @else {
-    <span
-      class="material-symbols-outlined text-white/50"
-      [style.fontSize]="size() * 0.6 + 'px'">
-      {{ userImage() }}
-    </span>
+  <span
+    class="material-symbols-outlined text-white/50"
+    [style.fontSize]="size() * 0.6 + 'px'">
+    {{ userImage() }}
+  </span>
   }
   <figcaption class="sr-only">{{ userName() }}</figcaption>
 </figure>

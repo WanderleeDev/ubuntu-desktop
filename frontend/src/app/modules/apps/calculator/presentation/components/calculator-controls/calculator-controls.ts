@@ -28,8 +28,7 @@ export class CalculatorControls {
     {
       label: "÷",
       value: "/",
-      class:
-        "btn-div bg-system/20 text-system hover:bg-system/30 text-xl",
+      class: "btn-div bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -50,8 +49,7 @@ export class CalculatorControls {
     {
       label: "×",
       value: "*",
-      class:
-        "btn-mul bg-system/20 text-system hover:bg-system/30 text-xl",
+      class: "btn-mul bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -72,8 +70,7 @@ export class CalculatorControls {
     {
       label: "−",
       value: "-",
-      class:
-        "btn-sub bg-system/20 text-system hover:bg-system/30 text-xl",
+      class: "btn-sub bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {
@@ -94,8 +91,7 @@ export class CalculatorControls {
     {
       label: "+",
       value: "+",
-      class:
-        "btn-add bg-system/20 text-system hover:bg-system/30 text-xl",
+      class: "btn-add bg-system/20 text-system hover:bg-system/30 text-xl",
     },
 
     {

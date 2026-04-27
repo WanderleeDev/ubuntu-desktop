@@ -12,7 +12,10 @@ import {
   Validators,
   ReactiveFormsModule,
 } from "@angular/forms";
-import { TaskEditor as ITaskEditor, Task as ITask } from "../../../domain/task.interface";
+import {
+  TaskEditor as ITaskEditor,
+  Task as ITask,
+} from "../../../domain/task.interface";
 import { TodoStore } from "../../../infrastructure/todo.store";
 
 @Component({

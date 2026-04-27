@@ -35,8 +35,6 @@
   </div>
 </div>
 
-@defer (on hover(btn)) {
-  @if (isReadyToNavigate()) {
-    <app-screen-lock redirectRoute="/home" />
-  }
-}
+@defer (on hover(btn)) { @if (isReadyToNavigate()) {
+<app-screen-lock redirectRoute="/home" />
+} }

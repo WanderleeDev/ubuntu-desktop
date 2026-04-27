@@ -27,68 +27,65 @@
     </div>
 
     <div class="flex-1 overflow-y-auto custom-scrollbar bg-black/10">
-      @for (video of service.playlist(); track $index) {
-        @let isActive = service.selectedVideoIndex() === $index;
-        <button
-          type="button"
-          (click)="service.selectVideo($index)"
-          [class.bg-system-active/10]="isActive"
-          class="w-full text-left p-3 border-b border-white/5 hover:bg-white/5 transition-all flex gap-3 group relative overflow-hidden outline-none focus-visible:bg-white/10">
-          @if (isActive) {
-            <div class="absolute left-0 top-0 bottom-0 w-1 bg-system-active"></div>
-          }
+      @for (video of service.playlist(); track $index) { @let isActive =
+      service.selectedVideoIndex() === $index;
+      <button
+        type="button"
+        (click)="service.selectVideo($index)"
+        [class.bg-system-active/10]="isActive"
+        class="w-full text-left p-3 border-b border-white/5 hover:bg-white/5 transition-all flex gap-3 group relative overflow-hidden outline-none focus-visible:bg-white/10">
+        @if (isActive) {
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-system-active"></div>
+        }
 
-          <div
-            class="w-24 aspect-video rounded bg-black overflow-hidden relative flex-shrink-0 shadow-lg pointer-events-none">
-            @if (video.poster) {
-              <img
-                [ngSrc]="video.poster"
-                width="96"
-                height="54"
-                class="w-full h-full object-cover transition-all duration-500 hover:scale-110"
-                [class.opacity-40]="isActive"
-                [class.opacity-70]="!isActive"
-                alt="" />
-            }
-
-            @if (isActive && service.isPlaying()) {
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="flex gap-1 items-end h-3">
-                  <div
-                    class="w-1 h-2 bg-system animate-[bounce_1s_infinite]"></div>
-                  <div
-                    class="w-1 h-3 bg-system animate-[bounce_1s_infinite_0.2s]"></div>
-                  <div
-                    class="w-1 h-1.5 bg-system animate-[bounce_1s_infinite_0.4s]"></div>
-                </div>
-              </div>
-            } @else if (isActive) {
+        <div
+          class="w-24 aspect-video rounded bg-black overflow-hidden relative flex-shrink-0 shadow-lg pointer-events-none">
+          @if (video.poster) {
+          <img
+            [ngSrc]="video.poster"
+            width="96"
+            height="54"
+            class="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+            [class.opacity-40]="isActive"
+            [class.opacity-70]="!isActive"
+            alt="" />
+          } @if (isActive && service.isPlaying()) {
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="flex gap-1 items-end h-3">
+              <div class="w-1 h-2 bg-system animate-[bounce_1s_infinite]"></div>
               <div
-                class="absolute inset-0 flex items-center justify-center bg-black/20">
-                <span class="material-symbols-outlined text-system text-lg"
-                  >play_circle</span
-                >
-              </div>
-            }
-          </div>
-
-          <div class="flex-1 min-w-0 py-1 pointer-events-none">
-            <p
-              class="text-[11px] font-bold truncate transition-colors"
-              [class.text-system]="isActive"
-              [class.text-white/90]="!isActive">
-              {{ video.title }}
-            </p>
-            <div class="flex items-center gap-2 mt-1">
-              <span class="text-[9px] text-white/30 uppercase tracking-tighter"
-                >HD</span
-              >
-              <span class="text-[9px] text-white/30 uppercase tracking-tighter"
-                >MP4</span
-              >
+                class="w-1 h-3 bg-system animate-[bounce_1s_infinite_0.2s]"></div>
+              <div
+                class="w-1 h-1.5 bg-system animate-[bounce_1s_infinite_0.4s]"></div>
             </div>
           </div>
-        </button>
+          } @else if (isActive) {
+          <div
+            class="absolute inset-0 flex items-center justify-center bg-black/20">
+            <span class="material-symbols-outlined text-system text-lg"
+              >play_circle</span
+            >
+          </div>
+          }
+        </div>
+
+        <div class="flex-1 min-w-0 py-1 pointer-events-none">
+          <p
+            class="text-[11px] font-bold truncate transition-colors"
+            [class.text-system]="isActive"
+            [class.text-white/90]="!isActive">
+            {{ video.title }}
+          </p>
+          <div class="flex items-center gap-2 mt-1">
+            <span class="text-[9px] text-white/30 uppercase tracking-tighter"
+              >HD</span
+            >
+            <span class="text-[9px] text-white/30 uppercase tracking-tighter"
+              >MP4</span
+            >
+          </div>
+        </div>
+      </button>
       }
     </div>
   </div>

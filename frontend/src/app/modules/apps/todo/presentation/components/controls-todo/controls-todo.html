@@ -1,17 +1,17 @@
 <div class="flex items-center gap-4">
   <div class="flex bg-black/20 p-1 rounded-lg">
     @for (control of taskControls; track control; let i = $index) {
-      <button
-        type="button"
-        (click)="onClick(control, i)"
-        [ngClass]="{
+    <button
+      type="button"
+      (click)="onClick(control, i)"
+      [ngClass]="{
           'bg-[var(--color-system)] text-white shadow-md': activeBtn() === i,
           'text-white/40 hover:text-white/70 hover:bg-white/5':
             activeBtn() !== i,
         }"
-        class="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-md transition-all duration-200">
-        {{ control }}
-      </button>
+      class="px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider rounded-md transition-all duration-200">
+      {{ control }}
+    </button>
     }
   </div>
 

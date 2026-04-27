@@ -1,7 +1,6 @@
 import { Directive, input } from "@angular/core";
 
-@Directive({
-})
+@Directive({})
 export abstract class BaseIcon {
   size = input<number>(18);
 }
