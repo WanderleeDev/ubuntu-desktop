@@ -10,7 +10,7 @@ class User(BaseModel):
     Represents a user account in the system.
     """
     id: UUID = Field(default_factory=uuid4, description="Unique user ID")
-    username: str = Field(..., description="Unique username")
+    username: str = Field(..., description="Unique username", min_length=3, max_length=20)
     password_hash: str = Field(..., description="Hashed password")
     email: EmailStr = Field(..., description="User's validated email address")
     is_active: bool = Field(default=True, description="Whether the user account is active")
