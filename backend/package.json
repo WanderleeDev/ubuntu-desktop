@@ -6,7 +6,11 @@
     "deploy": "uv run pywrangler deploy",
     "dev": "uv run pywrangler dev",
     "start": "uv run pywrangler dev",
-    "lint": "uvx pyrefly check --summarize-errors"
+    "lint": "uvx pyrefly check --summarize-errors",
+    "migrate:local": "npx wrangler d1 migrations apply ubuntu-desktop-db --local",
+    "migrate:remote": "npx wrangler d1 migrations apply ubuntu-desktop-db --remote",
+    "migrate:list:local": "npx wrangler d1 migrations list ubuntu-desktop-db --local",
+    "migrate:list:remote": "npx wrangler d1 migrations list ubuntu-desktop-db --remote"
   },
   "devDependencies": {
     "wrangler": "^4.85.0"
