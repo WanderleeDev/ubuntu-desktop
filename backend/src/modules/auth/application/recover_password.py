@@ -2,7 +2,7 @@
 Implementation of the Password Recovery use case.
 """
 from ..domain.ports.recover_password_in import RecoverPasswordIn
-from ...user.domain.ports.repository_out import UserRepositoryOut
+from ...user.domain.repository_out import UserRepositoryOut
 
 class RecoverPassword(RecoverPasswordIn):
     """

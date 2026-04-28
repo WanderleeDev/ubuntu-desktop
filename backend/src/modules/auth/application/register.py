@@ -1,9 +1,8 @@
 """
 Implementation of the User Registration use case.
 """
-from ..domain.ports.register_in import RegisterIn
-from ...user.domain.ports.repository_out import UserRepositoryOut
-from ...user.domain.user import User
+from modules.user.domain import UserRepositoryOut
+from modules.auth.domain.ports.register_in import RegisterIn
 
 class Register(RegisterIn):
     """

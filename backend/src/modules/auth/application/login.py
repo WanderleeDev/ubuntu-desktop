@@ -3,7 +3,7 @@ Implementation of the Login use case.
 """
 from ..domain.ports.login_in import LoginIn
 from ..domain.ports.repository_out import UserSessionRepositoryOut
-from ...user.domain.ports.repository_out import UserRepositoryOut
+from ...user.domain.repository_out import UserRepositoryOut
 from ..domain.model import UserSession
 
 class Login(LoginIn):
