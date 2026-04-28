@@ -1,0 +1,14 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "deploy": "uv run pywrangler deploy",
+    "dev": "uv run pywrangler dev",
+    "start": "uv run pywrangler dev",
+    "lint": "uvx pyrefly check --summarize-errors"
+  },
+  "devDependencies": {
+    "wrangler": "^4.85.0"
+  }
+}
